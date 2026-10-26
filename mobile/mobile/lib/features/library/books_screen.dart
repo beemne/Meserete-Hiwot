@@ -41,8 +41,9 @@ Color bookRequestStatusColor(String s) => switch (s) {
 /// - Landscape / auto-rotation support
 /// - Integrated audio narration playback with background lock-screen controls
 class BookReaderScreen extends ConsumerStatefulWidget {
-  const BookReaderScreen({super.key, required this.book});
+  const BookReaderScreen({super.key, required this.book, this.initialBytes});
   final Book book;
+  final Uint8List? initialBytes;
 
   static const _channel = MethodChannel('mezmur/settings');
 
@@ -59,7 +60,7 @@ class BookReaderScreen extends ConsumerStatefulWidget {
 }
 
 class _BookReaderScreenState extends ConsumerState<BookReaderScreen> {
-  late final Future<Uint8List> _pdf = BookVault.read(widget.book.id);
+  late Future<Uint8List> _pdf;
   late final PdfViewerController _controller = PdfViewerController();
   late final PdfTextSearcher _searcher = PdfTextSearcher(_controller);
 
@@ -70,6 +71,11 @@ class _BookReaderScreenState extends ConsumerState<BookReaderScreen> {
   @override
   void initState() {
     super.initState();
+    if (widget.initialBytes != null) {
+      _pdf = Future.value(widget.initialBytes!);
+    } else {
+      _pdf = _loadPdf();
+    }
     SecureScreen.acquire();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -78,6 +84,16 @@ class _BookReaderScreenState extends ConsumerState<BookReaderScreen> {
       DeviceOrientation.landscapeRight,
     ]);
     _searcher.addListener(_onSearcherChanged);
+  }
+
+  Future<Uint8List> _loadPdf() async {
+    try {
+      return await BookVault.read(widget.book.id);
+    } catch (_) {
+      final pdf = await ref.read(libraryRepositoryProvider).downloadBook(widget.book);
+      await BookVault.save(widget.book.id, pdf);
+      return pdf;
+    }
   }
 
   void _onSearcherChanged() {
@@ -241,8 +257,48 @@ class _BookReaderScreenState extends ConsumerState<BookReaderScreen> {
       body: FutureBuilder<Uint8List>(
         future: _pdf,
         builder: (context, snap) {
-          if (snap.hasError) return EmptyView(message: l.libDownloadAgain, icon: Icons.lock_outline_rounded);
-          if (!snap.hasData) return const LoadingView();
+          if (snap.hasError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.error_outline_rounded, size: 48, color: AppColors.maroon),
+                    const SizedBox(height: 12),
+                    Text(
+                      l.isEn ? 'Could not open book' : 'መጽሐፉን መክፈት አልተቻለም',
+                      style: context.serif(18, weight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      snap.error.toString(),
+                      textAlign: TextAlign.center,
+                      style: context.sans(12, color: context.palette.muted),
+                    ),
+                    const SizedBox(height: 16),
+                    FilledButton.icon(
+                      icon: const Icon(Icons.refresh_rounded),
+                      label: Text(l.retry),
+                      onPressed: () => setState(() => _pdf = _loadPdf()),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+          if (!snap.hasData) {
+            return Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const CircularProgressIndicator(color: AppColors.gold),
+                  const SizedBox(height: 16),
+                  Text(l.isEn ? 'Loading book...' : 'መጽሐፉ እየተከፈተ ነው...', style: context.sans(13)),
+                ],
+              ),
+            );
+          }
           return Column(
             children: [
               Expanded(
@@ -610,8 +666,46 @@ class _BookCardState extends ConsumerState<BookCard> {
     }
   }
 
+  bool _isSubmitting = false;
+
+  void _handleTap() {
+    final b = widget.book;
+    final l = context.l10n;
+    if (b.isDigital) {
+      if (b.fileUrl == null || b.fileUrl!.isEmpty) {
+        showSnack(context, l.isEn ? 'Book file is not available' : 'የመጽሐፉ ፋይል አልተገኘም');
+        return;
+      }
+      if (_downloaded) {
+        _open();
+      } else if (_progress == null) {
+        _download();
+      }
+    } else {
+      if (b.myRequest != null) {
+        final status = b.myRequest!;
+        final msg = (status == 'issued' || status == 'borrowed' || status == 'active')
+            ? (l.isEn ? 'You currently have this book borrowed.' : 'ይህንን መጽሐፍ ወስደዋል።')
+            : (l.isEn ? 'Your request is currently: $status' : 'የውሰት ጥያቄዎ ሁኔታ፡ ${bookRequestStatusLabel(l, status)}');
+        showSnack(context, msg);
+      } else if (b.effectiveAvailable > 0 || (b.available ?? 0) > 0) {
+        if (!_isSubmitting) {
+          _request();
+        }
+      } else {
+        showSnack(context, l.libNoneAvailable);
+      }
+    }
+  }
+
   Future<void> _download() async {
     final b = widget.book;
+    if (b.fileUrl == null || b.fileUrl!.isEmpty) {
+      if (mounted) {
+        showSnack(context, context.l10n.isEn ? 'Book file is not available' : 'የመጽሐፉ ፋይል አልተገኘም');
+      }
+      return;
+    }
     setState(() => _progress = 0);
     try {
       final pdf = await ref.read(libraryRepositoryProvider).downloadBook(b, onProgress: (r, t) {
@@ -648,6 +742,7 @@ class _BookCardState extends ConsumerState<BookCard> {
   }
 
   Future<void> _request() async {
+    if (_isSubmitting) return;
     final l = context.l10n;
     final note = TextEditingController();
     DateTime? needed;
@@ -671,12 +766,23 @@ class _BookCardState extends ConsumerState<BookCard> {
       ),
     );
     if (ok != true || !mounted) return;
-    final r = await runWithProgress(
-      context,
-      () => ref.read(libraryRepositoryProvider).request(widget.book.id, note: note.text.trim().isEmpty ? null : note.text.trim(), neededOn: needed == null ? null : Formatters.isoDate(needed!)),
-      success: l.libRequestSent,
-    );
-    if (r != null) widget.onChanged();
+    setState(() => _isSubmitting = true);
+    try {
+      final r = await runWithProgress(
+        context,
+        () => ref.read(libraryRepositoryProvider).request(
+          widget.book.id,
+          note: note.text.trim().isEmpty ? null : note.text.trim(),
+          neededOn: needed == null ? null : Formatters.isoDate(needed!),
+        ),
+        success: l.libRequestSent,
+      );
+      if (r != null && mounted) widget.onChanged();
+    } catch (e) {
+      if (mounted) showErrorSnack(context, e);
+    } finally {
+      if (mounted) setState(() => _isSubmitting = false);
+    }
   }
 
   @override
@@ -687,28 +793,52 @@ class _BookCardState extends ConsumerState<BookCard> {
 
     final Widget action;
     if (b.isDigital) {
-      action = _progress != null
-          ? SizedBox(width: 36, height: 36, child: CircularProgressIndicator(value: _progress, strokeWidth: 3))
-          : _downloaded
-              ? Row(mainAxisSize: MainAxisSize.min, children: [
-                  IconButton(tooltip: l.libDeleteDownload, icon: const Icon(Icons.delete_outline_rounded), onPressed: _remove),
-                  FilledButton.tonal(key: ValueKey('book-open-${b.id}'), onPressed: _open, child: Text(l.libRead)),
-                ])
-              : FilledButton.icon(
-                  key: ValueKey('book-download-${b.id}'),
-                  onPressed: _download,
-                  icon: const Icon(Icons.download_rounded, size: 18),
-                  label: Text(l.libDownload),
-                );
+      if (b.fileUrl == null || b.fileUrl!.isEmpty) {
+        action = Pill(
+          l.isEn ? 'File not uploaded' : 'ፋይል አልተጫነም',
+          color: p.muted,
+        );
+      } else {
+        action = _progress != null
+            ? SizedBox(width: 36, height: 36, child: CircularProgressIndicator(value: _progress, strokeWidth: 3))
+            : _downloaded
+                ? Row(mainAxisSize: MainAxisSize.min, children: [
+                    IconButton(tooltip: l.libDeleteDownload, icon: const Icon(Icons.delete_outline_rounded), onPressed: _remove),
+                    FilledButton.tonal(key: ValueKey('book-open-${b.id}'), onPressed: _open, child: Text(l.libRead)),
+                  ])
+                : FilledButton.icon(
+                    key: ValueKey('book-download-${b.id}'),
+                    onPressed: _download,
+                    icon: const Icon(Icons.download_rounded, size: 18),
+                    label: Text(l.libDownload),
+                  );
+      }
     } else if (b.myRequest != null) {
-      action = Pill(bookRequestStatusLabel(l, b.myRequest!), color: bookRequestStatusColor(b.myRequest!));
+      final status = b.myRequest!;
+      if (status == 'issued' || status == 'borrowed' || status == 'active') {
+        action = Pill(l.isEn ? 'Borrowed' : 'ተወስዷል', color: const Color(0xFF1F5F8B));
+      } else {
+        action = Pill(bookRequestStatusLabel(l, status), color: bookRequestStatusColor(status));
+      }
+    } else if (b.effectiveAvailable <= 0 && (b.available ?? 0) <= 0) {
+      action = OutlinedButton(
+        onPressed: null,
+        child: Text(l.libNoneAvailable),
+      );
     } else {
-      action = FilledButton(key: ValueKey('book-request-${b.id}'), onPressed: _request, child: Text(l.libRequest));
+      action = FilledButton(
+        key: ValueKey('book-request-${b.id}'),
+        onPressed: _isSubmitting ? null : _request,
+        child: _isSubmitting
+            ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+            : Text(l.libRequest),
+      );
     }
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 2),
       child: AppCard(
+        onTap: _handleTap,
         padding: const EdgeInsets.all(12),
         child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SizedBox(

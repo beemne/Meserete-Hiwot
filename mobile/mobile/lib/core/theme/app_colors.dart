@@ -13,14 +13,14 @@ abstract final class AppColors {
   static const goldLight = Color(0xFFE8C368);
 
   // Education module tokens (Ethiopian Orthodox visual palette)
-  static const eduBurgundy = Color(0xFF6E1423);
-  static const eduBurgundyDark = Color(0xFF4A0A17);
-  static const eduBurgundyLight = Color(0xFF82132C);
-  static const eduGold = Color(0xFFC6A044);
-  static const eduGoldLight = Color(0xFFE5C368);
-  static const eduGoldMuted = Color(0xFFB58E38);
-  static const eduCream = Color(0xFFF7E9D8);
-  static const eduParchment = Color(0xFFFBF6EC);
+  static const eduBurgundy = maroon;
+  static const eduBurgundyDark = maroonDark;
+  static const eduBurgundyLight = Color(0xFF8C1D30);
+  static const eduGold = gold;
+  static const eduGoldLight = goldLight;
+  static const eduGoldMuted = goldMuted;
+  static const eduCream = Color(0xFFFFF8F0);
+  static const eduParchment = Color(0xFFFFFFFF);
 
   // Fills
   static const cream = Color(0xFFF7E9D8); // selected nav pill, chips, track thumbs

@@ -359,10 +359,16 @@ class EduMagazineDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isEn = Localizations.localeOf(context).languageCode != 'am';
     final baseUrl = ref.watch(apiClientProvider).dio.options.baseUrl;
+    final magAsync = ref.watch(magazineDetailProvider(magazineId));
+    final mVal = magAsync.asData?.value;
+    final issueNum = asStr(mVal?['issue_number']) ?? '';
 
     return PatternScaffold(
+      appBar: AppBar(
+        title: Text(issueNum.isNotEmpty ? (!isEn ? 'እትም $issueNum' : 'Issue $issueNum') : (!isEn ? 'ሰሌዳ መጽሔት' : 'Seleda Magazine')),
+      ),
       body: AsyncView(
-        value: ref.watch(magazineDetailProvider(magazineId)),
+        value: magAsync,
         onRetry: () => ref.invalidate(magazineDetailProvider(magazineId)),
         data: (m) {
           final title = isEn ? (asStr(m['title_en']) ?? asStr(m['title']) ?? '') : (asStr(m['title']) ?? asStr(m['title_en']) ?? '');
@@ -373,12 +379,7 @@ class EduMagazineDetailScreen extends ConsumerWidget {
           final quizzes = asJsonList(m['quizzes']);
           final coverUrl = _resolveMediaUrl(asStr(m['cover_url']), baseUrl);
 
-          return Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              title: Text(issueNumber.isNotEmpty ? (!isEn ? 'እትም $issueNumber' : 'Issue $issueNumber') : (!isEn ? 'ሰሌዳ መጽሔት' : 'Seleda Magazine')),
-            ),
-            body: ListView(
+          return ListView(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
               children: [
                 MaroonCard(
@@ -455,8 +456,7 @@ class EduMagazineDetailScreen extends ConsumerWidget {
                     const SizedBox(height: 10),
                   ],
               ],
-            ),
-          );
+            );
         },
       ),
     );

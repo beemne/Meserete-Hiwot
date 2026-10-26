@@ -221,7 +221,12 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
                       for (final s in _subjects)
                         DropdownMenuItem<int>(
                           value: asIntOr(s['id']),
-                          child: Text(asStr(s['name']) ?? asStr(s['title']) ?? '', overflow: TextOverflow.ellipsis),
+                          child: Text(
+                            asStr(s['category_name']) != null
+                                ? '${s['category_name']} · ${asStr(s['name']) ?? asStr(s['title']) ?? ''}'
+                                : (asStr(s['name']) ?? asStr(s['title']) ?? ''),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                     ],
                     onChanged: (v) async {
@@ -458,7 +463,13 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
                             for (final s in _subjects)
                               DropdownMenuItem<int?>(
                                 value: asInt(s['id']),
-                                child: Text(asStr(s['name']) ?? asStr(s['title']) ?? '', style: context.sans(13), overflow: TextOverflow.ellipsis),
+                                child: Text(
+                                  asStr(s['category_name']) != null
+                                      ? '${s['category_name']} · ${asStr(s['name']) ?? asStr(s['title']) ?? ''}'
+                                      : (asStr(s['name']) ?? asStr(s['title']) ?? ''),
+                                  style: context.sans(13),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                           ],
                           onChanged: (v) => setState(() => _selectedSubjectId = v),

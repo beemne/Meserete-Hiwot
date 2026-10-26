@@ -149,7 +149,7 @@ class ErrorReportingService {
 
     try {
       final api = _ref.read(apiClientProvider);
-      if (screenshotPath != null && screenshotPath.isNotEmpty && File(screenshotPath).existsSync()) {
+      if (screenshotPath != null && screenshotPath.isNotEmpty && (!kIsWeb ? File(screenshotPath).existsSync() : true)) {
         await api.upload<void>(
           '/diagnostics/reports',
           filePath: screenshotPath,
@@ -210,7 +210,7 @@ class ErrorReportingService {
         try {
           final map = jsonDecode(raw) as Map<String, dynamic>;
           final screenshotPath = map['screenshot_path'] as String?;
-          if (screenshotPath != null && File(screenshotPath).existsSync()) {
+          if (screenshotPath != null && (!kIsWeb ? File(screenshotPath).existsSync() : true)) {
             map.remove('screenshot_path');
             await api.upload<void>('/diagnostics/reports', filePath: screenshotPath, fields: map);
           } else {

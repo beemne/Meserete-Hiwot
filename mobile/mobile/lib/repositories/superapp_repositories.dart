@@ -147,6 +147,8 @@ class EduRepository {
   Future<List<Json>> subjects({bool all = false}) => _api.get('/edu/subjects', query: {if (all) 'all': 1}, parse: asJsonList);
   Future<List<Json>> authoringSubjects() => _api.get('/edu/subjects/authoring', parse: asJsonList);
   Future<Json> subject(int id) => _api.get('/edu/subjects/$id', parse: asJson);
+  Future<Json> subjectGrades(int subjectId) => _api.get('/edu/subjects/$subjectId/grades', parse: asJson);
+  Future<Json> subjectGradeContent(int subjectId, int grade) => _api.get('/edu/subjects/$subjectId/grades/$grade', parse: asJson);
   Future<Json> lesson(int id) => _api.get('/edu/lessons/$id', parse: asJson);
   Future<Json> lessonProgress(int id, String action) => _api.post('/edu/lessons/$id/progress', body: {'action': action}, parse: asJson);
   Future<Uint8List> materialBytes(int id, {void Function(int, int)? onProgress}) => _api.downloadBytes('/edu/materials/$id/file', onProgress: onProgress);

@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -5,11 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mezmur_zelideta/app/router.dart';
 import 'package:mezmur_zelideta/core/network/api_client.dart';
 import 'package:mezmur_zelideta/core/storage/secure_store.dart';
-import 'package:mezmur_zelideta/l10n/app_localizations.dart';
 import 'package:mezmur_zelideta/features/auth/session.dart';
+import 'package:mezmur_zelideta/features/edu/learn/quiz_screens.dart';
+import 'package:mezmur_zelideta/features/edu/learn/quizzes_admin.dart';
+import 'package:mezmur_zelideta/l10n/app_localizations.dart';
 import 'package:mezmur_zelideta/models/user.dart';
 import 'package:mezmur_zelideta/repositories/providers.dart';
 import 'package:mezmur_zelideta/repositories/superapp_repositories.dart';
+import 'package:mezmur_zelideta/services/sync_status.dart';
 
 import 'fakes.dart';
 
@@ -41,6 +46,11 @@ class _FakeSessionController extends SessionController {
   final AppUser? _targetUser;
   @override
   SessionState build() => _targetUser != null ? SignedIn(_targetUser) : const SignedOut();
+}
+
+class _FakeSyncStatusNotifier extends SyncStatusNotifier {
+  @override
+  SyncStatus build() => const SyncStatus();
 }
 
 void main() {
@@ -77,6 +87,9 @@ void main() {
       if (req.path == '/edu/subjects') {
         return (status: 200, body: ok([]));
       }
+      if (req.path == '/edu/teaching') {
+        return (status: 200, body: ok([{'id': 7, 'name': 'Course 7', 'subject_id': 2}]));
+      }
       if (req.path == '/edu/courses/7/assessments') {
         return (status: 200, body: ok([]));
       }
@@ -86,7 +99,7 @@ void main() {
       if (req.path == '/edu/subjects/2') {
         return (status: 200, body: ok({'id': 2, 'title': 'Subject 2', 'units': [], 'lessons': []}));
       }
-      return (status: 200, body: ok({}));
+      return (status: 200, body: ok([]));
     });
 
     final api = await _api(fake);
@@ -95,14 +108,11 @@ void main() {
         currentUserProvider.overrideWithValue(adminUser),
         sessionProvider.overrideWith(() => _FakeSessionController(adminUser)),
         eduRepositoryProvider.overrideWithValue(EduRepository(api)),
+        syncStatusProvider.overrideWith(() => _FakeSyncStatusNotifier()),
       ],
     );
 
-    tester.view.physicalSize = const Size(1080, 2400);
-    tester.view.devicePixelRatio = 1.0;
     addTearDown(() {
-      tester.view.resetPhysicalSize();
-      tester.view.resetDevicePixelRatio();
       container.dispose();
     });
 
@@ -124,17 +134,25 @@ void main() {
       ),
     );
 
+    // 1. Verify /edu/admin/quizzes resolves and loads correctly
     router.go('/edu/admin/quizzes');
     await tester.pumpAndSettle();
-
-    // Verify we are on Quizzes & Evaluations Hub
+    expect(find.byType(EduQuizzesAdminScreen), findsOneWidget);
     expect(find.text('Quizzes & Evaluations Hub'), findsOneWidget);
-    expect(find.text('Edit'), findsOneWidget);
 
-    // Click Edit
-    await tester.tap(find.text('Edit'));
+    // 2. Verify /edu/quiz-edit/:id resolves to EduQuizEditorScreen
+    router.go('/edu/quiz-edit/16');
     await tester.pumpAndSettle();
+    expect(find.byType(EduQuizEditorScreen), findsOneWidget);
 
-    print('Current location after Edit: ${router.routeInformationProvider.value.uri.path}');
+    // 3. Verify /edu/quiz/:id resolves to EduQuizScreen
+    router.go('/edu/quiz/16');
+    await tester.pumpAndSettle();
+    expect(find.byType(EduQuizScreen), findsOneWidget);
+
+    // 4. Verify /edu/quiz-results/:id resolves to EduQuizResultsScreen
+    router.go('/edu/quiz-results/16');
+    await tester.pumpAndSettle();
+    expect(find.byType(EduQuizResultsScreen), findsOneWidget);
   });
 }

@@ -40,7 +40,15 @@ Route::prefix('library')->middleware('mz')->group(function () {
 
     Route::get('books/{id}/file', function () {
         $f = Library::file(Ctx::auth(), Ctx::id());
-        return response()->download($f['abs'], $f['name'], ['Content-Type' => $f['mime'], 'Cache-Control' => 'private, max-age=3600']);
+        if (request()->query('download') === '1' || request()->query('download') === 'true') {
+            return response()->download($f['abs'], $f['name'], ['Content-Type' => $f['mime'], 'Cache-Control' => 'private, max-age=3600']);
+        }
+        return response()->file($f['abs'], [
+            'Content-Type' => $f['mime'],
+            'Content-Disposition' => 'inline; filename="' . $f['name'] . '"',
+            'Accept-Ranges' => 'bytes',
+            'Cache-Control' => 'private, max-age=3600',
+        ]);
     });
 
     Route::get('books/{id}/narration', function () {

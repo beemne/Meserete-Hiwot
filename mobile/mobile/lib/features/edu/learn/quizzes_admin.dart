@@ -403,7 +403,9 @@ class _EduQuizzesAdminScreenState extends ConsumerState<EduQuizzesAdminScreen> {
                       DropdownMenuItem<int?>(
                         value: asInt(s['id']),
                         child: Text(
-                          eduNames(context, s).title,
+                          asStr(s['category_name']) != null
+                              ? '${s['category_name']} · ${eduNames(context, s).title}'
+                              : eduNames(context, s).title,
                           style: context.sans(14),
                         ),
                       ),
@@ -489,13 +491,19 @@ class _EduQuizzesAdminScreenState extends ConsumerState<EduQuizzesAdminScreen> {
                       _loadAll();
                     }
                   },
-                  onPreview: () {
+                  onPreview: () async {
                     final qId = asInt(q['id']);
-                    if (qId != null) context.push('/edu/quiz/$qId');
+                    if (qId != null) {
+                      await context.push('/edu/quiz/$qId');
+                      _loadAll();
+                    }
                   },
-                  onResults: () {
+                  onResults: () async {
                     final qId = asInt(q['id']);
-                    if (qId != null) context.push('/edu/quiz-results/$qId');
+                    if (qId != null) {
+                      await context.push('/edu/quiz-results/$qId');
+                      _loadAll();
+                    }
                   },
                   onDelete: () {
                     final qId = asInt(q['id']);
@@ -928,7 +936,11 @@ class _NewQuizModalState extends State<_NewQuizModal> {
                         for (final s in widget.subjects)
                           DropdownMenuItem<int>(
                             value: asInt(s['id']),
-                            child: Text(eduNames(context, s).title),
+                            child: Text(
+                              asStr(s['category_name']) != null
+                                  ? '${s['category_name']} · ${eduNames(context, s).title}'
+                                  : eduNames(context, s).title,
+                            ),
                           ),
                       ]
                     : [
@@ -1167,7 +1179,11 @@ class _QuestionBanksSheetState extends ConsumerState<_QuestionBanksSheet> {
                 for (final s in widget.subjects)
                   DropdownMenuItem<int>(
                     value: asInt(s['id']),
-                    child: Text(eduNames(context, s).title),
+                    child: Text(
+                      asStr(s['category_name']) != null
+                          ? '${s['category_name']} · ${eduNames(context, s).title}'
+                          : eduNames(context, s).title,
+                    ),
                   ),
               ],
               onChanged: (val) {

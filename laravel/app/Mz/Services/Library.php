@@ -73,6 +73,29 @@ final class Library
         $mine = ! empty($itemIds)
             ? DB::table('library_requests')->where('user_id', $auth->id)->whereIn('item_id', $itemIds)->whereIn('status', self::OPEN)->pluck('status', 'item_id')->all()
             : [];
+
+        // Check active borrowings in borrowings and library_loans so borrowed books are recognized
+        if (! empty($itemIds)) {
+            $activeLoans = DB::table('borrowings')
+                ->where('user_id', $auth->id)
+                ->whereIn('item_id', $itemIds)
+                ->whereIn('status', ['pending_approval', 'active', 'partially_returned'])
+                ->pluck('status', 'item_id')
+                ->all();
+            foreach ($activeLoans as $itemId => $status) {
+                $mine[$itemId] = $status === 'pending_approval' ? 'requested' : 'issued';
+            }
+            $activeCopyLoans = DB::table('library_loans as l')
+                ->join('library_copies as c', 'c.id', '=', 'l.copy_id')
+                ->where('l.user_id', $auth->id)
+                ->whereIn('c.item_id', $itemIds)
+                ->where('l.status', 'active')
+                ->pluck('l.status', 'c.item_id')
+                ->all();
+            foreach ($activeCopyLoans as $itemId => $status) {
+                $mine[$itemId] = 'issued';
+            }
+        }
         $favorites = ! empty($itemIds)
             ? DB::table('library_favorites')->where('user_id', $auth->id)->whereIn('item_id', $itemIds)->pluck('item_id')->flip()->all()
             : [];
@@ -428,18 +451,83 @@ final class Library
         if (! $i) throw ApiError::notFound('BOOK_NOT_FOUND', 'Book not found');
         if ($i->domain === 'timhirt') \App\Mz\Http\ModuleGate::assert($auth, 'education');
         if ($i->kind !== 'physical') throw ApiError::conflict('BOOK_IS_DIGITAL', 'Digital books are downloaded, not borrowed');
-        if (DB::table('library_requests')->where(['user_id' => $auth->id, 'item_id' => $itemId])->whereIn('status', self::OPEN)->exists()) {
-            throw ApiError::conflict('REQUEST_EXISTS', 'You already asked for this book');
+
+        // Check if user already has an active borrowing in borrowings
+        $activeBorrowing = DB::table('borrowings')
+            ->where(['user_id' => $auth->id, 'item_id' => $itemId])
+            ->whereIn('status', ['pending_approval', 'active', 'partially_returned'])
+            ->first();
+        if ($activeBorrowing) {
+            throw ApiError::conflict('ALREADY_BORROWED', 'You already have an active loan for this book', [
+                'borrowing_id' => $activeBorrowing->id,
+                'due_on' => $activeBorrowing->due_on,
+            ]);
         }
+
+        // Check if user already has an active loan in library_loans
+        $activeCopyLoan = DB::table('library_loans as l')
+            ->join('library_copies as c', 'c.id', '=', 'l.copy_id')
+            ->where(['l.user_id' => $auth->id, 'c.item_id' => $itemId, 'l.status' => 'active'])
+            ->first();
+        if ($activeCopyLoan) {
+            throw ApiError::conflict('ALREADY_BORROWED', 'You already have an active loan for this book', [
+                'loan_id' => $activeCopyLoan->id,
+                'due_on' => $activeCopyLoan->due_on,
+            ]);
+        }
+
+        // Check book availability
+        $avail = (int) ($i->available_quantity ?? $i->quantity ?? 0);
+        if ($avail <= 0) {
+            throw ApiError::conflict('BOOK_UNAVAILABLE', 'This book has no copies available to borrow right now');
+        }
+
         $qty = (int) ($in['quantity'] ?? 1);
         if ($qty > max(1, (int) $i->quantity)) throw ApiError::field('quantity', 'INSUFFICIENT_QUANTITY');
-        $id = DB::table('library_requests')->insertGetId(['user_id' => $auth->id, 'item_id' => $itemId, 'quantity' => $qty, 'note' => $in['note'] ?? null, 'needed_on' => $in['needed_on'] ?? null]);
-        Audit::log($actx, 'library.request', 'library_request', $id, ['item_id' => $itemId, 'quantity' => $qty]);
-        $n = Notifications::createForUsers(array_diff(Holders::of('borrowing.manage'), [$auth->id]), [
-            'type' => 'borrowing', 'title' => T::t('library.request.title'), 'body' => T::t('library.request.body', ['name' => $auth->fullName, 'book' => $i->name]),
-            'entityType' => 'library_request', 'entityId' => $id, 'dedupeKey' => fn ($uid) => "libreq:$id:new:$uid",
-        ]);
-        if ($n) Notifications::kick();
+
+        // Idempotent: If an existing open request already exists, return it instead of creating duplicate
+        $existingReq = DB::table('library_requests')
+            ->where(['user_id' => $auth->id, 'item_id' => $itemId])
+            ->whereIn('status', self::OPEN)
+            ->first();
+        if ($existingReq) {
+            return self::serializeRequest(self::requestQuery()->where('r.id', $existingReq->id)->first());
+        }
+
+        // Lock & insert under transaction to prevent concurrent duplicate submissions
+        $createdNew = false;
+        $id = DB::transaction(function () use ($auth, $itemId, $qty, $in, &$createdNew) {
+            $locked = DB::table('library_requests')
+                ->where(['user_id' => $auth->id, 'item_id' => $itemId])
+                ->whereIn('status', self::OPEN)
+                ->lockForUpdate()
+                ->first();
+            if ($locked) {
+                return (int) $locked->id;
+            }
+
+            $createdNew = true;
+            return DB::table('library_requests')->insertGetId([
+                'user_id' => $auth->id,
+                'item_id' => $itemId,
+                'quantity' => $qty,
+                'note' => $in['note'] ?? null,
+                'needed_on' => $in['needed_on'] ?? null,
+                'status' => 'requested',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        });
+
+        if ($createdNew) {
+            Audit::log($actx, 'library.request', 'library_request', $id, ['item_id' => $itemId, 'quantity' => $qty]);
+            $n = Notifications::createForUsers(array_diff(Holders::of('borrowing.manage'), [$auth->id]), [
+                'type' => 'borrowing', 'title' => T::t('library.request.title'), 'body' => T::t('library.request.body', ['name' => $auth->fullName, 'book' => $i->name]),
+                'entityType' => 'library_request', 'entityId' => $id, 'dedupeKey' => fn ($uid) => "libreq:$id:new:$uid",
+            ]);
+            if ($n) Notifications::kick();
+        }
+
         return self::serializeRequest(self::requestQuery()->where('r.id', $id)->first());
     }
 

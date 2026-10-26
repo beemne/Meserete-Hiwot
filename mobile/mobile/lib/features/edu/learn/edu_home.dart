@@ -13,7 +13,7 @@ import '../../../repositories/providers.dart';
 import '../../../widgets/brand.dart';
 import '../../../widgets/states.dart';
 import '../../admin/edit_mode.dart'
-    show EditModeToggle, EditModeAddButton, EditModeBanner, canEditFront;
+    show EditModeToggle, EditModeAddButton, EditModeBanner, EditOverlay, canEditFront;
 import '../../auth/session.dart';
 import '../../guidance/contextual_help_sheet.dart';
 import '../../../services/file_opening_service.dart';
@@ -101,7 +101,6 @@ class _HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l10n;
     final featured = asJsonList(data['featured']);
-    final categories = asJsonList(data['categories']);
     final cont = data['continue'] is Map ? asJson(data['continue']) : null;
     final student = data['student'] is Map ? asJson(data['student']) : null;
     final teaching = data['teaching'] is Map ? asJson(data['teaching']) : null;
@@ -132,22 +131,11 @@ class _HomeBody extends StatelessWidget {
           ContinueLearningCard(data: cont),
         ],
 
-        // 5. Subject categories
-        EduSectionHeader(
-          title: l.elSubjects,
-          subtitle: l.isEn
-              ? 'Spiritual & theological courses'
-              : 'መንፈሳዊ እና ሥነ መለኮታዊ ትምህርቶች',
-          actionLabel: l.elSeeAll,
-          onAction: () => context.go('/edu/learn'),
+        // 5. Canonical 7 Categories in exact order 1..7
+        _CanonicalCategoriesSection(
+          apiCategories: asJsonList(data['categories']),
+          refresh: refresh,
         ),
-        if (categories.isEmpty)
-          EduEmptyCard(
-            icon: Icons.auto_stories_outlined,
-            message: l.elNoCategories,
-          )
-        else
-          CategoryGrid(categories: categories, max: 4),
 
         // 6. This week: quizzes and assignments due
         if (student != null) _ThisWeek(student: student),
@@ -307,8 +295,13 @@ class _Header extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const EduIcon(size: 42),
-        const SizedBox(width: 12),
+        IconButton(
+          tooltip: l.isEn ? 'Back to Hub' : 'ወደ ዋና ገጽ ተመለስ',
+          icon: const Icon(Icons.arrow_back_rounded, color: AppColors.maroon),
+          onPressed: () => context.go('/hub'),
+        ),
+        const EduIcon(size: 38),
+        const SizedBox(width: 8),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -316,19 +309,247 @@ class _Header extends StatelessWidget {
               Text(
                 l.hubEducation,
                 style: context.serif(
-                  23,
+                  22,
                   color: headingColor,
                   height: 1.15,
                   weight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: 2),
-              Text(l.elHomeSubtitle, style: context.sans(12.5, color: p.muted)),
+              Text(l.elHomeSubtitle, style: context.sans(12, color: p.muted)),
             ],
           ),
         ),
         const EditModeToggle(module: 'edu'),
         const ContextualHelpButton(screenRoute: '/edu'),
+      ],
+    );
+  }
+}
+
+class _CanonicalCategoryItem {
+  const _CanonicalCategoryItem({
+    required this.order,
+    required this.id,
+    required this.name,
+    required this.nameEn,
+    required this.desc,
+    required this.icon,
+  });
+
+  final int order;
+  final int id;
+  final String name;
+  final String nameEn;
+  final String desc;
+  final IconData icon;
+}
+
+const canonicalCategoriesList = [
+  _CanonicalCategoryItem(
+    order: 1,
+    id: 1,
+    name: 'ትምህርተ ሃይማኖት',
+    nameEn: 'Theology & Doctrine',
+    desc: 'የኦርቶዶክስ ተዋሕዶ ሃይማኖት መሠረተ እምነትና ዶግማ',
+    icon: Icons.church_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 2,
+    id: 4,
+    name: 'የመጽሐፍ ቅዱስ ጥናት',
+    nameEn: 'Bible Study',
+    desc: 'የብሉይና የሐዲስ ኪዳን መጻሕፍት ጥናትና ትርጓሜ',
+    icon: Icons.menu_book_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 3,
+    id: 5,
+    name: 'ክርስቲያናዊ ሥነምግባር',
+    nameEn: 'Christian Ethics',
+    desc: 'የክርስቲያን አኗኗር፣ ምግባርና ማኅበራዊ ሕይወት',
+    icon: Icons.favorite_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 4,
+    id: 6,
+    name: 'ሥርዓተ ቤተ ክርስቲያን',
+    nameEn: 'Church Order & Rites',
+    desc: 'የቤተ ክርስቲያን ሥርዓት፣ አምልኮና ሰባቱ ምሥጢራት',
+    icon: Icons.account_balance_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 5,
+    id: 3,
+    name: 'የቤተክርስትያን ታሪክ',
+    nameEn: 'Church History',
+    desc: 'የኢትዮጵያና የዓለም አብያተ ክርስቲያናት ታሪክ',
+    icon: Icons.history_edu_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 6,
+    id: 7,
+    name: 'ልሳነ ግእዝ',
+    nameEn: 'Geez Language',
+    desc: 'የግእዝ ቋንቋ ሰዋስው፣ ንባብና የዜማ ምልክቶች',
+    icon: Icons.translate_rounded,
+  ),
+  _CanonicalCategoryItem(
+    order: 7,
+    id: 8,
+    name: 'ዜማ',
+    nameEn: 'Zema (Sacred Chants)',
+    desc: 'የቅዱስ ያሬድ ዜማ፣ ጾመ ድጓ፣ ዝማሬና ማሕሌት',
+    icon: Icons.music_note_rounded,
+  ),
+];
+
+const canonicalSubjectsList = canonicalCategoriesList;
+
+class _CanonicalCategoriesSection extends StatelessWidget {
+  const _CanonicalCategoriesSection({
+    this.apiCategories = const [],
+    required this.refresh,
+  });
+  final List<Json> apiCategories;
+  final VoidCallback refresh;
+
+  @override
+  Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final p = context.palette;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        EduSectionHeader(
+          title: isEn ? 'Curriculum Categories' : 'የካሪኩለም ዘርፎች',
+          subtitle: isEn
+              ? 'Select a category to browse grade curriculum (1 - 12)'
+              : 'ከ1ኛ እስከ 12ኛ ክፍል ያሉትን ትምህርቶች ለመመልከት ምድብ ይምረጡ',
+        ),
+        const SizedBox(height: 8),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: canonicalCategoriesList.length,
+          separatorBuilder: (_, _) => const SizedBox(height: 10),
+          itemBuilder: (context, index) {
+            final spec = canonicalCategoriesList[index];
+            final apiMatch = apiCategories.firstWhere(
+              (s) =>
+                  asIntOr(s['sort_order']) == spec.order ||
+                  asStr(s['name'])?.trim() == spec.name.trim() ||
+                  asIntOr(s['id']) == spec.id,
+              orElse: () => <String, dynamic>{},
+            );
+            final realId = asInt(apiMatch['id']) ?? spec.id;
+            final displayName = asStr(apiMatch['name']) ?? spec.name;
+            final displayDesc = asStr(apiMatch['description']) ?? spec.desc;
+
+            final card = AppCard(
+              onTap: () {
+                context.push('/edu/learn/category/$realId');
+              },
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              radius: 14,
+              child: Row(
+                children: [
+                  Container(
+                    width: 44,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: AppColors.maroon.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: AppColors.gold.withValues(alpha: 0.5),
+                        width: 1.2,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${spec.order}',
+                      style: context.serif(
+                        17,
+                        weight: FontWeight.w800,
+                        color: AppColors.maroon,
+                        height: 1.1,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                displayName,
+                                style: context.serif(
+                                  15.5,
+                                  weight: FontWeight.w700,
+                                  color: AppColors.maroon,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              decoration: BoxDecoration(
+                                color: AppColors.gold.withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(6),
+                                border: Border.all(
+                                  color: AppColors.gold.withValues(alpha: 0.35),
+                                  width: 0.8,
+                                ),
+                              ),
+                              child: Text(
+                                isEn ? '12 Grades' : '12 ክፍሎች',
+                                style: context.sans(
+                                  10.5,
+                                  weight: FontWeight.w600,
+                                  color: AppColors.goldDark,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          displayDesc,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: context.sans(11.5, color: p.muted),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 14,
+                    color: AppColors.gold,
+                  ),
+                ],
+              ),
+            );
+
+            return EditOverlay(
+              permission: Perm.educationContent,
+              onEdit: () async {
+                final saved = await showEduCategoryEditor(
+                  context,
+                  category: apiMatch.isNotEmpty ? apiMatch : {'id': realId, 'name': displayName},
+                );
+                if (saved == true && context.mounted) {
+                  refresh();
+                }
+              },
+              child: card,
+            );
+          },
+        ),
       ],
     );
   }

@@ -29,6 +29,7 @@ class EduUnitsLessonsAdminScreen extends ConsumerStatefulWidget {
 class _EduUnitsLessonsAdminScreenState extends ConsumerState<EduUnitsLessonsAdminScreen> {
   int? _selectedSubjectId;
   String _searchQuery = '';
+  String? _selectedCategory;
 
   @override
   void initState() {
@@ -125,39 +126,106 @@ class _EduUnitsLessonsAdminScreenState extends ConsumerState<EduUnitsLessonsAdmi
             );
           }
 
+          // Categories list
+          final categories = <String>[];
+          for (final s in subjects) {
+            final cat = asStr(s['category_name']) ?? (isEn ? 'Other' : 'ሌሎች');
+            if (!categories.contains(cat)) categories.add(cat);
+          }
+
           // Pick the first subject if none selected
           if (_selectedSubjectId == null || !subjects.any((s) => s['id'] == _selectedSubjectId)) {
             _selectedSubjectId = asInt(subjects.first['id']);
           }
 
+          final currentSub = subjects.firstWhere(
+            (s) => s['id'] == _selectedSubjectId,
+            orElse: () => subjects.first,
+          );
+          final currentCat = asStr(currentSub['category_name']) ?? (isEn ? 'Other' : 'ሌሎች');
+          _selectedCategory ??= currentCat;
+
+          // Filter subjects for the selected category
+          final visibleSubjects = subjects.where((s) {
+            final cat = asStr(s['category_name']) ?? (isEn ? 'Other' : 'ሌሎች');
+            return cat == _selectedCategory;
+          }).toList();
+
           return Column(
             children: [
-              // 1. Subject selector bar
+              // 1. Category and Grade selector bar
               Container(
                 color: p.card,
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Category row
                     Row(
                       children: [
-                        Icon(Icons.category_outlined, size: 18, color: AppColors.goldDark),
+                        Icon(Icons.category_outlined, size: 16, color: AppColors.goldDark),
                         const SizedBox(width: 8),
                         Text(
-                          isEn ? 'Select Subject / Curriculum:' : 'የትምህርት ዓይነት ይምረጡ፦',
-                          style: context.sans(12.5, weight: FontWeight.w600, color: p.muted),
+                          isEn ? 'Category:' : 'የካሪኩለም ዘርፍ / ምድብ፦',
+                          style: context.sans(12, weight: FontWeight.w600, color: p.muted),
                         ),
                       ],
                     ),
                     const SizedBox(height: 6),
                     SizedBox(
-                      height: 42,
+                      height: 38,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
-                        itemCount: subjects.length,
+                        itemCount: categories.length,
                         separatorBuilder: (_, _) => const SizedBox(width: 8),
                         itemBuilder: (context, i) {
-                          final sub = subjects[i];
+                          final cat = categories[i];
+                          final isSelected = cat == _selectedCategory;
+                          return ChoiceChip(
+                            label: Text(cat),
+                            selected: isSelected,
+                            selectedColor: AppColors.maroon,
+                            labelStyle: TextStyle(
+                              color: isSelected ? Colors.white : p.text,
+                              fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            onSelected: (_) {
+                              setState(() {
+                                _selectedCategory = cat;
+                                final firstInCat = subjects.firstWhere(
+                                  (s) => (asStr(s['category_name']) ?? (isEn ? 'Other' : 'ሌሎች')) == cat,
+                                  orElse: () => subjects.first,
+                                );
+                                _selectedSubjectId = asInt(firstInCat['id']);
+                              });
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+
+                    // Grade subjects row
+                    Row(
+                      children: [
+                        Icon(Icons.school_outlined, size: 16, color: AppColors.goldDark),
+                        const SizedBox(width: 8),
+                        Text(
+                          isEn ? 'Grade / Subject (1 - 12):' : 'ክፍል / የትምህርት ዓይነት ይምረጡ፦',
+                          style: context.sans(12, weight: FontWeight.w600, color: p.muted),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    SizedBox(
+                      height: 38,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: visibleSubjects.length,
+                        separatorBuilder: (_, _) => const SizedBox(width: 8),
+                        itemBuilder: (context, i) {
+                          final sub = visibleSubjects[i];
                           final id = asInt(sub['id']);
                           final isSelected = id == _selectedSubjectId;
                           final name = eduNames(context, sub).title;
@@ -166,11 +234,11 @@ class _EduUnitsLessonsAdminScreenState extends ConsumerState<EduUnitsLessonsAdmi
                           return ChoiceChip(
                             label: Text('$name ($lessonCount)'),
                             selected: isSelected,
-                            selectedColor: AppColors.maroon,
+                            selectedColor: AppColors.gold,
                             labelStyle: TextStyle(
-                              color: isSelected ? Colors.white : p.text,
+                              color: isSelected ? AppColors.maroonDark : p.text,
                               fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal,
-                              fontSize: 12.5,
+                              fontSize: 12,
                             ),
                             onSelected: (_) {
                               setState(() => _selectedSubjectId = id);

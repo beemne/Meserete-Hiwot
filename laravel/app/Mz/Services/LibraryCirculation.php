@@ -236,6 +236,15 @@ final class LibraryCirculation
                 throw ApiError::conflict('COPY_ON_LOAN', 'An active loan already exists for this copy');
             }
 
+            // Verify no open loan exists for this user on this book title
+            $userHasBook = DB::table('library_loans as l')
+                ->join('library_copies as c', 'c.id', '=', 'l.copy_id')
+                ->where(['l.user_id' => $userId, 'c.item_id' => $copy->item_id, 'l.status' => 'active'])
+                ->exists();
+            if ($userHasBook) {
+                throw ApiError::conflict('ALREADY_BORROWED', 'This user already has an active loan for this book');
+            }
+
             $loanId = DB::table('library_loans')->insertGetId([
                 'copy_id' => $copy->id,
                 'user_id' => $userId,

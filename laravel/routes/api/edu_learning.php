@@ -34,6 +34,8 @@ Route::prefix('edu')->middleware(['mz', 'mz.module:education'])->group(function 
     Route::get('subjects', fn () => Http::ok(EduLearning::subjects(Ctx::auth(), null, $all())));
     Route::get('subjects/authoring', fn () => Http::ok(EduLearning::editableSubjects(Ctx::auth())));
     Route::get('subjects/{id}', fn () => Http::ok(EduLearning::subjectDetail(Ctx::auth(), Ctx::id())));
+    Route::get('subjects/{id}/grades', fn () => Http::ok(EduLearning::subjectGrades(Ctx::auth(), Ctx::id())));
+    Route::get('subjects/{id}/grades/{grade}', fn () => Http::ok(EduLearning::subjectGradeContent(Ctx::auth(), Ctx::id(), (int) request()->route('grade'))));
     Route::get('lessons/{id}', fn () => Http::ok(EduLearning::lessonDetail(Ctx::auth(), Ctx::id())));
     Route::post('lessons/{id}/progress', function () {
         $id = Ctx::id();

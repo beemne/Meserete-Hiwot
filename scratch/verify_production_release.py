@@ -1,7 +1,6 @@
 import json
 import urllib.request
 import ssl
-import paramiko
 import sys
 
 if hasattr(sys.stdout, 'reconfigure'):
@@ -12,7 +11,7 @@ if hasattr(sys.stderr, 'reconfigure'):
 ctx = ssl.create_default_context()
 
 print("=" * 70)
-print("PRODUCTION VERIFICATION REPORT: Sinksar Widget Release")
+print("PRODUCTION VERIFICATION REPORT: Categories, Grades & Release Deployment")
 print("=" * 70)
 
 # 1. Verify /health
@@ -30,52 +29,44 @@ try:
     with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
         ct = resp.headers.get("Content-Type")
         cl = resp.headers.get("Content-Length")
-        print(f"[PASS] /app-release.apk returned HTTP {resp.status}, Content-Type: {ct}, Size: {int(cl):,} bytes")
+        print(f"[PASS] /app-release.apk returned HTTP {resp.status}, Size: {int(cl):,} bytes")
 except Exception as e:
     print(f"[FAIL] /app-release.apk error: {e}")
 
-# 3. Verify /api/v1/sinksar/today
+# 3. Verify Web Version
 try:
-    req = urllib.request.Request("https://app.hersolan.pro/api/v1/sinksar/today", headers={"User-Agent": "ReleaseVerifier/1.0", "Accept": "application/json"})
+    req = urllib.request.Request("https://app.hersolan.pro/version.json", headers={"User-Agent": "ReleaseVerifier/1.0"})
+    with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
+        v = json.loads(resp.read().decode('utf-8'))
+        print(f"[PASS] /version.json returned HTTP {resp.status}: app_name={v.get('app_name')}, version={v.get('version')}, build_number={v.get('build_number')}")
+except Exception as e:
+    print(f"[FAIL] /version.json error: {e}")
+
+# 4. Verify Web index.html
+try:
+    req = urllib.request.Request("https://app.hersolan.pro/", headers={"User-Agent": "ReleaseVerifier/1.0"})
+    with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
+        html = resp.read().decode('utf-8')
+        has_bootstrap = "flutter_bootstrap.js" in html
+        print(f"[PASS] Web root returned HTTP {resp.status}, flutter_bootstrap.js referenced: {has_bootstrap}")
+except Exception as e:
+    print(f"[FAIL] Web root error: {e}")
+
+# 5. Verify /api/v1/education/home categories & grade subjects
+try:
+    req = urllib.request.Request("https://app.hersolan.pro/api/v1/education/home", headers={"User-Agent": "ReleaseVerifier/1.0", "Accept": "application/json"})
     with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
         data = json.loads(resp.read().decode('utf-8'))
-        print(f"[PASS] /api/v1/sinksar/today returned HTTP {resp.status}")
-        payload = data.get('data', data)
-        eth_date = payload.get('ethiopian_date') or payload.get('date_ethiopian')
-        ann_feasts = payload.get('annual_feasts') or payload.get('feasts') or []
-        mth_feasts = payload.get('monthly_feasts') or []
-        print(f"       Ethiopian Date: {eth_date}")
-        print(f"       Annual Feasts: {ann_feasts[:3] if isinstance(ann_feasts, list) else ann_feasts}")
-        print(f"       Monthly Feasts: {mth_feasts[:3] if isinstance(mth_feasts, list) else mth_feasts}")
+        cats = data.get('data', {}).get('categories', [])
+        print(f"[PASS] /api/v1/education/home returned {len(cats)} categories:")
+        for c in sorted(cats, key=lambda x: x.get('display_order', 0)):
+            cid = c.get('id')
+            cname = c.get('name')
+            order = c.get('display_order')
+            subs = c.get('subjects', [])
+            grades = [s.get('name') for s in subs]
+            print(f"       ({order}) [ID: {cid}] {cname} -> {len(subs)} grades ({grades[:3]}...{grades[-1:] if grades else ''})")
 except Exception as e:
-    print(f"[FAIL] /api/v1/sinksar/today error: {e}")
-
-# 4. Verify /api/v1/sinksar/2019-02-15
-try:
-    req = urllib.request.Request("https://app.hersolan.pro/api/v1/sinksar/2019-02-15", headers={"User-Agent": "ReleaseVerifier/1.0", "Accept": "application/json"})
-    with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
-        data = json.loads(resp.read().decode('utf-8'))
-        print(f"[PASS] /api/v1/sinksar/2019-02-15 returned HTTP {resp.status}")
-        payload = data.get('data', data)
-        print(f"       Feasts: {payload.get('feasts', [])[:2]}")
-except Exception as e:
-    print(f"[FAIL] /api/v1/sinksar/2019-02-15 error: {e}")
-
-# 5. Check remote Laravel logs
-try:
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect('hersolan.pro', port=22, username='hersolot', password='v:89]yYLi:7t7O0E)0*')
-    stdin, stdout, stderr = ssh.exec_command("tail -n 20 /home/hersolot/app.hersolan.pro/storage/logs/laravel.log")
-    logs = stdout.read().decode('utf-8', errors='replace').strip()
-    if logs:
-        print("[INFO] Last 20 lines of remote laravel.log:")
-        for line in logs.splitlines()[-5:]:
-            print(f"       {line}")
-    else:
-        print("[PASS] remote laravel.log is clean.")
-    ssh.close()
-except Exception as e:
-    print(f"[WARN] SSH log check error: {e}")
+    print(f"[FAIL] /api/v1/education/home error: {e}")
 
 print("=" * 70)

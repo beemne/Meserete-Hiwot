@@ -1,25 +1,26 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' show Directory, File, Platform;
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pointycastle/export.dart';
 
-/// Downloaded library books, readable only inside the app.
+/// Downloaded library books, readable inside the app.
 ///
-/// A book's PDF is downloaded into memory, encrypted with AES-256-GCM and written to the app's
+/// On mobile/desktop: A book's PDF is downloaded into memory, encrypted with AES-256-GCM and written to the app's
 /// private support directory (`books/book_<id>.bin`). The key is created on first use and kept in
-/// the platform keystore (flutter_secure_storage), so a copied file is useless outside this install
-/// and no plain PDF is ever written to disk. The in-app reader decrypts into memory.
-/// Signing out deletes the books and the key.
+/// the platform keystore (flutter_secure_storage).
+/// On Web (or as fallback): In-memory cache is used safely without file system dependency.
 class BookVault {
   BookVault._();
 
   static const _keyName = 'book_vault_key';
   static const _nonceLength = 12;
   static const FlutterSecureStorage _storage = FlutterSecureStorage();
+  static final Map<int, Uint8List> _memCache = {};
 
   static Future<Directory> _dir() async {
     final dir = Directory('${(await getApplicationSupportDirectory()).path}${Platform.pathSeparator}books');
@@ -29,7 +30,15 @@ class BookVault {
 
   static Future<File> fileFor(int bookId) async => File('${(await _dir()).path}${Platform.pathSeparator}book_$bookId.bin');
 
-  static Future<bool> has(int bookId) async => (await fileFor(bookId)).existsSync();
+  static Future<bool> has(int bookId) async {
+    if (_memCache.containsKey(bookId)) return true;
+    if (kIsWeb) return false;
+    try {
+      return (await fileFor(bookId)).existsSync();
+    } catch (_) {
+      return false;
+    }
+  }
 
   static Future<Uint8List> _key({bool create = true}) async {
     final existing = await _storage.read(key: _keyName);
@@ -64,42 +73,61 @@ class BookVault {
 
   /// Encrypt and keep a downloaded PDF.
   static Future<void> save(int bookId, Uint8List pdf) async {
-    final sealed = encrypt(pdf, await _key());
-    final f = await fileFor(bookId);
-    final tmp = File('${f.path}.part');
-    await tmp.writeAsBytes(sealed, flush: true);
-    await tmp.rename(f.path);
+    _memCache[bookId] = pdf;
+    if (kIsWeb) return;
+    try {
+      final sealed = encrypt(pdf, await _key());
+      final f = await fileFor(bookId);
+      final tmp = File('${f.path}.part');
+      await tmp.writeAsBytes(sealed, flush: true);
+      await tmp.rename(f.path);
+    } catch (_) {
+      // In-memory cache ensures reader still opens even if disk write fails
+    }
   }
 
-  /// The PDF in memory for the reader. A file that cannot be decrypted (key gone) is removed and
-  /// [BookVaultException] thrown, so the book is simply downloaded again.
+  /// The PDF in memory for the reader.
   static Future<Uint8List> read(int bookId) async {
-    final f = await fileFor(bookId);
-    if (!f.existsSync()) throw const BookVaultException();
+    if (_memCache.containsKey(bookId)) return _memCache[bookId]!;
+    if (kIsWeb) throw const BookVaultException();
     try {
-      return decrypt(await f.readAsBytes(), await _key(create: false));
+      final f = await fileFor(bookId);
+      if (!f.existsSync()) throw const BookVaultException();
+      final bytes = decrypt(await f.readAsBytes(), await _key(create: false));
+      _memCache[bookId] = bytes;
+      return bytes;
     } on BookVaultException {
-      await f.delete();
+      try {
+        final f = await fileFor(bookId);
+        if (f.existsSync()) await f.delete();
+      } catch (_) {}
       rethrow;
+    } catch (_) {
+      throw const BookVaultException();
     }
   }
 
   static Future<void> remove(int bookId) async {
-    final f = await fileFor(bookId);
-    if (f.existsSync()) await f.delete();
+    _memCache.remove(bookId);
+    if (kIsWeb) return;
+    try {
+      final f = await fileFor(bookId);
+      if (f.existsSync()) await f.delete();
+    } catch (_) {}
   }
 
   /// Delete every downloaded book and the key (sign-out).
   static Future<void> wipe() async {
+    _memCache.clear();
+    if (kIsWeb) return;
     try {
       final dir = await _dir();
       if (dir.existsSync()) await dir.delete(recursive: true);
-      // Plain PDFs saved by an earlier build in the documents folder.
       final old = Directory('${(await getApplicationDocumentsDirectory()).path}${Platform.pathSeparator}books');
       if (old.existsSync()) await old.delete(recursive: true);
       await _storage.delete(key: _keyName);
     } catch (_) {
-      // Best effort: nothing to clean on a fresh install / unsupported platform.
+      // Best effort
     }
   }
 }

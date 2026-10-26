@@ -218,6 +218,16 @@ final class Borrowings
                 $created = [];
                 foreach ($validUsers as $uid) {
                     foreach ($lines as $l) {
+                        // Prevent duplicate active borrowing for the same user and item
+                        $activeLoan = DB::table('borrowings')
+                            ->where(['user_id' => $uid, 'item_id' => $l['item_id']])
+                            ->whereIn('status', ['pending_approval', 'active', 'partially_returned'])
+                            ->lockForUpdate()
+                            ->first();
+                        if ($activeLoan) {
+                            throw ApiError::conflict('ALREADY_BORROWED', "User $uid already has an active borrowing for item {$l['item_id']}");
+                        }
+
                         $id = DB::table('borrowings')->insertGetId([
                             'user_id' => $uid, 'item_id' => $l['item_id'], 'batch_id' => $batchId, 'quantity' => $l['quantity'], 'borrowed_on' => $borrowedOn, 'due_on' => $dueOn,
                             'issue_condition' => ($l['issue_condition'] ?? null) ?: ($items[$l['item_id']]->condition ?? null),

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show Uint8List, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,6 +38,7 @@ class _ReportProblemScreenState extends ConsumerState<ReportProblemScreen> {
   late final TextEditingController _stepsController;
 
   String? _screenshotPath;
+  Uint8List? _screenshotBytes;
   bool _includeDiagnostics = true;
   bool _isSubmitting = false;
   String? _submittedReportId;
@@ -71,8 +73,13 @@ class _ReportProblemScreenState extends ConsumerState<ReportProblemScreen> {
         imageQuality: 85,
       );
       if (picked != null) {
+        Uint8List? bytes;
+        if (kIsWeb) {
+          bytes = await picked.readAsBytes();
+        }
         setState(() {
           _screenshotPath = picked.path;
+          _screenshotBytes = bytes;
         });
       }
     } catch (e) {
@@ -88,6 +95,7 @@ class _ReportProblemScreenState extends ConsumerState<ReportProblemScreen> {
   void _removeScreenshot() {
     setState(() {
       _screenshotPath = null;
+      _screenshotBytes = null;
     });
   }
 
@@ -301,12 +309,21 @@ class _ReportProblemScreenState extends ConsumerState<ReportProblemScreen> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.file(
-                          File(_screenshotPath!),
-                          height: 180,
-                          width: double.infinity,
-                          fit: BoxFit.contain,
-                        ),
+                        child: _screenshotBytes != null
+                            ? Image.memory(
+                                _screenshotBytes!,
+                                height: 180,
+                                width: double.infinity,
+                                fit: BoxFit.contain,
+                              )
+                            : (!kIsWeb && _screenshotPath != null
+                                ? Image.file(
+                                    File(_screenshotPath!),
+                                    height: 180,
+                                    width: double.infinity,
+                                    fit: BoxFit.contain,
+                                  )
+                                : const SizedBox.shrink()),
                       ),
                       const SizedBox(height: 8),
                       Row(

@@ -30,6 +30,7 @@ import '../features/edu/learn/progress_more.dart';
 import '../features/edu/learn/quizzes_admin.dart';
 import '../features/edu/learn/quiz_screens.dart';
 import '../features/edu/learn/units_lessons_admin.dart';
+import '../features/edu/learn/grade_content_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/hub/hub_screen.dart';
 import '../features/library/books_screen.dart';
@@ -283,19 +284,65 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(path: 'learn/category/:id', builder: (_, s) => EduCategoryScreen(categoryId: _id(s))),
                 GoRoute(path: 'learn/subject/:id', builder: (_, s) => EduSubjectScreen(subjectId: _id(s))),
                 GoRoute(path: 'learn/lesson/:id', builder: (_, s) => EduLessonScreen(lessonId: _id(s))),
+                GoRoute(path: 'category/:id', redirect: (_, s) => '/edu/learn/category/${s.pathParameters['id']}'),
+                GoRoute(path: 'category/:id/grades', redirect: (_, s) => '/edu/learn/category/${s.pathParameters['id']}'),
+                GoRoute(path: 'subject/:id/grades', builder: (_, s) => EduCategoryScreen(categoryId: _id(s))),
+                GoRoute(path: 'subject/:id/grade/:grade', builder: (_, s) => EduGradeContentScreen(subjectId: _id(s), gradeNumber: _id(s, 'grade'))),
                 GoRoute(path: 'classes', builder: (_, _) => const EduClassesScreen()),
                 GoRoute(path: 'progress', builder: (_, _) => const EduProgressScreen()),
                 GoRoute(path: 'more', builder: (_, _) => const EduMoreScreen()),
                 GoRoute(path: 'search', builder: (_, _) => const EduSearchScreen()),
                 // Quizzes: students take them; teachers edit, see results and grade written answers.
-                GoRoute(path: 'quiz/:id', builder: (_, s) => EduQuizScreen(quizId: _id(s))),
-                GoRoute(path: 'attempt/:id', builder: (_, s) => EduAttemptScreen(attemptId: _id(s))),
-                GoRoute(path: 'quiz-edit/:id', builder: (_, s) => EduQuizEditorScreen(quizId: _id(s))),
-                GoRoute(path: 'quiz-results/:id', builder: (_, s) => EduQuizResultsScreen(quizId: _id(s))),
-                GoRoute(path: 'quiz-attempt/:id', builder: (_, s) => EduTeacherAttemptScreen(attemptId: _id(s))),
+                GoRoute(
+                  path: 'quiz/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduQuizScreen(quizId: _id(s)),
+                  ),
+                ),
+                GoRoute(
+                  path: 'attempt/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduAttemptScreen(attemptId: _id(s)),
+                  ),
+                ),
+                GoRoute(
+                  path: 'quiz-edit/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduQuizEditorScreen(quizId: _id(s)),
+                  ),
+                ),
+                GoRoute(
+                  path: 'quiz-results/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduQuizResultsScreen(quizId: _id(s)),
+                  ),
+                ),
+                GoRoute(
+                  path: 'quiz-attempt/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduTeacherAttemptScreen(attemptId: _id(s)),
+                  ),
+                ),
                 // ሰሌዳ መጽሔት (Seleda Magazine)
                 GoRoute(path: 'magazines', builder: (_, _) => const EduMagazinesListScreen()),
-                GoRoute(path: 'magazine/:id', builder: (_, s) => EduMagazineDetailScreen(magazineId: _id(s))),
+                GoRoute(
+                  path: 'magazine/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduMagazineDetailScreen(magazineId: _id(s)),
+                  ),
+                ),
                 // Learning content (categories, curriculum, featured): full-screen pages over the tabs.
                 GoRoute(
                   path: 'content',

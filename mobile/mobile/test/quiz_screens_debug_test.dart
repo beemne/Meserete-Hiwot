@@ -4,14 +4,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mezmur_zelideta/core/network/api_client.dart';
 import 'package:mezmur_zelideta/core/storage/secure_store.dart';
 import 'package:mezmur_zelideta/core/theme/app_theme.dart';
 import 'package:mezmur_zelideta/features/auth/session.dart';
 import 'package:mezmur_zelideta/features/edu/learn/quiz_screens.dart';
 import 'package:mezmur_zelideta/l10n/app_localizations.dart';
-import 'package:mezmur_zelideta/models/user.dart';
 import 'package:mezmur_zelideta/repositories/providers.dart';
 import 'package:mezmur_zelideta/repositories/superapp_repositories.dart';
 

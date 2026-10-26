@@ -75,8 +75,12 @@ class LibraryRepository {
 
   /// A digital book's PDF, in memory (sent with the signed-in user's token). It is kept only
   /// encrypted (see BookVault) and opened in the in-app reader.
-  Future<Uint8List> downloadBook(Book b, {void Function(int, int)? onProgress}) =>
-      _api.downloadBytes(b.fileUrl!, onProgress: onProgress);
+  Future<Uint8List> downloadBook(Book b, {void Function(int, int)? onProgress}) {
+    final url = (b.fileUrl != null && b.fileUrl!.isNotEmpty)
+        ? b.fileUrl!
+        : '/library/books/${b.id}/file';
+    return _api.downloadBytes(url, onProgress: onProgress);
+  }
 
   Future<BookRequest> request(int bookId, {String? note, String? neededOn}) =>
       _api.post('/library/books/$bookId/request', body: {'note': ?note, 'needed_on': ?neededOn}, parse: (d) => BookRequest.fromJson(asJson(d)));

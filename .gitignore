@@ -1,0 +1,25 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Large Archives and Dumps
+*.rar
+*.zip
+*.tar.gz
+*.hprof
+*.dump
+
+# Build artifacts
+mobile/mobile/build/
+mobile/mobile/.dart_tool/
+mobile/mobile/.flutter-plugins
+mobile/mobile/.flutter-plugins-dependencies
+mobile/mobile/android/.gradle/
+mobile/mobile/android/local.properties
+mobile/mobile/android/captures/
+*.apk
+*.aab
+
+# Python scratch caches
+__pycache__/
+*.py[cod]

@@ -188,13 +188,20 @@ class SubjectCard extends ConsumerWidget {
                   width: 58,
                   height: 58,
                   decoration: BoxDecoration(
-                    color: AppColors.eduBurgundy.withValues(alpha: 0.08),
+                    color: AppColors.maroon.withValues(alpha: 0.08),
                     borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: AppColors.eduGold.withValues(alpha: 0.3)),
+                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.4), width: 1.2),
                   ),
                   child: asStr(subject['cover_url']) != null
                       ? ClipRRect(borderRadius: BorderRadius.circular(13), child: CoverImage(url: asStr(subject['cover_url']), fit: BoxFit.cover))
-                      : const Icon(Icons.menu_book_rounded, color: AppColors.eduBurgundy, size: 28),
+                      : (asInt(subject['sort_order']) != null && asInt(subject['sort_order'])! >= 1 && asInt(subject['sort_order'])! <= 12
+                          ? Center(
+                              child: Text(
+                                '${subject['sort_order']}',
+                                style: context.serif(21, weight: FontWeight.w800, color: AppColors.maroon),
+                              ),
+                            )
+                          : const Icon(Icons.menu_book_rounded, color: AppColors.maroon, size: 28)),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -256,60 +263,159 @@ class EduCategoryScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l = context.l10n;
+    final isEn = l.isEn;
     final cat = ref.watch(eduCategoriesProvider).value?.where((c) => asIntOr(c['id']) == categoryId).firstOrNull;
     final names = cat == null ? null : eduNames(context, cat);
-    return PatternScaffold(
-      appBar: AppBar(
-        title: Text(names?.title ?? l.elCategories),
-        actions: [
-          if (cat != null && canEditFront(ref, module: 'edu'))
-            IconButton(
-              tooltip: l.edit,
-              icon: const Icon(Icons.edit_rounded),
-              onPressed: () async {
-                final saved = await showEduCategoryEditor(context, category: cat);
-                if (saved == true) {
-                  ref.invalidate(eduCategoriesProvider);
-                  ref.invalidate(eduDashboardProvider);
-                  ref.read(contentRevisionProvider.notifier).bump();
-                }
-              },
-            ),
-        ],
-      ),
-      floatingActionButton: canEditFront(ref, module: 'edu')
-          ? EditModeAddButton(
-              actions: [
-                (
-                  label: l.isEn ? 'Add Subject' : 'አዲስ የትምህርት ዓይነት',
-                  icon: Icons.menu_book_rounded,
-                  permission: Perm.educationContent,
-                  run: () async {
-                    final id = await showEduSubjectEditor(context, categoryId: categoryId);
-                    if (id != null && context.mounted) {
-                      ref.invalidate(_categorySubjectsProvider(categoryId));
-                      ref.invalidate(eduCategoriesProvider);
-                      ref.invalidate(eduDashboardProvider);
-                      context.push('/edu/learn/subject/$id');
-                    }
-                  },
+
+    void handleBack() {
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.go('/edu');
+      }
+    }
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) return;
+        handleBack();
+      },
+      child: PatternScaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_rounded),
+            tooltip: isEn ? 'Back to categories' : 'ወደ ምድቦች ተመለስ',
+            onPressed: handleBack,
+          ),
+          title: Text(names?.title ?? l.elCategories),
+          actions: [
+            if (cat != null && canEditFront(ref, module: 'edu'))
+              IconButton(
+                tooltip: l.edit,
+                icon: const Icon(Icons.edit_rounded),
+                onPressed: () async {
+                  final saved = await showEduCategoryEditor(context, category: cat);
+                  if (saved == true) {
+                    ref.invalidate(eduCategoriesProvider);
+                    ref.invalidate(eduDashboardProvider);
+                    ref.read(contentRevisionProvider.notifier).bump();
+                  }
+                },
+              ),
+          ],
+        ),
+        floatingActionButton: canEditFront(ref, module: 'edu')
+            ? EditModeAddButton(
+                actions: [
+                  (
+                    label: l.isEn ? 'Add Grade / Subject' : 'አዲስ ክፍል / ትምህርት',
+                    icon: Icons.menu_book_rounded,
+                    permission: Perm.educationContent,
+                    run: () async {
+                      final id = await showEduSubjectEditor(context, categoryId: categoryId);
+                      if (id != null && context.mounted) {
+                        ref.invalidate(_categorySubjectsProvider(categoryId));
+                        ref.invalidate(eduCategoriesProvider);
+                        ref.invalidate(eduDashboardProvider);
+                        context.push('/edu/learn/subject/$id');
+                      }
+                    },
+                  ),
+                ],
+              )
+            : null,
+        body: RefreshIndicator(
+          color: AppColors.gold,
+          onRefresh: () async => ref.invalidate(_categorySubjectsProvider(categoryId)),
+          child: AsyncView(
+            value: ref.watch(_categorySubjectsProvider(categoryId)),
+            onRetry: () => ref.invalidate(_categorySubjectsProvider(categoryId)),
+            data: (subjects) => ListView(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
+              children: [
+                // Category Hero Card
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.only(bottom: 16),
+                  decoration: BoxDecoration(
+                    color: AppColors.maroon,
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [AppColors.maroon, AppColors.maroonDark],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.5),
+                      width: 1.2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.maroonDark.withValues(alpha: 0.25),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 52,
+                        height: 52,
+                        decoration: BoxDecoration(
+                          color: AppColors.gold.withValues(alpha: 0.15),
+                          shape: BoxShape.circle,
+                          border: Border.all(color: AppColors.gold, width: 1.5),
+                        ),
+                        child: const Icon(Icons.church_rounded, color: AppColors.gold, size: 28),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              names?.title ?? '',
+                              style: context.serif(18, weight: FontWeight.w700, color: Colors.white),
+                            ),
+                            if (asStr(cat?['description']) != null) ...[
+                              const SizedBox(height: 4),
+                              Text(
+                                asStr(cat!['description'])!,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: context.sans(12.5, color: Colors.white.withValues(alpha: 0.85), height: 1.4),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
+                // Grades section heading
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.school_outlined, size: 18, color: AppColors.gold),
+                      const SizedBox(width: 8),
+                      Text(
+                        isEn ? 'Grades (1 - 12)' : 'ክፍሎች (ከ1ኛ እስከ 12ኛ ክፍል)',
+                        style: context.serif(15, weight: FontWeight.w700, color: AppColors.maroon),
+                      ),
+                    ],
+                  ),
+                ),
+
+                if (subjects.isEmpty)
+                  EmptyView(message: l.elNoSubjectsInCategory, icon: Icons.menu_book_outlined)
+                else
+                  for (final s in subjects) SubjectCard(subject: s),
               ],
-            )
-          : null,
-      body: RefreshIndicator(
-        color: AppColors.gold,
-        onRefresh: () async => ref.invalidate(_categorySubjectsProvider(categoryId)),
-        child: AsyncView(
-          value: ref.watch(_categorySubjectsProvider(categoryId)),
-          onRetry: () => ref.invalidate(_categorySubjectsProvider(categoryId)),
-          data: (subjects) => ListView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-            children: [
-              if (asStr(cat?['description']) != null)
-                Padding(padding: const EdgeInsets.only(bottom: 12), child: Text(asStr(cat!['description'])!, style: context.sans(13.5, color: context.palette.muted, height: 1.6))),
-              if (subjects.isEmpty) EmptyView(message: l.elNoSubjectsInCategory, icon: Icons.menu_book_outlined) else for (final s in subjects) SubjectCard(subject: s),
-            ],
+            ),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show Uint8List, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
@@ -29,38 +30,133 @@ String fileKindOf(String name, String? mime) {
   return 'other';
 }
 
+/// Infers standard MIME types for common document, image, and media formats.
+String? inferMimeType(String name, String? mime) {
+  if (mime != null && mime.trim().isNotEmpty) return mime;
+  final ext = name.contains('.') ? name.split('.').last.toLowerCase() : '';
+  return switch (ext) {
+    'pdf' => 'application/pdf',
+    'png' => 'image/png',
+    'jpg' || 'jpeg' => 'image/jpeg',
+    'webp' => 'image/webp',
+    'gif' => 'image/gif',
+    'mp3' => 'audio/mpeg',
+    'm4a' => 'audio/mp4',
+    'wav' => 'audio/wav',
+    'mp4' => 'video/mp4',
+    'txt' => 'text/plain',
+    'csv' => 'text/csv',
+    'json' => 'application/json',
+    'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'doc' => 'application/msword',
+    'ppt' => 'application/vnd.ms-powerpoint',
+    'xls' => 'application/vnd.ms-excel',
+    'zip' => 'application/zip',
+    _ => null,
+  };
+}
+
 /// One reusable preview for every module's files (chat, projects, tasks, education, property…):
 /// images (zoom), PDF, audio, video, text / CSV / JSON and .lrc (as timed lines). Anything else
 /// shows its name, type and size with "Open with / Share". The file was already downloaded with
 /// the user's own permission (private files are never public URLs).
-Future<void> openFilePreview(BuildContext context, String path, {String? name, String? mime}) =>
-    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute<void>(builder: (_) => FilePreviewScreen(path: path, name: name ?? path.split(Platform.pathSeparator).last, mime: mime)));
+Future<void> openFilePreview(
+  BuildContext context,
+  String path, {
+  String? name,
+  String? mime,
+  Uint8List? bytes,
+}) =>
+    Navigator.of(context, rootNavigator: true).push(
+      MaterialPageRoute<void>(
+        builder: (_) => FilePreviewScreen(
+          path: path,
+          bytes: bytes,
+          name: name ?? path.split(RegExp(r'[/\\]')).last,
+          mime: mime,
+        ),
+      ),
+    );
 
 class FilePreviewScreen extends StatelessWidget {
-  const FilePreviewScreen({super.key, required this.path, required this.name, this.mime});
-  final String path;
+  const FilePreviewScreen({
+    super.key,
+    this.path,
+    this.bytes,
+    required this.name,
+    this.mime,
+  });
+
+  final String? path;
+  final Uint8List? bytes;
   final String name;
   final String? mime;
 
-  Future<void> _share() => SharePlus.instance.share(ShareParams(files: [XFile(path, mimeType: mime)], subject: name));
+  Future<void> _share() {
+    final effectiveMime = inferMimeType(name, mime);
+    if (kIsWeb || (path == null || path!.isEmpty)) {
+      if (bytes != null) {
+        return SharePlus.instance.share(
+          ShareParams(
+            files: [XFile.fromData(bytes!, mimeType: effectiveMime, name: name)],
+            subject: name,
+          ),
+        );
+      }
+    } else {
+      return SharePlus.instance.share(
+        ShareParams(
+          files: [XFile(path!, mimeType: effectiveMime, name: name)],
+          subject: name,
+        ),
+      );
+    }
+    return Future.value();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final kind = fileKindOf(name, mime);
-    final file = File(path);
-    final body = switch (kind) {
-      'image' => InteractiveViewer(maxScale: 6, child: Center(child: Image.file(file))),
-      'pdf' => PdfViewer.file(path, params: const PdfViewerParams()),
-      'audio' => _AudioPreview(path: path),
-      'video' => _VideoPreview(path: path),
-      'text' || 'lrc' => _TextPreview(path: path, lrc: kind == 'lrc'),
-      _ => _FileInfo(name: name, mime: mime, size: file.existsSync() ? file.lengthSync() : 0, onOpen: _share),
-    };
+    final effectiveMime = inferMimeType(name, mime);
+    final kind = fileKindOf(name, effectiveMime);
+    final p = path;
+
+    Widget body;
+    if (bytes != null) {
+      body = switch (kind) {
+        'image' => InteractiveViewer(maxScale: 6, child: Center(child: Image.memory(bytes!))),
+        'pdf' => PdfViewer.data(bytes!, sourceName: name, params: const PdfViewerParams()),
+        'audio' => _AudioPreview(path: p, bytes: bytes),
+        'text' || 'lrc' => _TextPreview(bytes: bytes, lrc: kind == 'lrc'),
+        _ => _FileInfo(name: name, mime: effectiveMime, size: bytes!.length, onOpen: _share),
+      };
+    } else if (!kIsWeb && p != null && p.isNotEmpty) {
+      final file = File(p);
+      body = switch (kind) {
+        'image' => InteractiveViewer(maxScale: 6, child: Center(child: Image.file(file))),
+        'pdf' => PdfViewer.file(p, params: const PdfViewerParams()),
+        'audio' => _AudioPreview(path: p),
+        'video' => _VideoPreview(path: p),
+        'text' || 'lrc' => _TextPreview(path: p, lrc: kind == 'lrc'),
+        _ => _FileInfo(name: name, mime: effectiveMime, size: file.existsSync() ? file.lengthSync() : 0, onOpen: _share),
+      };
+    } else {
+      body = _FileInfo(name: name, mime: effectiveMime, size: 0, onOpen: _share);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(name, maxLines: 1, overflow: TextOverflow.ellipsis),
-        actions: [IconButton(key: const ValueKey('preview-share'), tooltip: l.openWith, icon: const Icon(Icons.ios_share_rounded), onPressed: _share)],
+        actions: [
+          IconButton(
+            key: const ValueKey('preview-share'),
+            tooltip: l.openWith,
+            icon: const Icon(Icons.ios_share_rounded),
+            onPressed: _share,
+          ),
+        ],
       ),
       body: body,
     );
@@ -97,14 +193,26 @@ class _FileInfo extends StatelessWidget {
 }
 
 class _TextPreview extends StatelessWidget {
-  const _TextPreview({required this.path, required this.lrc});
-  final String path;
+  const _TextPreview({this.path, this.bytes, required this.lrc});
+  final String? path;
+  final Uint8List? bytes;
   final bool lrc;
 
   @override
   Widget build(BuildContext context) {
+    Future<String> loadText() async {
+      if (bytes != null) {
+        return utf8.decode(bytes!, allowMalformed: true);
+      }
+      if (path != null && !kIsWeb) {
+        final b = await File(path!).readAsBytes();
+        return utf8.decode(b, allowMalformed: true);
+      }
+      return '';
+    }
+
     return FutureBuilder<String>(
-      future: File(path).readAsBytes().then((b) => utf8.decode(b, allowMalformed: true)),
+      future: loadText(),
       builder: (context, snap) {
         if (!snap.hasData) return const Center(child: CircularProgressIndicator());
         final text = snap.data!.replaceFirst('﻿', '');
@@ -129,8 +237,9 @@ class _TextPreview extends StatelessWidget {
 }
 
 class _AudioPreview extends ConsumerStatefulWidget {
-  const _AudioPreview({required this.path});
-  final String path;
+  const _AudioPreview({this.path, this.bytes});
+  final String? path;
+  final Uint8List? bytes;
   @override
   ConsumerState<_AudioPreview> createState() => _AudioPreviewState();
 }
@@ -141,7 +250,11 @@ class _AudioPreviewState extends ConsumerState<_AudioPreview> {
   @override
   void initState() {
     super.initState();
-    _p.setFilePath(widget.path).catchError((_) => null);
+    if (widget.bytes != null) {
+      _p.setAudioSource(AudioSource.uri(Uri.dataFromBytes(widget.bytes!, mimeType: 'audio/mpeg'))).catchError((_) => null);
+    } else if (widget.path != null && !kIsWeb) {
+      _p.setFilePath(widget.path!).catchError((_) => null);
+    }
   }
 
   @override
@@ -200,12 +313,17 @@ class _VideoPreview extends ConsumerStatefulWidget {
 }
 
 class _VideoPreviewState extends ConsumerState<_VideoPreview> {
-  late final VideoPlayerController _c = VideoPlayerController.file(File(widget.path));
+  late final VideoPlayerController _c;
   bool _ready = false;
 
   @override
   void initState() {
     super.initState();
+    if (!kIsWeb) {
+      _c = VideoPlayerController.file(File(widget.path));
+    } else {
+      _c = VideoPlayerController.networkUrl(Uri.parse(widget.path));
+    }
     _c.initialize().then((_) {
       if (mounted) setState(() => _ready = true);
     }).catchError((_) {});

@@ -58,14 +58,29 @@ class EduQuizScreen extends ConsumerWidget {
     final f = Formatters(l, Localizations.localeOf(context).languageCode);
     final isEn = Localizations.localeOf(context).languageCode != 'am';
 
+    final quizAsync = ref.watch(eduQuizProvider(quizId));
+    final qVal = quizAsync.asData?.value;
+    final title = qVal != null ? eduNames(context, qVal).title : '';
+    final canEdit = asBool(qVal?['can_edit']);
+
     return PatternScaffold(
+      appBar: AppBar(
+        title: Text(title.isNotEmpty ? title : l.elQuiz),
+        actions: [
+          if (canEdit)
+            IconButton(
+              tooltip: !isEn ? 'ፈተናውን አርትዕ' : 'Edit Quiz',
+              icon: const Icon(Icons.edit_outlined),
+              onPressed: () => context.push('/edu/quiz-edit/$quizId').then((_) => ref.invalidate(eduQuizProvider(quizId))),
+            ),
+        ],
+      ),
       body: AsyncView(
-        value: ref.watch(eduQuizProvider(quizId)),
+        value: quizAsync,
         onRetry: () => ref.invalidate(eduQuizProvider(quizId)),
         data: (q) {
-          final title = eduNames(context, q).title;
+          final qTitle = eduNames(context, q).title;
           final instructions = isEn ? (asStr(q['instructions_en']) ?? asStr(q['instructions'])) : (asStr(q['instructions']) ?? asStr(q['instructions_en']));
-          final canEdit = asBool(q['can_edit']);
           final availability = asStr(q['availability']);
           final left = asIntOr(q['attempts_left']);
           final resume = asInt(q['in_progress_attempt_id']);
@@ -74,96 +89,82 @@ class EduQuizScreen extends ConsumerWidget {
           final opens = asDate(q['opens_at']);
           final limit = asInt(q['time_limit_minutes']);
 
-          return Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              title: Text(title.isNotEmpty ? title : l.elQuiz),
-              actions: [
-                if (canEdit)
-                  IconButton(
-                    tooltip: !isEn ? 'ፈተናውን አርትዕ' : 'Edit Quiz',
-                    icon: const Icon(Icons.edit_outlined),
-                    onPressed: () => context.push('/edu/quiz-edit/$quizId').then((_) => ref.invalidate(eduQuizProvider(quizId))),
-                  ),
-              ],
-            ),
-            body: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
-              children: [
-                MaroonCard(
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text(title, style: context.serif(20, color: Colors.white)),
-                    if (q['course_name'] != null || q['class_name'] != null)
-                      Text('${q['course_name'] ?? ''}${q['class_name'] != null ? ' · ${q['class_name']}' : ''}', style: context.sans(12.5, color: Colors.white70)),
-                    const SizedBox(height: 10),
-                    Wrap(spacing: 8, runSpacing: 6, children: [
-                      _chip(context, Icons.help_outline_rounded, l.elQuestionCount(asIntOr(q['question_count']))),
-                      if (limit != null) _chip(context, Icons.timer_outlined, l.elMinutes(limit)),
-                      _chip(context, Icons.replay_rounded, l.elAttemptsLeft(left, asIntOr(q['max_attempts']))),
-                      if (opens != null && availability == 'upcoming') _chip(context, Icons.lock_clock_rounded, l.elOpens(f.date(opens, withWeekday: true))),
-                      if (closes != null) _chip(context, Icons.schedule_rounded, l.elDue(f.date(closes, withWeekday: true))),
-                      if (canEdit && q['status'] == 'draft')
-                        _chip(context, Icons.edit_note_rounded, !isEn ? 'ረቂቅ (Draft)' : 'Draft'),
-                    ]),
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
+            children: [
+              MaroonCard(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(qTitle, style: context.serif(20, color: Colors.white)),
+                  if (q['course_name'] != null || q['class_name'] != null)
+                    Text('${q['course_name'] ?? ''}${q['class_name'] != null ? ' · ${q['class_name']}' : ''}', style: context.sans(12.5, color: Colors.white70)),
+                  const SizedBox(height: 10),
+                  Wrap(spacing: 8, runSpacing: 6, children: [
+                    _chip(context, Icons.help_outline_rounded, l.elQuestionCount(asIntOr(q['question_count']))),
+                    if (limit != null) _chip(context, Icons.timer_outlined, l.elMinutes(limit)),
+                    _chip(context, Icons.replay_rounded, l.elAttemptsLeft(left, asIntOr(q['max_attempts']))),
+                    if (opens != null && availability == 'upcoming') _chip(context, Icons.lock_clock_rounded, l.elOpens(f.date(opens, withWeekday: true))),
+                    if (closes != null) _chip(context, Icons.schedule_rounded, l.elDue(f.date(closes, withWeekday: true))),
+                    if (canEdit && q['status'] == 'draft')
+                      _chip(context, Icons.edit_note_rounded, !isEn ? 'ረቂቅ (Draft)' : 'Draft'),
                   ]),
-                ),
-                if (instructions != null && instructions.isNotEmpty) ...[
-                  SectionHeader(title: l.elInstructions),
-                  AppCard(padding: const EdgeInsets.all(14), child: Text(instructions, style: context.sans(13.5, height: 1.6))),
-                ],
+                ]),
+              ),
+              if (instructions != null && instructions.isNotEmpty) ...[
+                SectionHeader(title: l.elInstructions),
+                AppCard(padding: const EdgeInsets.all(14), child: Text(instructions, style: context.sans(13.5, height: 1.6))),
+              ],
+              const SizedBox(height: 12),
+              AppCard(
+                padding: const EdgeInsets.all(14),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(children: [
+                    Icon(asBool(q['official']) ? Icons.verified_outlined : Icons.school_outlined, color: AppColors.goldDark, size: 20),
+                    const SizedBox(width: 8),
+                    Expanded(child: Text(asBool(q['official']) ? l.elOfficialQuizNote : l.elPracticeScoreNote, style: context.sans(12.5, color: p.muted, height: 1.5))),
+                  ]),
+                  const SizedBox(height: 6),
+                  Text(_policyText(l, asStr(q['review_policy'])), style: context.sans(12.5, color: p.muted, height: 1.5)),
+                ]),
+              ),
+              if (q['my_score'] != null || asBool(q['score_hidden'])) ...[
                 const SizedBox(height: 12),
                 AppCard(
                   padding: const EdgeInsets.all(14),
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Row(children: [
-                      Icon(asBool(q['official']) ? Icons.verified_outlined : Icons.school_outlined, color: AppColors.goldDark, size: 20),
-                      const SizedBox(width: 8),
-                      Expanded(child: Text(asBool(q['official']) ? l.elOfficialQuizNote : l.elPracticeScoreNote, style: context.sans(12.5, color: p.muted, height: 1.5))),
-                    ]),
-                    const SizedBox(height: 6),
-                    Text(_policyText(l, asStr(q['review_policy'])), style: context.sans(12.5, color: p.muted, height: 1.5)),
+                  child: Row(children: [
+                    const Icon(Icons.emoji_events_outlined, color: AppColors.gold),
+                    const SizedBox(width: 10),
+                    Expanded(child: Text(q['my_score'] != null ? l.elQuizScore('${_n(q['my_score'])}/${_n(q['my_max_score'])}') : (asBool(q['needs_grading']) ? l.elAwaitingTeacher : l.elScorePending), style: context.sans(14, weight: FontWeight.w600))),
                   ]),
                 ),
-                if (q['my_score'] != null || asBool(q['score_hidden'])) ...[
-                  const SizedBox(height: 12),
-                  AppCard(
-                    padding: const EdgeInsets.all(14),
-                    child: Row(children: [
-                      const Icon(Icons.emoji_events_outlined, color: AppColors.gold),
-                      const SizedBox(width: 10),
-                      Expanded(child: Text(q['my_score'] != null ? l.elQuizScore('${_n(q['my_score'])}/${_n(q['my_max_score'])}') : (asBool(q['needs_grading']) ? l.elAwaitingTeacher : l.elScorePending), style: context.sans(14, weight: FontWeight.w600))),
-                    ]),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (resume != null)
-                  FilledButton.icon(
-                    onPressed: () => context.push('/edu/attempt/$resume').then((_) => ref.invalidate(eduQuizProvider(quizId))),
-                    icon: const Icon(Icons.play_arrow_rounded),
-                    label: Text(l.elResume),
-                  )
-                else if (availability == 'open' && left > 0)
-                  FilledButton.icon(
-                    onPressed: () => _start(context, ref),
-                    icon: const Icon(Icons.play_arrow_rounded),
-                    label: Text(asIntOr(q['attempts_used']) > 0 ? l.elTryAgain : l.elStartQuiz),
-                  )
-                else if (canEdit)
-                  FilledButton.icon(
-                    onPressed: () => _start(context, ref),
-                    icon: const Icon(Icons.science_outlined),
-                    label: Text(!isEn ? 'ፈተናውን ሞክር / እይ' : 'Preview / Test Quiz'),
-                  ),
-                if (last != null && resume == null) ...[
-                  const SizedBox(height: 8),
-                  OutlinedButton.icon(
-                    onPressed: () => context.push('/edu/attempt/$last'),
-                    icon: const Icon(Icons.visibility_outlined),
-                    label: Text(l.elViewAttempt),
-                  ),
-                ],
               ],
-            ),
+              const SizedBox(height: 20),
+              if (resume != null)
+                FilledButton.icon(
+                  onPressed: () => context.push('/edu/attempt/$resume').then((_) => ref.invalidate(eduQuizProvider(quizId))),
+                  icon: const Icon(Icons.play_arrow_rounded),
+                  label: Text(l.elResume),
+                )
+              else if (availability == 'open' && left > 0)
+                FilledButton.icon(
+                  onPressed: () => _start(context, ref),
+                  icon: const Icon(Icons.play_arrow_rounded),
+                  label: Text(asIntOr(q['attempts_used']) > 0 ? l.elTryAgain : l.elStartQuiz),
+                )
+              else if (canEdit)
+                FilledButton.icon(
+                  onPressed: () => _start(context, ref),
+                  icon: const Icon(Icons.science_outlined),
+                  label: Text(!isEn ? 'ፈተናውን ሞክር / እይ' : 'Preview / Test Quiz'),
+                ),
+              if (last != null && resume == null) ...[
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: () => context.push('/edu/attempt/$last'),
+                  icon: const Icon(Icons.visibility_outlined),
+                  label: Text(l.elViewAttempt),
+                ),
+              ],
+            ],
           );
         },
       ),

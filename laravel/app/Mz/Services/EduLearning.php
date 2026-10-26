@@ -205,7 +205,7 @@ final class EduLearning
     }
 
     /** Subjects of a category (null = every subject); editors also see drafts / archived with [all]. */
-    public static function subjects(AuthContext $auth, ?int $categoryId, bool $all = false): array
+    public static function subjects(AuthContext $auth, ?int $categoryId = null, bool $all = false): array
     {
         if ($categoryId) {
             $c = self::category($categoryId);
@@ -216,8 +216,13 @@ final class EduLearning
         $studying = self::studyingSubjectIds($auth->id);
         $q = DB::table('edu_subjects as s')->leftJoin('edu_categories as c', 'c.id', '=', 's.category_id')
             ->select('s.*', 'c.name as category_name', DB::raw(self::lessonCountSql('s.id') . ' as lesson_count'))
-            ->orderBy('s.sort_order')->orderBy('s.name');
-        if ($categoryId) $q->where('s.category_id', $categoryId);
+            ->orderBy('s.sort_order')->orderBy('s.id');
+        if ($categoryId) {
+            $q->where('s.category_id', $categoryId);
+        } elseif (! ($all && $editor)) {
+            // When listing subjects on the Education entry, return strictly the 7 canonical subjects
+            $q->whereBetween('s.sort_order', [1, 7]);
+        }
         if (! ($all && $editor)) {
             $q->where(fn ($w) => $w->where('s.status', 'published')->orWhereIn('s.id', $teaching ?: [0]));
             if (! $all) $q->where('s.status', '<>', 'archived');
@@ -230,6 +235,175 @@ final class EduLearning
             'enrolled' => in_array((int) $s->id, $studying, true),
             'my_progress' => $progress[(int) $s->id] ?? ['completed' => 0, 'total' => (int) $s->lesson_count, 'percent' => 0],
         ])->all();
+    }
+
+    /** The 12 grades for a subject with content availability. */
+    public static function subjectGrades(AuthContext $auth, int $subjectId): array
+    {
+        $s = self::subject($subjectId);
+        $editor = self::isEditor($auth);
+        $teaching = self::teachingSubjectIds($auth->id);
+        $studying = self::studyingSubjectIds($auth->id);
+
+        $courses = DB::table('edu_courses as co')
+            ->leftJoin('edu_classes as c', 'c.id', '=', 'co.class_id')
+            ->where('co.subject_id', $subjectId)
+            ->where('co.status', 'active')
+            ->select('co.id as course_id', 'co.class_id', 'c.level_id', 'c.name as class_name')
+            ->get();
+
+        $grades = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $matchingCourses = $courses->filter(function ($co) use ($i) {
+                if ($co->level_id && (int) $co->level_id === $i) return true;
+                if ($co->class_name && (preg_match("/(^|[^0-9])$i(ኛ|[^0-9]|$)/u", $co->class_name))) return true;
+                return false;
+            });
+
+            $courseIds = $matchingCourses->pluck('course_id')->all();
+            $quizCount = ! empty($courseIds) ? DB::table('edu_quizzes')->whereIn('course_id', $courseIds)->where('status', 'published')->count() : 0;
+            $hasContent = $matchingCourses->isNotEmpty();
+
+            $grades[] = [
+                'number' => $i,
+                'name' => "{$i}ኛ ክፍል",
+                'code' => "G{$i}",
+                'level_id' => $i,
+                'has_content' => $hasContent,
+                'course_count' => $matchingCourses->count(),
+                'quiz_count' => $quizCount,
+            ];
+        }
+
+        return [
+            'subject' => self::serializeSubject($s) + [
+                'can_open' => self::canOpenWith($s, $editor, $teaching, $studying),
+                'can_edit' => $editor || in_array((int) $s->id, $teaching, true),
+            ],
+            'grades' => $grades,
+        ];
+    }
+
+    /** Content for a specific combination of Subject + Grade (lessons, materials, quizzes). */
+    public static function subjectGradeContent(AuthContext $auth, int $subjectId, int $gradeNumber): array
+    {
+        $s = self::subject($subjectId);
+        $editor = self::isEditor($auth);
+        $teaching = self::teachingSubjectIds($auth->id);
+        $studying = self::studyingSubjectIds($auth->id);
+
+        if ($gradeNumber < 1 || $gradeNumber > 12) {
+            throw ApiError::badRequest('INVALID_GRADE', 'Grade must be between 1 and 12');
+        }
+
+        $coursesQ = DB::table('edu_courses as co')
+            ->leftJoin('edu_classes as c', 'c.id', '=', 'co.class_id')
+            ->leftJoin('users as t', 't.id', '=', 'co.teacher_user_id')
+            ->where('co.subject_id', $subjectId)
+            ->where(function ($w) use ($gradeNumber) {
+                $w->where('c.level_id', $gradeNumber)
+                  ->orWhere('c.name', 'like', "%{$gradeNumber}ኛ%")
+                  ->orWhere('c.name', 'like', "%ክፍል {$gradeNumber}%");
+            });
+
+        if (! $editor) {
+            $coursesQ->where('co.status', 'active');
+        }
+
+        $courses = $coursesQ->select(
+            'co.*',
+            'c.name as class_name',
+            'c.level_id',
+            't.full_name as teacher_name'
+        )->get();
+
+        $courseIds = $courses->pluck('id')->map(fn ($x) => (int) $x)->all();
+
+        // Only return published lessons / units for members
+        $unitsQ = DB::table('edu_units as u')->where('u.subject_id', $subjectId)->orderBy('u.sort_order');
+        if (! $editor) $unitsQ->where('u.status', 'published');
+        $units = $unitsQ->get();
+
+        $lessonsQ = DB::table('edu_lessons as l')->where('l.subject_id', $subjectId)->orderBy('l.sort_order');
+        if (! $editor) $lessonsQ->where('l.status', 'published');
+        $allLessons = $lessonsQ->get();
+
+        // Grade-specific: only return lessons if this grade has courses or content configured
+        $hasGradeCourses = $courses->isNotEmpty();
+        $lessons = $hasGradeCourses ? $allLessons : collect([]);
+
+        $lessonIds = $lessons->pluck('id')->all();
+        $materials = ! empty($lessonIds)
+            ? DB::table('edu_lesson_materials')
+                ->whereIn('lesson_id', $lessonIds)
+                ->orderBy('sort_order')
+                ->get()
+                ->map(fn ($m) => [
+                    'id' => (int) $m->id,
+                    'lesson_id' => (int) $m->lesson_id,
+                    'kind' => $m->kind,
+                    'title' => $m->title,
+                    'title_en' => $m->title_en,
+                    'mime' => $m->mime,
+                    'size' => $m->size ? (int) $m->size : null,
+                    'file_url' => "/edu/materials/{$m->id}/file",
+                ])->all()
+            : [];
+
+        $quizzes = ! empty($courseIds)
+            ? DB::table('edu_quizzes as q')
+                ->whereIn('q.course_id', $courseIds)
+                ->when(! $editor, fn ($q) => $q->where('status', 'published'))
+                ->orderBy('q.id')
+                ->get()
+                ->map(fn ($q) => [
+                    'id' => (int) $q->id,
+                    'course_id' => (int) $q->course_id,
+                    'title' => $q->title,
+                    'title_en' => $q->title_en,
+                    'kind' => $q->kind,
+                    'time_limit_minutes' => $q->time_limit_minutes ? (int) $q->time_limit_minutes : null,
+                    'status' => $q->status,
+                ])->all()
+            : [];
+
+        return [
+            'subject' => self::serializeSubject($s) + [
+                'can_open' => self::canOpenWith($s, $editor, $teaching, $studying),
+                'can_edit' => $editor || in_array((int) $s->id, $teaching, true),
+            ],
+            'grade' => [
+                'number' => $gradeNumber,
+                'name' => "{$gradeNumber}ኛ ክፍል",
+                'code' => "G{$gradeNumber}",
+            ],
+            'courses' => $courses->map(fn ($c) => [
+                'id' => (int) $c->id,
+                'name' => $c->name,
+                'class_name' => $c->class_name,
+                'status' => $c->status,
+                'teacher_name' => $c->teacher_name,
+            ])->all(),
+            'lessons' => $lessons->map(fn ($l) => [
+                'id' => (int) $l->id,
+                'unit_id' => $l->unit_id ? (int) $l->unit_id : null,
+                'title' => $l->title,
+                'title_en' => $l->title_en,
+                'summary' => $l->summary,
+                'est_minutes' => $l->est_minutes ? (int) $l->est_minutes : null,
+                'status' => $l->status,
+                'sort_order' => (int) $l->sort_order,
+            ])->all(),
+            'units' => $units->map(fn ($u) => [
+                'id' => (int) $u->id,
+                'title' => $u->title,
+                'title_en' => $u->title_en,
+                'sort_order' => (int) $u->sort_order,
+                'status' => $u->status,
+            ])->all(),
+            'materials' => $materials,
+            'quizzes' => $quizzes,
+        ];
     }
 
     private static function canOpenWith(object $s, bool $editor, array $teaching, array $studying): bool

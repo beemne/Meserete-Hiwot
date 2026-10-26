@@ -25,6 +25,7 @@ final class EduDashboard
         return [
             'featured' => EduLearning::featured($auth),
             'categories' => EduLearning::categories($auth),
+            'subjects' => EduLearning::subjects($auth, null),
             'continue' => EduLearning::continueLearning($auth),
             'classes' => $overview['classes'],
             'next_sessions' => $overview['next_sessions'],
