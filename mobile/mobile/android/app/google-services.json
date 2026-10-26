@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680470287260",
+    "project_id": "mezmur-zelideta",
+    "storage_bucket": "mezmur-zelideta.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680470287260:android:0647120240d516771dae59",
+        "android_client_info": {
+          "package_name": "com.mezmur.zelideta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEpsh-ezLEiF52aw0h8WsI48Lc2KzSIfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

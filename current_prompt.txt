@@ -1,0 +1,70 @@
+<USER_REQUEST>
+# Antigravity Implementation Prompt: Education Library, In-App File Viewing, Mezmur Audio, and Quiz System Fixes
+
+Project: Meserete Hiwot app (`MH-app-1.5.3`)
+
+## Important Instructions
+
+First inspect the existing project, current implementation, database schema, API endpoints, permissions, and related workflows. Reuse existing working components and follow the current programming languages and architecture.
+
+Identify what is already implemented, what is broken, and what is missing. Do not rebuild working features unnecessarily.
+
+Implement the requirements below in the existing project. Test locally without deploying to production. Do not delete existing user data, quiz attempts, grades, uploaded files, or historical records.
+
+## 1. Digital Books Are Downloadable, Not Borrowable
+
+Maintain the separation between Property Items and the Education Library.
+
+- General items remain controlled by the Property Department.
+- Physical books belong to the Education Library, controlled by the Education Department, and use dedicated library copies and library loans.
+- Digital books are downloadable/readable content. They must not use physical borrowing, checkout, return, due dates, or physical loan records.
+- Digital books must not appear in the Property Items list.
+- General property items must not appear in the Education Books catalog.
+- Books may be related to a course, subject, curriculum unit, or lesson, but these relationships must be optional. General library books must work without any course or subject association.
+- Preserve the existing secure BookVault, file authorization, reader, favorites, narration, and progress functionality.
+
+## 2. Open Supported Uploaded Files Inside the App
+
+Inspect file-upload and file-opening behavior in both the Education and Mezmur modules.
+
+The goal is for users to open supported uploaded files directly inside the app instead of being sent to a browser, an unrelated module, or an unavailable external application whenever an in-app viewer or pl
+<truncated 9803 bytes>
+course or subject links.
+4. Mezmur audio playback using the Mezmur player.
+5. Education audio playback using the Education player.
+6. PDF and other supported file types opening in the correct module.
+7. New ሰሌዳ መጽሔት issue publication and featured banner behavior.
+8. Correct, non-duplicated notifications for new issues and quizzes.
+9. Magazine quizzes remaining linked to their original PDF issues.
+10. Short-answer grade persistence after refresh and re-login.
+11. Student result hiding while manual grading is pending.
+12. Student result visibility only after the required grading and publication conditions are satisfied.
+13. Maximum attempts enforced through both UI and direct backend requests.
+14. Concurrent attempt creation and offline replay protection.
+15. Existing property borrowing, library loans, quiz attempts, grades, and BookVault regression tests.
+
+Run the relevant backend tests, static analysis, and mobile analysis/build checks available in the local environment. Do not deploy to hosting.
+
+## 9. Final Report
+
+After implementation, provide:
+- A concise summary of changes.
+- Root causes of each confirmed bug.
+- Files changed and database migrations created.
+- Tests executed and their actual results.
+- Any unsupported file formats or unresolved issues.
+- Any manual steps still required.
+- Confirmation that no production deployment or destructive data operation occurred.
+
+Inspect first, preserve existing working behavior, implement carefully, and verify the actual results rather than claiming success based only on code changes.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-20T12:36:38+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\HP\Documents\MH-app-1.5.3\scratch\check_diag.php (LANGUAGE_PHP)
+Cursor is on line: 8
+Other open documents:
+- c:\Users\HP\Documents\MH-app-1.5.3\scratch\check_diag.php (LANGUAGE_PHP)
+- c:\Users\HP\Documents\MH-app-1.5.3\scratch\find_cpanel_imunify.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>

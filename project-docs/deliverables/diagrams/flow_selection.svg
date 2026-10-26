@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="907.2pt" height="302.688pt" viewBox="0 0 907.2 302.688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-16T06:33:48.852144</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 302.688 
+L 907.2 302.688 
+L 907.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.056 123.624 
+L 142.794 123.624 
+Q 149.49 123.624 149.49 116.9712 
+L 149.49 58.2048 
+Q 149.49 51.552 142.794 51.552 
+L 25.056 51.552 
+Q 18.36 51.552 18.36 58.2048 
+L 18.36 116.9712 
+Q 18.36 123.624 25.056 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 172.926 123.624 
+L 290.664 123.624 
+Q 297.36 123.624 297.36 116.9712 
+L 297.36 58.2048 
+Q 297.36 51.552 290.664 51.552 
+L 172.926 51.552 
+Q 166.23 51.552 166.23 58.2048 
+L 166.23 116.9712 
+Q 166.23 123.624 172.926 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 320.796 123.624 
+L 438.534 123.624 
+Q 445.23 123.624 445.23 116.9712 
+L 445.23 58.2048 
+Q 445.23 51.552 438.534 51.552 
+L 320.796 51.552 
+Q 314.1 51.552 314.1 58.2048 
+L 314.1 116.9712 
+Q 314.1 123.624 320.796 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 468.666 123.624 
+L 586.404 123.624 
+Q 593.1 123.624 593.1 116.9712 
+L 593.1 58.2048 
+Q 593.1 51.552 586.404 51.552 
+L 468.666 51.552 
+Q 461.97 51.552 461.97 58.2048 
+L 461.97 116.9712 
+Q 461.97 123.624 468.666 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 616.536 123.624 
+L 734.274 123.624 
+Q 740.97 123.624 740.97 116.9712 
+L 740.97 58.2048 
+Q 740.97 51.552 734.274 51.552 
+L 616.536 51.552 
+Q 609.84 51.552 609.84 58.2048 
+L 609.84 116.9712 
+Q 609.84 123.624 616.536 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 764.406 123.624 
+L 882.144 123.624 
+Q 888.84 123.624 888.84 116.9712 
+L 888.84 58.2048 
+Q 888.84 51.552 882.144 51.552 
+L 764.406 51.552 
+Q 757.71 51.552 757.71 58.2048 
+L 757.71 116.9712 
+Q 757.71 123.624 764.406 123.624 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #2e7d4f; stroke: #2e7d4f; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 151.488501 87.588 
+Q 157.860528 87.588 162.890915 87.588 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 158.490915 85.388 
+L 162.890915 87.588 
+L 158.490915 89.788 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 299.358501 87.588 
+Q 305.730528 87.588 310.760915 87.588 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 306.360915 85.388 
+L 310.760915 87.588 
+L 306.360915 89.788 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 447.228501 87.588 
+Q 453.600528 87.588 458.630915 87.588 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 454.230915 85.388 
+L 458.630915 87.588 
+L 454.230915 89.788 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 595.098501 87.588 
+Q 601.470528 87.588 606.500915 87.588 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 602.100915 85.388 
+L 606.500915 87.588 
+L 602.100915 89.788 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 742.968501 87.588 
+Q 749.340528 87.588 754.370915 87.588 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 749.970915 85.388 
+L 754.370915 87.588 
+L 749.970915 89.788 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 320.796 234.504 
+L 438.534 234.504 
+Q 445.23 234.504 445.23 227.8512 
+L 445.23 180.1728 
+Q 445.23 173.52 438.534 173.52 
+L 320.796 173.52 
+Q 314.1 173.52 314.1 180.1728 
+L 314.1 227.8512 
+Q 314.1 234.504 320.796 234.504 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #ffffff; stroke: #b3261e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 379.665 125.624834 
+Q 379.665 148.571191 379.665 170.175906 
+" clip-path="url(#pd5622e4f62)" style="fill: none; stroke: #b3261e; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 381.865 165.775906 
+L 379.665 170.175906 
+L 377.465 165.775906 
+z
+" clip-path="url(#pd5622e4f62)" style="fill: #b3261e; stroke: #b3261e; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Segoe UI'; text-anchor: start; fill: #6e1423" x="15.57" y="23.017112" transform="rotate(-0 15.57 23.017112)">Holiday Mezmur service selection lifecycle</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #8a7a7d" x="15.57" y="33.807584" transform="rotate(-0 15.57 33.807584)">Selections.php — status transitions and the permission each requires (verified in the TRANSITIONS table)</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="83.925" y="81.241084" transform="rotate(-0 83.925 81.241084)">Draft</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(68.852109 101.452898)">created by</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(56.88957 108.717282)">selection.configure</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="231.795" y="81.055976" transform="rotate(-0 231.795 81.055976)">Open</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(200.621914 98.035573)">results computed and</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(203.159961 105.196364)">recomputed as data</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(222.458867 112.296218)">arrives</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="379.665" y="81.180654" transform="rotate(-0 379.665 81.180654)">Review</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(348.433008 98.018308)">required departments</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(356.228438 105.118161)">approve / reject;</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(349.001758 112.313484)">overrides with reason</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="527.535" y="81.191279" transform="rotate(-0 527.535 81.191279)">Finalized</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(495.894219 98.039636)">selection.finalize, after</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(492.185156 105.073347)">all required departments</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(502.838555 112.234138)">approved; locked</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="675.405" y="81.076977" transform="rotate(-0 675.405 81.076977)">Categories</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(642.443398 97.920236)">Mezmur admins assign</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(649.991523 105.054621)">service categories</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(652.473711 112.249944)">&amp; view rankings</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="823.275" y="81.191279" transform="rotate(-0 823.275 81.191279)">Published</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(788.936211 98.051379)">every applicant notified;</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(796.250234 105.246701)">members can send</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(810.263828 112.349475)">feedback</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Segoe UI'; text-anchor: middle; fill: #b3261e" x="379.665" y="198.813373" transform="rotate(-0 379.665 198.813373)">Cancelled</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 6px; font-family: 'Segoe UI'; text-anchor: middle; fill: #b3261e" x="379.665" y="218.991293" transform="rotate(-0 379.665 218.991293)">draft / open / review</text>
+   </g>
+   <g id="text_17">
+    <g id="patch_15">
+     <path d="M 369.301523 153.637356 
+L 390.028477 153.637356 
+Q 391.528477 153.637356 391.528477 152.137356 
+L 391.528477 145.006644 
+Q 391.528477 143.506644 390.028477 143.506644 
+L 369.301523 143.506644 
+Q 367.801523 143.506644 367.801523 145.006644 
+L 367.801523 152.137356 
+Q 367.801523 153.637356 369.301523 153.637356 
+z
+" style="fill: #ffffff; opacity: 0.95"/>
+    </g>
+    <text style="font-size: 7.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="379.665" y="150.558987" transform="rotate(-0 379.665 150.558987)">cancel</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.6px; font-family: 'Segoe UI'; text-anchor: start; fill: #3d2e31" x="18.36" y="264.996" transform="rotate(-0 18.36 264.996)">• Score = 5 weighted components (defaults: class attendance 25, exams 25, Mezmur attendance 30, contribution 10, department participation 10; pass mark 43).</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.6px; font-family: 'Segoe UI'; text-anchor: start; fill: #3d2e31" x="18.36" y="279.4104" transform="rotate(-0 18.36 279.4104)">• Components with no data are excluded and the total is rescaled; each counted component must also reach its minimum. Cancel is possible from draft, open or review.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd5622e4f62">
+   <rect x="7.2" y="7.2" width="892.8" height="288.288"/>
+  </clipPath>
+ </defs>
+</svg>

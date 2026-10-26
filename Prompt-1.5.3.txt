@@ -1,0 +1,68 @@
+step 1
+
+
+Fix and complete the existing in-app Guide/Help Center across the entire application.
+
+**First inspect the existing implementation and fix it in place. Do not rebuild or duplicate the guide unnecessarily.**
+
+### 1. Direct navigation from every guide
+- Every guide instruction, feature explanation, and actionable help item must link to its exact relevant page, section, or function.
+- When a user taps “Open,” “Go to feature,” or a guide step, navigate directly to the actual destination and relevant function, not merely the homepage, dashboard, or a generic screen.
+- Pass required IDs and context, such as program ID, selected record, or settings section, when necessary.
+- If the destination requires multiple steps, guide the user through them in order and open the correct screen at each step.
+- Respect authentication, roles, and permissions. If access is denied, explain why and show the permitted alternative.
+- Handle back navigation correctly so users can return to the guide without losing their place.
+- If a destination is unavailable, show a clear message instead of silently navigating somewhere unrelated.
+
+### 2. Context-aware help on EVERY page
+- Audit all existing mobile and admin pages, screens, tabs, dialogs, and major functions.
+- Provide relevant help for each page and its available actions, not just a few main features.
+- Each page must have a contextual “Help” or “How to use this” action that opens guidance specific to that exact page and function.
+- Explain the page’s purpose, available actions, required permissions, and step-by-step usage in simple language.
+- Include guidance for empty states, errors, forms, filters, settings, approvals, and important actions where useful.
+- Cover all applicable features, including profile and profession, programs, attendance, Mezmur and Education modules, holiday selection and eligibility, scoring and bonuses, feedback, reminders and notifications, reports, department workflows, and administrative settings.
+- Dynamically reflect the actual features enabled and permissions available to the current user.
+
+### 3. Make guide actions functional
+- Audit every guide link, button, step, and navigation target.
+- Replace placeholder links, dead buttons, generic destinations, and incomplete navigation handlers with working implementations.
+- Use the project’s existing routing and navigation architecture.
+- Where supported, highlight the exact target control or section after navigation.
+- If a feature is behind a tab, submenu, or settings section, open the correct parent screen and select the correct destination automatically.
+- Keep the guide synchronized with actual application functionality. Never document a nonexistent feature as if it works.
+
+### 4. User and administrator guidance
+- Show ordinary users only guidance relevant to their permissions.
+- Show administrator guidance only to authorized administrators and provide direct navigation to the corresponding administrative functions.
+- Include the appropriate approval and management workflows, with their actual permission restrictions.
+- Keep first-use guidance skippable and allow users to reopen it later.
+
+### 5. Implementation and verification
+- Inspect the existing Laravel backend, Flutter mobile app, admin interface, routes, permissions, and guide implementation before changing code.
+- Create or update a centralized guide-to-destination mapping if appropriate, avoiding duplicated and hardcoded navigation logic across screens.
+- Preserve existing features, design, authentication, permissions, and project conventions.
+- Test every guide destination and action, including nested navigation, parameters, back navigation, disabled modules, unauthorized users, and unavailable destinations.
+- Verify coverage page by page. Do not consider this complete merely because the guide opens or some links work.
+
+**Finish by providing a concise report:** pages and functions covered, navigation issues fixed, files changed, tests actually run and their results, and any remaining unsupported destinations.
+
+Make the changes directly in the existing project. Do not stop after analysis, give me only recommendations, or ask me to perform unnecessary manual steps. Ask me only if a genuinely blocking requirement cannot be determined from the code.
+
+
+step2 
+
+Continue from our existing conversation and implementation state. Do not restart the project, repeat completed work, or write the final implementation prompt yet.
+
+We have been finalizing additional requirements for Mezmur Zemseretee Hiwot. Preserve all previous decisions and inspect our existing discussion before proceeding.
+
+The confirmed decisions include:
+
+- **Service bonus:** Support fixed and percentage bonuses. Percentage bonuses use an explicitly selected eligible base component. Cap the final Mezmur attendance component at 100% only. A bonus must never inflate other departments' scores or criteria.
+- **Attendance security:** Only the authorized attendance taker can record attendance. Higher admins cannot bypass this restriction. Corrections require a reason and approval from the assigned HR approver. No self-approval; if there is a conflict, another authorized HR approver decides. Block corrections when no approver is assigned. HR-authorized assignment managers control approver assignments. Late attendance must be recorded accurately as attended late when applicable.
+- **Education and Mezmur access:** Authorized hidden top controllers and normal super admins can enable or disable these modules. Individual user settings override group defaults. Disabling a module preserves its data and disables access only. If only one module is enabled, open it directly without showing a module-selection page.
+- **Profession field:** Add a searchable, categorized profession selector during registration, including Other with a required custom description. Authorized admins can manage profession lists. Deactivated professions remain visible for existing users' saved records but cannot be selected by new users. Support filtering by category, exact profession, employment status, and custom Other text.
+- **Reminders:** Combine offline local alarms, server push notifications, and in-app notifications. Admins can enforce reminders for important programs; otherwise, users manage their preferences. Use standard reminder defaults plus authorized, configurable custom times per program. Only explicitly authorized admins can manage mandatory reminder policies. When offline, retain the last scheduled alarm and explain the limitation.
+
+First, review the existing conversation and identify any remaining unresolved business rules, contradictions, or missing requirements. Ask only essential clarification questions, preferably grouped together. Do not implement these requirements or produce the final implementation prompt until we finish reviewing them.
+
+When we finalize everything, I will ask you to produce one complete, concise, implementation-focused prompt for this existing project. It must inspect current code, preserve working features, implement only missing or defective requirements, run local tests, build the mobile app, and report deployment requirements without claiming unverified success.

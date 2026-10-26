@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_expanded_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_bg_rounded"
+    android:padding="12dp">
+
+    <!-- Top Header: Logo, Church Brand, Fasting Tag, Refresh Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/widget_expanded_logo"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@string/widget_church_name" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_expanded_church_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_church_name"
+                android:textColor="@color/widget_gold_light"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/widget_expanded_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_sinksar_label"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="10sp"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <!-- Fasting Status Pill -->
+        <TextView
+            android:id="@+id/widget_expanded_fasting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_fasting_pill"
+            android:text="@string/widget_fasting_label"
+            android:textColor="@color/widget_fasting_text"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone" />
+
+        <!-- Refresh Button -->
+        <ImageButton
+            android:id="@+id/widget_btn_refresh"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/widget_refresh_bg"
+            android:src="@drawable/ic_widget_refresh"
+            android:contentDescription="@string/widget_refresh_label"
+            android:scaleType="centerInside" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/widget_divider"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null" />
+
+    <!-- Dates Row: Ethiopian Date & Gregorian Date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/widget_expanded_eth_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="እሑድ · ጥቅምት 15 ቀን 2019 ዓ.ም"
+            android:textColor="@color/widget_text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/widget_expanded_greg_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oct 25, 2026"
+            android:textColor="@color/widget_gold"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Commemorations & Description Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/widget_card_inset"
+        android:padding="8dp">
+
+        <!-- Annual Feasts -->
+        <TextView
+            android:id="@+id/widget_expanded_annual_feasts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📌 ዓመታዊ፦ ፲፪ቱ ቅዱሳን ሐዋርያት፣ ቅዱስ ቢላሞን ሰማዕት"
+            android:textColor="@color/widget_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="3dp" />
+
+        <!-- Monthly Feasts -->
+        <TextView
+            android:id="@+id/widget_expanded_monthly_feasts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📌 ወርኀዊ፦ ቅዱስ ቂርቆስና እናቱ ኢየሉጣ"
+            android:textColor="@color/widget_cream"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginBottom="3dp" />
+
+        <!-- Verified Summary -->
+        <TextView
+            android:id="@+id/widget_expanded_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="የዕለቱ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ስንክሳር መታሰቢያ"
+            android:textColor="@color/widget_text_muted"
+            android:textSize="10sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <!-- Bottom Status Row: Last Updated & Read Full Sinksar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/widget_expanded_updated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="የተሻሻለው: ዛሬ 08:30"
+            android:textColor="@color/widget_text_faint"
+            android:textSize="9sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/widget_expanded_read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_read_full"
+            android:textColor="@color/widget_gold_light"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

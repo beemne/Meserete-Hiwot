@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">መሠረተ ሕይወት</string>
+    <string name="widget_compact_name">የዕለቱ ስንክሳር (አጭር)</string>
+    <string name="widget_compact_description">የዕለቱ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ስንክሳር እና መታሰቢያ በዋናው ስክሪን ላይ</string>
+    <string name="widget_expanded_name">የዕለቱ ስንክሳር (ዝርዝር)</string>
+    <string name="widget_expanded_description">የዕለቱ ስንክሳር፣ ዓመታዊ እና ወርኀዊ በዓላት ዝርዝር ማጠቃለያ</string>
+    <string name="widget_church_name">መሠረተ ሕይወት</string>
+    <string name="widget_sinksar_label">የዕለቱ ስንክሳር</string>
+    <string name="widget_fasting_label">የጾም ቀን</string>
+    <string name="widget_refresh_label">አድስ</string>
+    <string name="widget_read_full">ሙሉውን ለማንበብ ይንኩ →</string>
+    <string name="widget_offline_cached">(ከመስመር ውጭ)</string>
+    <string name="widget_updated_label">የተሻሻለው: %s</string>
+</resources>

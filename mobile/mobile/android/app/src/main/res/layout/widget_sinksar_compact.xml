@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_compact_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_bg_rounded"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Header Row: Church Branding & Fasting Pill -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+
+        <ImageView
+            android:id="@+id/widget_compact_logo"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@string/widget_church_name" />
+
+        <TextView
+            android:id="@+id/widget_compact_church_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="@string/widget_church_name"
+            android:textColor="@color/widget_gold_light"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/widget_compact_fasting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_fasting_pill"
+            android:text="@string/widget_fasting_label"
+            android:textColor="@color/widget_fasting_text"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Ethiopian Date -->
+    <TextView
+        android:id="@+id/widget_compact_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ጥቅምት 15 ቀን 2019 ዓ.ም"
+        android:textColor="@color/widget_text_primary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginBottom="3dp" />
+
+    <!-- Commemoration of the day -->
+    <TextView
+        android:id="@+id/widget_compact_commemoration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="የዕለቱ ስንክሳር እና መታሰቢያ"
+        android:textColor="@color/widget_cream"
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+</LinearLayout>

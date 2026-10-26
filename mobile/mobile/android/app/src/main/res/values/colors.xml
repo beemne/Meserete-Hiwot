@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#00000000</color>
+    
+    <!-- Sinksar Home-Screen Widget Colors (Ethiopian Orthodox church palette) -->
+    <color name="widget_bg_gradient_start">#2A181D</color>
+    <color name="widget_bg_gradient_end">#150D0F</color>
+    <color name="widget_border_gold">#664B29</color>
+    <color name="widget_surface_card">#231518</color>
+    <color name="widget_card_stroke">#3D252B</color>
+    <color name="widget_divider">#382329</color>
+    
+    <color name="widget_maroon">#6E1423</color>
+    <color name="widget_maroon_dark">#4A0A17</color>
+    <color name="widget_gold">#C8961E</color>
+    <color name="widget_gold_light">#E8C368</color>
+    <color name="widget_cream">#F7E9D8</color>
+    
+    <color name="widget_text_primary">#FFFFFF</color>
+    <color name="widget_text_secondary">#E2D5D7</color>
+    <color name="widget_text_muted">#A8969A</color>
+    <color name="widget_text_faint">#78686C</color>
+    
+    <color name="widget_fasting_pill_bg">#3E1E26</color>
+    <color name="widget_fasting_pill_stroke">#752D3D</color>
+    <color name="widget_fasting_text">#F2A4B2</color>
+    
+    <color name="widget_refresh_bg">#331E24</color>
+    <color name="widget_refresh_stroke">#52323B</color>
+</resources>

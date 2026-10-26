@@ -1,0 +1,8 @@
+# Production Android Keystore Configuration Template
+# Copy this file to android/key.properties and fill in your actual values.
+# NEVER commit android/key.properties or your .jks file to version control.
+
+storePassword=YOUR_KEYSTORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=YOUR_KEY_ALIAS
+storeFile=C:/path/to/your/upload-keystore.jks

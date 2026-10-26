@@ -1,0 +1,223 @@
+<USER_REQUEST>
+# Antigravity Implementation Prompt: Education Library, In-App File Viewing, Mezmur Audio, and Quiz System Fixes
+
+Project: Meserete Hiwot app (`MH-app-1.5.3`)
+
+## Important Instructions
+
+First inspect the existing project, current implementation, database schema, API endpoints, permissions, and related workflows. Reuse existing working components and follow the current programming languages and architecture.
+
+Identify what is already implemented, what is broken, and what is missing. Do not rebuild working features unnecessarily.
+
+Implement the requirements below in the existing project. Test locally without deploying to production. Do not delete existing user data, quiz attempts, grades, uploaded files, or historical records.
+
+## 1. Digital Books Are Downloadable, Not Borrowable
+
+Maintain the separation between Property Items and the Education Library.
+
+- General items remain controlled by the Property Department.
+- Physical books belong to the Education Library, controlled by the Education Department, and use dedicated library copies and library loans.
+- Digital books are downloadable/readable content. They must not use physical borrowing, checkout, return, due dates, or physical loan records.
+- Digital books must not appear in the Property Items list.
+- General property items must not appear in the Education Books catalog.
+- Books may be related to a course, subject, curriculum unit, or lesson, but these relationships must be optional. General library books must work without any course or subject association.
+- Preserve the existing secure BookVault, file authorization, reader, favorites, narration, and progress functionality.
+
+## 2. Open Supported Uploaded Files Inside the App
+
+Inspect file-upload and file-opening behavior in both the Education and Mezmur modules.
+
+The goal is for users to open supported uploaded files directly inside the app instead of being sent to a browser, an unrelated module, or an unavailable external application whenever an in-app viewer or player is supported.
+
+### File types
+
+Inspect all file types currently accepted by the app's upload endpoints and admin screens. Build a clear mapping between each supported type and its appropriate in-app viewer or player.
+
+At minimum, handle the supported formats for:
+- PDF documents
+- Images
+- Audio files
+- Video files, if currently supported
+- Other document formats already accepted by the application
+
+Do not silently claim that every possible file extension can be opened natively. For formats without a suitable in-app renderer, provide a safe, clear fallback such as downloading the file or opening it through an appropriate supported system handler.
+
+Do not broaden accepted upload types without validating security, file size, storage, and compatibility.
+
+### Mezmur audio player
+
+Fix the existing bug where uploaded audio files in the Mezmur module do not open or play correctly.
+
+- Play audio through the app's own Mezmur audio player.
+- Preserve the existing playback controls, including supported lock-screen controls, play/pause, track progress, and audio handling.
+- Verify the actual uploaded audio MIME type, file URL, authentication, download response, and player integration.
+- Support every audio format that the app's existing backend and selected playback engine can reliably decode.
+- Show a useful error when a file is invalid, inaccessible, or unsupported.
+
+### Education file viewer and audio player
+
+- Education files must open through Education's own module-specific viewer or player.
+- Education audio must play through the Education module's player, not the Mezmur player.
+- Mezmur audio must play through the Mezmur player, not the Education player.
+- Keep the two modules' playback state, queues, progress, navigation, and permissions separate.
+- Shared low-level playback or file-viewing utilities may be reused where appropriate, but module-specific player experiences and state must remain independent.
+- Preserve the existing Mezmur and Education navigation and bottom navigation behavior.
+- Respect authentication, permissions, private file storage, and offline behavior.
+
+### File-opening acceptance tests
+
+For each supported type, test files uploaded by an authorized administrator and opened by an authorized member.
+
+Verify:
+1. The correct module opens the file.
+2. The file loads successfully from the actual backend endpoint.
+3. Audio starts and playback controls work.
+4. Private files are not accessible to unauthorized users.
+5. Large files and loading/error states are handled correctly.
+6. Offline behavior is consistent with the app's existing download and cache design.
+7. Opening a file does not unexpectedly switch the user into another module.
+
+## 3. ሰሌዳ መጽሔት: Recurring PDF and Quiz Workflow
+
+Add or complete a dedicated Education feature for ሰሌዳ መጽሔት.
+
+### Administrator and teacher workflow
+
+Authorized Education staff must be able to create a new magazine issue by uploading a PDF.
+
+- Issues may be published monthly or every 15 days.
+- Do not hardcode the publication schedule to one interval. Allow authorized staff to choose the issue date and publication date.
+- Store each issue as a distinct record with a title, issue/period information, PDF file, publication status, and timestamps.
+- Preserve older issues and their associated quizzes.
+- Provide a preview that opens the PDF inside the Education module.
+- Allow authorized staff to create one or more quizzes associated with a specific magazine issue.
+- Quizzes must retain their issue association even if a newer issue is published.
+- Prevent unauthorized users from editing or deleting published issues or quizzes.
+
+### Education featured banner and notifications
+
+- Show the current published ሰሌዳ መጽሔት issue in a featured banner on the Education home page.
+- The banner must display the issue title, publication information, and an action to open the PDF or its associated quiz.
+- Do not show unpublished or scheduled issues as if they were already published.
+- Notify eligible users when a new issue is published.
+- Notify eligible users when a new quiz becomes available.
+- Prevent duplicate notifications for the same publication event.
+- Follow the app's existing notification, permissions, and offline synchronization architecture.
+- Tapping a notification must open the correct issue or quiz inside the app.
+
+### Quiz relationship
+
+Each magazine quiz must be linked to its exact PDF issue. A quiz must not accidentally point to the latest issue when it belongs to an older one.
+
+If PDF text extraction or automatic question generation is not currently implemented, do not pretend that uploading a PDF automatically creates questions. At minimum, allow authorized staff to create questions based on the uploaded issue and clearly show the source issue to teachers and students.
+
+## 4. Fix Short-Answer Grading Persistence
+
+There is a serious grading bug: after a teacher grades a short-answer response, the application displays a message indicating the grade was saved, but the saved grade is not correctly displayed afterward.
+
+Trace the complete workflow across the frontend, API, database, and results screens.
+
+Verify:
+- The teacher's score and feedback are sent using the correct API fields.
+- The backend validates and persists the score and feedback.
+- The grade is associated with the correct student, question, submission, quiz, and attempt.
+- The database transaction succeeds before the UI displays a successful save message.
+- The API response returns the persisted grade.
+- Reopening the grading screen displays the saved grade.
+- Student results update correctly after grading is finalized.
+- Refreshing the page, reopening the app, and syncing offline changes do not lose or overwrite the grade.
+- Existing grades are not accidentally reset or duplicated.
+
+Show a clear loading state while saving, meaningful error feedback on failure, and a success message only after the server confirms persistence.
+
+## 5. Hide Complete Exam Results Until Manual Grading Is Finished
+
+When an exam contains one or more short-answer questions requiring teacher grading, students must not see their overall result before the teacher has graded the required answers.
+
+Implement a reliable result-publication state.
+
+Expected behavior:
+- Objective questions may be automatically graded internally.
+- Short-answer questions requiring manual grading remain pending until the authorized teacher grades them.
+- While any required manual grade remains pending, students must not see the overall score, total marks, final grade, complete result summary, or other information that reveals the final outcome.
+- Do not expose the hidden results through alternate API endpoints, response payloads, cached screens, notifications, or offline data.
+- Teachers and authorized administrators may see grading progress and pending responses according to their permissions.
+- After all required manual grading is completed, make the final result available to the student according to the exam's result-publication policy.
+- If the app supports a separate teacher-controlled result release, preserve that behavior and require release before student access.
+- Saving a partial grade must not accidentally publish the entire exam result.
+
+Define and test the result states, such as `pending_grading`, `graded`, and `published`, using the existing schema where practical. Avoid creating duplicate or contradictory state fields.
+
+## 6. Enforce the Maximum Exam Attempt Count
+
+The configured attempt count is a strict maximum, not a recommendation.
+
+For example, if an exam allows two attempts, a student must not be able to start or submit a third attempt.
+
+Requirements:
+- Validate the maximum attempts on the backend before creating or accepting an attempt.
+- Display the number of attempts used and remaining where appropriate.
+- Prevent extra attempts through repeated button taps, application restarts, direct API requests, concurrent requests, offline synchronization, or replayed submissions.
+- Handle concurrent start requests safely using appropriate database transactions, locks, or constraints supported by the current architecture.
+- Define which states count as an attempt based on the existing quiz rules. Document whether started, submitted, expired, or abandoned attempts count; do not silently change the current policy.
+- Resuming an existing attempt must not create a new attempt.
+- Preserve existing attempts and grades during any migration.
+- Ensure the backend is the source of truth. Hiding or disabling a frontend button alone is insufficient.
+- Return a clear message when the attempt limit has been reached.
+
+## 7. Permissions and Data Integrity
+
+- Reuse existing role and permission systems.
+- Only authorized Education staff may manage magazine issues, create quizzes, grade answers, and publish results.
+- Students must access only their own protected exam responses and results.
+- Validate all uploaded files, MIME types, file sizes, ownership, and access permissions.
+- Do not expose private file paths, correct answers, pending grades, or hidden exam results.
+- Preserve existing offline sync functionality while ensuring that grades, attempts, and publication states cannot be duplicated or overwritten incorrectly.
+- Use backward-compatible, reversible migrations if schema changes are necessary.
+- Never delete production records or deploy to production during this task.
+
+## 8. Required Testing
+
+Add or run appropriate tests for:
+
+1. Physical books versus downloadable digital books.
+2. General items versus Education Library records.
+3. Standalone general books without course or subject links.
+4. Mezmur audio playback using the Mezmur player.
+5. Education audio playback using the Education player.
+6. PDF and other supported file types opening in the correct module.
+7. New ሰሌዳ መጽሔት issue publication and featured banner behavior.
+8. Correct, non-duplicated notifications for new issues and quizzes.
+9. Magazine quizzes remaining linked to their original PDF issues.
+10. Short-answer grade persistence after refresh and re-login.
+11. Student result hiding while manual grading is pending.
+12. Student result visibility only after the required grading and publication conditions are satisfied.
+13. Maximum attempts enforced through both UI and direct backend requests.
+14. Concurrent attempt creation and offline replay protection.
+15. Existing property borrowing, library loans, quiz attempts, grades, and BookVault regression tests.
+
+Run the relevant backend tests, static analysis, and mobile analysis/build checks available in the local environment. Do not deploy to hosting.
+
+## 9. Final Report
+
+After implementation, provide:
+- A concise summary of changes.
+- Root causes of each confirmed bug.
+- Files changed and database migrations created.
+- Tests executed and their actual results.
+- Any unsupported file formats or unresolved issues.
+- Any manual steps still required.
+- Confirmation that no production deployment or destructive data operation occurred.
+
+Inspect first, preserve existing working behavior, implement carefully, and verify the actual results rather than claiming success based only on code changes.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-20T12:36:38+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\HP\Documents\MH-app-1.5.3\scratch\check_diag.php (LANGUAGE_PHP)
+Cursor is on line: 8
+Other open documents:
+- c:\Users\HP\Documents\MH-app-1.5.3\scratch\check_diag.php (LANGUAGE_PHP)
+- c:\Users\HP\Documents\MH-app-1.5.3\scratch\find_cpanel_imunify.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>

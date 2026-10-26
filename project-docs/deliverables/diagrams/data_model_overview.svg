@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="907.2pt" height="568.8pt" viewBox="0 0 907.2 568.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-16T06:33:47.022975</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 568.8 
+L 907.2 568.8 
+L 907.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 382.176 317.664 
+L 525.024 317.664 
+Q 531.72 317.664 531.72 311.0112 
+L 531.72 257.7888 
+Q 531.72 251.136 525.024 251.136 
+L 382.176 251.136 
+Q 375.48 251.136 375.48 257.7888 
+L 375.48 311.0112 
+Q 375.48 317.664 382.176 317.664 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 36.216 118.08 
+L 201.384 118.08 
+Q 208.08 118.08 208.08 111.4272 
+L 208.08 52.6608 
+Q 208.08 46.008 201.384 46.008 
+L 36.216 46.008 
+Q 29.52 46.008 29.52 52.6608 
+L 29.52 111.4272 
+Q 29.52 118.08 36.216 118.08 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 259.416 118.08 
+L 424.584 118.08 
+Q 431.28 118.08 431.28 111.4272 
+L 431.28 52.6608 
+Q 431.28 46.008 424.584 46.008 
+L 259.416 46.008 
+Q 252.72 46.008 252.72 52.6608 
+L 252.72 111.4272 
+Q 252.72 118.08 259.416 118.08 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 482.616 118.08 
+L 647.784 118.08 
+Q 654.48 118.08 654.48 111.4272 
+L 654.48 52.6608 
+Q 654.48 46.008 647.784 46.008 
+L 482.616 46.008 
+Q 475.92 46.008 475.92 52.6608 
+L 475.92 111.4272 
+Q 475.92 118.08 482.616 118.08 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 705.816 118.08 
+L 870.984 118.08 
+Q 877.68 118.08 877.68 111.4272 
+L 877.68 52.6608 
+Q 877.68 46.008 870.984 46.008 
+L 705.816 46.008 
+Q 699.12 46.008 699.12 52.6608 
+L 699.12 111.4272 
+Q 699.12 118.08 705.816 118.08 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 36.216 506.16 
+L 201.384 506.16 
+Q 208.08 506.16 208.08 499.5072 
+L 208.08 440.7408 
+Q 208.08 434.088 201.384 434.088 
+L 36.216 434.088 
+Q 29.52 434.088 29.52 440.7408 
+L 29.52 499.5072 
+Q 29.52 506.16 36.216 506.16 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 259.416 506.16 
+L 424.584 506.16 
+Q 431.28 506.16 431.28 499.5072 
+L 431.28 440.7408 
+Q 431.28 434.088 424.584 434.088 
+L 259.416 434.088 
+Q 252.72 434.088 252.72 440.7408 
+L 252.72 499.5072 
+Q 252.72 506.16 259.416 506.16 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 482.616 506.16 
+L 647.784 506.16 
+Q 654.48 506.16 654.48 499.5072 
+L 654.48 440.7408 
+Q 654.48 434.088 647.784 434.088 
+L 482.616 434.088 
+Q 475.92 434.088 475.92 440.7408 
+L 475.92 499.5072 
+Q 475.92 506.16 482.616 506.16 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 705.816 506.16 
+L 870.984 506.16 
+Q 877.68 506.16 877.68 499.5072 
+L 877.68 440.7408 
+Q 877.68 434.088 870.984 434.088 
+L 705.816 434.088 
+Q 699.12 434.088 699.12 440.7408 
+L 699.12 499.5072 
+Q 699.12 506.16 705.816 506.16 
+z
+" clip-path="url(#p368d885b50)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 120.656992 118.818004 
+Q 286.20007 184.608028 450.496359 249.902553 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 447.219942 246.233072 
+L 450.496359 249.902553 
+L 445.594924 250.321998 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 343.285675 119.612856 
+Q 397.800673 184.608802 451.453494 248.576811 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 450.311524 243.791845 
+L 451.453494 248.576811 
+L 446.940339 246.619408 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 563.914325 119.612856 
+Q 509.399327 184.608802 455.746506 248.576811 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 460.259661 246.619408 
+L 455.746506 248.576811 
+L 456.888476 243.791845 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 786.543008 118.818004 
+Q 620.99993 184.608028 456.703641 249.902553 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 461.605076 250.321998 
+L 456.703641 249.902553 
+L 459.980058 246.233072 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 120.687643 433.431587 
+Q 286.200242 375.875916 450.445631 318.760906 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 445.567147 318.128138 
+L 450.445631 318.760906 
+L 447.012326 322.284032 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 343.386145 432.641938 
+Q 397.801881 375.874037 451.289212 320.074673 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 446.656255 321.72867 
+L 451.289212 320.074673 
+L 449.832635 324.773437 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 563.813855 432.641938 
+Q 509.398119 375.874037 455.910788 320.074673 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 457.367365 324.773437 
+L 455.910788 320.074673 
+L 460.543745 321.72867 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 786.512357 433.431587 
+Q 620.999758 375.875916 456.754369 318.760906 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 460.187674 322.284032 
+L 456.754369 318.760906 
+L 461.632853 318.128138 
+z
+" clip-path="url(#p368d885b50)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 250.717412 470.124 
+Q 230.399322 470.124 211.422872 470.124 
+" clip-path="url(#p368d885b50)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #c8961e; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 215.822872 472.324 
+L 211.422872 470.124 
+L 215.822872 467.924 
+z
+" clip-path="url(#p368d885b50)" style="fill: #c8961e; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #c8961e; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Segoe UI'; text-anchor: start; fill: #6e1423" x="15.57" y="22.968988" transform="rotate(-0 15.57 22.968988)">Data model overview — modules and their main relationships</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #8a7a7d" x="15.57" y="33.785006" transform="rotate(-0 15.57 33.785006)">Every module table references users (members/administrators); arrows show the principal foreign keys verified in the schema</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="453.6" y="279.26332" transform="rotate(-0 453.6 279.26332)">users</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="453.6" y="301.332566" transform="rotate(-0 453.6 301.332566)">roles · permissions · devices · tokens</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="118.8" y="76.044676" transform="rotate(-0 118.8 76.044676)">Members &amp; HR</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(57.318125 91.085309)">member_profiles · member_groups</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(61.7675 99.94109)">departments · user_departments</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(76.310625 108.839371)">profile_change_requests</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="342" y="75.983251" transform="rotate(-0 342 75.983251)">Mezmur &amp; content</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(294.116875 91.083512)">mezmurs · categories · tags</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(304.635625 100.024293)">favorites · downloads</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(301.651875 108.681168)">advertisements · pages</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="565.2" y="75.922704" transform="rotate(-0 565.2 75.922704)">Programs &amp; attendance</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(509.979375 91.126012)">programs · program_categories</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(506.631875 99.981793)">attendance_sessions · attendance</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(503.124375 108.638668)">attendance_signatures · corrections</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="788.4" y="76.044676" transform="rotate(-0 788.4 76.044676)">Education</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(743.230625 91.262965)">edu_classes · edu_courses</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(736.648125 99.91984)">edu_enrollments · edu_scores</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(725.51 108.576715)">edu_subjects · edu_lessons · quizzes</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="118.8" y="464.124676" transform="rotate(-0 118.8 464.124676)">Selection &amp; Mezmur service</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(86.941875 479.243512)">holiday_selections</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(73.93875 488.099293)">selection_results · reviews</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(88.15625 496.756168)">wedding_services</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="342" y="463.990204" transform="rotate(-0 342 463.990204)">Finance &amp; property</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(296.054375 479.052418)">payments · payment_rates</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(298.0525 487.993199)">items · borrowings · fines</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(279.479375 496.848981)">property_requests · library_requests</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="565.2" y="464.002704" transform="rotate(-0 565.2 464.002704)">Projects &amp; chat</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(525.31 479.144059)">projects · project_tasks</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(518.07125 487.99984)">budgets · expenses · issues</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(538.925625 496.855621)">chat_messages</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="788.4" y="464.18327" transform="rotate(-0 788.4 464.18327)">Platform</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(744.566875 479.286012)">notifications · broadcasts</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(745.928125 487.942887)">audit_logs · activity_logs</text>
+    <text style="font-size: 8px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(731.23125 496.798668)">settings · sync_receipts · releases</text>
+   </g>
+   <g id="text_21">
+    <g id="patch_20">
+     <path d="M 223.042344 474.851666 
+L 237.757656 474.851666 
+Q 239.157656 474.851666 239.157656 473.451666 
+L 239.157656 466.796334 
+Q 239.157656 465.396334 237.757656 465.396334 
+L 223.042344 465.396334 
+Q 221.642344 465.396334 221.642344 466.796334 
+L 221.642344 473.451666 
+Q 221.642344 474.851666 223.042344 474.851666 
+z
+" style="fill: #ffffff; opacity: 0.95"/>
+    </g>
+    <text style="font-size: 7px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="230.4" y="471.978521" transform="rotate(-0 230.4 471.978521)">dues</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.6px; font-family: 'Segoe UI'; text-anchor: start; fill: #8a7a7d" x="18.36" y="544.968" transform="rotate(-0 18.36 544.968)">Selection scoring reads attendance (Programs), approved/published exam marks (Education), contributions (Finance) and department participation (Members &amp; HR). Class-to-program links are in development (unreleased).</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p368d885b50">
+   <rect x="7.2" y="7.2" width="892.8" height="554.4"/>
+  </clipPath>
+ </defs>
+</svg>

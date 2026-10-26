@@ -1,0 +1,4216 @@
+{
+  "@@locale": "am",
+  "@@comment": "መዝሙር ዘልደታ — የአማርኛ ጽሑፎች። ሁሉም በመተግበሪያው የሚታዩ ጽሑፎች እዚህ ይገኛሉ። የፊደል ስህተቶችን እዚህ ብቻ ያስተካክሉ።",
+  "appName": "መሠረተ ሕይወት",
+  "schoolName": "መሠረተ ሕይወት ሰንበት ት/ቤት",
+  "churchName": "ደብረ እንቁ ቅድስት ልደታ ለማርያም ቤተ ክርስቲያን",
+  "navHome": "መነሻ",
+  "navPrograms": "ፕሮግራሞች",
+  "navLibrary": "የእኔ",
+  "navNotifications": "ማሳወቂያ",
+  "navSettings": "ማስተካከያ",
+  "ok": "እሺ",
+  "cancel": "ይቅር",
+  "save": "አስቀምጥ",
+  "delete": "ሰርዝ",
+  "edit": "አስተካክል",
+  "retry": "እንደገና ሞክር",
+  "close": "ዝጋ",
+  "confirm": "አረጋግጥ",
+  "yes": "አዎ",
+  "no": "አይ",
+  "search": "ፈልግ",
+  "open": "ክፈት",
+  "seeAll": "ሁሉንም እይ",
+  "loading": "በመጫን ላይ…",
+  "next": "ቀጣይ",
+  "back": "ተመለስ",
+  "create": "ፍጠር",
+  "add": "ጨምር",
+  "send": "ላክ",
+  "select": "ምረጥ",
+  "selectAll": "የሚታዩትን ሁሉ ምረጥ",
+  "clearSelection": "ምርጫ አጽዳ",
+  "apply": "ተግብር",
+  "filter": "አጣራ",
+  "remove": "አስወግድ",
+  "share": "አጋራ",
+  "none": "ምንም",
+  "all": "ሁሉም",
+  "optional": "አማራጭ",
+  "saved": "ተቀምጧል",
+  "deleted": "ተሰርዟል",
+  "done": "ተጠናቋል",
+  "deleteConfirm": "ይህን መሰረዝ ይፈልጋሉ? ይህ ተግባር ሊቀለበስ አይችልም።",
+  "continueAction": "ቀጥል",
+  "details": "ዝርዝር",
+  "notes": "ማስታወሻ",
+  "status": "ሁኔታ",
+  "date": "ቀን",
+  "time": "ሰዓት",
+  "from": "ከ",
+  "to": "እስከ",
+  "change": "ቀይር",
+  "pickDate": "ቀን ይምረጡ",
+  "pickTime": "ሰዓት ይምረጡ",
+  "copied": "ተቀድቷል",
+  "errorNetwork": "የኢንተርኔት ግንኙነት የለም። እባክዎ ግንኙነትዎን ያረጋግጡ።",
+  "errorTimeout": "ምላሽ ለማግኘት ጊዜው አልፏል። እባክዎ እንደገና ይሞክሩ።",
+  "errorUnauthorized": "እባክዎ እንደገና ይግቡ።",
+  "errorForbidden": "ይህን ለማድረግ ፈቃድ የለዎትም።",
+  "errorNotFound": "የተጠየቀው መረጃ አልተገኘም።",
+  "errorValidation": "እባክዎ ያስገቡትን መረጃ ያረጋግጡ።",
+  "errorServer": "ችግር ተፈጥሯል። ትንሽ ቆይተው እንደገና ይሞክሩ።",
+  "errorSessionExpired": "ክፍለ ጊዜዎ አብቅቷል። እባክዎ እንደገና ይግቡ።",
+  "errorOffline": "ከመስመር ውጭ ነዎት",
+  "errorTooMany": "በጣም ብዙ ሙከራዎች ተደርገዋል። ትንሽ ቆይተው ይሞክሩ።",
+  "errorGeneric": "ያልተጠበቀ ስህተት ተፈጥሯል።",
+  "errorFileTooLarge": "ፋይሉ በጣም ትልቅ ነው።",
+  "errorInvalidFileType": "የዚህ ዓይነት ፋይል አይፈቀድም።",
+  "errInvalidCredentials": "ስልክ ቁጥር/ኢሜይል ወይም ፒን ትክክል አይደለም።",
+  "errAccountLocked": "በተደጋጋሚ የተሳሳተ ሙከራ ምክንያት መለያዎ ለጊዜው ተቆልፏል። ከ15 ደቂቃ በኋላ እንደገና ይሞክሩ።",
+  "errAccountDisabled": "መለያዎ ታግዷል። እባክዎ አስተዳዳሪውን ያነጋግሩ።",
+  "errDeviceAlreadyRegistered": "ይህ መለያ በሌላ መሣሪያ ላይ ተመዝግቧል። በዚህ መሣሪያ ለመግባት አስተዳዳሪው መሣሪያዎን ዳግም እንዲያስጀምርልዎ ይጠይቁ።",
+  "errDeviceInUse": "ይህ መሣሪያ በሌላ መለያ ተመዝግቧል። እባክዎ አስተዳዳሪውን ያነጋግሩ።",
+  "errAccountExists": "በዚህ ስልክ ቁጥር ወይም ኢሜይል መለያ አስቀድሞ አለ።",
+  "errPhoneTaken": "ይህ ስልክ ቁጥር አስቀድሞ ተመዝግቧል",
+  "errEmailTaken": "ይህ ኢሜይል አስቀድሞ ተመዝግቧል",
+  "errInvalidResetCode": "ኮዱ ትክክል አይደለም ወይም ጊዜው አልፏል።",
+  "errPasswordChangeRequired": "ለመቀጠል አዲስ ፒን ማዘጋጀት አለብዎት።",
+  "errProgramFull": "ፕሮግራሙ ሞልቷል።",
+  "errProgramEnded": "ፕሮግራሙ ተጠናቋል።",
+  "errDuplicateReminder": "በዚህ ሰዓት ማስታወሻ አስቀድሞ አለ።",
+  "errInsufficientQuantity": "በቂ እቃ በክምችት የለም።",
+  "errItemUnavailable": "እቃው ለውሰት አይገኝም።",
+  "errAlreadyReturned": "ይህ ውሰት አስቀድሞ ተመልሷል።",
+  "errSignatureExists": "ለዚህ ውሰት ፊርማ አስቀድሞ ተሰጥቷል።",
+  "errCategoryNotEmpty": "ምድቡ ንዑስ ምድቦች ወይም መዝሙሮች ስላሉት መሰረዝ አይቻልም። በምትኩ ያቦዝኑት።",
+  "errCategoryCycle": "ምድብን በራሱ ወይም በንዑስ ምድቡ ስር ማድረግ አይቻልም።",
+  "errItemCodeTaken": "ይህ የእቃ ኮድ አስቀድሞ አለ።",
+  "errItemHasActiveBorrowings": "እቃው ያልተመለሱ ውሰቶች አሉት።",
+  "errPermissionNotGrantable": "እርስዎ የሌለዎትን ፈቃድ መስጠት አይችሉም።",
+  "errRoleNotAssignable": "ከእርስዎ ደረጃ እኩል ወይም በላይ የሆነ ሚና መስጠት አይቻልም።",
+  "errAdminNotManageable": "ይህን አስተዳዳሪ ማስተዳደር አይችሉም።",
+  "errCannotModifySelf": "የራስዎን ሚና፣ ፈቃድ ወይም ሁኔታ መቀየር አይችሉም።",
+  "errNoRecipients": "ምንም ተቀባይ አልተመረጠም።",
+  "errSyncConflict": "ይህ መረጃ በሌላ ቦታ ተቀይሯል።",
+  "errRoleInUse": "ሚናው ለአስተዳዳሪዎች ተሰጥቷል።",
+  "errRoleIsSystem": "መሠረታዊ ሚናዎችን መሰረዝ አይቻልም።",
+  "vRequired": "ይህ መስክ ያስፈልጋል",
+  "vInvalidPhone": "ትክክለኛ የኢትዮጵያ ስልክ ቁጥር ያስገቡ (ለምሳሌ 0911223344)",
+  "vInvalidEmail": "ትክክለኛ ኢሜይል ያስገቡ",
+  "vPasswordShort": "ፒኑ ከ4 እስከ 6 ቁጥሮች መሆን አለበት",
+  "vPasswordWeak": "ፒኑ ቁጥሮች ብቻ መሆን አለበት",
+  "vPasswordMismatch": "ፒኖቹ አይመሳሰሉም",
+  "vTooLong": "በጣም ረጅም ነው",
+  "vTooShort": "በጣም አጭር ነው",
+  "vInvalidDate": "ትክክለኛ ቀን ያስገቡ",
+  "vEndBeforeStart": "የማብቂያ ጊዜ ከመጀመሪያው ጊዜ በፊት መሆን አይችልም",
+  "vDeadlineBeforeBorrow": "የመመለሻ ቀን ከተወሰደበት ቀን በፊት መሆን አይችልም",
+  "vReturnBeforeBorrow": "የተመለሰበት ቀን ከተወሰደበት ቀን በፊት መሆን አይችልም",
+  "vNegativeAmount": "መጠኑ ከዜሮ በታች መሆን አይችልም",
+  "vInvalidNumber": "ትክክለኛ ቁጥር ያስገቡ",
+  "vWrongPassword": "የአሁኑ ፒን ትክክል አይደለም",
+  "vPasswordReused": "አዲሱ ፒን ከቀድሞው የተለየ መሆን አለበት",
+  "vHtmlNotAllowed": "ልዩ ምልክቶች (< >) አይፈቀዱም",
+  "vInvalidCode": "ባለ 6 አሃዝ ኮድ ያስገቡ",
+  "vInvalidCondition": "የተመለሰበትን ሁኔታ ይምረጡ",
+  "vInvalidReturnQuantity": "የተመለሰው ብዛት ትክክል አይደለም",
+  "vQuantityBelowBorrowed": "ብዛቱ በውሰት ካለው ብዛት ማነስ አይችልም",
+  "vInvalidValue": "ትክክለኛ ያልሆነ ዋጋ",
+  "vReminderInPast": "ያለፈ ጊዜ መምረጥ አይቻልም",
+  "loginTitle": "እንኳን ደህና መጡ",
+  "loginSubtitle": "ለመቀጠል ወደ መለያዎ ይግቡ",
+  "phoneOrEmail": "ስልክ ቁጥር ወይም ኢሜይል",
+  "password": "ፒን (PIN)",
+  "login": "ግባ",
+  "noAccount": "መለያ የለዎትም?",
+  "register": "ይመዝገቡ",
+  "registerTitle": "አዲስ መለያ ይክፈቱ",
+  "registerSubtitle": "መዝሙሮችን፣ ፕሮግራሞችንና ማሳወቂያዎችን ለማግኘት ይመዝገቡ",
+  "fullName": "ሙሉ ስም",
+  "phone": "ስልክ ቁጥር",
+  "email": "ኢሜይል",
+  "emailOptional": "ኢሜይል (አማራጭ)",
+  "confirmPassword": "ፒኑን ያረጋግጡ",
+  "passwordHelp": "ቢያንስ 8 ፊደላት፤ ፊደልና ቁጥር ይያዝ",
+  "haveAccount": "መለያ አለዎት?",
+  "forgotPassword": "ፒን ረሱ?",
+  "forgotTitle": "ፒን መመለሻ",
+  "forgotHint": "ስልክ ቁጥርዎን ወይም ኢሜይልዎን ያስገቡ። ባለ 6 አሃዝ ኮድ በቴሌግራም (ካገናኙ) ወይም በኢሜይል ይላክልዎታል።",
+  "sendCode": "ኮድ ላክ",
+  "codeSent": "መለያው ካለ የማረጋገጫ ኮድ ተልኳል።",
+  "resetCode": "የማረጋገጫ ኮድ",
+  "newPassword": "አዲስ ፒን",
+  "resetPassword": "ፒን ቀይር",
+  "passwordResetDone": "ፒንዎ ተቀይሯል። አሁን መግባት ይችላሉ።",
+  "changePasswordTitle": "ፒን ቀይር",
+  "currentPassword": "የአሁኑ ፒን",
+  "mustChangePasswordHint": "ለደህንነትዎ ሲባል የራስዎን ፒን (ከ4 እስከ 6 ቁጥሮች) አሁን ያዘጋጁ።",
+  "passwordChanged": "ፒን ተቀይሯል",
+  "logout": "ውጣ",
+  "logoutConfirm": "ከመለያዎ መውጣት ይፈልጋሉ?",
+  "syncPendingLogoutTitle": "{count} ያልተመሳሰሉ መረጃዎች አሉ",
+  "@syncPendingLogoutTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncPendingLogoutBody": "ከመስመር ውጭ የተመዘገቡ {count} መረጃዎች ወደ አገልጋዩ አልተላኩም። አሁን ከወጡ እና ካጠፏቸው በቋሚነት ይጠፋሉ።",
+  "@syncPendingLogoutBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncStaySignedIn": "ሳልወጣ ልቆይ",
+  "syncDiscardAndLogout": "መረጃዎችን አጥፍተህ ውጣ",
+  "syncDiscardConfirmBody": "በእርግጥ {count} ያልተመሳሰሉ ከመስመር ውጭ የተመዘገቡ መረጃዎች እንዲጠፉ ይፈልጋሉ? ይህን እርምጃ መመለስ አይቻልም።",
+  "@syncDiscardConfirmBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncDiscardConfirmBtn": "አጥፍተህ ውጣ",
+  "selContribUseCustomRange": "ብጁ የኢትዮጵያ ወራት ወሰን ተጠቀም",
+  "selContribUseCustomRangeHint": "በምርጫው ቀናት ምትክ ለተወሰኑ የኢትዮጵያ ወራት ክፍያዎችን ይቁጠሩ",
+  "selContribEthYear": "ዓመተ ምሕረት",
+  "selContribStartMonth": "ከወር",
+  "selContribEndMonth": "እስከ ወር",
+  "selContribCountsRange": "ይቆጠራል፡ {startMonth} – {endMonth} {year} ({months} ወራት)",
+  "@selContribCountsRange": {
+    "placeholders": {
+      "startMonth": {
+        "type": "String"
+      },
+      "endMonth": {
+        "type": "String"
+      },
+      "year": {
+        "type": "int"
+      },
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "selContribPaidMonthsCount": "የተከፈሉ ወራት፡ {paid} / {total} ({unpaid} ያልተከፈሉ)",
+  "@selContribPaidMonthsCount": {
+    "placeholders": {
+      "paid": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "unpaid": {
+        "type": "int"
+      }
+    }
+  },
+  "deviceLockedTitle": "መለያው በሌላ መሣሪያ ላይ ነው",
+  "sessionExpiredTitle": "ክፍለ ጊዜው አብቅቷል",
+  "searchHint": "መዝሙር ወይም ምድብ ይፈልጉ",
+  "categories": "ምድቦች",
+  "categoriesCount": "{count} ምድቦች",
+  "@categoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "featured": "የተመረጡ መዝሙሮች",
+  "recentlyAdded": "አዲስ የተጨመሩ",
+  "popular": "ተወዳጅ መዝሙሮች",
+  "upcomingPrograms": "መጪ ፕሮግራሞች",
+  "mezmurCount": "{count, plural, =0{መዝሙር የለም} =1{1 መዝሙር} other{{count} መዝሙሮች}}",
+  "@mezmurCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesShort": "{count} ደቂቃ",
+  "@minutesShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "offlineBanner": "ከመስመር ውጭ ነዎት — የወረዱ መዝሙሮች ይገኛሉ",
+  "offlineBannerWithSync": "ከመስመር ውጭ · ለመጨረሻ ጊዜ የተመሳሰለው {time} · {count, plural, =1{1 ያልተላከ ለውጥ} other{{count} ያልተላኩ ለውጦች}}",
+  "@offlineBannerWithSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "offlineBannerNoPending": "ከመስመር ውጭ · ለመጨረሻ ጊዜ የተመሳሰለው {time}",
+  "@offlineBannerNoPending": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "offlineBannerNoSync": "ከመስመር ውጭ · {count, plural, =1{1 ያልተላከ ለውጥ} other{{count} ያልተላኩ ለውጦች}}",
+  "@offlineBannerNoSync": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncStatusTitle": "የማመሳሰል ሁኔታ",
+  "lastSync": "የመጨረሻው ማመሳሰል",
+  "syncStatusPending": "{count, plural, =1{1 ያልተላከ ለውጥ} other{{count} ያልተላኩ ለውጦች}}",
+  "@syncStatusPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncStatusNoPending": "ምንም ያልተላኩ ለውጦች የሉም",
+  "syncStatusCaptured": "የተመዘገበው፦ {time}",
+  "@syncStatusCaptured": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "syncNow": "አሁን አመሳስል",
+  "syncStatusLastError": "የመጨረሻው የማመሳሰል ስህተት",
+  "needsConnection": "ኢንተርኔት ያስፈልጋል",
+  "offlineNotCached": "ወደፊት ከመስመር ውጭ ለመጠቀም አልተቀመጠም",
+  "notAvailableForAccount": "ለመለያዎ አይፈቀድም",
+  "syncWhatLesson": "የትምህርት ማጠናቀቅ",
+  "syncWhatLibrary": "የቤተ-መጻሕፍት ውሰት/መመለስ",
+  "emptyCategories": "ገና ምድብ አልተጨመረም",
+  "playAll": "ሁሉንም አጫውት",
+  "shuffle": "በዘፈቀደ አጫውት",
+  "subcategories": "ንዑስ ምድቦች",
+  "lyricsOnly": "ግጥም ብቻ",
+  "noMezmursInCategory": "በዚህ ምድብ ውስጥ መዝሙር የለም",
+  "mezmurLabel": "መዝሙር",
+  "lyrics": "ግጥም",
+  "addFavorite": "ወደ ተወዳጆች ጨምር",
+  "removeFavorite": "ከተወዳጆች አስወግድ",
+  "addedToFavorites": "ወደ ተወዳጆች ተጨምሯል",
+  "removedFromFavorites": "ከተወዳጆች ተወግዷል",
+  "download": "አውርድ",
+  "downloaded": "ወርዷል",
+  "downloading": "በማውረድ ላይ",
+  "removeDownload": "ውርዱን አስወግድ",
+  "related": "ተዛማጅ መዝሙሮች",
+  "fontSize": "የፊደል መጠን",
+  "noAudio": "ለዚህ መዝሙር ድምጽ የለም",
+  "openPlayer": "ማጫወቻ ክፈት",
+  "downloadWithAudio": "ከድምጽ ጋር አውርድ",
+  "downloadLyricsOnly": "ግጥሙን ብቻ አውርድ",
+  "offlineCopy": "ከመስመር ውጭ ቅጂ",
+  "nowPlaying": "በመጫወት ላይ",
+  "play": "አጫውት",
+  "pause": "አቁም",
+  "nextTrack": "ቀጣይ",
+  "previousTrack": "ቀዳሚ",
+  "repeat": "ድገም",
+  "viewLyrics": "ግጥሙን እይ",
+  "audioError": "ድምጹን ማጫወት አልተቻለም",
+  "searchTitle": "ፈልግ",
+  "recentSearches": "የቅርብ ጊዜ ፍለጋዎች",
+  "results": "ውጤቶች",
+  "noResults": "ምንም ውጤት አልተገኘም",
+  "categoryResult": "ምድብ · {count}",
+  "@categoryResult": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "mezmurResult": "መዝሙር · {category}",
+  "@mezmurResult": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "clearRecent": "አጽዳ",
+  "searchOfflineNote": "ከመስመር ውጭ — በወረዱ መዝሙሮች ውስጥ ብቻ ተፈልጓል",
+  "searchPrompt": "የመዝሙር ርዕስ ወይም የግጥም ቃል ይጻፉ",
+  "favorites": "ተወዳጆች",
+  "downloads": "የወረዱ",
+  "noFavorites": "ገና ተወዳጅ መዝሙር አልመረጡም",
+  "noDownloads": "ምንም የወረደ መዝሙር የለም",
+  "storageUsed": "ያገለገለ ማከማቻ፦ {size}",
+  "@storageUsed": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadAllFavorites": "ሁሉንም ተወዳጆች አውርድ",
+  "retryDownload": "እንደገና አውርድ",
+  "downloadFailed": "ማውረድ አልተሳካም",
+  "downloadQueued": "በመጠባበቅ ላይ",
+  "removeAllDownloads": "ሁሉንም ውርዶች አስወግድ",
+  "confirmRemoveDownload": "ይህን ውርድ ማስወገድ ይፈልጋሉ?",
+  "confirmRemoveAllDownloads": "ሁሉንም ውርዶች ማስወገድ ይፈልጋሉ?",
+  "staleDownload": "አዲስ ስሪት አለ — እንደገና ያውርዱ",
+  "wifiOnlyBlocked": "በWi-Fi ብቻ ለማውረድ ተመርጧል። ከWi-Fi ጋር ይገናኙ።",
+  "unavailableDownload": "ይህ መዝሙር ከአሁን በኋላ አይገኝም",
+  "programs": "ፕሮግራሞች",
+  "upcoming": "መጪ",
+  "past": "ያለፉ",
+  "mine": "የእኔ",
+  "noPrograms": "ፕሮግራም የለም",
+  "location": "ቦታ",
+  "capacity": "የቦታ ብዛት፦ {count}",
+  "@capacity": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "registerProgram": "ይመዝገቡ",
+  "cancelRegistration": "ምዝገባ ሰርዝ",
+  "registeredForProgram": "ለፕሮግራሙ ተመዝግበዋል",
+  "registered": "ተመዝግበዋል",
+  "invited": "ተጋብዘዋል",
+  "attPresent": "ተገኝተዋል",
+  "attLate": "ዘግይተው ተገኝተዋል",
+  "attAbsent": "አልተገኙም",
+  "attExcused": "በፈቃድ",
+  "setReminder": "ማስታወሻ አዘጋጅ",
+  "programCancelled": "ተሰርዟል",
+  "programCompleted": "ተጠናቋል",
+  "moreInfo": "ተጨማሪ መረጃ",
+  "participantsCount": "{count} ተሳታፊዎች",
+  "@participantsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "registrationRequired": "ምዝገባ ያስፈልጋል",
+  "myAttendanceStatus": "የመገኘት ሁኔታዎ",
+  "reminders": "ማስታወሻዎች",
+  "newReminder": "አዲስ ማስታወሻ",
+  "editReminder": "ማስታወሻ አስተካክል",
+  "reminderTitle": "ርዕስ",
+  "reminderNote": "ማስታወሻ (አማራጭ)",
+  "repeatLabel": "ድግግሞሽ",
+  "repeatNone": "አንድ ጊዜ",
+  "repeatDaily": "በየቀኑ",
+  "repeatWeekly": "በየሳምንቱ",
+  "enabled": "ንቁ",
+  "noReminders": "ማስታወሻ የለም",
+  "reminderSaved": "ማስታወሻ ተቀምጧል",
+  "reminderDefaultTitle": "ፕሮግራም፦ {title}",
+  "@reminderDefaultTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications": "ማሳወቂያዎች",
+  "markAllRead": "ሁሉንም እንደተነበበ ምልክት አድርግ",
+  "noNotifications": "ምንም ማሳወቂያ የለም",
+  "justNow": "አሁን",
+  "minutesAgo": "ከ{count} ደቂቃ በፊት",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "ከ{count} ሰዓት በፊት",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "ከ{count} ቀን በፊት",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unreadOnly": "ያልተነበቡ",
+  "settings": "ማስተካከያ",
+  "account": "መለያ",
+  "appSection": "መተግበሪያ",
+  "language": "ቋንቋ",
+  "amharic": "አማርኛ",
+  "english": "English",
+  "darkMode": "ጨለማ ገጽታ",
+  "autoplay": "በራስ-ሰር አጫውት",
+  "notificationsSection": "ማሳወቂያዎች",
+  "pushEnabled": "ማሳወቂያዎችን ፍቀድ",
+  "eventReminders": "የፕሮግራም ማስታወሻዎች",
+  "borrowingReminders": "የውሰት ማስታወሻዎች",
+  "reminderTime": "የማስታወሻ ሰዓት",
+  "downloadsSection": "ውርዶች",
+  "wifiOnly": "በWi-Fi ብቻ አውርድ",
+  "downloadAudio": "ድምጽንም አብሮ አውርድ",
+  "manageDownloads": "ውርዶችን አስተዳድር",
+  "about": "ስለ",
+  "aboutApp": "ስለ መተግበሪያው",
+  "aboutBody": "መዝሙር ዘልደታ የመሠረተ ሕይወት ሰንበት ት/ቤት የመዝሙር፣ የፕሮግራምና የቤተ መጻሕፍት መተግበሪያ ነው። መዝሙሮችን ያንብቡ፣ ያዳምጡ፣ ከመስመር ውጭ ለመጠቀም ያውርዱ፣ እንዲሁም የሰንበት ት/ቤቱን ፕሮግራሞች ይከታተሉ።",
+  "version": "እትም",
+  "profile": "መገለጫ",
+  "editProfile": "መገለጫ አስተካክል",
+  "myAttendance": "የተገኘሁባቸው ፕሮግራሞች",
+  "myBorrowings": "የተዋስኳቸው እቃዎች",
+  "adminPanel": "የአስተዳዳሪ ፓነል",
+  "profileSaved": "መገለጫ ተቀምጧል",
+  "changePhoto": "ፎቶ ቀይር",
+  "removePhoto": "ፎቶ አስወግድ",
+  "preferredCategories": "ተመራጭ ምድቦች",
+  "preferredCategoriesHint": "ማሳወቂያና ምክረ-ሐሳብ ለማግኘት የሚወዷቸውን ምድቦች ይምረጡ",
+  "myActivity": "የእኔ እንቅስቃሴ",
+  "calendarEthiopian": "ዓ.ም",
+  "calendarGregorian": "እ.ኤ.አ",
+  "borrowings": "ውሰቶች",
+  "borrowedOn": "የተወሰደበት ቀን",
+  "dueOn": "የመመለሻ ቀን",
+  "daysRemaining": "{count} ቀን ቀርቷል",
+  "@daysRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueToday": "ዛሬ መመለስ አለበት",
+  "overdueDays": "በ{count} ቀን ዘግይቷል",
+  "@overdueDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bStatusActive": "በውሰት ላይ",
+  "bStatusReturned": "ተመልሷል",
+  "bStatusPartial": "በከፊል ተመልሷል",
+  "bStatusLost": "ጠፍቷል",
+  "fine": "ቅጣት",
+  "fineAmountValue": "{amount} {currency}",
+  "@fineAmountValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+  "fineNone": "ቅጣት የለም",
+  "finePending": "ያልተከፈለ",
+  "finePaid": "ተከፍሏል",
+  "fineWaived": "ተሰርዟል",
+  "quantity": "ብዛት",
+  "returnCondition": "የተመለሰበት ሁኔታ",
+  "signature": "ፊርማ",
+  "signedAt": "የተፈረመበት ጊዜ",
+  "notSigned": "አልተፈረመም",
+  "noBorrowings": "ምንም ውሰት የለም",
+  "noAttendance": "ገና የተመዘገበ መገኘት የለም",
+  "item": "እቃ",
+  "eventDate": "የዝግጅት ቀን",
+  "ethMonth1": "መስከረም",
+  "ethMonth2": "ጥቅምት",
+  "ethMonth3": "ኅዳር",
+  "ethMonth4": "ታኅሣሥ",
+  "ethMonth5": "ጥር",
+  "ethMonth6": "የካቲት",
+  "ethMonth7": "መጋቢት",
+  "ethMonth8": "ሚያዝያ",
+  "ethMonth9": "ግንቦት",
+  "ethMonth10": "ሰኔ",
+  "ethMonth11": "ሐምሌ",
+  "ethMonth12": "ነሐሴ",
+  "ethMonth13": "ጳጉሜን",
+  "weekday1": "ሰኞ",
+  "weekday2": "ማክሰኞ",
+  "weekday3": "ረቡዕ",
+  "weekday4": "ሐሙስ",
+  "weekday5": "ዓርብ",
+  "weekday6": "ቅዳሜ",
+  "weekday7": "እሑድ",
+  "timeMorning": "ጠዋት",
+  "timeAfternoon": "ከሰዓት",
+  "admin": "አስተዳደር",
+  "dashboard": "ዳሽቦርድ",
+  "users": "ተጠቃሚዎች",
+  "mezmurs": "መዝሙሮች",
+  "advertisements": "ማስታወቂያዎች",
+  "pages": "ውስጣዊ ገጾች",
+  "attendance": "መገኘት",
+  "sendNotification": "ማሳወቂያ ላክ",
+  "borrowing": "ውሰት",
+  "items": "እቃዎች",
+  "fines": "ቅጣቶች",
+  "reports": "ሪፖርቶች",
+  "auditLogs": "የአስተዳደር መዝገብ",
+  "activityLogs": "የተጠቃሚ ሪፖርቶች (እንቅስቃሴ)",
+  "admins": "አስተዳዳሪዎች",
+  "roles": "ሚናዎች",
+  "permissions": "ፈቃዶች",
+  "systemSettings": "የሲስተም ማስተካከያ",
+  "totalUsers": "ጠቅላላ ተጠቃሚዎች",
+  "activeUsers": "ንቁ ተጠቃሚዎች (30 ቀን)",
+  "newUsers": "አዲስ ተጠቃሚዎች (30 ቀን)",
+  "totalMezmurs": "መዝሙሮች",
+  "totalCategories": "ምድቦች",
+  "upcomingProgramsStat": "መጪ ፕሮግራሞች",
+  "attendance30": "መገኘት (30 ቀን)",
+  "activeBorrowings": "ያልተመለሱ ውሰቶች",
+  "overdueBorrowings": "ጊዜ ያለፈባቸው ውሰቶች",
+  "pendingFines": "ያልተከፈለ ቅጣት",
+  "recentActivity": "የቅርብ እንቅስቃሴ",
+  "recentNotifications": "የቅርብ ማሳወቂያዎች",
+  "signups30": "ምዝገባ (30 ቀን)",
+  "statusActive": "ንቁ",
+  "statusDisabled": "የታገደ",
+  "device": "መሣሪያ",
+  "noDevice": "መሣሪያ አልተመዘገበም",
+  "lastLogin": "መጨረሻ የገባበት",
+  "registeredAt": "የተመዘገበበት",
+  "resetDevice": "መሣሪያ ዳግም አስጀምር",
+  "resetDeviceConfirm": "የዚህ ተጠቃሚ መሣሪያ ዳግም ይጀመራል፤ በአሁኑ መሣሪያ ያለው ክፍለ ጊዜ ወዲያውኑ ይዘጋል። ይቀጥሉ?",
+  "resetReason": "ምክንያት (አማራጭ)",
+  "deviceResetDone": "መሣሪያው ዳግም ተጀምሯል",
+  "forceLogout": "ከሁሉም ክፍለ ጊዜዎች አስወጣ",
+  "forceLogoutConfirm": "ተጠቃሚው ከሁሉም ክፍለ ጊዜዎች ይወጣል። ይቀጥሉ?",
+  "disable": "አግድ",
+  "enable": "አንቃ",
+  "disableConfirm": "ይህን መለያ ማገድ ይፈልጋሉ?",
+  "resetUserPassword": "ጊዜያዊ ፒን ስጥ",
+  "tempPasswordTitle": "ጊዜያዊ ፒን",
+  "tempPasswordBody": "{password}\n\nይህ ፒን አንድ ጊዜ ብቻ ይታያል። ተጠቃሚው ሲገባ የራሱን ፒን እንዲያዘጋጅ ይጠየቃል።",
+  "@tempPasswordBody": {
+    "placeholders": {
+      "password": {
+        "type": "String"
+      }
+    }
+  },
+  "deviceHistory": "የመሣሪያ ታሪክ",
+  "selectedCount": "{count} ተመርጠዋል",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAllMatching": "ከማጣሪያው ጋር የሚዛመዱትን ሁሉ ምረጥ",
+  "allMatchingSelected": "ሁሉም የሚዛመዱ ተመርጠዋል ({count})",
+  "@allMatchingSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkNotify": "ማሳወቂያ ላክ",
+  "bulkInvite": "ወደ ፕሮግራም ጋብዝ",
+  "bulkBorrow": "እቃ አዋስ",
+  "bulkConfirm": "{count} ተጠቃሚዎች ተመርጠዋል። ይቀጥሉ?",
+  "@bulkConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "createUser": "ተጠቃሚ ፍጠር",
+  "devBound": "ተመዝግቧል",
+  "devLogin": "ገብቷል",
+  "devLoginRejected": "ውድቅ ተደርጓል",
+  "devReset": "ዳግም ተጀምሯል",
+  "devForceLogout": "እንዲወጣ ተደርጓል",
+  "hasActiveBorrowing": "ያልመለሰ እቃ ያለው",
+  "stats": "አኃዞች",
+  "newMezmur": "አዲስ መዝሙር",
+  "editMezmur": "መዝሙር አስተካክል",
+  "title": "ርዕስ",
+  "description": "መግለጫ",
+  "category": "ምድብ",
+  "noCategory": "ምድብ የለም",
+  "tagsHint": "መለያ ቃላት (በኮማ ይለዩ)",
+  "statusDraft": "ረቂቅ",
+  "statusPublished": "የታተመ",
+  "statusArchived": "የተቀመጠ",
+  "featuredFlag": "የተመረጠ (በመነሻ ላይ ይታይ)",
+  "audio": "ድምጽ",
+  "uploadAudio": "ድምጽ ጫን",
+  "removeAudio": "ድምጽ አስወግድ",
+  "coverImage": "የሽፋን ምስል",
+  "uploadImage": "ምስል ጫን",
+  "removeImage": "ምስል አስወግድ",
+  "audioDuration": "የድምጽ ርዝመት (ሰከንድ)",
+  "uploadDone": "ተጭኗል",
+  "uploading": "በመጫን ላይ…",
+  "saveFirstToUpload": "ፋይል ለመጫን መጀመሪያ ያስቀምጡ",
+  "chooseCategory": "ምድብ ይምረጡ",
+  "newCategory": "አዲስ ምድብ",
+  "editCategory": "ምድብ አስተካክል",
+  "parentCategory": "ዋና ምድብ",
+  "topLevel": "ከፍተኛ ደረጃ (ዋና ምድብ)",
+  "icon": "አዶ",
+  "displayOrder": "ቅደም ተከተል",
+  "active": "ንቁ",
+  "inactive": "የቦዘነ",
+  "addSubcategory": "ንዑስ ምድብ ጨምር",
+  "categoryImage": "የምድብ ሥዕል",
+  "moveUp": "ወደ ላይ",
+  "moveDown": "ወደ ታች",
+  "newAd": "አዲስ ማስታወቂያ",
+  "editAd": "ማስታወቂያ አስተካክል",
+  "adKind": "ዓይነት",
+  "kindAdvertisement": "ማስተዋወቂያ",
+  "kindEvent": "ዝግጅት",
+  "kindAnnouncement": "ማስታወቂያ",
+  "kindCampaign": "ዘመቻ",
+  "kindInfo": "መረጃ",
+  "shortDescription": "አጭር መግለጫ",
+  "startsAt": "የሚጀምርበት",
+  "endsAt": "የሚያበቃበት",
+  "linkedPage": "የሚከፈተው ውስጣዊ ገጽ",
+  "linkedProgram": "የሚከፈተው ፕሮግራም",
+  "noExternalLinks": "ማስታወቂያዎች ወደ ውስጣዊ ገጽ ወይም ፕሮግራም ብቻ ይወስዳሉ።",
+  "newPage": "አዲስ ገጽ",
+  "editPage": "ገጽ አስተካክል",
+  "summary": "ማጠቃለያ",
+  "content": "ይዘት",
+  "ctaLabel": "የቁልፉ ጽሑፍ",
+  "ctaAction": "የቁልፉ ተግባር",
+  "ctaNone": "ቁልፍ የለም",
+  "ctaOpenProgram": "ፕሮግራም ክፈት",
+  "ctaRegisterProgram": "ለፕሮግራም ምዝገባ",
+  "ctaOpenMezmur": "መዝሙር ክፈት",
+  "ctaOpenCategory": "ምድብ ክፈት",
+  "ctaTarget": "የቁልፉ ዒላማ",
+  "gallery": "ምስሎች",
+  "addImage": "ምስል ጨምር",
+  "newProgram": "አዲስ ፕሮግራም",
+  "editProgram": "ፕሮግራም አስተካክል",
+  "requiresRegistration": "ምዝገባ ያስፈልጋል",
+  "requiresAttendance": "መገኘት ይመዘገባል",
+  "capacityLabel": "የቦታ ብዛት (አማራጭ)",
+  "audience": "የማስታወሻ ተቀባዮች",
+  "audienceAll": "ሁሉም ተጠቃሚዎች",
+  "audienceParticipants": "ተሳታፊዎች ብቻ",
+  "reminderEnabled": "ራስ-ሰር ማስታወሻ",
+  "reminderDaysBefore": "ከፕሮግራሙ ስንት ቀን በፊት",
+  "reminderTitleLabel": "የማስታወሻ ርዕስ (አማራጭ)",
+  "reminderBodyLabel": "የማስታወሻ መልዕክት (አማራጭ)",
+  "statusCancelled": "የተሰረዘ",
+  "statusCompleted": "የተጠናቀቀ",
+  "participants": "ተሳታፊዎች",
+  "inviteUsers": "ተጠቃሚዎችን ጋብዝ",
+  "notifyInvited": "ለተጋበዙት ማሳወቂያ ላክ",
+  "invitedResult": "{count} ተጠቃሚዎች ተጋብዘዋል",
+  "@invitedResult": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "attendanceRoster": "የመገኘት መዝገብ",
+  "unmarked": "ያልተመዘገበ",
+  "showAllUsers": "ሁሉንም ተጠቃሚዎች አሳይ",
+  "markSelectedAs": "የተመረጡትን መዝግብ፦",
+  "attendanceSaved": "መገኘቱ ተመዝግቧል",
+  "removeParticipant": "ከተሳታፊዎች አስወግድ",
+  "notificationKind": "የመልዕክት ዓይነት",
+  "kindReminder": "ማስታወሻ",
+  "kindProgramInfo": "የፕሮግራም መረጃ",
+  "kindAdminMessage": "የአስተዳዳሪ መልዕክት",
+  "message": "መልዕክት",
+  "recipients": "ተቀባዮች",
+  "targetSelected": "የተመረጡ ተጠቃሚዎች",
+  "targetFilter": "በማጣሪያ",
+  "targetAll": "ሁሉም ተጠቃሚዎች",
+  "pickUsers": "ተጠቃሚዎችን ምረጥ",
+  "sendConfirm": "ለ{count} ተጠቃሚዎች ይላክ?",
+  "@sendConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sentTo": "ለ{count} ተጠቃሚዎች ተልኳል",
+  "@sentTo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "history": "ታሪክ",
+  "readOf": "{read}/{total} አንብበዋል",
+  "@readOf": {
+    "placeholders": {
+      "read": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "linkTo": "የሚከፈተው (አማራጭ)",
+  "filterStatus": "በሁኔታ",
+  "filterProgram": "በፕሮግራም ተሳታፊነት",
+  "newItem": "አዲስ እቃ",
+  "editItem": "እቃ አስተካክል",
+  "itemName": "የእቃ ስም",
+  "itemCode": "የእቃ ኮድ",
+  "itemCategory": "የእቃ ዓይነት",
+  "condition": "ሁኔታ",
+  "availableOf": "{available}/{total} ይገኛል",
+  "@availableOf": {
+    "placeholders": {
+      "available": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "storageLocation": "የሚቀመጥበት ቦታ",
+  "itemStatusRetired": "ከአገልግሎት ውጭ",
+  "issueBorrowing": "እቃ አዋስ",
+  "bulkBorrowing": "በጅምላ አዋስ",
+  "selectUser": "ተጠቃሚ ምረጥ",
+  "selectUsers": "ተጠቃሚዎችን ምረጥ",
+  "selectItem": "እቃ ምረጥ",
+  "addItem": "እቃ ጨምር",
+  "loanDays": "የውሰት ቀናት",
+  "signHere": "ተዋሹ እዚህ ይፈርሙ",
+  "clearSignature": "ፊርማ አጽዳ",
+  "signFor": "{name} — እባክዎ ይፈርሙ",
+  "@signFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "skipSignature": "ያለ ፊርማ ቀጥል",
+  "signatureRequiredHint": "ፊርማው ተዋሹ እቃውን መቀበሉን ያረጋግጣል።",
+  "borrowingCreated": "ውሰቱ ተመዝግቧል",
+  "bulkCreated": "{count} የውሰት መዝገቦች ተፈጥረዋል",
+  "@bulkCreated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "processReturn": "መመለሱን መዝግብ",
+  "returnedQuantity": "የተመለሰ ብዛት",
+  "returnedOn": "የተመለሰበት ቀን",
+  "returnNotes": "የሁኔታ ማስታወሻ",
+  "fineOverride": "ቅጣት ቀይር",
+  "overrideReason": "ምክንያት",
+  "clearOverride": "ወደ ራስ-ሰር ስሌት መልስ",
+  "markPaid": "እንደተከፈለ ምልክት አድርግ",
+  "waiveFine": "ቅጣቱን ሰርዝ",
+  "issuedBy": "ያዋሰው",
+  "returnedTo": "የተቀበለው",
+  "openBorrowings": "ያልተመለሱ",
+  "overdueFilter": "ጊዜ ያለፈባቸው",
+  "returnConditions": "የመመለሻ ሁኔታዎች",
+  "marksLost": "እንደጠፋ ይቆጠራል",
+  "restock": "ወደ ክምችት ይመለሳል",
+  "finePolicy": "የቅጣት ደንብ",
+  "fineEnabled": "ቅጣት ንቁ ነው",
+  "fineAmount": "የቅጣት መጠን (ብር)",
+  "finePeriod": "የቅጣት ስሌት",
+  "perDay": "በቀን",
+  "perWeek": "በሳምንት",
+  "graceDays": "የእፎይታ ቀናት",
+  "maxFine": "ከፍተኛ ቅጣት (አማራጭ)",
+  "fineOverridden": "በእጅ የተቀየረ",
+  "borrower": "ተዋሽ",
+  "borrowingsDue": "የሚመለሱበት ቀን",
+  "signNow": "አሁን አስፈርም",
+  "reportUsers": "የተጠቃሚ ሪፖርት",
+  "reportMezmurs": "የመዝሙር አጠቃቀም",
+  "reportAttendance": "የመገኘት ሪፖርት",
+  "reportBorrowings": "የውሰት ሪፖርት",
+  "reportNotifications": "የማሳወቂያ ሪፖርት",
+  "reportAdminActivity": "የአስተዳዳሪ እንቅስቃሴ",
+  "topViewed": "በብዛት የታዩ",
+  "topPlayed": "በብዛት የተደመጡ",
+  "topFavorited": "በብዛት የተወደዱ",
+  "topDownloaded": "በብዛት የወረዱ",
+  "topSearches": "በብዛት የተፈለጉ",
+  "registrationsPerDay": "በቀን ምዝገባ",
+  "distinctLogins": "የገቡ ተጠቃሚዎች",
+  "byStatus": "በሁኔታ",
+  "byItem": "በእቃ",
+  "attendedOf": "{attended}/{participants} ተገኝተዋል",
+  "@attendedOf": {
+    "placeholders": {
+      "attended": {
+        "type": "int"
+      },
+      "participants": {
+        "type": "int"
+      }
+    }
+  },
+  "sender": "ላኪ",
+  "countLabel": "ብዛት",
+  "last30Days": "ያለፉት 30 ቀናት",
+  "last7Days": "ያለፉት 7 ቀናት",
+  "last90Days": "ያለፉት 90 ቀናት",
+  "action": "ተግባር",
+  "actor": "አድራጊ",
+  "target": "ዒላማ",
+  "user": "ተጠቃሚ",
+  "newAdmin": "አስተዳዳሪ መድብ",
+  "role": "ሚና",
+  "level": "ደረጃ",
+  "rolePermissions": "የሚናው ፈቃዶች",
+  "extraPermissions": "ተጨማሪ ፈቃዶች",
+  "newRole": "አዲስ ሚና",
+  "roleSlug": "መለያ ስም (a-z, _)",
+  "roleName": "የሚና ስም",
+  "notManageable": "ይህን አስተዳዳሪ ማስተዳደር አይችሉም",
+  "adminCreated": "አስተዳዳሪው ተመድቧል",
+  "perm_users_view": "ተጠቃሚዎችን ማየት",
+  "perm_users_create": "ተጠቃሚ መፍጠር",
+  "perm_users_update": "ተጠቃሚ ማስተካከል",
+  "perm_users_disable": "ተጠቃሚ ማገድ/ማንቃት",
+  "perm_users_reset_device": "መሣሪያ ዳግም ማስጀመር",
+  "perm_mezmurs_view": "መዝሙሮችን ማየት (ረቂቅን ጨምሮ)",
+  "perm_mezmurs_create": "መዝሙር መፍጠር",
+  "perm_mezmurs_update": "መዝሙር ማስተካከል",
+  "perm_mezmurs_delete": "መዝሙር መሰረዝ",
+  "perm_categories_manage": "ምድቦችን ማስተዳደር",
+  "perm_ads_manage": "ማስታወቂያዎችን ማስተዳደር",
+  "perm_pages_manage": "ውስጣዊ ገጾችን ማስተዳደር",
+  "perm_programs_manage": "ፕሮግራሞችን ማስተዳደር",
+  "perm_attendance_manage": "መገኘትን መመዝገብ",
+  "perm_notifications_send": "ማሳወቂያ መላክ",
+  "perm_notifications_send_all": "ለሁሉም ማሳወቂያ መላክ",
+  "perm_borrowing_manage": "ውሰትና መመለስ",
+  "perm_items_manage": "እቃዎችን ማስተዳደር",
+  "perm_fines_manage": "ቅጣቶችን ማስተዳደር",
+  "perm_reports_view": "ሪፖርቶችን ማየት",
+  "perm_audit_logs_view": "የአስተዳደር መዝገብ ማየት",
+  "perm_activity_logs_view": "የተጠቃሚ እንቅስቃሴ ማየት",
+  "perm_admins_view": "አስተዳዳሪዎችን ማየት",
+  "perm_admins_manage": "አስተዳዳሪዎችን ማስተዳደር",
+  "perm_settings_manage": "የሲስተም ማስተካከያ",
+  "reminderSettings": "የማስታወሻ ማስተካከያ",
+  "borrowingDaysBefore": "ከመመለሻ ቀን ስንት ቀን በፊት ማሳወቅ",
+  "overdueRepeatDays": "የዘገየ ማሳወቂያ በየስንት ቀኑ",
+  "defaultLoanDays": "መደበኛ የውሰት ቀናት",
+  "programReminderDefault": "የፕሮግራም ማስታወሻ (መደበኛ)",
+  "notificationRetention": "የተነበቡ ማሳወቂያዎች የሚቆዩበት (ቀን)",
+  "systemLogin": "የሲስተም መግቢያ",
+  "totpCode": "የማረጋገጫ ኮድ (6 አሃዝ)",
+  "systemConsole": "የሲስተም ቁጥጥር",
+  "hiddenEntries": "የተደበቁ መዝገቦች",
+  "visibleEntries": "የሚታዩ መዝገቦች",
+  "deniedAttempts": "ውድቅ የተደረጉ ሙከራዎች (7 ቀን)",
+  "adminsByRole": "አስተዳዳሪዎች በሚና",
+  "allAdmins": "ሁሉም አስተዳዳሪዎች",
+  "act_register": "ተመዘገበ",
+  "act_login": "ገባ",
+  "act_login_failed": "መግባት አልተሳካም",
+  "act_logout": "ወጣ",
+  "act_password_change": "ፒን ቀየረ",
+  "act_password_reset": "ፒን መለሰ",
+  "act_profile_update": "መገለጫ አስተካከለ",
+  "act_device_change": "መሣሪያ ተቀየረ",
+  "act_mezmur_view": "መዝሙር አየ",
+  "act_mezmur_search": "ፈለገ",
+  "act_audio_play": "መዝሙር አጫወተ",
+  "act_audio_complete": "መዝሙር አዳምጦ ጨረሰ",
+  "act_favorite_add": "ተወዳጅ አደረገ",
+  "act_favorite_remove": "ከተወዳጅ አስወገደ",
+  "act_download": "አወረደ",
+  "act_download_remove": "ውርድ አስወገደ",
+  "act_offline_access": "ከመስመር ውጭ ተጠቀመ",
+  "act_program_view": "ፕሮግራም አየ",
+  "act_program_register": "ለፕሮግራም ተመዘገበ",
+  "act_program_unregister": "ምዝገባ ሰረዘ",
+  "act_reminder_create": "ማስታወሻ ፈጠረ",
+  "act_reminder_update": "ማስታወሻ አስተካከለ",
+  "act_reminder_delete": "ማስታወሻ ሰረዘ",
+  "act_notification_open": "ማሳወቂያ ከፈተ",
+  "act_attendance": "ተገኘ",
+  "act_borrow": "እቃ ተዋሰ",
+  "act_return": "እቃ መለሰ",
+  "act_page_view": "ገጽ አየ",
+  "telegram": "ቴሌግራም",
+  "telegramConnect": "ቴሌግራም አገናኝ",
+  "telegramLinked": "ተገናኝቷል",
+  "telegramHint": "ቴሌግራምዎን ካገናኙ የፒን መቀየሪያ ኮድና ጊዜያዊ ፒን በቴሌግራም ይላክልዎታል።",
+  "telegramOpenBot": "ቴሌግራም ይከፈታል። «Start» የሚለውን ይጫኑ፣ ከዚያ ወደ መተግበሪያው ይመለሱ።",
+  "telegramDisconnect": "ግንኙነቱን አቋርጥ",
+  "telegramDisconnectConfirm": "የቴሌግራም ግንኙነቱን ማቋረጥ ይፈልጋሉ?",
+  "errTelegramNotConfigured": "የቴሌግራም ቦት ገና አልተዋቀረም። አስተዳዳሪውን ያነጋግሩ።",
+  "forgotHintTelegram": "ቴሌግራም ካገናኙ ኮዱ በቴሌግራም ይላክልዎታል።",
+  "copy": "ቅዳ",
+  "tempPasswordSentTelegram": "ይህ ፒን ለተጠቃሚው በቴሌግራምም ተልኳል።",
+  "profileChangePending": "የስም/ስልክ ለውጥዎ በአስተዳዳሪ እስኪጸድቅ በመጠባበቅ ላይ ነው፦ {change}",
+  "@profileChangePending": {
+    "placeholders": {
+      "change": {
+        "type": "String"
+      }
+    }
+  },
+  "profileChangeSubmitted": "ለውጡ ለአስተዳዳሪ ተልኳል። ሲጸድቅ ይተገበራል።",
+  "profileApprovalNote": "የስም እና የስልክ ቁጥር ለውጥ በአስተዳዳሪ መጽደቅ አለበት።",
+  "cancelRequest": "ጥያቄውን ሰርዝ",
+  "changeRequests": "የመገለጫ ለውጥ ጥያቄዎች",
+  "approve": "አጽድቅ",
+  "reject": "ውድቅ አድርግ",
+  "approved": "ጸድቋል",
+  "rejected": "ውድቅ ሆኗል",
+  "pendingStatus": "በመጠባበቅ ላይ",
+  "noChangeRequests": "በመጠባበቅ ላይ ያለ ጥያቄ የለም",
+  "currentValue": "የአሁኑ",
+  "requestedValue": "የተጠየቀው",
+  "youtubeLink": "የYouTube ማገናኛ (አማራጭ)",
+  "watchOnYoutube": "በYouTube ይመልከቱ",
+  "vInvalidYoutube": "ትክክለኛ የYouTube ማገናኛ ያስገቡ (youtube.com ወይም youtu.be)",
+  "reminderReturnItem": "«{item}» መመለስ",
+  "@reminderReturnItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "attendanceToday": "የዛሬና መጪ ፕሮግራሞች",
+  "attendanceRecent": "ያለፉ ፕሮግራሞች",
+  "attendanceOnlyAdmins": "የፕሮግራሙን መገኘት የሚመዘግበው የሰው ሀብት ክፍል የመደበው መዝጋቢ ብቻ ነው፤ አባላት ሲመዘገቡ ይፈርማሉ።",
+  "releases": "የመተግበሪያ ስሪቶች",
+  "newRelease": "አዲስ ስሪት ጫን",
+  "versionName": "የስሪት ስም (ለምሳሌ 1.1.0)",
+  "versionCode": "የስሪት ቁጥር (build number)",
+  "releaseNotes": "የለውጥ ማስታወሻ",
+  "mandatoryUpdate": "አስገዳጅ ዝማኔ (የቆዩ እትሞች መዘመን አለባቸው)",
+  "minSupportedCode": "ዝቅተኛ የሚፈቀድ የስሪት ቁጥር (አማራጭ)",
+  "publish": "አትም",
+  "chooseApk": "APK ፋይል ምረጥ",
+  "downloadsCount": "{count} ጊዜ ወርዷል",
+  "@downloadsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "openDownloadPage": "የማውረጃ ገጹን ክፈት",
+  "errVersionExists": "ይህ የስሪት ቁጥር አስቀድሞ አለ።",
+  "vInvalidVersion": "ትክክለኛ የስሪት ስም ያስገቡ (ለምሳሌ 1.1.0)",
+  "unpublish": "ከገጹ አስወግድ",
+  "updateRequiredTitle": "ዝማኔ ያስፈልጋል",
+  "updateRequiredBody": "ለመቀጠል እባክዎ አዲሱን የመተግበሪያ እትም ({version}) ያውርዱና ይጫኑ።",
+  "@updateRequiredBody": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateAvailableTitle": "አዲስ እትም አለ",
+  "updateAvailableBody": "አዲስ የመተግበሪያ እትም ({version}) ተለቋል።",
+  "@updateAvailableBody": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateNow": "አሁን አዘምን",
+  "later": "በኋላ",
+  "checkAgain": "እንደገና አረጋግጥ",
+  "perm_releases_manage": "የመተግበሪያ ስሪቶችን ማስተዳደር",
+  "permissionTitle": "የመቅረት ፈቃድ",
+  "requestPermission": "ፈቃድ ጠይቅ",
+  "permissionReason": "ምክንያት (አማራጭ)",
+  "permissionRequested": "ፈቃድ ተጠይቋል",
+  "permissionPending": "ተጠይቋል — ማረጋገጫ በመጠበቅ ላይ",
+  "permissionApproved": "ፈቃድ ተሰጥቷል — ከመገኘት ነፃ ነዎት",
+  "permissionRejected": "ፈቃድ አልተሰጠም",
+  "cancelPermission": "ጥያቄውን ሰርዝ",
+  "permissionDeadline": "ከ{date} በፊት ይጠይቁ",
+  "@permissionDeadline": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "permissionQuotaMonth": "በዚህ ወር፦ {used} ከ{limit}",
+  "@permissionQuotaMonth": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "permissionQuotaQuarter": "በዚህ ሩብ ዓመት፦ {used} ከ{limit}",
+  "@permissionQuotaQuarter": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "errPermissionDeadline": "ፈቃድ የመጠየቂያ ጊዜ አልፏል",
+  "errPermissionMonthly": "የዚህን ወር ፈቃዶች በሙሉ ተጠቅመዋል",
+  "errPermissionQuarterly": "የዚህን ሩብ ዓመት ፈቃዶች በሙሉ ተጠቅመዋል",
+  "errPermissionExists": "ለዚህ ፕሮግራም አስቀድመው ፈቃድ ጠይቀዋል",
+  "errPermissionRejected": "ለዚህ ፕሮግራም ያቀረቡት ጥያቄ አልተፈቀደም",
+  "errPermissionNotApplicable": "ለዚህ ፕሮግራም ፈቃድ መጠየቅ አይቻልም",
+  "errPermissionDisabled": "የፈቃድ ጥያቄ ለጊዜው ዝግ ነው",
+  "permissionRequests": "የፈቃድ ጥያቄዎች",
+  "noPermissionRequests": "ምንም የፈቃድ ጥያቄ የለም",
+  "permissionPolicy": "የፈቃድ ደንቦች",
+  "permissionsEnabled": "የፈቃድ ጥያቄ ፍቀድ",
+  "permissionDeadlineHours": "የመጠየቂያ ገደብ (ፕሮግራሙ ከመጀመሩ በፊት በሰዓት)",
+  "permissionMonthlyLimit": "በወር ከፍተኛ (ባዶ = ገደብ የለም)",
+  "permissionQuarterlyLimit": "በሩብ ዓመት ከፍተኛ (ባዶ = ገደብ የለም)",
+  "permissionWeight": "የተፈቀደ መቅረት የመገኘት ክብደት (0 – 1)",
+  "permissionWeightHint": "0 እንደ መቅረት፣ 1 እንደ መገኘት፣ 0.5 እንደ ግማሽ ይቆጠራል",
+  "permissionUsage": "በዚህ ወር {month} · በዚህ ሩብ ዓመት {quarter}",
+  "@permissionUsage": {
+    "placeholders": {
+      "month": {
+        "type": "int"
+      },
+      "quarter": {
+        "type": "int"
+      }
+    }
+  },
+  "attendanceRate": "የመገኘት መጠን፦ {rate}%",
+  "@attendanceRate": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "tapForLyrics": "ግጥሙን ለማየት ምስሉን ይንኩ",
+  "noLyricsYet": "ለዚህ መዝሙር ግጥም የለም",
+  "statusPending": "ማረጋገጫ በመጠበቅ ላይ",
+  "errAccountPending": "መለያዎ በአስተዳዳሪ እስኪጸድቅ በመጠበቅ ላይ ነው።",
+  "registerPendingTitle": "ምዝገባዎ ደርሷል",
+  "registerPendingBody": "አስተዳዳሪ መለያዎን ከመረመሩ በኋላ ያጸድቁታል። ከጸደቀ በኋላ መግባት ይችላሉ።",
+  "profileLockedNote": "የመገለጫ መረጃ መቀየር የሚችሉት አስተዳዳሪዎች ብቻ ናቸው። እባክዎ አስተዳዳሪን ያነጋግሩ።",
+  "errProfileLocked": "የመገለጫ ለውጥ የሚደረገው በአስተዳዳሪዎች ነው።",
+  "myProfile": "መገለጫዬ",
+  "todayStudy": "ዛሬ የሚጠኑ",
+  "markToday": "ዛሬ በ«ዛሬ የሚጠኑ» አሳይ",
+  "programKind": "የፕሮግራም ዓይነት",
+  "programGeneral": "አጠቃላይ — ሁሉም ይገኛሉ",
+  "programSpecial": "ልዩ ዝግጅት — የተጋበዙ ብቻ",
+  "eventType": "የዝግጅቱ ዓይነት",
+  "eventWedding": "ሠርግ",
+  "eventHoliday": "በዓል",
+  "eventMemorial": "መታሰቢያ",
+  "eventCelebration": "ክብረ በዓል",
+  "eventOther": "ሌላ",
+  "specialInviteHint": "ካስቀመጡ በኋላ ከ«ተሳታፊዎች» ሰዎችን ይጋብዙ — ዝግጅቱን የሚያዩት እነሱ ብቻ ናቸው።",
+  "checkFields": "እባክዎ የተመለከቱትን መስኮች ያስተካክሉ",
+  "audioOnPhone": "በስልኩ ላይ ያሉ ድምጾች",
+  "browseFiles": "ፋይሎችን አስስ",
+  "audioPermissionNeeded": "ቅጂ ለመምረጥ የድምጽ ፋይሎችን እንዲደርስ ይፍቀዱ።",
+  "allowAccess": "ፍቀድ",
+  "openSettings": "ቅንብሮችን ክፈት",
+  "noAudioFiles": "በዚህ ስልክ ላይ ምንም የድምጽ ፋይል አልተገኘም",
+  "searchAudio": "ቅጂዎችን ፈልግ",
+  "currentRecording": "አሁን ያለው ቅጂ",
+  "noRecordingYet": "እስካሁን ቅጂ አልተያያዘም",
+  "savedForUpload": "ቅጂውን ለማያያዝ መዝሙሩ ተቀምጧል",
+  "lyricsSavedOffline": "ግጥሞች ያለ ኢንተርኔት እንዲሰሩ በራስ-ሰር ይቀመጣሉ",
+  "programAlarm30": "ከመጀመሩ 30 ደቂቃ በፊት ማንቂያ ይደርስዎታል",
+  "programSoonTitle": "በ30 ደቂቃ ይጀምራል",
+  "entityMezmur": "መዝሙር",
+  "entityProgram": "ፕሮግራም",
+  "entityCategory": "ምድብ",
+  "searchedFor": "«{q}» ተፈልጓል · {n} ውጤት",
+  "@searchedFor": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "activityDetails": "ዝርዝር",
+  "closePlayer": "ማጫወቻውን ዝጋ",
+  "relatedMezmurs": "ተዛማጅ መዝሙሮች",
+  "adminAlerts": "ትኩረት የሚሹ",
+  "permissionAsked": "{name} ከ«{title}» ለመቅረት ፈቃድ ጠይቀዋል",
+  "@permissionAsked": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingCount": "{n} በመጠበቅ ላይ",
+  "@pendingCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "noAdminAlerts": "የሚጠብቅዎት ነገር የለም",
+  "editMode": "የማስተካከያ ሁነታ",
+  "editModeOn": "የማስተካከያ ሁነታ፦ ለማስተካከል ✎ ፣ ለመጨመር + ይንኩ",
+  "addNew": "አዲስ ጨምር",
+  "bulkImport": "በጅምላ ማስገቢያ",
+  "importMezmurs": "መዝሙሮች (ግጥም)",
+  "importFormat": "የፋይል ቅርጸት",
+  "importMezmursHelp": "UTF-8 .txt ፋይል። እያንዳንዱ መዝሙር በራሱ ክፍል፤ ክፍሎችን === ባለው መስመር ይለዩ።\nእያንዳንዱ ክፍል በርዕስ መስመሮች ይጀምራል፣ ከዚያ ባዶ መስመር፣ ከዚያ ግጥሙ፦\n  Title: … (ግዴታ)\n  Category: ወላጅ > ንዑስ (አማራጭ፣ ያለ ምድብ መሆን አለበት)\n  Tags: ሀ, ለ (አማራጭ)\n  Status: published ወይም draft (ካልተጻፈ draft)\n  YouTube: https://youtu.be/… (አማራጭ)",
+  "importCategoriesHelp": "UTF-8 .csv ፋይል ከዚህ ርዕስ ጋር፦ name,parent,description,order,active\nparent ያለ ምድብ ወይም ከላይ ያለ ረድፍ ስም (ወይም «ወላጅ > ንዑስ») ነው፤ ለዋና ምድብ ባዶ ይተዉት።",
+  "importUsersHelp": "UTF-8 .csv ፋይል ከዚህ ርዕስ ጋር፦ full_name,phone,email,pin\nemail እና pin ባዶ ሊሆኑ ይችላሉ፤ pin ከ4 እስከ 6 ቁጥሮች ነው። ከሌለ ጊዜያዊ ፒን ተፈጥሮ ከማስገባቱ በኋላ ይታያል፤ ተጠቃሚው በመጀመሪያ ሲገባ የራሱን ማዘጋጀት አለበት።",
+  "shareTemplate": "ናሙናውን አጋራ",
+  "chooseFile": "ፋይል ምረጥ",
+  "checkFile": "ፋይሉን አረጋግጥ",
+  "importNow": "{n} አስገባ",
+  "@importNow": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "importResult": "{ok} ዝግጁ · {skipped} ቀድሞ ያሉ · {failed} ስህተት ያለባቸው",
+  "@importResult": {
+    "placeholders": {
+      "ok": {
+        "type": "int"
+      },
+      "skipped": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
+      }
+    }
+  },
+  "importDone": "{n} ገብተዋል",
+  "@importDone": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "lineN": "መስመር {n}",
+  "@lineN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "tempPasswordsNote": "ለእያንዳንዱ ተጠቃሚ ጊዜያዊ ፒኑን ይስጡ — በመጀመሪያ ሲገቡ የራሳቸውን ማዘጋጀት አለባቸው።",
+  "attachments": "ፋይሎችና አገናኞች",
+  "addFile": "ፋይል ጨምር (PDF / ምስል)",
+  "addLink": "አገናኝ ጨምር",
+  "linkUrl": "አገናኝ (https://…)",
+  "vInvalidUrl": "በ https:// የሚጀምር አገናኝ ያስገቡ",
+  "draftRestored": "ያልተቀመጡ ለውጦችዎ ተመልሰዋል",
+  "discardDraft": "ተው",
+  "savedAsDraft": "እንደ ረቂቅ ተቀምጧል",
+  "draftAutosave": "Save እስኪጫኑ ድረስ ለውጦች እንደ ረቂቅ ይቀመጣሉ",
+  "shareLinkNote": "ይህንን ገጽ በመተግበሪያው ይከፍታል",
+  "todayDate": "ዛሬ",
+  "hubEducation": "ትምህርት",
+  "hubMezmur": "መዝሙር",
+  "hubAboutMe": "ስለ እኔ",
+  "hubEducationSub": "ክፍሎች፣ የጊዜ ሰሌዳ፣ መገኘት፣ የቤት ሥራና ውጤት",
+  "hubMezmurSub": "መዝሙራት፣ ፕሮግራሞች፣ ቤተ መጻሕፍትና ማሳወቂያዎች",
+  "hubAboutMeSub": "መታወቂያዬ፣ የሥራ ክፍሎቼና ወርሃዊ ክፍያዬ",
+  "hubHome": "መነሻ",
+  "hubGreeting": "ሰላም፣ {name}",
+  "@hubGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "myClasses": "ክፍሎቼ",
+  "myDepartments": "የሥራ ክፍሎቼ",
+  "noDepartments": "እስካሁን በየትኛውም የሥራ ክፍል አልተመደቡም",
+  "departmentLead": "የክፍሉ መሪ",
+  "memberQrHint": "ይህንን ኮድ ለመገኘት፣ ለመታወቂያና ለውሰት ያሳዩ",
+  "programRegular": "መደበኛ",
+  "programDistance": "ርቀት",
+  "scanQr": "QR ኮድ ይቃኙ",
+  "scanQrHint": "ካሜራውን ወደ አባሉ QR ኮድ ያመልክቱ",
+  "flashlight": "ባትሪ",
+  "cameraUnavailable": "ካሜራው አልተገኘም። በስልኩ ቅንብሮች ለመተግበሪያው ካሜራ ይፍቀዱ።",
+  "scanMember": "አባል ይቃኙ",
+  "monthlyPayments": "ወርሃዊ መዋጮ",
+  "paymentsAllPaid": "ሁሉም ወራት ተከፍለዋል",
+  "paymentsUnpaid": "{n} ያልተከፈለ ወር",
+  "@paymentsUnpaid": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "paidMonths": "{n} ተከፍሏል",
+  "@paidMonths": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "monthlyAmount": "ወርሃዊ መጠን፦ {amount}",
+  "@monthlyAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "totalPaid": "በአጠቃላይ የተከፈለ",
+  "noPayments": "እስካሁን ክፍያ የለም",
+  "paid": "ተከፍሏል",
+  "notPaid": "አልተከፈለም",
+  "methodCash": "በጥሬ ገንዘብ",
+  "methodBank": "በባንክ",
+  "methodTelebirr": "ቴሌብር",
+  "methodOther": "ሌላ",
+  "amount": "መጠን",
+  "paymentMethod": "የክፍያ ዘዴ",
+  "paymentReference": "ማጣቀሻ / የግብይት ቁጥር",
+  "recordPayment": "መዝግብ",
+  "attachReceipt": "የደረሰኝ ፎቶ አያይዝ",
+  "attachReceiptQ": "የደረሰኝ ፎቶ ይያያዝ?",
+  "viewReceipt": "ደረሰኙን ይመልከቱ",
+  "deletePayment": "ክፍያውን ሰርዝ",
+  "paymentPolicy": "የክፍያ ቅንብሮች",
+  "monthlyAmountLabel": "ወርሃዊ መጠን",
+  "currency": "ገንዘብ",
+  "paymentsStartFrom": "ክፍያ የሚጀምረው ከ",
+  "fromSignUp": "ከተመዘገቡበት ወር",
+  "useSelectedMonth": "የሚታየውን ወር",
+  "paymentsSummary": "{n} ከፍለዋል · {total}",
+  "@paymentsSummary": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "departments": "የሥራ ክፍሎች",
+  "newDepartment": "አዲስ የሥራ ክፍል",
+  "departmentKind": "ዘርፍ",
+  "departmentLeadHint": "መሪ (አስተዳዳሪ)",
+  "deptHr": "የሰው ሀብት",
+  "deptPayments": "ክፍያ",
+  "memberCount": "{n} አባላት",
+  "@memberCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "assignMember": "አባል መድብ",
+  "roleLabel": "የሥራ ድርሻ",
+  "noRoleLabel": "ድርሻ አልተሰጠም",
+  "noMembers": "እስካሁን አባል የለም",
+  "removeMemberConfirm": "ይህ አባል ከሥራ ክፍሉ ይወገድ?",
+  "eduManage": "ክፍሎችን ያስተዳድሩ",
+  "eduRegister": "የክፍል ምዝገባ",
+  "eduOpenCount": "{n} ክፍል(ሎች) ለምዝገባ ክፍት ናቸው",
+  "@eduOpenCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "eduNoOpen": "አሁን ለምዝገባ ክፍት የሆነ ክፍል የለም",
+  "eduUpcoming": "የሚቀጥሉ ክፍለ ጊዜያት",
+  "eduNotEnrolled": "እስካሁን በየትኛውም ክፍል አልተመዘገቡም",
+  "eduTeaching": "የማስተምራቸው",
+  "eduStudentCount": "{n} ተማሪዎች",
+  "@eduStudentCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "eduTakeAttendance": "መገኘት መዝግብ",
+  "eduBorrowings": "የትምህርት ቤተ መጻሕፍት",
+  "eduBorrowingsSub": "ለትምህርት የተዋሷቸው መጻሕፍትና ቁሳቁሶች",
+  "eduChooseProgram": "መርሐ ግብርዎን ይምረጡ",
+  "eduEnrolled": "ተመዝግበዋል",
+  "eduEnroll": "ተመዝገብ",
+  "eduSeats": "{taken} / {total} ቦታዎች",
+  "@eduSeats": {
+    "placeholders": {
+      "taken": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "eduOpensOn": "ምዝገባ የሚከፈተው {date}",
+  "@eduOpensOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "eduClosesOn": "ምዝገባ የሚዘጋው {date}",
+  "@eduClosesOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "eduOpenNow": "ምዝገባ ክፍት ነው",
+  "eduYouAreEnrolled": "ተመዝግበዋል · {program}",
+  "@eduYouAreEnrolled": {
+    "placeholders": {
+      "program": {
+        "type": "String"
+      }
+    }
+  },
+  "eduWithdraw": "ከክፍሉ ውጣ",
+  "eduWithdrawConfirm": "ከዚህ ክፍል ይውጡ?",
+  "eduDetails": "ዝርዝር",
+  "eduAssignments": "የቤት ሥራ",
+  "eduResults": "ውጤት",
+  "eduSchedule": "ሳምንታዊ የጊዜ ሰሌዳ",
+  "eduNoSchedule": "እስካሁን የጊዜ ሰሌዳ የለም",
+  "eduCourses": "ኮርሶች",
+  "eduNoTeacher": "መምህር አልተመደበም",
+  "eduNoAttendanceYet": "እስካሁን መገኘት አልተመዘገበም",
+  "eduNoAssignments": "እስካሁን የቤት ሥራ የለም",
+  "eduGroupWork": "የቡድን ሥራ",
+  "eduDue": "የማስረከቢያ ቀን {date}",
+  "@eduDue": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "eduOpenAttachment": "አባሪውን ክፈት",
+  "eduScore": "{score} / {max}",
+  "@eduScore": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "eduSubmitted": "ተልኳል",
+  "eduResubmit": "እንደገና ላክ",
+  "eduSubmit": "አስረክብ",
+  "eduAnswer": "መልስዎ",
+  "eduAttachFile": "ፋይል አያይዝ (PDF፣ ፎቶ፣ Word…)",
+  "eduNoResults": "እስካሁን ውጤት የለም",
+  "notMarked": "አልተመዘገበም",
+  "eduMarkedPresent": "{name} — ተገኝቷል ✓",
+  "@eduMarkedPresent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "eduNoStudents": "እስካሁን ተማሪ የለም",
+  "eduMarkedCount": "ከ{total} {marked} ተመዝግበዋል",
+  "@eduMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "eduStudents": "ተማሪዎች",
+  "eduAssessments": "የውጤት መግቢያ",
+  "eduGroupMembers": "የቡድኑ አባላት",
+  "eduGroups": "ቡድኖች",
+  "eduNewGroup": "አዲስ ቡድን",
+  "eduNoGroups": "እስካሁን ቡድን የለም",
+  "eduNewAssignment": "አዲስ የቤት ሥራ",
+  "eduSubmissionCount": "{n} አስረክበዋል",
+  "@eduSubmissionCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "eduInstructions": "መመሪያ",
+  "eduDueDate": "የማስረከቢያ ቀን",
+  "eduMaxScore": "ከ",
+  "eduScoreLabel": "ውጤት",
+  "eduFeedback": "አስተያየት",
+  "eduSubmissions": "የተላኩ ሥራዎች",
+  "eduNoSubmissions": "እስካሁን የተላከ ሥራ የለም",
+  "eduGrade": "አርም",
+  "eduNewAssessment": "አዲስ ምዘና",
+  "eduAssessmentHint": "ለምሳሌ የአጋማሽ ፈተና፣ ፈተና 1",
+  "eduWeight": "ክብደት %",
+  "eduNoAssessments": "እስካሁን ምዘና የለም",
+  "eduNewClass": "አዲስ ክፍል",
+  "eduNoClasses": "እስካሁን ክፍል የለም",
+  "eduRegOpen": "ምዝገባ ክፍት",
+  "eduRegClosed": "ምዝገባ ተዘግቷል",
+  "eduNewCourse": "አዲስ ኮርስ",
+  "eduTeacher": "መምህር",
+  "eduAddSession": "ክፍለ ጊዜ ጨምር",
+  "eduWeekday": "ቀን",
+  "eduTerm": "ዓመት / ወቅት",
+  "eduRegOpens": "ምዝገባ የሚከፈትበት",
+  "eduRegCloses": "ምዝገባ የሚዘጋበት",
+  "eduSaveFirst": "ኮርሶችን፣ የጊዜ ሰሌዳንና መገኘት መዝጋቢዎችን ለመጨመር ክፍሉን መጀመሪያ ያስቀምጡ",
+  "eduNoCourses": "እስካሁን ኮርስ የለም",
+  "eduAttendanceTakers": "መገኘት መዝጋቢዎች",
+  "eduNoTakers": "እስካሁን የተመደበ የለም",
+  "eduViewStudents": "ተማሪዎችን ይመልከቱ",
+  "eduRemoveStudent": "ከክፍሉ አስወጣ",
+  "eduRemoveStudentConfirm": "ይህ ተማሪ ከክፍሉ ይውጣ?",
+  "perm_departments_manage": "የሥራ ክፍሎችንና መሪዎቻቸውን ማስተዳደር",
+  "perm_hr_manage": "አባላትን ለሥራ ክፍሎች መመደብ (የሰው ሀብት)",
+  "perm_payments_manage": "ወርሃዊ ክፍያ መመዝገብ",
+  "perm_education_manage": "ክፍሎችን፣ ኮርሶችንና መምህራንን ማስተዳደር (ሞደሬተር)",
+  "navMyLibrary": "የእኔ ስብስብ",
+  "themeToggle": "ገጽታ ቀይር (ብርሃን / ጨለማ)",
+  "userData": "የእኔ መረጃ",
+  "adminSection": "አስተዳደር",
+  "downloadSettings": "የማውረድ ቅንብሮች",
+  "downloadAudioHint": "የመዝሙር ድምፅ በራሱ ይወርዳል (በነባሪ በርቷል)። «በWi-Fi ብቻ» ከበራ በሞባይል ዳታ አይወርድም። ያልተሳኩ ማውረዶች በኋላ እንደገና ይሞከራሉ።",
+  "calendarUpcoming": "የሚመጣ",
+  "calendarNoProgram": "ፕሮግራም የለም",
+  "allCategories": "ሁሉም",
+  "previousMonth": "ያለፈው ወር",
+  "nextMonth": "የሚቀጥለው ወር",
+  "attendanceStats": "የመገኘት ስታቲስቲክስ",
+  "totalPrograms": "ጠቅላላ",
+  "memberIdLabel": "መ/ሕ/ተማሪ {id}",
+  "@memberIdLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "tapToShowId": "መለያ ቁጥሩን ለማየት ይንኩ",
+  "pickFromGallery": "ከፎቶዎች ምረጥ",
+  "takePhoto": "ፎቶ አንሳ",
+  "photoUpdated": "ፎቶዎ ተቀይሯል",
+  "choirTitle": "መዘምራን",
+  "choirWerebMezmur": "ወረብ እና መዝሙር",
+  "choirMezmurOnly": "መዝሙር ብቻ",
+  "choirEligible": "ብቁ",
+  "choirNotEligible": "ገና ብቁ አይደሉም",
+  "choirPassing": "ማለፊያ ነጥብ፦ {score}",
+  "@choirPassing": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "choirEducation": "ትምህርት (መገኘት)",
+  "choirMezmurAttendance": "መዝሙር (መገኘት)",
+  "choirParticipation": "ሌሎች ተሳትፎዎች",
+  "choirPayment": "ወርሃዊ ክፍያ",
+  "choirSelectedOn": "የተመረጡበት ቀን፦ {date}",
+  "@choirSelectedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notifGateTitle": "ማሳወቂያዎችን ይፍቀዱ",
+  "notifGateBody": "የፕሮግራም ማስታወሻዎች፣ የመገኘት መረጃ፣ የፈቃድ ምላሾች እና ማስታወቂያዎች የሚደርሱዎት በማሳወቂያ ነው። መተግበሪያውን ለመጠቀም ማሳወቂያዎችን መፍቀድ ግዴታ ነው።",
+  "notifGateAllow": "ማሳወቂያዎችን ፍቀድ",
+  "notifGateOpenSettings": "የስልኩን ቅንብሮች ክፈት",
+  "programCategory": "የፕሮግራም ምድብ",
+  "programCategoryDefault": "ካልተመረጠ፦ አጠቃላይ",
+  "programCategories": "የፕሮግራም ምድቦች",
+  "newProgramCategory": "አዲስ ምድብ",
+  "editProgramCategory": "ምድብ አስተካክል",
+  "categoryNameAm": "ስም (አማርኛ)",
+  "categoryNameEn": "ስም (እንግሊዝኛ)",
+  "categoryColor": "ቀለም",
+  "deleteCategoryConfirm": "ይህ ምድብ ይሰረዝ? በፕሮግራሞች ላይ ጥቅም ላይ ከዋለ አይሰረዝም፤ ይቦዝናል።",
+  "recurrence": "ድግግሞሽ",
+  "recurrenceOnce": "አንድ ቀን",
+  "recurrenceWeekly": "በየሳምንቱ",
+  "recurrenceMonthly": "በየወሩ",
+  "monthlyRule": "ወርሃዊ ደንብ",
+  "monthlyRuleDay": "በየወሩ ተመሳሳይ ቀን (ቀኑ ከሌለ የወሩ መጨረሻ)",
+  "monthlyRuleWeekday": "በየወሩ ተመሳሳይ ሳምንትና ዕለት (ለምሳሌ 2ኛው እሑድ)",
+  "recurrenceUntil": "እስከ (ካልተሞላ ማብቂያ የለውም)",
+  "everyWeekday": "በየሳምንቱ {weekday}",
+  "@everyWeekday": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      }
+    }
+  },
+  "everyNthWeekday": "በየወሩ {n}ኛው {weekday}",
+  "@everyNthWeekday": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "weekday": {
+        "type": "String"
+      }
+    }
+  },
+  "everyMonthDay": "በየወሩ በ{day}ኛው ቀን",
+  "@everyMonthDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "untilDate": "እስከ {date}",
+  "@untilDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "nextOccurrenceLabel": "ቀጣዩ ቀን",
+  "occurrenceDate": "የፕሮግራሙ ቀን",
+  "today": "ዛሬ",
+  "attendanceCleared": "ምዝገባው ተሰርዟል",
+  "attendanceNotOpen": "መገኘት መመዝገብ የሚቻለው በፕሮግራሙ ቀን ነው።",
+  "attendanceNeedsConnection": "መገኘት ለመመዝገብ የኢንተርኔት ግንኙነት ያስፈልጋል።",
+  "expectedMembers": "የሚጠበቁ",
+  "choirSelected": "የተመረጡ",
+  "choirRefresh": "ነጥብ እንደገና አስላ",
+  "choirRefreshed": "{count} አባላት ተሰልተዋል፤ {newly} አዲስ ብቁ",
+  "@choirRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "newly": {
+        "type": "String"
+      }
+    }
+  },
+  "choirPolicy": "የመዘምራን መስፈርት",
+  "choirWeights": "የነጥብ ክብደት (ድምሩ 100)",
+  "choirWeightsTotal": "ድምር፦ {total} / 100",
+  "@choirWeightsTotal": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "choirWeightsMust100": "የክብደቶቹ ድምር 100 መሆን አለበት",
+  "choirPassingScore": "ማለፊያ ነጥብ (0–100)",
+  "choirWindow": "የግምገማ ጊዜ (ወራት)",
+  "choirEducationCats": "ለትምህርት የሚቆጠሩ ምድቦች",
+  "choirMezmurCats": "ለመዝሙር የሚቆጠሩ ምድቦች",
+  "choirNoData": "በዚህ ጊዜ የሚለካ ነገር የለም",
+  "choirSelectAs": "እንደ «{type}» ምረጥ",
+  "@choirSelectAs": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "choirRemove": "ከመዘምራን አስወግድ",
+  "choirRemoveConfirm": "ይህ አባል ከመዘምራን ይወገድ?",
+  "choirNotEligibleHint": "ማለፊያ ነጥቡ ላይ ያልደረሱ አባላት መመረጥ አይችሉም።",
+  "choirSeason": "ወቅት",
+  "choirSeasonHint": "ለምሳሌ፦ ጥምቀት 2019 (አማራጭ)",
+  "choirNotComputed": "ገና አልተሰላም",
+  "participationAdd": "ተሳትፎ መዝግብ",
+  "participationActivity": "ተግባር",
+  "participationPoints": "ነጥብ (0–100)",
+  "pointsCount": "{points} ነጥብ",
+  "@pointsCount": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentMonths": "የሚሸፍነው የወራት ብዛት",
+  "monthsCount": "{n} ወር",
+  "@monthsCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "memberTypeLabel": "የአባል ዓይነት",
+  "memberStudent": "ተማሪ",
+  "memberWorker": "ሠራተኛ",
+  "amountAuto": "ባዶ ከተተወ፦ {amount} (መጠን × ወራት)",
+  "@amountAuto": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coverage": "{from} – {to}",
+  "@coverage": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyPayment": "ክፍያውን አረጋግጥ",
+  "paymentVerified": "ተረጋግጧል",
+  "paymentRates": "የክፍያ መጠኖች",
+  "addRate": "አዲስ መጠን",
+  "effectiveFrom": "ከዚህ ቀን ጀምሮ",
+  "effectiveFromDate": "ከ{date} ጀምሮ",
+  "@effectiveFromDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noRates": "እስካሁን መጠን አልተወሰነም",
+  "paidUntil": "እስከ {month} ተከፍሏል",
+  "@paidUntil": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "savedOffline": "ከመስመር ውጭ ተቀምጧል — ኢንተርኔት ሲገኝ ይላካል",
+  "attendanceOfflineNote": "ከመስመር ውጭ ነዎት፦ ጅማሬ፣ ምዝገባዎችና ፊርማዎች በስልኩ (ተመስጥረው) ተቀምጠው ኢንተርኔት ሲገኝ በራሳቸው ይላካሉ።",
+  "pendingSync": "ለመላክ በመጠባበቅ ላይ",
+  "borrowingSavedOffline": "ውሰቱ ከመስመር ውጭ ተመዝግቧል — ኢንተርኔት ሲገኝ ይላካል",
+  "offlineChangeRejected": "{what} አልተቀመጠም፦ {error}",
+  "@offlineChangeRejected": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "syncWhatAttendance": "ከመስመር ውጭ የተመዘገበው መገኘት",
+  "syncWhatClassAttendance": "ከመስመር ውጭ የተመዘገበው የክፍል መገኘት",
+  "syncWhatBorrowing": "ከመስመር ውጭ የተመዘገበው ውሰት",
+  "syncWhatReturn": "ከመስመር ውጭ የተመዘገበው መመለስ",
+  "syncWhatReminder": "የማስታወሻ ለውጥ",
+  "deptParticipation": "ተሳትፎ (የክፍሉ ኃላፊ የመዘምራን ተሳትፎ ነጥብ ይመዘግባል)",
+  "formTitle": "የአባልነት ቅጽ",
+  "memberAccount": "መለያ እና ምድብ",
+  "mfFullName": "ሙሉ ስም ከነአያት",
+  "phoneMobile": "ስልክ (ተንቀሳቃሽ)",
+  "phoneHome": "ስልክ (የቤት)",
+  "memberGroup": "የአባል ምድብ",
+  "groupChildren": "ሕጻናት",
+  "groupYouth": "ወጣቶች እና አዋቂዎች",
+  "groupMarried": "ባለትዳሮች",
+  "canLogin": "ወደ መተግበሪያው መግባት ይችላል",
+  "canLoginHint": "ሕጻናት ሲያድጉ አስተዳዳሪ ይፈቅዳል",
+  "cannotLogin": "መግባት አይችልም",
+  "membershipStatus": "የአባልነት ሁኔታ",
+  "stActive": "ንቁ",
+  "stDeceased": "አርፈዋል",
+  "stInactive": "ለጊዜው ንቁ ያልሆነ",
+  "stUniversity": "ዩኒቨርሲቲ ላይ",
+  "stAbroad": "ውጭ ሀገር",
+  "dateOfDeath": "ያረፉበት ቀን",
+  "universityName": "የዩኒቨርሲቲው ስም",
+  "countryName": "የሚኖሩበት ሀገር",
+  "spiritualLevel": "የሰ/ት/ቤት (መንፈሳዊ ትምህርት) ደረጃ",
+  "notSet": "አልተገለጸም",
+  "levelN": "{n}ኛ",
+  "@levelN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "gender": "ጾታ",
+  "male": "ወንድ",
+  "female": "ሴት",
+  "motherName": "የእናት ስም",
+  "birthSection": "የትውልድ",
+  "birthDate": "የትውልድ ቀን",
+  "birthDiocese": "ሀገረ ስብከት",
+  "city": "ከተማ",
+  "woreda": "ወረዳ",
+  "kebele": "ቀበሌ",
+  "birthPlaceName": "ልዩ መጠሪያ",
+  "christianName": "ስመ ክርስትና",
+  "baptismChurch": "የተቀበሉበት ቤ/ክርስቲያን",
+  "baptismDate": "የተጠመቁበት ቀን",
+  "addressSection": "የመኖሪያ አድራሻ",
+  "houseNumber": "የቤት ቁጥር",
+  "emergencySection": "የቅርብ ተጠሪ",
+  "abinetSection": "የአብነት ት/ት",
+  "abinetQes": "ቅስና",
+  "abinetDeacon": "ዲቁና",
+  "abinetNone": "የለኝም",
+  "other": "ሌላ",
+  "spiritualSection": "መንፈሳዊ ትምህርት",
+  "theology": "የቲዎሎጂ ትምህርት",
+  "eduMasters": "ማስተርስ",
+  "eduDegree": "ዲግሪ",
+  "eduDiploma": "ዲፕሎማ",
+  "eduCertificate": "ሰርተፊኬት",
+  "eduDoctorate": "ዶክትሬት",
+  "secularSection": "አለማዊ ትምህርት",
+  "institutionName": "ከፍተኛ የት/ት ተቋም ስም",
+  "fieldOfStudy": "የተማሩበት የትምህርት ዘርፍ",
+  "livelihoodSection": "የመተዳደሪያ አይነት",
+  "employer": "ተቀጣሪነት",
+  "employerPrivate": "የግል",
+  "employerGovernment": "የመንግስት",
+  "profession": "እየሰሩበት ያለው ሙያ",
+  "experienceProfession": "በልምድ የተገኘ ሙያ",
+  "churchService": "የቤተክርስቲያን አገልግሎት (ካለ)",
+  "studyPlaceName": "የሚማሩበት ተቋም ስም",
+  "chooseStudentWorker": "በመጀመሪያ ተማሪ ወይም ሠራተኛ ይምረጡ",
+  "confessionSection": "የንስሐ አባት",
+  "maritalSection": "የትዳር ህይወት",
+  "married": "ያገባ",
+  "single": "ያላገባ",
+  "marriageSection": "የጋብቻ ሁኔታ",
+  "teklil": "ተክሊል",
+  "kurban": "ቁርባን",
+  "photo": "ፎቶ",
+  "deptLeader": "መሪ",
+  "deptMember": "አባል",
+  "editMember": "የአባል መረጃ አስተካክል",
+  "addMembers": "አባላት ጨምር",
+  "chooseLeader": "የክፍሉን መሪ ምረጥ",
+  "leaderHint": "እያንዳንዱ ክፍል አንድ መሪ አለው። መሪው የክፍሉን ወርሃዊ ተሳትፎ ይመዘግባል (የአስተዳዳሪ መብት አያገኝም)።",
+  "makeLeader": "መሪ አድርግ",
+  "makeMember": "አባል አድርግ",
+  "eligTitle": "የአገልግሎት ብቁነት",
+  "eligEducation": "ትምህርት",
+  "eligMezmur": "መዝሙር",
+  "eligPayment": "ወርሃዊ ክፍያ",
+  "eligParticipation": "የክፍል ተሳትፎ",
+  "eligTotal": "ጠቅላላ",
+  "eligEligible": "ብቁ",
+  "eligIneligible": "ብቁ አይደሉም",
+  "eligPass": "አልፏል",
+  "eligFail": "አላለፈም",
+  "eligStatus": "የብቁነት ሁኔታ",
+  "eligMinimum": "ዝቅተኛ፦ {value}",
+  "@eligMinimum": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "eligTotalScore": "ጠቅላላ ነጥብ {score} (ዝቅተኛ {minimum})",
+  "@eligTotalScore": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      },
+      "minimum": {
+        "type": "String"
+      }
+    }
+  },
+  "eligWindow": "የግምገማ ጊዜ፦ {from} – {to}",
+  "@eligWindow": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "eligFailedRequirements": "ያልተሟሉ መስፈርቶች",
+  "eligFailure": "{category}፦ {current} — {required} ያስፈልጋል ({shortfall} ይጎድላል)",
+  "@eligFailure": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      },
+      "required": {
+        "type": "String"
+      },
+      "shortfall": {
+        "type": "String"
+      }
+    }
+  },
+  "eligAttendance": "መገኘት",
+  "eligAssessment": "የኮርስ ምዘና",
+  "eligAttendanceCalendar": "የመገኘት ቀን መቁጠሪያ",
+  "eligActivities": "ሌሎች የመዝሙር ተሳትፎዎች",
+  "paymentExempt": "አይጠየቅም",
+  "required": "የሚጠበቅ",
+  "paidLate": "ከወሩ በኋላ ተከፍሏል",
+  "participationHint": "የእያንዳንዱን አባል የወሩን ተሳትፎ ከ0 እስከ 10 ይምረጡ። ያልተሰጠ ነጥብ ዜሮ አይቆጠርም፤ ለግምገማ ይታያል።",
+  "participationMissing": "{count} አባላት ነጥብ አልተሰጣቸውም (ዜሮ አይቆጠርም)። ይቀጥሉ?",
+  "@participationMissing": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "departmentParticipation": "የክፍል ተሳትፎ (ወርሃዊ)",
+  "myMembershipForm": "የአባልነት ቅጽ",
+  "month": "ወር",
+  "programForGroups": "ፕሮግራሙ ለማን ነው",
+  "allGroups": "ለሁሉም",
+  "setMemberTypeFirst": "ክፍያው በተማሪ / ሠራተኛ መጠን ይወሰናል። በመጀመሪያ በአባሉ መረጃ ላይ ተማሪ ወይም ሠራተኛ ይምረጡ።",
+  "rateNotSet": "ለዚህ ዓይነት አባል ወርሃዊ መጠን አልተወሰነም",
+  "paymentSettings": "የክፍያ ቅንብሮች",
+  "graceDaysHint": "ወሩ ካለቀ በኋላ ክፍያው አሁንም በሰዓቱ እንደተከፈለ የሚቆጠርባቸው ቀናት",
+  "editRate": "መጠን አስተካክል",
+  "memberTypeMissing": "ተማሪ / ሠራተኛ አልተመረጠም",
+  "polWeightsMinimums": "ክብደት እና ዝቅተኛ ነጥብ (ድምር ክብደት 100)",
+  "polWeight": "ክብደት",
+  "polMinimum": "ዝቅተኛ",
+  "polMinAboveWeight": "ዝቅተኛው ነጥብ ከክብደቱ መብለጥ አይችልም",
+  "polTotalMinimum": "ዝቅተኛ ድምር ነጥብ",
+  "polAllMinimumsHint": "ብቁ ለመሆን እያንዳንዱ ዝቅተኛ ነጥብ እና ድምሩ መሟላት አለባቸው",
+  "polClasses": "ክፍሎች",
+  "polClassesHint": "ምንም ካልተመረጠ የአባሉ የራሱ ክፍሎች ይቆጠራሉ",
+  "polCourses": "ትምህርቶች (ለምዘና)",
+  "polCoursesHint": "ምንም ካልተመረጠ የክፍሎቹ ሁሉም ትምህርቶች",
+  "polAttendanceRange": "የመገኘት ጊዜ (ባዶ = የምዘና ጊዜው)",
+  "polEduShare": "ከትምህርት ነጥብ የመገኘት ድርሻ (ቀሪው ምዘና)",
+  "polActivitiesHint": "እንደ ሠርክ፣ የእሑድ አገልግሎት፣ ጥናት ያሉ ፕሮግራሞች",
+  "polMezShare": "ከመዝሙር ነጥብ የመገኘት ድርሻ (ቀሪው ተሳትፎ)",
+  "polLateCredit": "ዘግይቶ ለተከፈለ ወር የሚሰጥ ነጥብ",
+  "polLateCreditHint": "በሰዓቱ የተከፈለ ወር 100% ያገኛል",
+  "polParticipationHint": "ከክፍል መሪዎች ወርሃዊ የተሳትፎ መዝገብ በራሱ ይወሰዳል",
+  "errLoginNotAllowed": "ይህ መለያ ወደ መተግበሪያው እንዲገባ አልተፈቀደለትም። አስተዳዳሪውን ያነጋግሩ።",
+  "errPaymentOverlap": "ከእነዚህ ወሮች አንዱ ቀድሞ ተከፍሏል",
+  "errChildrenExempt": "ሕጻናት ወርሃዊ ክፍያ አይከፍሉም",
+  "errChildrenNoDepartment": "ሕጻናት በክፍል ውስጥ አይመደቡም",
+  "errNotDepartmentLeader": "ይህን ማድረግ የሚችለው የክፍሉ መሪ ብቻ ነው",
+  "errFuturePeriod": "ገና ያልደረሰ ወር መመዝገብ አይቻልም",
+  "errNotAMember": "ይህ አባል በዚህ ክፍል ውስጥ የለም",
+  "errChoirNotEligible": "ይህ አባል ለአገልግሎት ብቁ አይደለም",
+  "paymentDue": "የሚከፈል (ጊዜው አልደረሰም)",
+  "additionalSession": "ተጨማሪ ጥናት",
+  "additionalSessionHint": "ከመደበኛው ጥናት ውጪ የተጨመረ ክፍለ ጊዜ",
+  "countsForSelection": "ለበዓል ምርጫ ይቆጠራል",
+  "countsForSelectionHint": "እያንዳንዱ ምርጫ ይህን በራሱ ማካተት ወይም ማስቀረት ይችላል",
+  "attAfterLate": "ከዘገየበት ጊዜ በኋላ ለሚመጡ",
+  "attAfterLateLate": "እንደ ዘገየ ይመዘገባል",
+  "attAfterLateReject": "አይመዘገብም (አስተያየት ይሰጣል)",
+  "attAttended": "ተገኝቷል",
+  "attCloseConfirm": "የዚህን ቀን መገኘት መዝገብ ልዝጋ? ከዚህ በኋላ የቀሩ አባላት እንደ ቀሩ ይቆጠራሉ፤ ለውጥ በማስተካከያ ጥያቄ ብቻ ይሆናል።",
+  "attCloseSession": "መዝገቡን ዝጋ",
+  "attClosed": "ተዘግቷል",
+  "attClosedNotice": "መዝገቡ ተዘግቷል። ለውጥ ካስፈለገ የማስተካከያ ጥያቄ ያቅርቡ።",
+  "attCorrectionHint": "አስተያየቱ መገኘቱን በቀጥታ አይቀይርም፤ በገምጋሚ ይታያል።",
+  "attCorrectionRequest": "አስተያየት / ማስተካከያ ጥያቄ",
+  "attCorrectionSent": "ጥያቄው ተልኳል",
+  "attCorrections": "የመገኘት ማስተካከያ ጥያቄዎች",
+  "attLateMinutes": "የመዘግየት ጊዜ (ደቂቃ)",
+  "attOnTimeMinutes": "ከመጀመሪያ በኋላ በሰዓቱ የሚቆጠርበት (ደቂቃ)",
+  "attOverride": "ቀጥተኛ ለውጥ (ከተዘጋ በኋላ)",
+  "attPermissionReason": "የፍቃድ ምክንያት",
+  "attRules": "የሰዓት ሕጎች",
+  "attRulesHint": "ከፕሮግራሙ መጀመሪያ ጀምሮ፦ በሰዓቱ → ዘግይቷል → ከዚያ በኋላ ያለው ሕግ። ፕሮግራሙ ሲያልቅ ያልተመዘገቡ እንደ ቀሩ ይቆጠራሉ።",
+  "attRulesLine": "እስከ {onTime} ደቂቃ በሰዓቱ፤ ከዚያ {late} ደቂቃ ዘግይቷል",
+  "@attRulesLine": {
+    "placeholders": {
+      "onTime": {
+        "type": "String"
+      },
+      "late": {
+        "type": "String"
+      }
+    }
+  },
+  "attScan": "QR ቃኝ",
+  "attUnmarked": "ያልተመዘገበ",
+  "availableCount": "ያለ፦ {n}",
+  "@availableCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "bStatusPending": "ማጽደቅ ይጠብቃል",
+  "borrowApprovalHint": "ማጽደቅ የማይችል ሠራተኛ ሲያበድር ንብረቱ እስኪጸድቅ ይጠብቃል",
+  "borrowApprovalRequired": "ማጽደቅ ያስፈልጋል",
+  "borrowDirectPolicy": "የቀጥታ ውሰት ሕጎች",
+  "borrowDirectPolicyHint": "በክፍል ጥያቄ ሳይሆን ለአባላት በቀጥታ ማዋስ። የትኞቹ ንብረቶች እንደሚዋሱ በእያንዳንዱ ንብረት ላይ ይወሰናል።",
+  "borrowMaxDays": "ከፍተኛ የውሰት ቀናት",
+  "borrowMaxQuantity": "ከፍተኛ ብዛት",
+  "borrowPerItemHint": "ባዶ = ገደብ የለም (ንብረቱ የራሱ ገደብ ካለው እሱ ይቀድማል)",
+  "borrowRenew": "ጊዜ አራዝም",
+  "comment": "አስተያየት",
+  "department": "ክፍል",
+  "deptAddAdmin": "አስተዳዳሪ ጨምር",
+  "deptAdminRolesHint": "ሚናዎቹ የሚሰጡትን ፈቃዶች ብቻ ያገኛል",
+  "deptAdmins": "የክፍል አስተዳዳሪዎች",
+  "deptAdminsHint": "የክፍል አስተዳዳሪዎች አባላት ናቸው፤ የተሰጧቸውን ሥራዎች ብቻ ማከናወን ይችላሉ። ራሳቸውን መሾም አይችሉም።",
+  "deptExtraPermissions": "ተጨማሪ ፈቃዶች",
+  "deptExtraPermissionsHint": "ከሚናዎቹ በተጨማሪ ለዚህ አባል ብቻ የሚሰጡ ፈቃዶች",
+  "deptNoAdmins": "እስካሁን አስተዳዳሪ የለም",
+  "ethiopianDaysHint": "በየኢትዮጵያ ወሩ የሚደገምባቸው ቀናት (ለምሳሌ ሰርክ፦ 1፣ 10፣ 19)",
+  "everyEthiopianDays": "በየወሩ በ{days}",
+  "@everyEthiopianDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "itemDepartment": "ባለቤት / ኃላፊ ክፍል",
+  "itemDirectBorrowable": "ለአባላት በቀጥታ ይዋሳል",
+  "itemDirectBorrowableHint": "ካልሆነ በክፍል የንብረት ጥያቄ ብቻ ይወጣል",
+  "itemRenewable": "ጊዜ ማራዘም ይቻላል",
+  "manageOccurrences": "ቀኖች (መሰረዝ / ማዛወር)",
+  "noDepartment": "ክፍል የለም",
+  "occCancel": "ይህን ቀን ሰርዝ",
+  "occCancelled": "ተሰርዟል",
+  "occHint": "የተሰረዘ ቀን መገኘት አይወሰድበትም፤ ቅርት አይቆጠርም።",
+  "occReschedule": "ጊዜ ቀይር",
+  "occRestore": "መልስ",
+  "pending": "በመጠባበቅ ላይ",
+  "perm_attendance_close": "????? ???? ???? (??? ???)",
+  "perm_attendance_configure": "????? ????? (???) ?????? ? ??? ???",
+  "perm_attendance_correction_approve": "የማስተካከያ ጥያቄዎችን ማጽደቅ",
+  "perm_attendance_correction_request": "የማስተካከያ ጥያቄ ማቅረብ",
+  "perm_attendance_override": "ከተዘጋ በኋላ መገኘት መቀየር",
+  "perm_attendance_reports": "የመገኘት ሪፖርቶች",
+  "perm_attendance_view": "መገኘት ማየት",
+  "perm_borrowing_approve": "ውሰት ማጽደቅ",
+  "perm_borrowing_configure": "የቀጥታ ውሰት ሕጎች",
+  "perm_choir_manage": "የሠርግ መዝሙር አገልግሎት",
+  "perm_payments_configure": "የክፍያ መጠንና ቅንብር",
+  "perm_payments_view": "ወርሃዊ ክፍያ ማየት (ብቻ)",
+  "perm_program_categories_manage": "የፕሮግራም ምድቦች",
+  "perm_property_request": "የንብረት ጥያቄ ማቅረብ",
+  "perm_property_review": "የንብረት ጥያቄ መገምገም እና መስጠት",
+  "perm_selection_configure": "የበዓል ምርጫ ማዘጋጀት",
+  "perm_selection_exams": "የፈተና አስፈላጊነት መወሰን",
+  "perm_selection_finalize": "ምርጫ ማጠናቀቅ",
+  "perm_selection_review": "ምርጫ መገምገም",
+  "perm_selection_view": "ምርጫ ማየት",
+  "pgChoir": "መዘምራን እና ምርጫ",
+  "pgContent": "ይዘት",
+  "pgHr": "የሰው ኃብት",
+  "pgNotifications": "ማሳወቂያዎች",
+  "pgPrograms": "ፕሮግራሞች እና መገኘት",
+  "pgSystem": "ሥርዓት",
+  "propDraft": "ረቂቅ",
+  "propIssue": "ስጥ",
+  "propIssued": "ተሰጥቷል",
+  "propItemName": "የንብረቱ / የአገልግሎቱ ስም",
+  "propNeededOn": "የሚያስፈልግበት ቀን",
+  "propNew": "አዲስ የንብረት ጥያቄ",
+  "propNone": "የንብረት ጥያቄ የለም",
+  "propPartiallyIssued": "በከፊል ተሰጥቷል",
+  "propPickItem": "ከንብረት መዝገብ ምረጥ",
+  "propPickItemHint": "ወይም ከታች ስሙን ይጻፉ",
+  "propPurpose": "ዓላማ / ምክንያት",
+  "propQuantityOptional": "ብዛት (አማራጭ)",
+  "propRequests": "የንብረት ጥያቄዎች",
+  "propReturn": "መልስ ተቀበል",
+  "propReturnOn": "የሚመለስበት ቀን",
+  "propReturned": "ተመልሷል",
+  "propSaveDraft": "ረቂቅ አስቀምጥ",
+  "propSubmitted": "ቀርቧል",
+  "propUnderReview": "በግምገማ ላይ",
+  "reason": "ምክንያት",
+  "reasonExamNotRequired": "በዚህ ምርጫ ፈተና አያስፈልግም",
+  "reasonMissingMonths": "ያልተመዘገቡ ወሮች አሉ (ለግምገማ)",
+  "reasonNoExam": "በዚህ ጊዜ ፈተና አልተሰጠም",
+  "reasonNoScores": "ከክፍሉ መሪ ነጥብ አልተመዘገበም",
+  "reasonNoSessions": "በዚህ ጊዜ ምንም ክፍለ ጊዜ አልነበረም",
+  "reasonNotConfigured": "የሚቆጠሩ ምድቦች አልተመረጡም",
+  "reasonNotEnrolled": "በክፍል አልተመዘገበም",
+  "reasonNotInDepartment": "በምንም ክፍል ውስጥ የለም",
+  "reasonNotMemberYet": "በዚህ ጊዜ ገና አባል አልነበረም",
+  "reasonNothingDue": "የሚከፈል ወር የለም",
+  "recurrenceEthiopianDays": "በኢትዮጵያ ወር ቀኖች",
+  "requestedBy": "ያቀረበው",
+  "roleActive": "ሚናው ንቁ ነው",
+  "roleActiveHint": "ያልነቃ ሚና ምንም ፈቃድ አይሰጥም",
+  "roleDepartment": "የክፍሉ ነባር ሚና",
+  "roleInUse": "{n} ሰዎች",
+  "@roleInUse": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "selAdditionalCounted": "የተቆጠሩ ተጨማሪ ጥናቶች",
+  "selAdditionalHint": "እያንዳንዱ ተጨማሪ ጥናት በዚህ ምርጫ ይቆጠር እንደሆነ",
+  "selAdditionalSessions": "ተጨማሪ ጥናቶች",
+  "selAverage": "አማካይ",
+  "selBackToOpen": "ወደ ክፍት መልስ",
+  "selBonus": "የአገልግሎት ጉርሻ",
+  "selBonusHint": "በሰርክ እና በሌሎች አገልግሎቶች መገኘት ላይ የሚጨመር ጉርሻ (ከፍተኛው 30)",
+  "selBonusMax": "ከፍተኛ ጉርሻ (≤ 30)",
+  "selBonusSources": "ለጉርሻ የሚቆጠሩ ምድቦች / ፕሮግራሞች",
+  "selCancel": "ምርጫውን ሰርዝ",
+  "selClearException": "ልዩ ውሳኔውን አንሳ",
+  "selConfiguration": "ቅንብር እና ቀመር",
+  "selConfigure": "አስተካክል",
+  "selConfirmStatus": "ምርጫውን ወደ «{status}» ላሸጋግር?",
+  "@selConfirmStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "selContribution": "ወርሃዊ ክፍያ",
+  "selCounts": "{q} ከ{t} አሟልተዋል",
+  "@selCounts": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      },
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "selCourseAttendance": "የትምህርት መገኘት",
+  "selDefaultIn": "ነባሪ (ይቆጠራል)",
+  "selDefaultOut": "ነባሪ (አይቆጠርም)",
+  "selDraftNoResults": "ምርጫው ሲከፈት ውጤቶች ይሰላሉ",
+  "selExam": "ፈተና / ምዘና",
+  "selExamsNotRequired": "ፈተና አያስፈልግም",
+  "selExamsOnlyHint": "የፈተና አስፈላጊነትን ብቻ መቀየር ይችላሉ",
+  "selExamsRequired": "ፈተና ያስፈልጋል",
+  "selExamsRequiredHint": "ካልሆነ የፈተና ክፍሉ አይቆጠርም፤ ሌሎቹ በ100 ይሰላሉ",
+  "selExamsRequiredSwitch": "የፈተና ውጤት ያስፈልጋል",
+  "selException": "ልዩ ውሳኔ",
+  "selExceptionHint": "ልዩ ውሳኔ ምክንያት ይፈልጋል እና ይመዘገባል",
+  "selExclude": "አትቁጠር",
+  "selExcludedSessions": "ያልተቆጠሩ ክፍለ ጊዜዎች",
+  "selFinalize": "አጠናቅ",
+  "selFormula": "ቀመር፦ መሠረታዊ = (የመቶኛ × ክብደት ድምር) ÷ (የተቆጠሩ ክብደቶች ድምር) × 100፤ ጠቅላላ = መሠረታዊ + ጉርሻ (≤ 30)። እያንዳንዱ የተቆጠረ ክፍል ዝቅተኛውን ሲያሟላ እና ጠቅላላው ዝቅተኛውን ሲያልፍ ያሟላል። ደረጃ የለም፤ እኩል ነጥብ ያላቸው እኩል ናቸው።",
+  "selInclude": "ቁጠር",
+  "selLateCreditHint": "100% = ዘግይቶ የተከፈለ ወርም እንደ ተከፈለ ይቆጠራል",
+  "selLive": "እየተሰላ",
+  "selMarkNotQualified": "እንዳላሟላ ወስን",
+  "selMarkQualified": "እንዳሟላ ወስን",
+  "selMezmurAttendance": "የመዝሙር ጥናት መገኘት",
+  "selMissingTitle": "ያልተሟላ መረጃ",
+  "selName": "የበዓሉ / የአገልግሎቱ ስም",
+  "selNameHint": "ለምሳሌ፦ ጥምቀት 2019",
+  "selNew": "አዲስ ምርጫ",
+  "selNoMinimum": "ዝቅተኛ የለም",
+  "selNone": "እስካሁን ምርጫ የለም",
+  "selNoneOpen": "አሁን ክፍት የሆነ የበዓል ምርጫ የለም",
+  "selNotCounted": "አልተቆጠረም",
+  "selNotQualified": "አላሟሉም",
+  "selNotScored": "ነጥብ አልተሰጠም",
+  "selOpen": "ክፈት",
+  "selPercent": "መቶኛ",
+  "selPoints": "ነጥብ",
+  "selQualified": "አሟልተዋል",
+  "selStatusCancelled": "ተሰርዟል",
+  "selStatusDraft": "ረቂቅ",
+  "selStatusFinalized": "ተጠናቋል",
+  "selStatusOpen": "ክፍት",
+  "selStatusReview": "በግምገማ ላይ",
+  "selTitle": "የበዓል መዝሙር አገልግሎት ምርጫ",
+  "selToReview": "ወደ ግምገማ",
+  "selTotalLine": "መሠረታዊ {base} + ጉርሻ {bonus} = {total} (ዝቅተኛ {min})",
+  "@selTotalLine": {
+    "placeholders": {
+      "base": {
+        "type": "String"
+      },
+      "bonus": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "selectCount": "{n} ምረጥ",
+  "@selectCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "wedAbsent": "አልተገኘም",
+  "wedCompleted": "ተከናውኗል",
+  "wedMembers": "የተመረጡ ({n})",
+  "@wedMembers": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "wedNew": "አዲስ የሠርግ አገልግሎት",
+  "wedNone": "የሠርግ አገልግሎት የለም",
+  "wedParticipated": "አገልግሏል",
+  "wedPlanned": "የታቀደ",
+  "wedSelectMembers": "መዘምራን ምረጥ",
+  "wedSelected": "ተመርጧል",
+  "wedServiceAt": "የአገልግሎቱ ቀን እና ሰዓት",
+  "wedTitle": "ሌሎች የመዝሙር አገልግሎቶች",
+  "wedWithdrawn": "ተወግዷል",
+  "minutesUnit": "ደቂቃ",
+  "chatTitle": "የክፍል ውይይት",
+  "chatNone": "እስካሁን የተመደቡበት ክፍል የለም።",
+  "chatPrivate": "የግል መልዕክቶች",
+  "chatNoMessages": "እስካሁን መልዕክት የለም — የመጀመሪያውን ይጻፉ።",
+  "chatTypeHint": "መልዕክት ይጻፉ…",
+  "chatSend": "ላክ",
+  "chatAttach": "ፋይል አያይዝ",
+  "chatPhoto": "ፎቶ",
+  "chatCamera": "ካሜራ",
+  "chatFile": "ድምፅ፣ ቪዲዮ ወይም ሰነድ",
+  "chatMeeting": "የድምፅ ስብሰባ ሊንክ",
+  "chatMeetingUrl": "የስብሰባ ሊንክ (Jitsi, Google Meet, Zoom, Telegram)",
+  "chatMeetingNote": "ማስታወሻ (አማራጭ)",
+  "chatMeetingWhen": "ሰዓት (አማራጭ)",
+  "chatMeetingJoin": "ተቀላቀል",
+  "chatMeetingTitle": "የድምፅ ስብሰባ",
+  "chatVoiceInfo": "የአሁኑ ሰርቨር (cPanel) ቀጥታ የድምፅ ጥሪና የቡድን ድምፅ ውይይትን አይደግፍም። መሪዎች በምትኩ የJitsi፣ Google Meet ወይም Telegram የድምፅ ስብሰባ ሊንክ ይልካሉ።",
+  "chatDeleted": "ይህ መልዕክት ተሰርዟል",
+  "chatDeleteConfirm": "ይህን መልዕክት ይሰርዙ?",
+  "chatLeader": "መሪ",
+  "chatNewPrivate": "አዲስ የግል መልዕክት",
+  "chatNoThreads": "የግል መልዕክት የለም።",
+  "chatOpenFile": "ክፈት",
+  "chatLoadOlder": "የቆዩ መልዕክቶች",
+  "midTitle": "የአባል መለያ ቁጥር",
+  "midHint": "ቁጥሩ ቋሚ ነው፤ የሚቀየረው የምድቡ መነሻ (prefix) እና አጻጻፉ ብቻ ነው። ለውጡ የዚያን ምድብ አባላት ሁሉ መለያ ወዲያው ይቀይራል።",
+  "midSeparator": "መለያያ ምልክት",
+  "midDigits": "ዝቅተኛ የአሃዝ ብዛት (0 = እንዳለ)",
+  "midPreview": "ናሙና",
+  "midSpace": "ክፍተት",
+  "midNone": "(ምንም)",
+  "errMemberNotExpected": "ይህ አባል የዚህ መርሐ ግብር ተሳታፊ ምድብ አይደለም።",
+  "errSelfAttendance": "የራስዎን መገኘት መመዝገብ አይችሉም፤ ሌላ የመገኘት መዝጋቢ ይመዝግብዎ።",
+  "errAttendanceNotActive": "መገኘት የሚመዘገበው በመርሐ ግብሩ ቀን ነው።",
+  "errChatForbidden": "የዚህ ክፍል አባል አይደሉም።",
+  "errChatPrivate": "የግል መልዕክት የሚቻለው ከክፍልዎ መሪዎች ጋር ብቻ ነው።",
+  "errChatMedia": "ፎቶ፣ ሚዲያና የስብሰባ ሊንክ የሚልኩት የክፍሉ መሪዎች ብቻ ናቸው።",
+  "errChatDelete": "የራስዎን መልዕክት ብቻ መሰረዝ ይችላሉ።",
+  "vMessageEmpty": "መልዕክቱ ባዶ ነው።",
+  "vInvalidMeetingUrl": "የሚታወቅ የስብሰባ ሊንክ ያስገቡ (Jitsi፣ Google Meet፣ Zoom፣ Telegram)።",
+  "vNoSpaces": "ክፍተት አይፈቀድም።",
+  "pin": "ፒን (PIN)",
+  "pinHelp": "ከ4 እስከ 6 ቁጥሮች",
+  "confirmPin": "ፒኑን ያረጋግጡ",
+  "newPin": "አዲስ ፒን",
+  "currentPinOrPassword": "የአሁኑ ፒን",
+  "pinOrPassword": "ፒን (PIN)",
+  "pinOrPasswordHelp": "ከ4 እስከ 6 ቁጥሮች",
+  "vInvalidPin": "ፒኑ ከ4 እስከ 6 ቁጥሮች መሆን አለበት",
+  "vPinMismatch": "ፒኖቹ አይመሳሰሉም",
+  "vPinOrPassword": "ከ4 እስከ 6 ቁጥር ፒን ያስገቡ",
+  "changePinTitle": "ፒን መቀየር",
+  "pinChanged": "ፒንዎ ተቀይሯል",
+  "errorInvalidPin": "ፒኑ ከ4 እስከ 6 ቁጥሮች መሆን አለበት",
+  "errorPinOrPassword": "ከ4 እስከ 6 ቁጥር ፒን ያስገቡ",
+  "remindBefore2880": "ከ2 ቀን በፊት",
+  "remindBefore1440": "ከ1 ቀን በፊት",
+  "remindBefore360": "ከ6 ሰዓት በፊት",
+  "remindBefore60": "ከ1 ሰዓት በፊት",
+  "startsIn2880": "በ2 ቀን ውስጥ ይጀምራል",
+  "startsIn1440": "ነገ ይጀምራል",
+  "startsIn360": "በ6 ሰዓት ውስጥ ይጀምራል",
+  "startsIn60": "በ1 ሰዓት ውስጥ ይጀምራል",
+  "programReminderAlarm": "የፕሮግራም ማስታወሻ",
+  "myProgramReminders": "የዚህ ፕሮግራም ማስታወሻ (ማንቂያ)",
+  "myProgramRemindersHint": "ስልክዎ በመረጡት ጊዜ ያስታውስዎታል፤ ኢንተርኔት ባይኖርም ይሠራል።",
+  "useProgramReminders": "የፕሮግራሙን ማስታወሻ ተጠቀም",
+  "programReminderTimes": "የማስታወሻ ጊዜዎች",
+  "programReminderTimesHint": "አባላት በእነዚህ ጊዜዎች ማሳወቂያ እና ማንቂያ ያገኛሉ (እያንዳንዱ አባል ለራሱ መቀየር ይችላል)።",
+  "noEndTime": "የማብቂያ ሰዓት የለውም",
+  "hasEndTime": "የማብቂያ ሰዓት አለው",
+  "noEndTimeHint": "የማብቂያ ሰዓት የሌለው ፕሮግራም እስከ ቀኑ መጨረሻ ይቆያል።",
+  "attendanceWindow": "የመገኘት ሰዓት (ደቂቃ)",
+  "attendanceWindowHint": "ለምሳሌ ፕሮግራሙ 5:30 ቢጀምርና በሰዓቱ 30 ደቂቃ ከሆነ እስከ 6:00 የመጡ በሰዓቱ ይቆጠራሉ። ባዶ = አጠቃላይ ደንቡ።",
+  "onTimeMinutes": "በሰዓቱ (ደቂቃ)",
+  "lateMinutes": "ዘግይቶ (ተጨማሪ ደቂቃ)",
+  "onTimeUntil": "በሰዓቱ እስከ {time}",
+  "@onTimeUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lateUntil": "ዘግይቶ እስከ {time}",
+  "@lateUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "fromTime": "ከ {time} ጀምሮ",
+  "@fromTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "rolePermissionsRevokeHint": "ምልክቱን ማንሳት ፈቃዱን ለዚህ ሰው ብቻ ይሰርዛል (ሚናው አይቀየርም)፤ እንደገና ማድረግ ይመልሰዋል።",
+  "permissionRevoked": "ተሰርዟል",
+  "seeAllCategories": "ሁሉንም ምድቦች ይመልከቱ ({count})",
+  "@seeAllCategories": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "hubQuickLinks": "ፈጣን መዳረሻ",
+  "projectsTitle": "ፕሮጀክቶች",
+  "projectManagement": "የፕሮጀክት አስተዳደር",
+  "pmOverview": "አጠቃላይ",
+  "pmMyTasks": "የእኔ ተግባራት",
+  "pmIssues": "ችግሮች",
+  "pmSuggestions": "ሐሳቦች",
+  "pmBudget": "በጀት",
+  "pmExpenses": "ወጪዎች",
+  "pmReports": "ሪፖርቶች",
+  "pmTasks": "ተግባራት",
+  "pmTeam": "ቡድን",
+  "pmFiles": "ፋይሎች",
+  "pmActivity": "እንቅስቃሴ",
+  "pmApprovals": "የሚጸድቁ",
+  "pmNoDepartments": "ፕሮጀክቶቻቸውን ማየት የሚችሉበት ክፍል የለም።",
+  "pmNoProjects": "ፕሮጀክት የለም",
+  "pmNoTasks": "ተግባር የለም",
+  "pmNoIssues": "ችግር የለም",
+  "pmNoSuggestions": "ሐሳብ የለም",
+  "pmNoExpenses": "ወጪ የለም",
+  "pmNoFiles": "ፋይል የለም",
+  "pmNoActivity": "እንቅስቃሴ የለም",
+  "pmActiveCount": "{count} ንቁ",
+  "@pmActiveCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pmOverdueCount": "{count} ጊዜው ያለፈ",
+  "@pmOverdueCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pmOpenCount": "{count} ክፍት",
+  "@pmOpenCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pmProjectsCount": "{count} ፕሮጀክቶች",
+  "@pmProjectsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "pmNewProject": "አዲስ ፕሮጀክት",
+  "pmEditProject": "ፕሮጀክት ማስተካከል",
+  "pmNewTask": "አዲስ ተግባር",
+  "pmEditTask": "ተግባር ማስተካከል",
+  "pmTitle": "ርዕስ",
+  "pmLeader": "የፕሮጀክት መሪ",
+  "pmResponsible": "ኃላፊዎች",
+  "pmStartDate": "የሚጀምርበት ቀን",
+  "pmDeadline": "ማብቂያ ጊዜ",
+  "pmProjectDeadline": "የፕሮጀክቱ ማብቂያ",
+  "pmTaskDeadline": "የተግባሩ ማብቂያ",
+  "pmNoDeadline": "ማብቂያ የለም",
+  "pmPriority": "ቅድሚያ",
+  "pmProgress": "እድገት",
+  "pmProgressMode": "እድገት የሚሰላው",
+  "pmProgressTasks": "ከተጠናቀቁ ተግባራት",
+  "pmProgressWeighted": "በተግባር ክብደት",
+  "pmProgressManual": "በእጅ",
+  "pmWeight": "ክብደት",
+  "pmNotes": "ማስታወሻ",
+  "pmAllowLateTasks": "ከፕሮጀክቱ ማብቂያ በኋላ የሚያልቁ ተግባራት ይፈቀዱ",
+  "pmAfterProjectDeadline": "ከፕሮጀክቱ ማብቂያ በኋላ እንዲያልቅ ፍቀድ (ፈቃድ ያስፈልጋል)",
+  "pmTimeLeft": "{time} ቀርቷል",
+  "@pmTimeLeft": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "pmOverdueBy": "በ{time} ዘግይቷል",
+  "@pmOverdueBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "pmDays": "{n} ቀን",
+  "@pmDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pmHours": "{n} ሰዓት",
+  "@pmHours": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pmMinutes": "{n} ደቂቃ",
+  "@pmMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pmOverdue": "ጊዜው አልፏል",
+  "pmPrLow": "ዝቅተኛ",
+  "pmPrMedium": "መካከለኛ",
+  "pmPrHigh": "ከፍተኛ",
+  "pmPrUrgent": "አስቸኳይ",
+  "pmStPlanning": "በዕቅድ ላይ",
+  "pmStNotStarted": "ያልተጀመረ",
+  "pmStInProgress": "በሂደት ላይ",
+  "pmStOnHold": "የቆመ",
+  "pmStCompleted": "የተጠናቀቀ",
+  "pmStCancelled": "የተሰረዘ",
+  "pmStPending": "በመጠባበቅ ላይ",
+  "pmStBlocked": "የታገደ",
+  "pmReasonApproval": "ፈቃድ እየጠበቀ",
+  "pmReasonMaterials": "ቁሳቁስ እየጠበቀ",
+  "pmReasonFinance": "ሒሳብ ክፍልን እየጠበቀ",
+  "pmReasonAnotherTask": "ሌላ ተግባር እየጠበቀ",
+  "pmReasonAnotherDepartment": "ሌላ ክፍል እየጠበቀ",
+  "pmReasonPaused": "ለጊዜው የቆመ",
+  "pmReasonOther": "ሌላ",
+  "pmChangeStatus": "ሁኔታ ቀይር",
+  "pmPendingWhy": "ምን እየጠበቀ ነው?",
+  "pmBlockedWhy": "ምን እያገደው ነው?",
+  "pmCompletionNote": "የማጠናቀቂያ ማስታወሻ (አማራጭ)",
+  "pmReason": "ምክንያት",
+  "pmMarkCompleted": "ተጠናቋል",
+  "pmAskStatus": "በቻት ሁኔታውን ጠይቅ",
+  "pmAskedStatus": "የሁኔታ ጥያቄ በክፍሉ ቻት ተልኳል",
+  "pmAssign": "ኃላፊ መድብ",
+  "pmReassignReason": "የመቀየሩ ምክንያት (አማራጭ)",
+  "pmCompletedBy": "በ{name} ተጠናቋል · {time}",
+  "@pmCompletedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "pmProgram": "የተያያዘ ፕሮግራም",
+  "pmNoProgram": "ፕሮግራም የለም",
+  "pmRelatedIssue": "የተያያዘ ችግር",
+  "pmComments": "አስተያየቶች",
+  "pmAddComment": "አስተያየት ይጻፉ",
+  "pmReportIssue": "ችግር ሪፖርት አድርግ",
+  "pmIssueTitle": "ችግሩ ምንድን ነው?",
+  "pmAssignee": "የሚፈታው",
+  "pmResolution": "መፍትሔ",
+  "pmReporter": "ሪፖርት ያደረገው",
+  "pmIsOpen": "ክፍት",
+  "pmIsUnderReview": "በግምገማ ላይ",
+  "pmIsAssigned": "ተመድቧል",
+  "pmIsResolved": "ተፈትቷል",
+  "pmIsClosed": "ተዘግቷል",
+  "pmSuggest": "ሐሳብ አቅርብ",
+  "pmSuggestionTitle": "ሐሳብዎ",
+  "pmSgSubmitted": "ቀርቧል",
+  "pmSgAccepted": "ተቀባይነት አግኝቷል",
+  "pmSgRejected": "ውድቅ ተደርጓል",
+  "pmSgConverted": "ወደ ተግባር ተቀይሯል",
+  "pmAccept": "ተቀበል",
+  "pmReject": "ውድቅ አድርግ",
+  "pmReview": "ለግምገማ",
+  "pmConvertToTask": "ወደ ተግባር ቀይር",
+  "pmChooseProject": "ፕሮጀክት ይምረጡ",
+  "pmBudgetProposed": "የታቀደ በጀት",
+  "pmBudgetApproved": "የጸደቀ በጀት",
+  "pmBudgetSpent": "የወጣ",
+  "pmBudgetRemaining": "የቀረ",
+  "pmBudgetUsed": "{percent}% ጥቅም ላይ ውሏል",
+  "@pmBudgetUsed": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "pmBudgetPending": "በመጠባበቅ ላይ ያሉ ወጪዎች",
+  "pmBudgetNotApproved": "በጀቱ ገና አልጸደቀም",
+  "pmBudgetOver": "በጀቱ አልፏል",
+  "pmBudgetLines": "የበጀት ምድቦች",
+  "pmEditBudget": "በጀት አዘጋጅ",
+  "pmApproveBudget": "በጀቱን አጽድቅ",
+  "pmAmount": "መጠን",
+  "pmCategory": "ምድብ",
+  "pmDescription": "መግለጫ",
+  "pmExpenseDate": "የወጪው ቀን",
+  "pmPaidBy": "የከፈለው",
+  "pmReceipt": "ደረሰኝ",
+  "pmAttachReceipt": "ደረሰኝ አያይዝ",
+  "pmNewExpense": "አዲስ ወጪ",
+  "pmExApproved": "ጸድቋል",
+  "pmExRecorded": "ተመዝግቧል",
+  "pmApprove": "አጽድቅ",
+  "pmRecord": "መዝግብ",
+  "pmOverride": "ከበጀት በላይ ቢሆንም አጽድቅ (ምክንያት ያስፈልጋል)",
+  "pmRequestAdjustment": "የበጀት ጭማሪ ጠይቅ",
+  "pmAdjustments": "የበጀት ማሻሻያዎች",
+  "pmAdditional": "ተጨማሪ መጠን",
+  "pmUploadFile": "ፋይል ጫን",
+  "pmMembers": "አባላት",
+  "pmEditTeam": "ቡድኑን አስተካክል",
+  "pmRoleLeader": "መሪ",
+  "pmRoleAdmin": "አስተዳዳሪ",
+  "pmRoleMember": "አባል",
+  "pmDeleteProjectConfirm": "ይህን ፕሮጀክት መሰረዝ ይፈልጋሉ?",
+  "pmDeleteTaskConfirm": "ይህን ተግባር መሰረዝ ይፈልጋሉ?",
+  "pmOfflineQueued": "ከመስመር ውጭ ተቀምጧል፤ ኢንተርኔት ሲገኝ ይላካል",
+  "pmWaitingSync": "ለመላክ በመጠባበቅ ላይ",
+  "pmSyncConflict": "ተግባሩ በሌላ ሰው ተቀይሯል፤ ከመስመር ውጭ ያደረጉት ለውጥ አልተተገበረም። እባክዎ እንደገና ይመልከቱ።",
+  "syncWhatTask": "የተግባር ለውጥ",
+  "pmFilters": "ማጣሪያዎች",
+  "pmFilterUser": "ሰው",
+  "pmFilterProject": "ፕሮጀክት",
+  "pmFilterTask": "ተግባር",
+  "pmFilterDate": "ቀን",
+  "pmFilterBudget": "በጀት",
+  "pmFilterCompletion": "የማጠናቀቂያ መጠን",
+  "pmApply": "ተግብር",
+  "pmClearFilters": "ማጣሪያዎችን አጽዳ",
+  "pmAll": "ሁሉም",
+  "pmActive": "ንቁ",
+  "pmToday": "ዛሬ",
+  "pmThisWeek": "በዚህ ሳምንት",
+  "pmThisMonth": "በዚህ ወር",
+  "pmCustomRange": "የተወሰነ ጊዜ",
+  "pmDateField": "የሚመለከተው ቀን",
+  "pmByDeadline": "ማብቂያ",
+  "pmByCreated": "የተፈጠረበት",
+  "pmByStart": "የሚጀምርበት",
+  "pmByCompleted": "የተጠናቀቀበት",
+  "pmWithinBudget": "በበጀት ውስጥ",
+  "pmNoBudget": "በጀት የሌለው",
+  "pmMinProgress": "ቢያንስ {n}%",
+  "@pmMinProgress": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pmSummary": "ማጠቃለያ",
+  "pmByUser": "በሰው",
+  "pmProjectsInvolved": "ፕሮጀክቶች",
+  "pmAssigned": "የተሰጡ",
+  "pmTotal": "ጠቅላላ",
+  "pmCreatedBy": "ያዘጋጀው",
+  "pmLiveUpdated": "ተሻሽሏል",
+  "pmTaskBot": "🤖 የተግባር ረዳት",
+  "pmBotNotAllowed": "🔒 ይህን ተግባር ለማሻሻል ፈቃድ የለዎትም።",
+  "pmBotUpdated": "✅ ተግባሩ ተሻሽሏል",
+  "pmOpenTask": "ተግባሩን ክፈት",
+  "pmPeople": "ሰዎች",
+  "pmSelectPeople": "ሰዎችን ይምረጡ",
+  "pmDepartment": "ክፍል",
+  "errTaskUpdateForbidden": "🔒 ይህን ተግባር ለማሻሻል ፈቃድ የለዎትም።",
+  "errProjectForbidden": "ይህን ለማድረግ ፈቃድ የለዎትም።",
+  "errTaskAfterProjectDeadline": "የተግባሩ ማብቂያ ከፕሮጀክቱ ማብቂያ በኋላ ሊሆን አይችልም።",
+  "errPendingReasonRequired": "የመጠበቂያ ምክንያት ያስፈልጋል።",
+  "errBlockerRequired": "ምን እያገደው እንደሆነ ይጻፉ።",
+  "errUserNotInDepartment": "ይህ ሰው የክፍሉ አባል አይደለም።",
+  "errOverBudget": "ይህ ወጪ ከጸደቀው በጀት ያልፋል። የበጀት ጭማሪ ያጽድቁ ወይም በምክንያት ይፍቀዱ።",
+  "errTaskChanged": "ተግባሩ በሌላ ሰው ተቀይሯል። እባክዎ እንደገና ይሞክሩ።",
+  "errResolutionRequired": "መፍትሔውን ይጻፉ።",
+  "errProjectClosed": "ፕሮጀክቱ ተዘግቷል።",
+  "errExpenseApproveForbidden": "ወጪ ማጽደቅ የሚችለው የሒሳብ ክፍል ብቻ ነው።",
+  "perm_projects_view": "የክፍል ፕሮጀክቶችን ማየት",
+  "perm_projects_manage": "ፕሮጀክቶችን፣ ተግባራትን እና ቡድኖችን ማስተዳደር",
+  "perm_projects_expenses_approve": "የፕሮጀክት በጀትና ወጪ ማጽደቅ (ሒሳብ)",
+  "perm_projects_reports": "የፕሮጀክት ሪፖርቶችን ማየት",
+  "perm_projects_all_departments": "የሁሉንም ክፍሎች ፕሮጀክቶች ማየት",
+  "libTitle": "ቤተ መጻሕፍት",
+  "libDigital": "ዲጂታል መጻሕፍት",
+  "libPhysical": "መጻሕፍት (ለመዋስ)",
+  "libMine": "የእኔ",
+  "libNoBooks": "መጽሐፍ የለም",
+  "libDownload": "አውርድ",
+  "libOpen": "ክፈት",
+  "libDownloaded": "ወርዷል",
+  "libDeleteDownload": "የወረደውን አጥፋ",
+  "libRequest": "ጠይቅ",
+  "libRequestTitle": "መጽሐፉን መጠየቅ",
+  "libRequestNote": "ማስታወሻ (አማራጭ)",
+  "libNeededOn": "የሚፈልጉበት ቀን (አማራጭ)",
+  "libRequested": "ተጠይቋል",
+  "libReqApproved": "ተዘጋጅቷል — መጥተው በፊርማ ይውሰዱ",
+  "libReqRejected": "አልተቀበለም",
+  "libReqIssued": "ተሰጥቷል",
+  "libReqCancelled": "ተሰርዟል",
+  "libAvailable": "{count} ይገኛል",
+  "@libAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libNoneAvailable": "አሁን የለም",
+  "libMyRequests": "የእኔ ጥያቄዎች",
+  "libNoRequests": "ጥያቄ የለም",
+  "libCancelRequest": "ጥያቄውን ሰርዝ",
+  "libRequestSent": "ጥያቄዎ ተልኳል",
+  "libAuthor": "ደራሲ",
+  "libDownloads": "{count} ጊዜ ወርዷል",
+  "@libDownloads": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libRequests": "የመጽሐፍ ጥያቄዎች",
+  "libApprove": "አጽድቅ",
+  "libReject": "አትቀበል",
+  "libHandOver": "በፊርማ አስረክብ",
+  "libLoanDays": "የብድር ቀናት",
+  "libBookKind": "የመጽሐፍ ዓይነት",
+  "libKindPhysical": "ታትሞ የተዘጋጀ",
+  "libKindDigital": "ዲጂታል (PDF)",
+  "libUploadPdf": "PDF ጫን",
+  "libReplacePdf": "PDF ቀይር",
+  "libPdfUploaded": "PDF ተጭኗል",
+  "libSaveFirst": "መጀመሪያ ያስቀምጡ",
+  "libBooks": "መጻሕፍት",
+  "errBookIsDigital": "ዲጂታል መጻሕፍት ይወርዳሉ እንጂ አይዋሱም።",
+  "errRequestExists": "ይህን መጽሐፍ ቀድመው ጠይቀዋል።",
+  "errRequestClosed": "ይህ ጥያቄ ተዘግቷል።",
+  "regTitle": "የተማሪዎች ምዝገባ",
+  "regSubtitle": "አባላትን ከኮርሶቻቸው ጋር ይመዝግቡ",
+  "regChooseClass": "ክፍል (ኮርሶች) ይምረጡ",
+  "regCourses": "ኮርሶች",
+  "regExisting": "ያሉ አባላትን መዝግብ",
+  "regNewMember": "አዲስ አባል መዝግብ",
+  "regStudents": "የተመዘገቡ ተማሪዎች",
+  "regDone": "{count} ተመዝግበዋል",
+  "@regDone": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "regAlready": "{count} ቀድመው ተመዝግበው ነበር",
+  "@regAlready": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "regTempPin": "ጊዜያዊ ፒን",
+  "regTempPinHint": "ለአባሉ ይስጡ። በመጀመሪያ ሲገቡ ፒኑን ይቀይራሉ።",
+  "regRemoveConfirm": "ተማሪውን ከዚህ ክፍል ማስወጣት ይፈልጋሉ?",
+  "regNoClasses": "ንቁ ክፍል የለም",
+  "courseManagement": "የኮርስ አስተዳደር",
+  "eduSection": "ትምህርት",
+  "adminGroupPeople": "ሰዎች እና ፈቃዶች",
+  "adminGroupContent": "መዝሙር እና ይዘት",
+  "adminGroupPrograms": "ፕሮግራሞች እና መገኘት",
+  "adminGroupEducation": "ትምህርት",
+  "adminGroupLibrary": "ቤተ መጻሕፍት እና ንብረት",
+  "adminGroupDepartments": "ክፍሎች፣ ፕሮጀክቶች እና ክፍያ",
+  "adminGroupChoir": "የመዝሙር አገልግሎት",
+  "adminGroupOversight": "ክትትል",
+  "adminGroupSystem": "ሥርዓት",
+  "perm_education_register": "ተማሪዎችን ከኮርሶቻቸው ጋር መመዝገብ",
+  "libHomeSub": "ዲጂታል መጻሕፍትን ያውርዱ፣ የሚታተሙ መጻሕፍትን ይጠይቁ፣ የተዋሷቸውን ይመልከቱ",
+  "libRead": "አንብብ",
+  "libDownloadAgain": "ይህ መጽሐፍ በዚህ መሣሪያ ላይ የለም። እባክዎ እንደገና ያውርዱት።",
+  "paymentsYearFull": "{year} ዓ.ም.\nየተከፈለ፦ 12 ወራት\nያልተከፈለ፦ 0 ወራት\n✓ ሁሉም ወራት ተከፍለዋል",
+  "@paymentsYearFull": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentsYearPartial": "{year} ዓ.ም.\nየተከፈለ፦ {paid} ወራት\nያልተከፈለ፦ {unpaid} ወራት",
+  "@paymentsYearPartial": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "paid": {
+        "type": "String"
+      },
+      "unpaid": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentsYearPaidList": "የተከፈሉ ወራት፦ {months}",
+  "@paymentsYearPaidList": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentsYearNone": "{year} ዓ.ም.\nየተከፈለ፦ 0 ወራት\nያልተከፈለ፦ 12 ወራት",
+  "@paymentsYearNone": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "promoteToAdmin": "አስተዳዳሪ አድርግ",
+  "promoteChooseRole": "ሚና ይምረጡ",
+  "promoteHint": "{name} አስተዳዳሪ ይሆናሉ፤ የአባልነት አገልግሎቶቻቸው በሙሉ ይቀጥላሉ። እንደገና ገብተው ፒናቸውን ያዘጋጃሉ።",
+  "@promoteHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "promoted": "አስተዳዳሪ ሆነዋል",
+  "demoteToMember": "ወደ አባልነት መልስ",
+  "demoteConfirm": "{name} አስተዳዳሪነታቸው ተነስቶ ወደ አባልነት ይመለሱ?",
+  "@demoteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "demoted": "ወደ አባልነት ተመልሰዋል",
+  "errAlreadyAdmin": "ይህ ሰው አስቀድሞ አስተዳዳሪ ነው።",
+  "adminBadge": "አስተዳዳሪ",
+  "requestProfileChange": "የመረጃ ለውጥ ጠይቅ",
+  "requestProfileChangeHint": "መቀየር የሚፈልጉትን ያስተካክሉ። የተቀየሩት ብቻ ለአስተዳዳሪ ለማጽደቅ ይላካሉ፤ የቀድሞ መረጃዎ አይጠፋም።",
+  "changeNote": "ለአስተዳዳሪው መልእክት (ካለ)",
+  "sendForApproval": "ለማጽደቅ ላክ",
+  "changeRequestSent": "ጥያቄዎ ተልኳል",
+  "myChangeRequests": "የለውጥ ጥያቄዎቼ",
+  "changeHistory": "የለውጥ ታሪክ",
+  "noChangeHistory": "ምንም ለውጥ አልተመዘገበም",
+  "historyByRequest": "በአባሉ ጥያቄ (ጸድቋል)",
+  "historyByAdmin": "በአስተዳዳሪ",
+  "historyBySelf": "በራሳቸው",
+  "declineReason": "ያልተቀበሉበት ምክንያት (ለአባሉ ይታያል)",
+  "approveNote": "ማስታወሻ (ካለ)",
+  "errNoChanges": "ምንም ለውጥ የለም።",
+  "playerOptions": "አማራጮች",
+  "playbackSpeed": "የመጫወቻ ፍጥነት",
+  "sleepTimer": "ሰዓት ቆጣሪ (ማቆሚያ)",
+  "off": "ጠፍቷል",
+  "sleepEndOfMezmur": "መዝሙሩ ሲያልቅ",
+  "upNext": "ቀጣይ መዝሙሮች",
+  "syncedLyrics": "ከሙዚቃው ጋር የሚሄድ ግጥም (.lrc)",
+  "syncedLyricsHint": "ግጥሙ ከድምፁ ጋር እየበራ ይታያል። .lrc ፋይል ይጫኑ፣ ይለጥፉ፣ ወይም በመተግበሪያው ውስጥ ያዘጋጁ (ሌላ መተግበሪያ አያስፈልግም)።",
+  "lrcUpload": ".lrc ፋይል ጫን",
+  "lrcMake": "በመተግበሪያው አዘጋጅ",
+  "lrcNeedsAudio": "በመተግበሪያው ለማዘጋጀት መጀመሪያ ድምፅ ይጫኑ።",
+  "lrcInvalid": "ትክክለኛ .lrc አይደለም (ለምሳሌ [00:12.50] የሚል የጊዜ ምልክት ያስፈልጋል)",
+  "lrcLoaded": "{count} መስመሮች ተጭነዋል — ለማስቀመጥ «አስቀምጥ» ይጫኑ",
+  "@lrcLoaded": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "lrcLines": "{count} በጊዜ የተቀመጡ መስመሮች",
+  "@lrcLines": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "lrcMaker": "የግጥም ጊዜ ማዘጋጃ",
+  "lrcMakerHint": "ድምፁ ሲጫወት እያንዳንዱ መስመር ሲጀመር «ቀጣይ መስመር» ይጫኑ። ከተሳሳቱ «መልስ» ይጫኑ።",
+  "lrcNoLyrics": "መጀመሪያ ግጥሙን ይጻፉ።",
+  "lrcNextLine": "ቀጣይ መስመር",
+  "lrcAllTimed": "ሁሉም መስመሮች ተዘጋጅተዋል",
+  "lrcUndo": "መልስ",
+  "lrcRestart": "እንደገና ጀምር",
+  "lrcRestartConfirm": "የተዘጋጁት ጊዜዎች ይጥፉ እና እንደገና ይጀመር?",
+  "lrcBack5": "5 ሰከንድ ወደ ኋላ",
+  "lrcProgress": "{done} / {total} መስመሮች",
+  "@lrcProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "adminGroupUsers": "የተጠቃሚዎች አስተዳደር",
+  "adminGroupMemberServices": "የአባላትና እንቅስቃሴ አስተዳደር",
+  "adminGroupDepartmentsMgmt": "የክፍሎች አስተዳደር",
+  "adminGroupProperties": "ንብረቶች",
+  "adminGroupEducationMgmt": "የትምህርት አስተዳደር",
+  "adminGroupMezmurMgmt": "የመዝሙር አስተዳደር",
+  "adminGroupPromotion": "የማስተዋወቅ አስተዳደር",
+  "adminGroupAdministration": "የአስተዳደር አስተዳደር",
+  "eduManageCourses": "ኮርሶች",
+  "eduManageClasses": "ክፍሎች (ክላሶች)",
+  "eduManageLibrary": "ቤተ መጻሕፍት",
+  "serviceManagement": "የአገልግሎት አስተዳደር",
+  "eduAllCourses": "ሁሉም ኮርሶች",
+  "importMezmursHelp2": "አንድ መዝሙር በአንድ መስመር፦ ርዕስ፣ ምድብ፣ ግጥም (በአንድ ሕዋስ ውስጥ ብዙ መስመሮች — Alt+Enter)፣ መለያዎች፣ ሁኔታ። የኤክሴል ቅጹ ምሳሌዎችንና ያሉትን ምድቦች ይዟል።",
+  "importUsersHelp2": "አንድ አባል በአንድ መስመር፦ ሙሉ ስም፣ ስልክ፣ ኢሜይል፣ ፒን (ከ4 እስከ 6 ቁጥሮች፤ ባዶ = ጊዜያዊ)፣ የአባል ምድብ፣ ተማሪ/ሠራተኛ፣ ጾታ። ተቀባይነት ያላቸው እሴቶች በቅጹ ውስጥ አሉ።",
+  "importStepTemplate": "ቅጹን ያውርዱ",
+  "importStepRows": "መስመሮችን ያስገቡ",
+  "importStepCheck": "ይመርምሩ — እስካሁን ምንም አልተቀመጠም",
+  "importStepDone": "ተጭኗል",
+  "importExcelTemplate": "የኤክሴል ቅጽ (.xlsx)",
+  "importTextTemplate": "የጽሑፍ ቅጽ",
+  "importUploadFile": "ፋይል ጫን (.xlsx, .csv, .txt)",
+  "importPaste": "ከኤክሴል / Google Sheets ለጥፍ",
+  "importPasteHint": "የርዕስ መስመሩን ጨምሮ መስመሮቹን ኮፒ አድርገው እዚህ ይለጥፉ",
+  "importPasted": "የተለጠፉ መስመሮች",
+  "importTypeRows": "በመተግበሪያው ውስጥ ጻፍ",
+  "importTyped": "{count} በመተግበሪያው የተጻፉ መዝሙሮች",
+  "@importTyped": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "importCheckRows": "መርምር",
+  "importAddRow": "ሌላ መዝሙር ጨምር",
+  "filters": "ማጣሪያዎች",
+  "fClearAll": "ሁሉንም አጽዳ",
+  "fPersonal": "የግል መረጃ",
+  "fMembership": "አባልነት",
+  "fAccount": "መለያ",
+  "fActivity": "እንቅስቃሴ እና ክፍሎች",
+  "fAge": "ዕድሜ",
+  "fAccountType": "የመለያ ዓይነት",
+  "fMembersOnly": "አባላት ብቻ",
+  "fHasDevice": "መሣሪያ አለው",
+  "fNoDevice": "መሣሪያ የለውም",
+  "fNoTelegram": "ቴሌግራም አልተገናኘም",
+  "fDepartment": "ክፍል",
+  "fLastActive": "በቅርቡ የገቡ",
+  "fActiveWithin": "ባለፉት {days} ቀናት",
+  "@fActiveWithin": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "fShowAll": "ሁሉንም አሳይ",
+  "fApply": "ተግብር ({count})",
+  "@fApply": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "selAttendancePoints": "የክትትል ነጥቦች",
+  "selAttendancePointsHint": "እያንዳንዱ የፕሮግራም ክትትል ስንት ነጥብ እንደሚያስገኝ (ከሙሉ ክትትል %)። ለመዝሙር ክትትል እና ለጉርሻ ይውላል።",
+  "selExcusedPolicyHint": "ባዶ = የፈቃድ ፖሊሲው ክብደት",
+  "selProgramWeights": "የፕሮግራሞች ክብደት",
+  "selProgramWeightsHint": "አንድ ፕሮግራም ከሌሎቹ የበለጠ (×2) ወይም ያነሰ (×0.5) እንዲቆጠር፤ ×0 = አይቆጠርም",
+  "errLateAbovePresent": "የዘገየ ነጥብ ከተገኘ ነጥብ መብለጥ የለበትም።",
+  "mgTitle": "የአባላት ዓይነቶች",
+  "mgHint": "ፕሮግራሞች፣ የመገኘት መዝገብ፣ የአባል መታወቂያ እና ማጣሪያዎች እነዚህን ዓይነቶች ይጠቀማሉ። አብሮ የተሠሩት ሊሰረዙ ወይም ሊጠፉ አይችሉም፤ አዲስ ዓይነት ማንም ሳይጠቀመው ሊሰረዝ ይችላል፤ ያለበለዚያ ያጥፉት።",
+  "mgAdd": "አዲስ የአባላት ዓይነት",
+  "mgEdit": "የአባላት ዓይነት",
+  "mgName": "ስም (አማርኛ)",
+  "mgNameEn": "ስም (እንግሊዝኛ)",
+  "mgActive": "በሥራ ላይ (ለአዲስ ምርጫ ይታያል)",
+  "mgBuiltIn": "አብሮ የተሠራ",
+  "mgInactive": "ጠፍቷል",
+  "mgMembers": "{count} አባላት",
+  "@mgMembers": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "mgDeleteConfirm": "ይህን የአባላት ዓይነት ልሰርዝ?",
+  "errMemberGroupInUse": "አባላት ወይም ፕሮግራሞች ይህን ዓይነት ይጠቀማሉ፤ ከመሰረዝ ይልቅ ያጥፉት።",
+  "errMemberGroupBuiltIn": "አብሮ የተሠራ የአባላት ዓይነት ሊሰረዝ ወይም ሊጠፋ አይችልም።",
+  "errInvalidMemberGroup": "የአባላት ዓይነቱ አይታወቅም።",
+  "attVerifyTitle": "አባሉን ያረጋግጡ",
+  "attVerifyHint": "ፎቶውን ከሰውዬው ጋር ያመሳክሩ፤ ትክክል ከሆነ ይመዝግቡ።",
+  "attRecord": "መገኘቱን መዝግብ",
+  "attScanNext": "ቀጣዩን ስካን",
+  "attEligible": "ለዚህ ፕሮግራም መመዝገብ ይችላል",
+  "attWillBe": "የሚመዘገበው፦ {status}",
+  "@attWillBe": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "attAlreadyRecorded": "ለዚህ ፕሮግራም መገኘቱ ቀደም ብሎ ተመዝግቧል።",
+  "attRecordedBy": "የመዘገበው፦ {name} · {time}",
+  "@attRecordedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attMethodQr": "በQR",
+  "attMethodManual": "በእጅ",
+  "attFindMember": "አባል ፈልግ (ስልክ የሌላቸው)",
+  "attTakers": "የመገኘት መዝጋቢዎች",
+  "attTakersHint": "ባዶ ከሆነ ማንኛውም የመገኘት መዝጋቢ ይህን ፕሮግራም መመዝገብ ይችላል።",
+  "attTakersAll": "ሁሉም የመገኘት መዝጋቢዎች",
+  "errNotProgramTaker": "የዚህ ፕሮግራም የመገኘት መዝጋቢ አይደሉም።",
+  "errNotAttendanceTaker": "የተመረጠው ሰው የመገኘት መዝጋቢ ፈቃድ የለውም።",
+  "errAttendanceNotRequired": "ይህ ፕሮግራም መገኘት አይመዘግብም።",
+  "errProgramCancelled": "ፕሮግራሙ ተሰርዟል።",
+  "errMemberNotInGroup": "አባሉ ለዚህ ፕሮግራም ከተመረጡት የአባላት ዓይነቶች አይደለም፤ እንደ ቀሪ አይቆጠርም።",
+  "ctaOpenClass": "ክፍል ክፈት",
+  "ctaOpenCourse": "ኮርስ ክፈት",
+  "ctaOpenAssignment": "የቤት ሥራ ክፈት",
+  "ctaOpenPage": "ሌላ ገጽ ክፈት",
+  "ctaOpenLibrary": "የትምህርት ቤተ መጻሕፍት ክፈት",
+  "ctaOpenUrl": "ድረ ገጽ ክፈት",
+  "ctaUrl": "የድረ ገጽ አድራሻ (https://…)",
+  "ctaNothingChosen": "ገና አልተመረጠም",
+  "errInvalidUrl": "አድራሻው በ https:// መጀመር አለበት።",
+  "lrcRepeat": "ድገም",
+  "lrcRepeatHint": "ዘማሪዎቹ መስመር ሲደግሙ ያንን መስመር ከላይ ይንኩ (ወይም «ድገም»)፤ ማሳያው ወደዚያው መስመር ይመለሳል እንጂ መስመሩ ደግሞ አይጻፍም። አንድ መስመር እስከ 3 ጊዜ።",
+  "lrcRepeatPick": "የሚደገመውን መስመር ይምረጡ",
+  "lrcRepeatLimit": "አንድ መስመር እስከ 3 ጊዜ ብቻ ይደገማል።",
+  "bioLock": "በጣት አሻራ ቆልፍ",
+  "bioLockHint": "መተግበሪያው ሲከፈት የስልኩ የጣት አሻራ (ወይም የስልኩ መክፈቻ) ይጠየቃል። አሻራው በስልኩ ላይ ብቻ ይቀራል፤ ወደ አገልጋዩ አይላክም።",
+  "bioUnlock": "ክፈት",
+  "bioReason": "መተግበሪያውን ለመክፈት የጣት አሻራዎን ያስገቡ",
+  "bioUnavailable": "ይህ ስልክ የጣት አሻራ ወይም የማያ መቆለፊያ አልተዘጋጀለትም።",
+  "bioLocked": "መተግበሪያው ተቆልፏል",
+  "errAttendanceTooLate": "የመዘግየት ጊዜው አልፏል፤ በምትኩ ለግምገማ የማስተካከያ ጥያቄ ያቅርቡ።",
+  "adminFromMemberHint": "አስተዳዳሪ የሚሆነው ቀድሞ የተመዘገበ አባል ነው፤ አዲስ መለያ አይፈጠርም። አባሉ መለያውን፣ መታወቂያውን እና ታሪኩን ይይዛል፤ በሚቀጥለው መግቢያ ፒኑን ያዘጋጃል።",
+  "adminPickMember": "አባል ይምረጡ",
+  "errAdminFromMemberOnly": "አስተዳዳሪ ለማድረግ ከአባላት ውስጥ አንዱን ይምረጡ።",
+  "errUserNotActive": "ንቁ አባል ብቻ አስተዳዳሪ ሊሆን ይችላል።",
+  "errMemberNotFound": "አባሉ አልተገኘም። ከመስመር ውጭ ከሆኑ ስልኩ ዝርዝሩን እንዲያድስ አንድ ጊዜ ከኢንተርኔት ጋር ያገናኙት።",
+  "attOfflineChecked": "ከመስመር ውጭ ተረጋግጧል፤ ሲገናኝ አገልጋዩ ደግሞ ያረጋግጣል (በሰዓቱ / ዘግይቶ እዚያ ይወሰናል)።",
+  "attNoMembersFound": "ምንም አባል አልተገኘም",
+  "alarmSnooze": "በ10 ደቂቃ ድገም",
+  "alarmDismiss": "ዝጋ",
+  "sessTitle": "የመግቢያ ክፍለ ጊዜዎች",
+  "sessHint": "መለያዎ የገባባቸው ስልኮች። አንዱን ማስወገድ ያንን ክፍለ ጊዜ ብቻ ያስወጣል፤ መለያው አይሰረዝም።",
+  "sessCurrent": "ይህ ስልክ",
+  "sessRevoke": "አስወጣ",
+  "sessRevokeOthers": "ሌሎቹን ሁሉ አስወጣ",
+  "sessRevokeAll": "ከሁሉም ቦታ ውጣ (ይህ ስልክም)",
+  "sessRevokeAllConfirm": "ከሁሉም ክፍለ ጊዜዎች ይውጡ? እንደገና መግባት ያስፈልግዎታል።",
+  "sessSignedIn": "የገባበት፦ {when}",
+  "@sessSignedIn": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "sessLastActive": "መጨረሻ የታየው፦ {when}",
+  "@sessLastActive": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "sessRevokedCount": "{n} ክፍለ ጊዜዎች ወጥተዋል",
+  "@sessRevokedCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "errMezmurTitleTaken": "በዚህ ርዕስ ሌላ መዝሙር አለ፤ የተለየ ርዕስ ይስጡ።",
+  "errSessionNotFound": "ክፍለ ጊዜው አልተገኘም።",
+  "adminGroupProjects": "የፕሮጀክትና ተግባር አስተዳደር",
+  "adminGroupReports": "ሪፖርትና ኦዲት",
+  "eduCourseProgress": "የኮርስ ሂደት፦ {p} %",
+  "@eduCourseProgress": {
+    "placeholders": {
+      "p": {
+        "type": "String"
+      }
+    }
+  },
+  "eduCourseCompletedHint": "100 % ሲደርስ ኮርሱ ይጠናቀቃል፤ ከዚያ በኋላ የመገኘት ግዴታ አይቆጠርም።",
+  "eduFrequency": "ድግግሞሽ",
+  "eduWeekly": "በየሳምንቱ",
+  "eduMonthly": "በወር አንድ ጊዜ",
+  "eduWeekOfMonth": "የወሩ ሳምንት",
+  "eduWeek1": "1ኛ",
+  "eduWeek2": "2ኛ",
+  "eduWeek3": "3ኛ",
+  "eduWeek4": "4ኛ",
+  "eduWeekLast": "የመጨረሻው",
+  "eduMonthlyDay": "የወሩ {week} {day}",
+  "@eduMonthlyDay": {
+    "placeholders": {
+      "week": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "eduSessionFor": "ለማን",
+  "eduMode": "አቀራረብ",
+  "eduInPerson": "በአካል",
+  "eduOnline": "በመስመር ላይ",
+  "export": "ወደ ውጭ ላክ",
+  "exportPdf": "PDF (ለህትመት)",
+  "exportExcel": "Excel (XLSX)",
+  "exportCsv": "CSV (ዳታ)",
+  "exportReady": "ፋይሉ ተዘጋጅቷል",
+  "itemHistory": "የንብረት ታሪክ",
+  "issueCondition": "ሲሰጥ የነበረበት ሁኔታ",
+  "openWith": "በሌላ መተግበሪያ ክፈት / አጋራ",
+  "previewUnavailable": "ይህ ፋይል በመተግበሪያው ውስጥ ሊታይ አይችልም።",
+  "fileTypeUnknown": "ያልታወቀ ዓይነት",
+  "recentActivityAndNotifications": "የቅርብ ጊዜ እንቅስቃሴዎችና ማሳወቂያዎች",
+  "resendNotification": "እንደገና ላክ",
+  "alsoByEmail": "በኢሜልም ላክ",
+  "alsoByEmailHint": "ኢሜል ላስመዘገቡና ኢሜል ለፈቀዱ አባላት",
+  "resendNote": "እንደገና መላክ አዲስ ማሳወቂያ ይፈጥራል፤ የቀድሞው እና ታሪኩ አይቀየርም።",
+  "notificationDetails": "የማሳወቂያ ዝርዝር",
+  "channelPush": "የስልክ ማሳወቂያ",
+  "channelEmail": "ኢሜል",
+  "resentFrom": "ከ#{id} እንደገና የተላከ",
+  "@resentFrom": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAt": "የተላከበት",
+  "readCount": "ያነበቡ",
+  "resends": "እንደገና የተላኩ",
+  "readAt": "ያነበቡት {time}",
+  "@readAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "deliverySent": "ደርሷል",
+  "deliveryFailed": "አልደረሰም",
+  "deliverySkipped": "አልተላከም",
+  "deliveryPending": "በመላክ ላይ",
+  "deliveryNone": "—",
+  "notificationHealth": "የማሳወቂያ ሁኔታ",
+  "providers": "አገልግሎቶች",
+  "fcmReady": "የስልክ ማሳወቂያ (Firebase)",
+  "emailConfigured": "ኢሜል (SMTP)",
+  "backgroundJobs": "የጀርባ ሥራዎች",
+  "registeredDevices": "የተመዘገቡ ስልኮች",
+  "oldestPending": "ረጅም ጊዜ የቆየ ያልተላከ",
+  "scheduledReminders": "የታቀዱ ማስታወሻዎች",
+  "notificationSettings": "ማሳወቂያዎች",
+  "notificationSettingsHint": "የሚደርስዎትን ማሳወቂያ በርዕስ ይምረጡ። ሁሉም ማሳወቂያዎች በመተግበሪያው ማሳወቂያ ዝርዝር ውስጥ ይቀመጣሉ፤ የአስተዳደር መልዕክቶች ሁልጊዜ ይደርሳሉ።",
+  "notificationsAll": "ማሳወቂያዎችን ፍቀድ",
+  "noEmailForNotifications": "ኢሜል አልተመዘገበም፤ በኢሜል ለመቀበል በመገለጫዎ ኢሜል ያክሉ።",
+  "alwaysOn": "ሁልጊዜ",
+  "topicProgram": "ፕሮግራሞች",
+  "topicAttendance": "ክትትል",
+  "topicProject": "ፕሮጀክቶች",
+  "topicDepartment": "ክፍል (ቻት)",
+  "topicEducation": "ትምህርት",
+  "topicProperty": "ንብረት",
+  "topicMezmur": "መዝሙር",
+  "topicSystem": "አስተዳደር",
+  "pmActivityDetail": "የእንቅስቃሴ ዝርዝር",
+  "pmViaBot": "በተግባር ቦት",
+  "pmActor": "ያደረጉት",
+  "pmActName": "ስም",
+  "pmActLeaderRole": "መሪ",
+  "pmActMemberRole": "አባል",
+  "pmActDeptAdmin": "የክፍል አስተዳዳሪ",
+  "pmActProgram": "ፕሮግራም",
+  "pmProject": "ፕሮጀክት",
+  "pmTask": "ተግባር",
+  "pmAssignees": "ኃላፊዎች",
+  "pmProblem": "ችግር",
+  "pmSolution": "መፍትሄ",
+  "pmChanges": "ለውጦች",
+  "pmAdded": "የተጨመሩ",
+  "pmRemoved": "የተነሱ",
+  "pmRelatedPeople": "የሚመለከታቸው ሰዎች",
+  "pmNotificationsSent": "የተላኩ ማሳወቂያዎች",
+  "pmBotMessages": "የቦት መልዕክቶች",
+  "pickGallery": "ፎቶ (ጋለሪ)",
+  "pickCamera": "ካሜራ",
+  "pickVideo": "ቪዲዮ",
+  "pickRecordVideo": "ቪዲዮ ቅረጽ",
+  "pickAudio": "ድምፅ",
+  "pickDocument": "ሰነድ (PDF, Word, Excel…)",
+  "pickAnyFile": "ሌላ ፋይል",
+  "itemCodeAuto": "ባዶ ከተተወ ከክፍሉና ከምድቡ በራስ-ሰር ይሰጣል",
+  "permissionCancelExcuse": "ፈቃዱን ሰርዝ",
+  "permissionCancelExcuseHint": "በስህተት የተሰጠ ፈቃድን ይሰርዛል። በፈቃዱ የተመዘገበው «ፈቃድ ያለው» አቴንዳንስ ይወገዳል፣ አባሉም ይነገራቸዋል።",
+  "permissionCancelled": "ተሰርዟል",
+  "permissionCancelledBy": "በ{name} ተሰርዟል፦ {reason}",
+  "@permissionCancelledBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "wedManualSelectionHint": "ተሳታፊዎች በእጅ ይመረጣሉ፤ የአቴንዳንስ ወይም የፈተና መስፈርት የለም።",
+  "wedReviewTitle": "{n} አባላትን ለመምረጥ ያረጋግጡ",
+  "wedHideChosen": "ያልተመረጡ ብቻ",
+  "@wedReviewTitle": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "remindEvery15Days": "በየ15 ቀኑ አስታውስ",
+  "remindEvery15DaysHint": "መርሐ ግብሩ እስከሚያልቅ ድረስ ለተሳታፊዎቹ በየ15 ቀኑ ማስታወሻ ይላካል፤ ሲሰረዝ ወይም ሲጠናቀቅ ይቆማል።",
+  "remindEvery15DaysFrom": "ከዚህ ቀን ጀምሮ (ባዶ ከሆነ ከመርሐ ግብሩ መጀመሪያ ወይም ከዛሬ)",
+  "programTypeReminders": "የዚህ ዓይነት መርሐ ግብሮች ነባሪ ማስታወሻዎች",
+  "itemCategoriesConfig": "የእቃዎች ምድብ ቅንብር",
+  "itemCategoryNew": "አዲስ ምድብ",
+  "itemCategoryEdit": "ምድብ አርትዕ",
+  "itemCategoryNameAm": "የምድብ ስም (አማርኛ)",
+  "itemCategoryNameEn": "የምድብ ስም (እንግሊዝኛ)",
+  "itemCategoryCode": "የኮድ ቅድመ-ቅጥያ (ለምሳሌ EQ)",
+  "itemCategoryKey": "መለያ ቁልፍ",
+  "itemCategoryKeyHint": "በላቲን ፊደል፣ ለምሳሌ equipment — ከተቀመጠ በኋላ አይቀየርም",
+  "itemCategoryDeleteConfirm": "ምድቡ ይሰረዝ?",
+  "itemRetired": "ከአገልግሎት ውጭ",
+  "eaAcademicYear": "የትምህርት ዘመን",
+  "eaAddInfoHint": "ተጨማሪ መረጃ ይጻፉ…",
+  "eaAdminComment": "የአስተዳዳሪ አስተያየት",
+  "eaAmend": "ውጤት ማስተካከያ",
+  "eaAmendReason": "የማስተካከያው ምክንያት (ግዴታ)",
+  "eaApproveAndPublish": "አጽድቅ እና አትም",
+  "eaApproveConfirm": "የቀረቡት ውጤቶች ይጽደቁ?",
+  "eaApprovePublishConfirm": "የቀረቡት ውጤቶች ጸድቀው ለተማሪዎች ይታተሙ?",
+  "eaApproveRequestHint": "ሲፈቀድ ለውጡ በምዝገባው ላይ ወዲያውኑ ይተገበራል።",
+  "eaArchived": "በማህደር የተቀመጠ",
+  "eaAssignedBy": "የመደበው፦",
+  "eaAssignTeacher": "መምህር መድብ",
+  "eaAssignToMe": "ለእኔ መድብ",
+  "eaAttachEvidence": "ማስረጃ አያይዝ (አማራጭ)",
+  "eaBy": "በ",
+  "eaCancelRequestConfirm": "ጥያቄው ይሰረዝ?",
+  "eaCatCourseAdmin": "የኮርስ አስተዳደር",
+  "eaCategory": "ዓይነት",
+  "eaCatEnrollment": "ምዝገባ",
+  "eaCatMarks": "ውጤት",
+  "eaCatOther": "ሌላ",
+  "eaCatPlacement": "የክፍል / ዘርፍ ምደባ",
+  "eaCatStudyMode": "የትምህርት ዓይነት (መደበኛ / ርቀት)",
+  "eaCatTeacher": "መምህርን የሚመለከት",
+  "eaChangeTeacherStatus": "የመምህሩን ሁኔታ ቀይር",
+  "eaClassAll": "ክፍል (ኮርስ)",
+  "eaComplaint": "ቅሬታ",
+  "eaComplaintConfidential": "ቅሬታዎ ሚስጥራዊ ነው፤ የሚያዩት እርስዎ እና የትምህርት ክፍሉ ኃላፊዎች ብቻ ናቸው።",
+  "eaComplaintDescription": "ዝርዝር መግለጫ",
+  "eaComplaintSubject": "ርዕስ",
+  "eaComplaints": "ቅሬታዎች",
+  "eaComplaintSent": "ቅሬታዎ ቀርቧል",
+  "eaComplaintTooShort": "እባክዎ ርዕስ እና ቢያንስ 10 ፊደላት ያለው መግለጫ ይጻፉ።",
+  "eaCsAwaitingInfo": "ተጨማሪ መረጃ ይጠበቃል",
+  "eaCsEscalated": "ለበላይ ተላልፏል",
+  "eaCsResolved": "ተፈትቷል",
+  "eaCsSubmitted": "ቀርቧል",
+  "eaCsUnderReview": "በመታየት ላይ",
+  "eaEnrollmentStatus": "የምዝገባ ሁኔታ",
+  "eaEnteredBy": "ያስገባው፦",
+  "eaHistory": "ታሪክ",
+  "eaImplemented": "ተፈጽሟል",
+  "eaInternalNote": "የውስጥ ማስታወሻ",
+  "eaJClassChanged": "ክፍል ተቀይሯል",
+  "eaJEnrolled": "ተመዝግቧል",
+  "eaJMarkAmended": "ውጤት ተስተካክሏል",
+  "eaJMarkApproved": "ውጤት ጸድቋል",
+  "eaJMarkPublished": "ውጤት ታትሟል",
+  "eaJMarkRejected": "ውጤት ለማስተካከያ ተመልሷል",
+  "eaJMarkSubmitted": "ውጤት ለማጽደቅ ቀርቧል",
+  "eaJourney": "የትምህርት ጉዞ",
+  "eaJRequestDecided": "በጥያቄ ላይ ውሳኔ ተሰጥቷል",
+  "eaJStreamChanged": "ዘርፍ ተቀይሯል",
+  "eaJStudyModeChanged": "የትምህርት ዓይነት ተቀይሯል",
+  "eaJSubjectAdded": "ትምህርት ተጨምሯል",
+  "eaJSubjectDropped": "ትምህርት ተትቷል",
+  "eaJTeacherAssigned": "መምህር ሆነው ተመድበዋል",
+  "eaJTeacherReactivated": "የመምህርነት ምደባ እንደገና ጸንቷል",
+  "eaJTeacherRemoved": "ከመምህርነት ምደባ ተነስተዋል",
+  "eaJTeacherSuspended": "የመምህርነት ምደባ ታግዷል",
+  "eaJWithdrawn": "አቋርጧል",
+  "eaLayoutLong": "በረድፍ (ተማሪ × ትምህርት)",
+  "eaLayoutWide": "በአምድ (ትምህርቶች በአምድ)",
+  "eaMarkDraft": "ረቂቅ",
+  "eaMarkEmpty": "አልገባም",
+  "eaMarkPublished": "ታትሟል",
+  "eaMarkRejected": "ለማስተካከያ ተመልሷል",
+  "eaMarks": "ውጤቶች",
+  "eaMarksExport": "የውጤት ሪፖርት",
+  "eaMarkStatus": "የውጤት ሁኔታ",
+  "eaMarkSubmitted": "ለማጽደቅ ቀርቧል",
+  "eaMarksWorkflowHint": "ውጤቶች፦ ረቂቅ → ለማጽደቅ ማቅረብ → ማጽደቅ → ማተም። ተማሪዎች የሚያዩት የታተመውን ብቻ ነው።",
+  "eaMissingIsDash": "ያልገባ ውጤት «—» ሆኖ ይታያል (0 አይደለም)።",
+  "eaMyClass": "ክፍሌ",
+  "eaNewComplaint": "አዲስ ቅሬታ",
+  "eaNewRequest": "አዲስ ጥያቄ",
+  "eaNoComplaints": "ቅሬታ የለም",
+  "eaNoJourney": "እስካሁን የተመዘገበ ነገር የለም",
+  "eaNoRequests": "ጥያቄ የለም",
+  "eaNoStreams": "ይህ ክፍል ዘርፎች አልተዘጋጁለትም።",
+  "eaNothingToReview": "የሚታይ ነገር የለም",
+  "eaNotSpecific": "አልተገለጸም",
+  "eaPublishConfirm": "የጸደቁት ውጤቶች ለተማሪዎች ይታተሙ?",
+  "eaReactivate": "እንደገና አጽና",
+  "eaRejectReason": "ያልጸደቀበት ምክንያት",
+  "eaRemove": "አንሳ",
+  "eaReplyHint": "ምላሽ ወይም ማስታወሻ…",
+  "eaReqAddClass": "ኮርስ መመዝገብ",
+  "eaReqAddSubject": "ትምህርት መጨመር",
+  "eaReqClassChange": "የክፍል ለውጥ",
+  "eaReqDropClass": "ኮርስ ማቋረጥ",
+  "eaReqDropSubject": "ትምህርት መተው",
+  "eaReqOther": "ሌላ ለውጥ",
+  "eaReqStreamChange": "የዘርፍ ለውጥ",
+  "eaReqStudyMode": "የትምህርት ዓይነት ለውጥ (መደበኛ / ርቀት)",
+  "eaRequestedChange": "የሚፈልጉት ለውጥ",
+  "eaRequests": "ጥያቄዎች",
+  "eaRequestSent": "ጥያቄዎ ቀርቧል",
+  "eaRequestType": "የጥያቄ ዓይነት",
+  "eaResultPending": "በሂደት ላይ",
+  "eaReviewCenter": "የትምህርት ግምገማ ማዕከል",
+  "eaReviewCenterSub": "ውጤቶችን ማጽደቅ፣ ጥያቄዎች፣ ቅሬታዎች እና ሪፖርቶች",
+  "eaSelfService": "ጥያቄዎች፣ ቅሬታዎች እና የትምህርት ጉዞ",
+  "eaSelfServiceSub": "የክፍል/ዘርፍ ለውጥ፣ ትምህርት መጨመር/መተው፣ ቅሬታ ማቅረብ",
+  "eaSemester": "ሴሚስተር",
+  "eaSend": "አስገባ",
+  "eaStream": "ዘርፍ",
+  "eaStreams": "ዘርፎች",
+  "eaStreamsHint": "በኮማ ይለዩ (ለምሳሌ፦ ሀ, ለ)",
+  "eaStudentIdOrName": "የተማሪ መለያ ወይም ስም",
+  "eaStudyMode": "የትምህርት ዓይነት",
+  "eaSubject": "ትምህርት",
+  "eaSubjectCode": "የትምህርቱ ኮድ",
+  "eaSubjects": "ትምህርቶች",
+  "eaSubmitMarks": "ለማጽደቅ አቅርብ",
+  "eaSubmitMarksConfirm": "የገቡት ውጤቶች ለትምህርት ክፍሉ ለማጽደቅ ይቅረቡ? ከቀረቡ በኋላ መቀየር አይቻልም።",
+  "eaSuspend": "አግድ",
+  "eaTargetClass": "ወደ የሚፈልጉት ክፍል",
+  "eaTeacherRemoved": "ተነስቷል",
+  "eaTeachers": "መምህራን",
+  "eaTeacherSuspended": "ታግዷል",
+  "eaComplaintRef": "የቅሬታዎ መለያ ቁጥር፦ {ref}",
+  "@eaComplaintRef": {
+    "placeholders": {
+      "ref": {
+        "type": "String"
+      }
+    }
+  },
+  "eaMarksCount": "{n} ውጤቶች",
+  "@eaMarksCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "eaMarksSubmitted": "{n} ውጤቶች ለማጽደቅ ቀርበዋል፤ {empty} ባዶ ናቸው።",
+  "@eaMarksSubmitted": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "empty": {
+        "type": "int"
+      }
+    }
+  },
+  "eaPublishApproved": "የጸደቁትን አትም ({n})",
+  "@eaPublishApproved": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "eaResolvedIn": "በ{hours} ሰዓት ውስጥ ተፈትቷል",
+  "@eaResolvedIn": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "eaTeachersOf": "የ{course} መምህራን",
+  "@eaTeachersOf": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      }
+    }
+  },
+  "scMezmurExport": "የመዝሙር ምርጫ ሪፖርት",
+  "recurrenceTwiceMonthly": "በወር 2 ጊዜ (በየ2 ሳምንቱ)",
+  "twiceMonthlyRuleDay": "በተወሰኑ ሁለት ቀኖች (ለምሳሌ 1 እና 15)",
+  "twiceMonthlyRuleWeekday": "በሳምንቱ ቀን (1ኛ እና 3ኛ ወይም 2ኛ እና 4ኛ)",
+  "twiceMonthlyDays": "በየወሩ በ{first}ኛው እና በ{second}ኛው ቀን",
+  "@twiceMonthlyDays": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "twiceMonthlyNth13": "በየወሩ 1ኛው እና 3ኛው {weekday}",
+  "@twiceMonthlyNth13": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      }
+    }
+  },
+  "twiceMonthlyNth24": "በየወሩ 2ኛው እና 4ኛው {weekday}",
+  "@twiceMonthlyNth24": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      }
+    }
+  },
+  "vWeightsTotal": "የመመዘኛዎቹ ድምር ከክፍሉ ድርሻ ጋር እኩል መሆን አለበት።",
+  "vMinimumAboveWeight": "ዝቅተኛው ነጥብ ከመመዘኛው ክብደት መብለጥ አይችልም።",
+  "elTabLearn": "ተማር",
+  "elTabClasses": "ክፍሎች",
+  "elTabProgress": "እድገት",
+  "elTabMore": "ተጨማሪ",
+  "elHomeSubtitle": "የነፍስ ምግብና የዕውቀት መቅሰሚያ",
+  "elFeaturedLabel": "የዕለቱ ትምህርት",
+  "elFeatured": "የዕለቱ ትምህርት (ባነር)",
+  "elStart": "ጀምር",
+  "elContinue": "ቀጥል",
+  "elContinueLearning": "ካቆሙበት ይቀጥሉ",
+  "elPositionOf": "ትምህርት {pos} ከ {total}",
+  "@elPositionOf": {
+    "placeholders": {
+      "pos": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "elDoneOf": "{done} ከ {total} ተጠናቋል",
+  "@elDoneOf": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "elPercentDone": "{p}% ተጠናቋል",
+  "@elPercentDone": {
+    "placeholders": {
+      "p": {
+        "type": "int"
+      }
+    }
+  },
+  "elSubjects": "ትምህርቶች",
+  "elSeeAll": "ሁሉንም እይ",
+  "elNoCategories": "እስካሁን የትምህርት ምድቦች አልተዘጋጁም።",
+  "elThisWeek": "የዚህ ሳምንት",
+  "elWeeklyQuizzes": "የሳምንቱ የፈተና ጥያቄዎች",
+  "elQuizzesWaiting": "{n} ፈተና(ዎች) ይጠብቁዎታል — እውቀትዎን ይፈትሹ!",
+  "@elQuizzesWaiting": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elTakePart": "ተሳተፍ",
+  "elNothingThisWeek": "በዚህ ሳምንት የሚጠበቅብዎት ፈተና ወይም የቤት ሥራ የለም።",
+  "elDue": "እስከ {date}",
+  "@elDue": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "elOverdue": "ጊዜው አልፏል",
+  "elMyStudies": "የእኔ ትምህርት",
+  "elNotEnrolledOpen": "እስካሁን በክፍል አልተመዘገቡም። {n} ክፍል(ሎች) ለምዝገባ ክፍት ናቸው።",
+  "@elNotEnrolledOpen": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elNotEnrolledNoOpen": "እስካሁን በክፍል አልተመዘገቡም። ምዝገባ ሲከፈት እዚህ ይታያል፤ እስከዚያው ለሁሉም ክፍት የሆኑ ትምህርቶችን በ«ተማር» ማየት ይችላሉ።",
+  "elNoUpcomingClasses": "በሚቀጥሉት 7 ቀናት ክፍለ ጊዜ የለም።",
+  "elAttendance": "የክፍል መገኘት",
+  "elNoSessionsYet": "እስካሁን ክትትል አልተወሰደም",
+  "elLatestResults": "የቅርብ ጊዜ ውጤቶች",
+  "elNoPublishedResults": "እስካሁን የታተመ ውጤት የለም።",
+  "elToGrade": "የሚታረሙ የቤት ሥራዎች",
+  "elMarksRejected": "ለማስተካከያ የተመለሱ ውጤቶች",
+  "elMarksDraft": "ያልቀረቡ ረቂቅ ውጤቶች",
+  "elQuizAnswersToGrade": "የሚታረሙ የፈተና መልሶች",
+  "elAdminTools": "የትምህርት አስተዳደር",
+  "elMarksToReview": "ለማጽደቅ የቀረቡ ውጤቶች",
+  "elMarksToPublish": "የጸደቁ ያልታተሙ ውጤቶች",
+  "elRequestsPending": "በመጠባበቅ ላይ ያሉ ጥያቄዎች",
+  "elComplaintsOpen": "ክፍት ቅሬታዎች",
+  "elSubjectsUnlinked": "ከትምህርት ዓይነት ጋር ያልተያያዙ ኮርሶች",
+  "elOtherSections": "ሌሎች ክፍሎች",
+  "elGuidanceCenter": "የመመሪያ ማዕከል",
+  "elSearchHint": "ትምህርት፣ ምድብ ወይም ጥቅስ ይፈልጉ",
+  "elSearchStart": "ቢያንስ 2 ፊደላት ይጻፉ",
+  "elSearchNone": "ምንም አልተገኘም",
+  "elMySubjects": "የእኔ ትምህርቶች",
+  "elCategories": "ምድቦች",
+  "elCategory": "ምድብ",
+  "elNoCategory": "ምድብ የሌላቸው",
+  "elOtherSubjects": "ሌሎች ትምህርቶች",
+  "elSubject": "የትምህርት ዓይነት",
+  "elLesson": "ትምህርት",
+  "elLessons": "ትምህርቶች",
+  "elMoreLessons": "ሌሎች ትምህርቶች",
+  "elClass": "ክፍል",
+  "elLessonCount": "{n} ትምህርቶች",
+  "@elLessonCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elSubjectCount": "{n} የትምህርት ዓይነቶች",
+  "@elSubjectCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elNoLessonsYet": "ትምህርት ገና አልተዘጋጀም",
+  "elNoSubjectsInCategory": "በዚህ ምድብ ገና የታተመ የትምህርት ዓይነት የለም።",
+  "elForStudents": "ለተመዘገቡ ተማሪዎች",
+  "elSubjectForStudents": "የዚህ ትምህርት ይዘት ለተመዘገቡ ተማሪዎች ብቻ ነው። ርዕሶቹን ማየት ይችላሉ።",
+  "elObjectives": "የትምህርቱ ዓላማዎች",
+  "elCompleted": "ተጠናቋል",
+  "elInProgress": "በመማር ላይ",
+  "elLocked": "የተቆለፈ",
+  "elMinutes": "{n} ደቂቃ",
+  "@elMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elLessonN": "ትምህርት {n}",
+  "@elLessonN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "elTextSize": "የፊደል መጠን",
+  "elBookmark": "ምልክት አድርግ",
+  "elBookmarks": "ምልክት የተደረገባቸው",
+  "elShare": "አጋራ",
+  "elPrevious": "ቀዳሚ",
+  "elNext": "ቀጣይ",
+  "elListen": "ያዳምጡ",
+  "elMarkDone": "እንዳጠናቀቅሁ ምልክት አድርግ",
+  "elMarkNotDone": "እንዳላጠናቀቅሁ መልስ",
+  "elImages": "ምስሎች",
+  "elMaterials": "አጋዥ መረጃዎች",
+  "elTeacherNotes": "የመምህር ማስታወሻ",
+  "elVideoLink": "የቪዲዮ ሊንክ",
+  "elWebLink": "የድረ-ገጽ ሊንክ",
+  "elBadLink": "ሊንኩ ትክክል አይደለም (https:// ያስፈልጋል)።",
+  "elLessonProgress": "የትምህርት እድገት",
+  "elPublishedResults": "የታተሙ ውጤቶች",
+  "elPending": "በመጠባበቅ ላይ",
+  "elNoProgressYet": "እስካሁን የተመዘገበ እድገት የለም። ትምህርት ሲጀምሩ እዚህ ይታያል።",
+  "elAttendanceSummary": "{rate} · ተገኝቷል {present} · ቀርቷል {absent} · በፈቃድ {excused}",
+  "@elAttendanceSummary": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      },
+      "present": {
+        "type": "int"
+      },
+      "absent": {
+        "type": "int"
+      },
+      "excused": {
+        "type": "int"
+      }
+    }
+  },
+  "elQuiz": "ፈተና",
+  "elQuizzes": "ፈተናዎች",
+  "elQuizOpen": "ክፍት",
+  "elQuizUpcoming": "ገና አልተከፈተም",
+  "elQuizClosed": "ተዘግቷል",
+  "elQuizInProgress": "በመሥራት ላይ",
+  "elQuizDone": "ተሠርቷል",
+  "elQuizScore": "ውጤት፦ {score}",
+  "@elQuizScore": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "elScorePending": "ውጤቱ ሲታተም ይታያል",
+  "elAwaitingTeacher": "መምህሩ የጽሑፍ መልሶችን እስኪያርሙ ይጠብቁ",
+  "elOfficialQuiz": "ይፋዊ ውጤት",
+  "elOfficialQuizNote": "የዚህ ፈተና ውጤት በመምህሩና በትምህርት ክፍሉ ከጸደቀ በኋላ ይፋዊ ውጤት ሆኖ ይታተማል።",
+  "elPracticeScoreNote": "ይህ ውጤት ለልምምድ ነው እንጂ ይፋዊ ውጤት አይደለም።",
+  "elPolicyAfterClose": "ትክክለኛ መልሶች ፈተናው ሲዘጋ ይታያሉ።",
+  "elPolicyAfterSubmit": "ትክክለኛ መልሶች ካስረከቡ በኋላ ይታያሉ።",
+  "elPolicyPractice": "ልምምድ፦ እያንዳንዱን መልስ ወዲያውኑ መፈተሽ ይችላሉ።",
+  "elPolicyNever": "ትክክለኛ መልሶች አይታዩም።",
+  "elQuizNotAvailable": "ይህ ፈተና ለእርስዎ አልተከፈተም (ለኮርሱ ተማሪዎች ብቻ ነው)።",
+  "elQuestionCount": "{n} ጥያቄዎች",
+  "@elQuestionCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elAttemptsLeft": "{left} ከ {max} ሙከራ ቀርቷል",
+  "@elAttemptsLeft": {
+    "placeholders": {
+      "left": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "elOpens": "የሚከፈተው {date}",
+  "@elOpens": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "elInstructions": "መመሪያ",
+  "elStartQuiz": "ፈተናውን ጀምር",
+  "elTryAgain": "እንደገና ሞክር",
+  "elResume": "ቀጥል",
+  "elViewAttempt": "የመጨረሻ ሙከራዬን እይ",
+  "elQuestionOf": "ጥያቄ {n} ከ {total}",
+  "@elQuestionOf": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "elCheckAnswer": "መልስዎን ይፈትሹ",
+  "elSubmit": "አስረክብ",
+  "elSubmitConfirm": "መልሶችዎን አሁን ያስረክቡ? ካስረከቡ በኋላ መቀየር አይቻልም።",
+  "elSubmitUnanswered": "{n} ጥያቄ(ዎች) አልተመለሱም። አሁን ያስረክቡ?",
+  "@elSubmitUnanswered": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elSubmitted": "ተረክቧል",
+  "elNoQuestions": "ጥያቄዎች ገና አልተዘጋጁም",
+  "elChooseAll": "ትክክል የሆኑትን ሁሉ ይምረጡ",
+  "elYourAnswer": "መልስዎን ይጻፉ",
+  "elTrue": "እውነት",
+  "elFalse": "ሐሰት",
+  "elModelAnswer": "ናሙና መልስ",
+  "elNewQuiz": "አዲስ ፈተና",
+  "elNoQuizzes": "ለዚህ ኮርስ ፈተና ገና አልተዘጋጀም።",
+  "elStatusDraft": "ረቂቅ",
+  "elStatusPublished": "የታተመ",
+  "elStatusArchived": "በማህደር",
+  "elStatusActive": "ንቁ",
+  "elAttemptsCount": "{n} ሙከራዎች",
+  "@elAttemptsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elToGradeCount": "{n} የሚታረሙ",
+  "@elToGradeCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elResults": "ውጤቶች",
+  "elQuizLockedNote": "ተማሪዎች ፈተናውን ስለጀመሩ ጥያቄዎችና የውጤት ደንቦች መቀየር አይችሉም። የመዝጊያ ቀን፣ መመሪያና ሁኔታ ግን ይቀየራሉ።",
+  "elPublish": "አትም",
+  "elCloseQuiz": "ዝጋ",
+  "elReopenQuiz": "እንደገና ክፈት",
+  "elQuizSettings": "የፈተናው ቅንብር",
+  "elTitle": "ርዕስ",
+  "elOpensAt": "የሚከፈትበት",
+  "elClosesAt": "የሚዘጋበት (የመጨረሻ ቀን)",
+  "elTimeLimit": "የጊዜ ገደብ (ደቂቃ)",
+  "elTimeLimitHint": "ባዶ = ገደብ የለም",
+  "elMaxAttempts": "የሙከራ ብዛት",
+  "elScoring": "የሚቆጠረው",
+  "elScoringBest": "ከፍተኛው ሙከራ",
+  "elScoringLast": "የመጨረሻው ሙከራ",
+  "elReviewPolicy": "ትክክለኛ መልሶች መቼ ይታዩ",
+  "elLinkAssessment": "ከውጤት መመዝገቢያ ጋር ማያያዝ",
+  "elLinkAssessmentHint": "ከተያያዘ ውጤቶቹ ወደዚያ የውጤት መመዝገቢያ በረቂቅነት ይላካሉ፤ ከዚያም እንደተለመደው ቀርበው፣ ጸድቀው ይታተማሉ።",
+  "elNotOfficial": "አይያያዝም (ልምምድ)",
+  "elNotOfficialNote": "ይህ ፈተና ከውጤት መመዝገቢያ ጋር አልተያያዘም፤ ውጤቱ ለልምምድ ብቻ ነው።",
+  "elLinkLesson": "ከትምህርት ጋር ማያያዝ",
+  "elShuffle": "የጥያቄዎችን ቅደም ተከተል ቀላቅል",
+  "elQuestions": "ጥያቄዎች",
+  "elAddQuestion": "ጥያቄ ጨምር",
+  "elSaveQuestions": "ጥያቄዎቹን አስቀምጥ",
+  "elDeleteQuizConfirm": "ይህን ፈተና ይሰርዙ?",
+  "elQuestionN": "ጥያቄ {n}",
+  "@elQuestionN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elTypeSingle": "አንድ ምርጫ",
+  "elTypeMultiple": "ብዙ ምርጫ",
+  "elTypeTrueFalse": "እውነት/ሐሰት",
+  "elTypeShortText": "አጭር ጽሑፍ",
+  "elPrompt": "ጥያቄው",
+  "elOptionN": "ምርጫ {n}",
+  "@elOptionN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elAddOption": "ምርጫ ጨምር",
+  "elMarkCorrect": "ትክክለኛውን መልስ ይምረጡ",
+  "elShortTextHint": "በመምህሩ ይታረማል፤ ናሙና መልሱ ለተማሪዎች መልሶቹ ሲታዩ ይታያል።",
+  "elPoints": "ነጥብ",
+  "elExplanation": "ማብራሪያ (አማራጭ)",
+  "elQuestionNeedsPrompt": "እያንዳንዱ ጥያቄ ጽሑፍ ያስፈልገዋል።",
+  "elQuestionNeedsOptions": "ምርጫ ጥያቄ ቢያንስ 2 ምርጫዎች ያስፈልገዋል።",
+  "elQuestionNeedsAnswer": "የእያንዳንዱን ጥያቄ ትክክለኛ መልስ ይምረጡ።",
+  "elTransfer": "ወደ ውጤት መመዝገቢያ ላክ",
+  "elTransferConfirm": "የፈተናውን ውጤቶች ወደተያያዘው የውጤት መመዝገቢያ በረቂቅነት ይላኩ? ቀድሞ የቀረቡ ወይም የጸደቁ ውጤቶች አይቀየሩም።",
+  "elTransferResult": "{sent} ውጤቶች በረቂቅነት ተልከዋል። {pending} የመምህር እርማት ይጠብቃሉ፤ {locked} ቀድሞ የቀረቡ/የጸደቁ ስለሆኑ አልተቀየሩም። ከውጤት መመዝገቢያው ያቅርቧቸው።",
+  "@elTransferResult": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "pending": {
+        "type": "int"
+      },
+      "locked": {
+        "type": "int"
+      }
+    }
+  },
+  "elTransferred": "ተልኳል",
+  "elNeedsGrading": "እርማት ይጠብቃል",
+  "elNotTaken": "አልተሠራም",
+  "elNoStudents": "ተማሪዎች የሉም",
+  "elAttempt": "ሙከራ",
+  "elGradeAnswer": "መልሱን አርም",
+  "elPointsOutOf": "ነጥብ (ከ {max})",
+  "@elPointsOutOf": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "elContentTitle": "የትምህርት ይዘት",
+  "elNoAuthoring": "የሚያስተምሩት ኮርስ ገና ከትምህርት ዓይነት ጋር አልተያያዘም።",
+  "elNewCategory": "አዲስ ምድብ",
+  "elEditCategory": "ምድቡን አስተካክል",
+  "elDragToReorder": "ቅደም ተከተል ለመቀየር ይጎትቱ",
+  "elNameAmharic": "ስም (አማርኛ)",
+  "elNameEnglish": "ስም (እንግሊዝኛ)",
+  "elNameRequired": "ስም / ርዕስ ያስፈልጋል።",
+  "elDescription": "መግለጫ",
+  "elIcon": "አዶ (ምስል እስኪጫን)",
+  "elAddImage": "ምስል ጨምር",
+  "elChangeImage": "ምስል ቀይር",
+  "elRemoveImage": "ምስል አስወግድ",
+  "elImage": "ምስል",
+  "elImageAfterSave": "ምስል ከተቀመጠ በኋላ መጨመር ይቻላል።",
+  "elArchiveHint": "ሲጠፋ በማህደር ይቀመጣል፤ ለአባላት አይታይም።",
+  "elDeleteCategoryConfirm": "ይህን ምድብ ይሰርዙ? የትምህርት ዓይነቶች ያሉት ምድብ ሊሰረዝ አይችልም — በማህደር ያስቀምጡት።",
+  "elNewSubject": "አዲስ የትምህርት ዓይነት",
+  "elEditSubject": "የትምህርት ዓይነቱን አስተካክል",
+  "elNoSubjects": "የትምህርት ዓይነቶች ገና አልተዘጋጁም።",
+  "elCode": "ኮድ",
+  "elWhoCanRead": "ይዘቱን ማን ያያል",
+  "elVisibilityEnrolled": "የተመዘገቡ ተማሪዎች ብቻ",
+  "elVisibilityMembers": "ሁሉም አባላት",
+  "elStatus": "ሁኔታ",
+  "elSequential": "በቅደም ተከተል መማር",
+  "elSequentialHint": "ተማሪዎች ቀዳሚውን ትምህርት ሳያጠናቅቁ ቀጣዩን መክፈት አይችሉም።",
+  "elEditCurriculum": "ትምህርቶችን አስተካክል",
+  "elPreview": "ቅድመ እይታ",
+  "elNewLesson": "አዲስ ትምህርት",
+  "elEditLesson": "ትምህርቱን አስተካክል",
+  "elMaterialCount": "{n} አጋዥ መረጃዎች",
+  "@elMaterialCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "elNotLinkedYet": "ይህ የትምህርት ዓይነት ከማንኛውም ክፍል ኮርስ ጋር ገና አልተያያዘም (በኮርስ አስተዳደር ውስጥ ያያይዙት)።",
+  "elTaughtIn": "የሚሰጠው በ፦ {list}",
+  "@elTaughtIn": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "elUnits": "ምዕራፎች",
+  "elUnit": "ምዕራፍ",
+  "elNewUnit": "አዲስ ምዕራፍ",
+  "elRenameUnit": "ምዕራፉን ቀይር",
+  "elNoUnits": "ምዕራፎች የሉም — ትምህርቶች በቀጥታ ይዘረዘራሉ።",
+  "elDeleteUnitConfirm": "ይህን ምዕራፍ ይሰርዙ? ትምህርቶቹ አይሰረዙም።",
+  "elSummary": "አጭር መግለጫ",
+  "elScriptureRefs": "የመጽሐፍ ቅዱስ ጥቅሶች",
+  "elScriptureRefsHint": "ለምሳሌ፦ የሐዋ. 2፥1-4",
+  "elEstMinutes": "የሚወስደው ጊዜ (ደቂቃ)",
+  "elLessonText": "የትምህርቱ ጽሑፍ",
+  "elFormattingHelp": "«# » ርዕስ፣ «## » ንዑስ ርዕስ፣ «> » ጥቅስ፣ «- » ዝርዝር፤ ባዶ መስመር አዲስ አንቀጽ ይጀምራል።",
+  "elTeacherNotesHint": "ለመምህራንና አዘጋጆች ብቻ ይታያል።",
+  "elMaterialsHint": "PDF፣ ምስል፣ የድምጽ ፋይል ወይም ሰነድ ይጫኑ፤ ቪዲዮ በሊንክ ይጨመራል። ፋይሎቹ ለትምህርቱ ተማሪዎች ብቻ ይወርዳሉ።",
+  "elMaterialTitle": "የአጋዥ መረጃው ርዕስ",
+  "elUploadFile": "ፋይል ጫን",
+  "elAddLink": "ሊንክ ጨምር",
+  "elDeleteMaterialConfirm": "ይህን አጋዥ መረጃ ይሰርዙ?",
+  "elDeleteLessonConfirm": "ይህን ትምህርት ይሰርዙ? ተማሪዎች የከፈቱት ትምህርት ሊሰረዝ አይችልም — በማህደር ያስቀምጡት።",
+  "elAddFeatured": "ባነር ጨምር",
+  "elEditFeatured": "ባነሩን አስተካክል",
+  "elNoFeatured": "በባነሩ ላይ ምንም የለም። ትምህርት ወይም የትምህርት ዓይነት ይጨምሩ።",
+  "elTargetUnavailable": "ይዘቱ አልታተመም/ተወግዷል",
+  "elInactive": "ጠፍቷል",
+  "elDeleteFeaturedConfirm": "ከባነሩ ይውጣ?",
+  "elChooseTarget": "የሚታየውን ይዘት ይምረጡ።",
+  "elTitleOverride": "ርዕስ (አማራጭ)",
+  "elTitleOverrideHint": "ባዶ ከሆነ የይዘቱ ርዕስ ይታያል",
+  "elSubtitle": "ንዑስ ርዕስ",
+  "elShowFrom": "ከ… ጀምሮ ይታይ",
+  "elShowUntil": "እስከ… ይታይ",
+  "elCatalogSubject": "የትምህርት ዓይነት (ሥርዓተ ትምህርት)",
+  "elCatalogSubjectHint": "የዚህ ኮርስ ተማሪዎች የዚህን የትምህርት ዓይነት ትምህርቶች ያያሉ፤ መምህሩም ትምህርቶችን ያዘጋጃል።",
+  "errModuleDisabled": "ይህ ክፍል ለመለያዎ ተዘግቷል።",
+  "errHasRecords": "የትምህርት መዝገቦች ስላሉት ሊሰረዝ አይችልም — በማህደር ያስቀምጡት።",
+  "errLessonLocked": "መጀመሪያ ቀዳሚውን ትምህርት ያጠናቅቁ።",
+  "errNotEnrolledSubject": "ይህ ለዚህ ትምህርት የተመዘገቡ ተማሪዎች ብቻ ነው።",
+  "errNotSubjectEditor": "ይህን ትምህርት ለማዘጋጀት ፈቃድ የለዎትም።",
+  "errQuizNotOpen": "ፈተናው ገና አልተከፈተም።",
+  "errQuizClosed": "ፈተናው ተዘግቷል።",
+  "errNoAttemptsLeft": "የተፈቀደልዎትን ሙከራ ሁሉ ተጠቅመዋል።",
+  "errAttemptExpired": "የዚህ ሙከራ ጊዜ አልቋል፤ የመለሱት ተረክቧል።",
+  "errAttemptSubmitted": "ይህ ሙከራ ቀድሞ ተረክቧል።",
+  "errQuizHasAttempts": "ተማሪዎች ስለሠሩት ይህ መቀየር አይችልም።",
+  "errQuizEmpty": "ከማተምዎ በፊት ጥያቄዎችን ይጨምሩ።",
+  "errQuizNotLinked": "መጀመሪያ ፈተናውን ከውጤት መመዝገቢያ ጋር ያያይዙ።",
+  "errAlreadyTransferred": "ውጤቱ ቀድሞ ተልኳል፤ በውጤት መመዝገቢያው ያስተካክሉ።",
+  "perm_education_content": "የትምህርት ይዘት (ምድቦች፣ ትምህርቶች፣ ባነር) ማስተዳደር",
+  "errSessionNotStarted": "መዝጋቢው ይህን የመገኘት መዝገብ ገና አልጀመረም።",
+  "errSessionNotAvailable": "መገኘት መመዝገብ የሚከፈተው ፕሮግራሙ ከመጀመሩ 15 ደቂቃ በፊት ነው።",
+  "errBeforeSessionStart": "ይህ የተመዘገበው መዝገቡ ከመጀመሩ በፊት ነው።",
+  "errNotSessionTaker": "ይህን ማድረግ የሚችለው ለዚህ መዝገብ የተመደበው የመገኘት መዝጋቢ ብቻ ነው።",
+  "errNoTakerAssigned": "እስካሁን የመገኘት መዝጋቢ አልተመደበም — የሰው ሀብት ክፍል ይመድባል።",
+  "errSignatureRequired": "መገኘት ከመመዝገቡ በፊት አባሉ መፈረም አለበት።",
+  "errLateRemoved": "\"ዘግይቷል\" የሚባል ሁኔታ የለም፤ ተገኝቷል ወይም በፈቃድ ይመዝግቡ።",
+  "errOneTakerOnly": "አንድ ፕሮግራም አንድ የመገኘት መዝጋቢ ብቻ አለው።",
+  "errCaptureTooOld": "ይህ ከመስመር ውጭ የተያዘ መዝገብ ከ3 ቀን በላይ ስለቆየ ለሰው ሀብት ክፍል ተልኳል።",
+  "errOutsideOccurrence": "የደረሱበት ሰዓት በፕሮግራሙ ሰዓት ውስጥ መሆን አለበት።",
+  "errConflictResolved": "ይህ ጉዳይ ቀድሞ ውሳኔ አግኝቷል።",
+  "errSelfApproval": "ያቀረቡትን ራስዎ መወሰን አይችሉም።",
+  "errLocalDataUnreadable": "በዚህ ስልክ ከመስመር ውጭ የተቀመጠው መረጃ ሊነበብ አልቻለም።",
+  "attSentToHr": "እንደተያዘ ሊመዘገብ ስላልቻለ ለሰው ሀብት ክፍል ግምገማ ተቀምጧል።",
+  "attSessionStartedSnack": "የመገኘት መዝገቡ ተጀመረ",
+  "attSessionEndedSnack": "የመገኘት መዝገቡ ተጠናቀቀ",
+  "attEndConfirm": "ይህን የመገኘት መዝገብ ልጨርስ? ከዚያ በኋላ መቀየር የሚቻለው በማስተካከያ ጥያቄ ብቻ ነው።",
+  "attChangeTaker": "መዝጋቢ ቀይር",
+  "attSubstituteReason": "ተተኪ መዝጋቢ ለምን ይረከባል?",
+  "attRemoveReason": "ይህ ምዝገባ ለምን ይሰረዛል?",
+  "attMinutesAfterStart": "ከጅማሬ {minutes} ደቂቃ በኋላ",
+  "@attMinutesAfterStart": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "attSigned": "ፈርሟል",
+  "attLegacyMark": "የመገኘት መዝገቦች ከመጀመራቸው በፊት የተመዘገበ",
+  "attSessionEndedAuto": "በተያዘለት የማብቂያ ሰዓት ተጠናቋል ({time})",
+  "@attSessionEndedAuto": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attSessionEndedAt": "መዝጋቢው በ{time} ጨርሷል",
+  "@attSessionEndedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attSessionRunning": "የተጀመረው {start} · {elapsed}",
+  "@attSessionRunning": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "elapsed": {
+        "type": "String"
+      }
+    }
+  },
+  "attSessionOpensAt": "በ{time} ይከፈታል (ከጅማሬ 15 ደቂቃ በፊት)",
+  "@attSessionOpensAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attSessionReady": "ዝግጁ ነው — ፕሮግራሙ ሲጀመር \"ጀምር\" ይጫኑ",
+  "attSessionWaiting": "መዝጋቢው እስኪጀምር በመጠበቅ ላይ",
+  "attYou": "እርስዎ",
+  "attSessionScheduled": "የተያዘለት ሰዓት {start} – {end}",
+  "@attSessionScheduled": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "attNoTakerAssigned": "የመገኘት መዝጋቢ አልተመደበም",
+  "attSessionTaker": "መዝጋቢ፦ {name}",
+  "@attSessionTaker": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "attStartedOffline": "በዚህ ስልክ ከመስመር ውጭ ተጀምሯል — ሲላክ አገልጋዩ ያረጋግጣል",
+  "attOnlyTakerRecords": "ይህን መዝገብ የሚመዘግበው የተመደበው መዝጋቢ ብቻ ነው።",
+  "attStart": "ጀምር",
+  "attEnd": "ጨርስ",
+  "attTaker": "የመገኘት መዝጋቢ",
+  "attTakerHint": "ለአንድ ፕሮግራም አንድ መዝጋቢ፤ ለአንድ ቀን ሌላ መዝጋቢ ከዚያ ቀን ዝርዝር መመደብ ይቻላል።",
+  "attTakerHrOnly": "የሚመደበው በሰው ሀብት ክፍል ነው።",
+  "attSignaturePolicy": "የመገኘት ፊርማዎች",
+  "attSignaturePolicyHint": "አባላት ተገኝተዋል ተብለው ከመመዝገባቸው በፊት በመዝጋቢው ስልክ ላይ ይፈርማሉ። የማይፈርሙትን የአባል ዓይነቶች ይምረጡ።",
+  "attSignatureExempt": "አይፈርምም",
+  "attSignatureRequiredShort": "ሲመዘገብ ይፈርማል",
+  "attConflicts": "የሚገመገሙ ከመስመር ውጭ መዝገቦች",
+  "attConflictsHint": "አገልጋዩ እንደተያዘ ሊመዘግበው ያልቻለ ከመስመር ውጭ ሥራ። ምንም አይጠፋም፤ እያንዳንዱን በማስታወሻ ይቀበሉ ወይም ይከልክሉ።",
+  "attConflictsEmpty": "የሚገመገም የለም",
+  "attConflictAccept": "ተቀበል",
+  "attConflictReject": "አትቀበል",
+  "attDecisionNote": "የውሳኔ ማስታወሻ",
+  "attConflictRecord": "የመገኘት ምዝገባ",
+  "attCapturedAt": "የተያዘው {time}",
+  "@attCapturedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "attSubmittedBy": "ያቀረበው",
+  "attArrivedAt": "የደረሰበት ሰዓት",
+  "attSessionRuleHint": "መገኘት፦ የሰው ሀብት ክፍል አንድ መዝጋቢ ይመድባል፤ ከጅማሬ 15 ደቂቃ በፊት ይከፈታል፣ የሚቆጠረውም መዝጋቢው \"ጀምር\" ከጫነበት ጀምሮ ነው። አባላት ሲመዘገቡ ይፈርማሉ።",
+  "syncHeldForReview": "{what} እንደተያዘ ሊመዘገብ ስላልቻለ ለሰው ሀብት ክፍል ግምገማ ተልኳል።",
+  "@syncHeldForReview": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "perm_attendance_assign": "የመገኘት መዝጋቢ መድብ (የሰው ሀብት)",
+  "attTakeAttendance": "መገኘት መዝግብ",
+  "attTakeAttendanceSub": "የሰው ሀብት ክፍል እንዲመዘግቡ የመደበልዎት ፕሮግራሞች",
+  "eduAcademicCalendar": "የትምህርት ዘመን የቀን መቁጠሪያ",
+  "eduAcademicYears": "የትምህርት ዘመናት",
+  "eduAcademicYear": "የትምህርት ዘመን",
+  "eduEthYear": "የኢትዮጵያ ዓመተ ምሕረት",
+  "eduCurrentYear": "የአሁኑ ዘመን",
+  "eduSetCurrent": "የአሁኑ ዘመን አድርግ",
+  "eduCloseYear": "ዘመኑን ዝጋ",
+  "eduCloseYearConfirm": "ይህን የትምህርት ዘመን መዝጋት ይፈልጋሉ? ሁሉም የምዘና ውጤቶች የታተሙ መሆን አለባቸው።",
+  "eduTerms": "የክፍለ ጊዜያት",
+  "eduTerm": "ክፍለ ጊዜ",
+  "eduNewTerm": "አዲስ ክፍለ ጊዜ",
+  "eduLevels": "የትምህርት ደረጃዎች",
+  "eduLevel": "ደረጃ",
+  "eduNewLevel": "አዲስ ደረጃ",
+  "eduBuiltIn": "መሰረታዊ",
+  "eduAllowMultiple": "ተመሳሳይ የትምህርት ዘመን ላይ ሌላ ክፍል መመዝገብ ይፈቀድ",
+  "eduAllowMultipleHint": "ይህ ሲበራ ተማሪዎች በዚሁ የትምህርት ዘመን ሌላም ክፍል ውስጥ በአንድ ጊዜ መመዝገብ ይችላሉ።",
+  "eduAssignStudents": "ተማሪዎችን መድብ",
+  "eduAssignableStudents": "ሊመደቡ የሚችሉ ተማሪዎች",
+  "eduAlreadyInClass": "ቀድሞውኑ በዚህ ክፍል ውስጥ ተመድቧል",
+  "eduInOtherClass": "በሌላ ክፍል ውስጥ ተመድቧል፦ {className}",
+  "eduAssignedSuccess": "{count} ተማሪዎች በተሳካ ሁኔታ ተመድበዋል",
+  "eduTransferStudent": "ተማሪ አስተላልፍ",
+  "eduTransferTargetClass": "የሚዛወርበት ክፍል",
+  "eduTransferReason": "የዝውውር ምክንያት",
+  "eduTransferSuccess": "ተማሪው በተሳካ ሁኔታ ተዛውሯል",
+  "eduCourseMode": "የትምህርት አሰጣጥ አይነት",
+  "eduModePhysical": "በአካል",
+  "eduModeOnline": "በበይነመረብ (Online)",
+  "eduModeHybrid": "ቅይጥ (Hybrid)",
+  "eduPassMark": "የማለፊያ ነጥብ",
+  "eduEligibleGroups": "የተፈቀደላቸው የአባላት ክፍሎች",
+  "eduAllGroups": "በክፍሉ ያሉ ሁሉም የአባላት ክፍሎች",
+  "eduLinkedPrograms": "የተገናኙ ፕሮግራሞች",
+  "eduLinkedProgramsHint": "ይህ ትምህርት የሚሰጥባቸው የሰንበት ትምህርት ቤት መርሃ ግብሮች",
+  "eduLate": "ዘግይቷል",
+  "eduVersions": "የማስረከቢያ ታሪክ",
+  "eduVersion": "ስሪት",
+  "eduPublishAt": "የሚታተምበት ቀን/ሰዓት",
+  "eduLatePolicy": "ዘግይተው የሚቀርቡ",
+  "eduLatePolicyRefuse": "ዘግይቶ ማስረከብን አትቀበል",
+  "eduLatePolicyAccept": "እንደ ዘገየ ተመዝግቦ ተቀበል",
+  "eduLateUntil": "የመዘግየት መቀበያ እስከ",
+  "eduAllowResubmit": "እንደገና ማስረከብ ፍቀድ",
+  "eduOutcomes": "የኮርስ ውጤቶች",
+  "eduComputeOutcomes": "ውጤቶችን አስላ",
+  "eduFinalizeOutcomes": "ውጤቶችን አጽድቅ",
+  "eduFinalizeConfirm": "የኮርሱን ውጤቶች ማጽደቅ ይፈልጋሉ? ይህ ውጤቶቹን ያጸናል።",
+  "eduPassed": "አልፏል",
+  "eduFailed": "አላለፈም",
+  "eduIncomplete": "ያልተጠናቀቀ",
+  "eduRetake": "ድጋሚ ፈተና/ኮርስ",
+  "eduRequestRetake": "የኦንላይን ድጋሚ ኮርስ ጠይቅ",
+  "eduRetakeRequested": "ድጋሚ ተጠይቋል",
+  "eduRetakeRequestedSuccess": "የኦንላይን ድጋሚ ጥያቄ በተሳካ ሁኔታ ተልኳል",
+  "eduCountsForProgression": "ለመሻገሪያ የሚቆጠር",
+  "eduCertificates": "የምስክር ወረቀቶች",
+  "eduMyCertificates": "የእኔ የምስክር ወረቀቶች",
+  "eduNoCertificates": "እስካሁን የተሰጠ የምስክር ወረቀት የለም።",
+  "eduCertificateNumber": "የምስክር ወረቀት ቁጥር",
+  "eduVerificationCode": "የማረጋገጫ ኮድ",
+  "eduIssueCertificates": "የምስክር ወረቀት ስጥ",
+  "eduIssueCertificatesConfirm": "ለተመረጡት {count} ተማሪዎች የምስክር ወረቀት መስጠት ይፈልጋሉ?",
+  "@eduIssueCertificatesConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "eduIssuedSuccess": "{count} የምስክር ወረቀት(ቶች) በተሳካ ሁኔታ ተሰጥተዋል",
+  "@eduIssuedSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "eduNoEligibleStudents": "የምስክር ወረቀት መስፈርት ያሟላ ተማሪ አልተገኘም።",
+  "eduCertificateStatus": "ሁኔታ",
+  "eduCertificateValid": "ሕጋዊ",
+  "eduCertificateRevoked": "ተሰርዟል",
+  "eduCertificateReplaced": "ተተክቷል",
+  "eduRevokeCertificate": "የምስክር ወረቀት ሰርዝ",
+  "eduRevokeReason": "የስረዛ ምክንያት",
+  "eduRevokedSuccess": "የምስክር ወረቀቱ በተሳካ ሁኔታ ተሰርዟል",
+  "eduAcademicPeriod": "የትምህርት ዘመን እና ክፍለ ጊዜ",
+  "eduAcademicScore": "የትምህርት ውጤት (Academic)",
+  "eduEngagementScore": "የተሳትፎ ውጤት (Engagement)",
+  "eduActivityReport": "የእንቅስቃሴ ሪፖርት",
+  "eduScoresAndActivity": "ውጤቶች እና ተሳትፎ",
+  "libFavorites": "ተወዳጆች",
+  "libFavorite": "ተወዳጅ",
+  "libAddToFavorites": "ወደ ተወዳጆች አክል",
+  "libRemoveFromFavorites": "ከተወዳጆች አስወጣ",
+  "libProgress": "ገጽ {page} ከ {total}",
+  "@libProgress": {
+    "placeholders": {
+      "page": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "libPageCount": "{count} ገጾች",
+  "@libPageCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "libResume": "ማንበብ ይቀጥሉ",
+  "libNarration": "ትረካ",
+  "libListenNarration": "ትረካ አዳምጥ",
+  "libPauseNarration": "ትረካ አቁም",
+  "libNarrationPlaying": "ትረካ በመጫወት ላይ",
+  "libSearchInBook": "መጽሐፍ ውስጥ ፈልግ",
+  "libJumpToPage": "ወደ ገጽ ሂድ",
+  "libPageNumber": "የገጽ ቁጥር",
+  "libZoomIn": "አጉላ",
+  "libZoomOut": "አሳንስ",
+  "libNextMatch": "ቀጣይ ውጤት",
+  "libPrevMatch": "ቀዳሚ ውጤት",
+  "libNoMatches": "ምንም ውጤት አልተገኘም",
+  "libCopies": "ቅጂዎች",
+  "libCopiesAvailable": "ከ {total} ቅጂዎች {avail} ይገኛሉ",
+  "@libCopiesAvailable": {
+    "placeholders": {
+      "avail": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "libCirculation": "የመጻሕፍት ስርጭት",
+  "libCheckout": "መጽሐፍ አበድር",
+  "libReturn": "መጽሐፍ ተቀበል",
+  "libBorrower": "ተበዳሪ",
+  "libSelectBorrower": "ተበዳሪ ምረጥ",
+  "libCopyCode": "የቅጂ ኮድ",
+  "libCondition": "ሁኔታ",
+  "libConditionOut": "ሲሰጥ የነበረበት ሁኔታ",
+  "libConditionIn": "ሲመለስ ያለበት ሁኔታ",
+  "libGood": "ጥሩ",
+  "libFair": "መካከለኛ",
+  "libPoor": "ያረጀ",
+  "libDamaged": "የተጎዳ",
+  "libStatusAvailable": "ይገኛል",
+  "libStatusOnLoan": "ተበድሯል",
+  "libStatusLost": "ጠፍቷል",
+  "libStatusWithdrawn": "ተሰርዟል",
+  "libOverdue": "ያለፈባቸው",
+  "libOverdueLoans": "ያለፉባቸው ብድሮች",
+  "libActiveLoans": "የተበደሩ መጻሕፍት",
+  "libDueOn": "የመመለሻ ቀን",
+  "libSignToBorrow": "የተበዳሪ ፊርማ",
+  "libSignatureRequired": "መጽሐፍ ለማበደር የተበዳሪ ፊርማ ያስፈልጋል",
+  "libCheckoutSuccess": "መጽሐፉ በተሳካ ሁኔታ ተበድሯል",
+  "libReturnSuccess": "መጽሐፉ በተሳካ ሁኔታ ተመልሷል",
+  "libConflictOnLoan": "ይህ የመጽሐፍ ቅጂ አስቀድሞ ለሌላ አባል ተበድሯል",
+  "libScanQr": "የቅጂ ኮድ ወይም የአባል QR ስካን ያድርጉ",
+  "libEnterCopyCode": "የቅጂ ኮድ ያስገቡ",
+  "libCopyNotFound": "ይህ የመጽሐፍ ቅጂ አልተገኘም",
+  "libDownloadToReadOffline": "ከመስመር ውጭ ለማንበብ ያውርዱ"
+}

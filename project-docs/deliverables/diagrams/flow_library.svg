@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="907.2pt" height="302.688pt" viewBox="0 0 907.2 302.688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-16T06:33:50.942042</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 302.688 
+L 907.2 302.688 
+L 907.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.056 123.624 
+L 172.368 123.624 
+Q 179.064 123.624 179.064 116.9712 
+L 179.064 58.2048 
+Q 179.064 51.552 172.368 51.552 
+L 25.056 51.552 
+Q 18.36 51.552 18.36 58.2048 
+L 18.36 116.9712 
+Q 18.36 123.624 25.056 123.624 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.5 123.624 
+L 349.812 123.624 
+Q 356.508 123.624 356.508 116.9712 
+L 356.508 58.2048 
+Q 356.508 51.552 349.812 51.552 
+L 202.5 51.552 
+Q 195.804 51.552 195.804 58.2048 
+L 195.804 116.9712 
+Q 195.804 123.624 202.5 123.624 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 379.944 123.624 
+L 527.256 123.624 
+Q 533.952 123.624 533.952 116.9712 
+L 533.952 58.2048 
+Q 533.952 51.552 527.256 51.552 
+L 379.944 51.552 
+Q 373.248 51.552 373.248 58.2048 
+L 373.248 116.9712 
+Q 373.248 123.624 379.944 123.624 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 557.388 123.624 
+L 704.7 123.624 
+Q 711.396 123.624 711.396 116.9712 
+L 711.396 58.2048 
+Q 711.396 51.552 704.7 51.552 
+L 557.388 51.552 
+Q 550.692 51.552 550.692 58.2048 
+L 550.692 116.9712 
+Q 550.692 123.624 557.388 123.624 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #f7e9d8; stroke: #c8961e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 734.832 123.624 
+L 882.144 123.624 
+Q 888.84 123.624 888.84 116.9712 
+L 888.84 58.2048 
+Q 888.84 51.552 882.144 51.552 
+L 734.832 51.552 
+Q 728.136 51.552 728.136 58.2048 
+L 728.136 116.9712 
+Q 728.136 123.624 734.832 123.624 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #2e7d4f; stroke: #2e7d4f; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 181.062501 87.588 
+Q 187.434528 87.588 192.464915 87.588 
+" clip-path="url(#p9161e984ff)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 188.064915 85.388 
+L 192.464915 87.588 
+L 188.064915 89.788 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 358.506501 87.588 
+Q 364.878528 87.588 369.908915 87.588 
+" clip-path="url(#p9161e984ff)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 365.508915 85.388 
+L 369.908915 87.588 
+L 365.508915 89.788 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 535.950501 87.588 
+Q 542.322528 87.588 547.352915 87.588 
+" clip-path="url(#p9161e984ff)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 542.952915 85.388 
+L 547.352915 87.588 
+L 542.952915 89.788 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 713.394501 87.588 
+Q 719.766528 87.588 724.796915 87.588 
+" clip-path="url(#p9161e984ff)" style="fill: none; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 720.396915 85.388 
+L 724.796915 87.588 
+L 720.396915 89.788 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #6e1423; stroke: #6e1423; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 202.5 234.504 
+L 349.812 234.504 
+Q 356.508 234.504 356.508 227.8512 
+L 356.508 180.1728 
+Q 356.508 173.52 349.812 173.52 
+L 202.5 173.52 
+Q 195.804 173.52 195.804 180.1728 
+L 195.804 227.8512 
+Q 195.804 234.504 202.5 234.504 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #ffffff; stroke: #b3261e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 276.156 125.624834 
+Q 276.156 148.571191 276.156 170.175906 
+" clip-path="url(#p9161e984ff)" style="fill: none; stroke: #b3261e; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 278.356 165.775906 
+L 276.156 170.175906 
+L 273.956 165.775906 
+z
+" clip-path="url(#p9161e984ff)" style="fill: #b3261e; stroke: #b3261e; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Segoe UI'; text-anchor: start; fill: #6e1423" x="15.57" y="22.935081" transform="rotate(-0 15.57 22.935081)">Library book request and borrowing</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #8a7a7d" x="15.57" y="33.73985" transform="rotate(-0 15.57 33.73985)">Library.php · Borrowings.php · Fines.php</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="98.712" y="81.055976" transform="rotate(-0 98.712 81.055976)">Request</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(71.096648 101.504694)">member requests a</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(79.056102 108.665486)">physical book</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="276.156" y="81.055976" transform="rotate(-0 276.156 81.055976)">Approve</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(250.442406 101.535163)">librarian approves</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(262.933578 108.635017)">or rejects</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="453.6" y="81.139067" transform="rotate(-0 453.6 81.139067)">Issue</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(426.266484 97.970573)">hand-over with the</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(421.50625 105.004284)">member's signature →</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(428.562813 112.199607)">borrowing record</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="631.044" y="81.191279" transform="rotate(-0 631.044 81.191279)">On loan</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(601.654352 101.5855)">due date, reminders;</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #8a7a7d" transform="translate(607.23775 108.619211)">renewal possible</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #ffffff" x="808.488" y="81.139067" transform="rotate(-0 808.488 81.139067)">Return</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(780.422727 98.097653)">condition recorded;</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(778.990695 105.200427)">fine calculated if late</text>
+    <text style="font-size: 6.5px; font-family: 'Segoe UI'; fill: #ffffff" transform="translate(777.242805 112.234138)">(override with reason)</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Segoe UI'; text-anchor: middle; fill: #b3261e" x="276.156" y="198.715795" transform="rotate(-0 276.156 198.715795)">Rejected</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 6px; font-family: 'Segoe UI'; text-anchor: middle; fill: #b3261e" x="276.156" y="219.01807" transform="rotate(-0 276.156 219.01807)">with reason</text>
+   </g>
+   <g id="text_15">
+    <g id="patch_13">
+     <path d="M 267.018891 153.695437 
+L 285.293109 153.695437 
+Q 286.793109 153.695437 286.793109 152.195437 
+L 286.793109 144.948563 
+Q 286.793109 143.448563 285.293109 143.448563 
+L 267.018891 143.448563 
+Q 265.518891 143.448563 265.518891 144.948563 
+L 265.518891 152.195437 
+Q 265.518891 153.695437 267.018891 153.695437 
+z
+" style="fill: #ffffff; opacity: 0.95"/>
+    </g>
+    <text style="font-size: 7.5px; font-family: 'Segoe UI'; text-anchor: middle; fill: #3d2e31" x="276.156" y="150.430594" transform="rotate(-0 276.156 150.430594)">reject</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.6px; font-family: 'Segoe UI'; text-anchor: start; fill: #3d2e31" x="18.36" y="264.996" transform="rotate(-0 18.36 264.996)">• Digital books (PDF) are downloaded by any signed-in member, stored encrypted on the phone and opened only in the in-app reader.</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'Segoe UI'; text-anchor: start; fill: #3d2e31" x="18.36" y="279.4104" transform="rotate(-0 18.36 279.4104)">• Direct borrowing (without a request) follows the borrowing.direct policy and per-item settings; some borrowings need borrowing.approve.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9161e984ff">
+   <rect x="7.2" y="7.2" width="892.8" height="288.288"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,152 @@
+--------- beginning of system
+10-17 15:03:24.757  2428  3192 D LocalDisplayAdapter: surface lcd : 22(0.043), 22(0.043), main -
+--------- beginning of main
+10-17 15:03:24.760  1627  2897 I SSC_DAEMON: light_msg(4/11): br 21 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.770  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 9.31, target: 26.32->245
+10-17 15:03:24.771  2428  3192 D LocalDisplayAdapter: surface lcd : 25(0.048), 25(0.048), main +
+10-17 15:03:24.771  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.048442)
+10-17 15:03:24.773  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.773  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 24 (4.844223 percent)
+10-17 15:03:24.775  2428  3192 D LocalDisplayAdapter: surface lcd : 25(0.048), 25(0.048), main -
+10-17 15:03:24.777  1627  2897 I SSC_DAEMON: light_msg(4/11): br 24 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.779  8000  8000 I NotificationManager: com.evozi.network: notify(25660, null, Notification(channel=network_monitor_channel_v2 shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=ONGOING_EVENT|ONLY_ALERT_ONCE|LOCAL_ONLY color=0xffb0c6ff category=status sortKey=0 vis=SECRET semFlags=0x0 semPriority=0 semMissedCount=0)) as user
+10-17 15:03:24.786  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 8.08, target: 30.19->244
+10-17 15:03:24.787  2428  3192 D LocalDisplayAdapter: surface lcd : 28(0.054), 28(0.054), main +
+10-17 15:03:24.787  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.054347)
+10-17 15:03:24.789  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.789  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 27 (5.434711 percent)
+10-17 15:03:24.790  2428  3192 D LocalDisplayAdapter: surface lcd : 28(0.054), 28(0.054), main -
+10-17 15:03:24.793  1627  2897 I SSC_DAEMON: light_msg(4/11): br 27 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.803  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 7.11, target: 34.17->243
+10-17 15:03:24.803  2428  3192 D LocalDisplayAdapter: surface lcd : 31(0.060), 31(0.060), main +
+10-17 15:03:24.804  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.060252)
+10-17 15:03:24.805  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.805  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 30 (6.025198 percent)
+10-17 15:03:24.806  2428  3192 D LocalDisplayAdapter: surface lcd : 31(0.060), 31(0.060), main -
+10-17 15:03:24.810  1627  2897 I SSC_DAEMON: light_msg(4/11): br 30 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.819  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 6.32, target: 38.28->242
+10-17 15:03:24.821  2428  3192 D LocalDisplayAdapter: surface lcd : 34(0.066), 34(0.066), main +
+10-17 15:03:24.821  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.066157)
+10-17 15:03:24.822  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.822  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 33 (6.615684 percent)
+10-17 15:03:24.823  2428  3192 D LocalDisplayAdapter: surface lcd : 34(0.066), 34(0.066), main -
+10-17 15:03:24.825  1627  2897 I SSC_DAEMON: light_msg(4/11): br 33 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.837  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 5.67, target: 42.49->241
+10-17 15:03:24.838  2428  3192 D LocalDisplayAdapter: surface lcd : 37(0.072), 37(0.072), main +
+10-17 15:03:24.838  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.072062)
+10-17 15:03:24.839  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.839  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 36 (7.206171 percent)
+10-17 15:03:24.840  2428  3192 D LocalDisplayAdapter: surface lcd : 37(0.072), 37(0.072), main -
+10-17 15:03:24.843  1627  2897 I SSC_DAEMON: light_msg(4/11): br 36 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.853  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 5.13, target: 46.81->240
+10-17 15:03:24.854  2428  3192 D LocalDisplayAdapter: surface lcd : 40(0.078), 40(0.078), main +
+10-17 15:03:24.854  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.077967)
+10-17 15:03:24.856  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.856  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 39 (7.796658 percent)
+10-17 15:03:24.857  2428  3192 D LocalDisplayAdapter: surface lcd : 40(0.078), 40(0.078), main -
+10-17 15:03:24.863  1627  2897 I SSC_DAEMON: light_msg(4/11): br 39 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.869  2428  2559 D DisplayPowerController[0]: animateScreenStateChange: target=ON, mIsEnabled=true
+10-17 15:03:24.869  2428  4517 I NSLocationMonitor: getGPSUsingApps() called
+10-17 15:03:24.870  2428  3192 D HdrSolution_HdrDisplayNitMapper: updataTargetNit--------------mLightSensorData: -1.0, scaleRatio: 4.67, target: 51.23->239
+10-17 15:03:24.870  4448  4516 I NSLocationManager_FLP: getGPSUsingApps, No change
+10-17 15:03:24.871  2428  2559 D DisplayPowerController[0]: saveBrightnessInfo: brt:0.18431373 adjBrt:0.16704352 min:0.0 max:1.0 hbm:0 tp:1.0 throttler:0 isAnimating:false
+10-17 15:03:24.871  2428  3192 D LocalDisplayAdapter: surface lcd : 43(0.084), 43(0.084), main +
+10-17 15:03:24.871  1657  1657 I SurfaceFlinger: setDisplayBrightness displayBrightness(0.083522)
+10-17 15:03:24.872  2428  2517 D BrightnessSynchronizer: onDisplayChanged() : displayId=0
+10-17 15:03:24.873  2428  2517 D BrightnessSynchronizer: updateScreenBrightness: displayId=0 type=2 mPreferredSettingValue=0.18431373(47) currentBrightnessInt=47 currentBrightnessIntFromFloat=47(0.18431373)
+10-17 15:03:24.873  1627  1627 I SSC_DAEMON: physical_sensor_test_req_msg Sensor type :4, Msg type:11
+10-17 15:03:24.873  1558  1909 I SDM     : DisplayBuiltIn::SetPanelBrightness: Setting brightness to level 42 (8.352176 percent)
+10-17 15:03:24.875  2428  3192 D LocalDisplayAdapter: surface lcd : 43(0.084), 43(0.084), main -
+10-17 15:03:24.876  3302  3302 D SecBrightnessController: updateSlider() - BrightnessDialog resetTimer()
+10-17 15:03:24.876  1627  2897 I SSC_DAEMON: light_msg(4/11): br 42 (lux 0,idx 0) - 0,0,7
+10-17 15:03:24.880  3302  3302 D SecBrightnessController: updateSlider() - BrightnessDialog resetTimer()
+10-17 15:03:24.885  2428  4517 D FreecessController: FZ : com.samsung.android.game.gamehome(10082) [10225] reason: Bg [cached:X
+10-17 15:03:24.885  2428  4517 D FreecessHandler: freeze com.samsung.android.game.gamehome(10082) result : 0
+10-17 15:03:24.886  2428  4517 W LocationManagerService: onFreezeStateChanged, uid[10082]=true
+10-17 15:03:24.886  2428  4517 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10082 , disable= true
+10-17 15:03:24.886  2428  4517 I PowerManagerService: [PWL] can not change uid =  10082
+10-17 15:03:24.997  2428  2428 I Telecom : SamsungTelecomServiceImpl : isInManagedCall - callingPackage : android / callingUser : UserHandle{0} / hasCrossUserAccess : true
+10-17 15:03:25.002  2428  2428 E system_server: No package ID 7f found for resource ID 0x7f140002.
+10-17 15:03:25.002  2428  2428 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:25.006  2428  2458 I system_server: Background young concurrent mark compact GC freed 42MB AllocSpace bytes, 89(2012KB) LOS objects, 24% free, 143MB/188MB, paused 2.759ms,6.614ms total 185.341ms
+10-17 15:03:25.020  3302  3302 E ndroid.systemui: Resource 7f140002 is a complex map type.
+10-17 15:03:25.020  3302  3302 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:25.021  4408  4408 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:25.022  3302  3302 D InterruptionStateProvider:  no Heads up : edgelighting enabled app. 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.023  3848  9417 I HoneySpace.NotificationListener: onNotificationPosted com.evozi.network: 0|com.evozi.network|25660|null|10499: 0
+10-17 15:03:25.023  3848  9417 I HoneySpace.NotificationListener: invalid notification: com.evozi.network UserHandle{0}: canShowBadge is false
+10-17 15:03:25.024  2428  4461 D ActivityManager: unpendingScheduleServiceRestart: u=10082, drop=false
+10-17 15:03:25.024  3848 17313 I HoneySpace.PackageEventOperator: [AbsFolderViewModel|4927] badge count is updated. com.evozi.network/.view.MainActivity#UserHandle{0}|4709 : 0
+10-17 15:03:25.026  2428  4517 W LocationManagerService: onFreezeStateChanged, uid[10082]=false
+10-17 15:03:25.026  2428  4452 D FreecessController: UFZ : com.samsung.android.game.gamehome(10082) [10225] reason: Binder(1)-android.service.notification.INotificatio
+10-17 15:03:25.026  3848 21094 I HoneySpace.PackageEventOperator: [ApplistViewModel] badge count is updated. com.evozi.network/.view.MainActivity#UserHandle{0}|4709 : 0
+10-17 15:03:25.026  2428  4517 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10082 , disable= false
+10-17 15:03:25.026  2428  4517 I PowerManagerService: [PWL] can not change uid =  10082
+10-17 15:03:25.027  3848 21094 I HoneySpace.BadgeDataSourceImpl: Get notification count. PK(p='com.zhiliaoapp.musically', u=UserHandle{0}) - forceBadgeCount: false, notification listener: 3, badge provider: 0
+10-17 15:03:25.042  3302  3302 D SubscreenNotificationListCoordinator: onAfterRenderList() isSubScreen = false, pluginLockMode = 0, doNotShowOnCover = false
+10-17 15:03:25.044  3302  3302 I LockscreenNotificationIconsOnlyController: onNotificationInfoUpdated 0
+10-17 15:03:25.045  3302  3302 I AODNotificationManager: updateNotification() 
+10-17 15:03:25.069  2428  2559 D DisplayManagerService: handleBrightnessAnimation: started=false
+10-17 15:03:25.069  2428  2559 I RefreshRateTokenController: Removing refreshRateToken={ RefreshRateToken[->PassiveModeToken:BrightnessAnim, acquire at 52913706 (567 ms ago)}, caller=com.android.server.display.mode.RefreshRateToken.release:5 com.android.server.display.DisplayManagerService$$ExternalSyntheticLambda1.accept:405 com.android.server.display.DisplayPowerController$3.run:24 android.os.Handler.handleCallback:995 android.os.Handler.dispatchMessage:103 
+10-17 15:03:25.223  3302  3302 D Bubbles : onEntryUpdated : shouldBubbleUp=false ,key=0|com.evozi.network|25660|null|10499
+10-17 15:03:25.225  3302  3302 D InterruptionStateProvider:  no Heads up : edgelighting enabled app. 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.225  3302  3302 I {OngoingActivityController}: onEntryUpdated and OA data is empty. So update latest task info
+10-17 15:03:25.243  3302  3302 E ndroid.systemui: Resource 7f140002 is a complex map type.
+10-17 15:03:25.243  3302  3302 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:25.255  3302  3302 D SubscreenNotificationListCoordinator: onAfterRenderList() isSubScreen = false, pluginLockMode = 0, doNotShowOnCover = false
+10-17 15:03:25.261  3302  3302 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+10-17 15:03:25.262  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.262  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.266  3302  3302 I LockscreenNotificationIconsOnlyController: onNotificationInfoUpdated 0
+10-17 15:03:25.266  3302  3302 I AODNotificationManager: updateNotification() 
+10-17 15:03:25.268  3302  3886 E ndroid.systemui: Resource 7f140002 is a complex map type.
+10-17 15:03:25.268  3302  3886 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:25.278  3302  3302 I AppIconSolution: return adaptive icon for com.evozi.network, isNight = true
+10-17 15:03:25.292  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.292  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.292  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.292  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.293  3302  3302 D S.S.N.  : entryViewBound parent :0|com.evozi.network|25660|null|10499
+10-17 15:03:25.295  3302  3302 I AppIconSolution: return adaptive icon for com.evozi.network, isNight = true
+10-17 15:03:25.303  3302  3302 D SubscreenNotificationListCoordinator: onAfterRenderList() isSubScreen = false, pluginLockMode = 0, doNotShowOnCover = false
+10-17 15:03:25.306  3302  3302 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+10-17 15:03:25.306  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.307  3302  3302 D ExpandableNotifRow: mMaxSmallHeight different before reInflateViews mMaxSmallHeight: 189 mTempSmallHeight:0 0|com.evozi.network|25660|null|10499
+10-17 15:03:25.309  3302  3302 I LockscreenNotificationIconsOnlyController: onNotificationInfoUpdated 0
+10-17 15:03:25.309  3302  3302 I AODNotificationManager: updateNotification() 
+10-17 15:03:25.372  1537  4813 I sensors-hal: handle_sns_client_event:550, [0][13690413] accel_sample [-3.470, -0.608,  9.016] 91737387334093
+10-17 15:03:25.539  6499  6499 I SDHMS:LOAD: type: LoadsFreqs, value: 0:0:0:836736:1843200:806400:652032:1555200:633600:273:285:220
+10-17 15:03:25.566  1657  1960 I RefreshRateSelector: Can't find idle refresh rate by policy with the same mode group as the current mode {id=2, hwcId=2, resolution=1080x2340, vsyncRate=60.00 Hz, dpi=428.62x424.54, group=1080, vrrConfig=N/A, supportedHdrTypes=INVALID} (idle : 24 fps)
+10-17 15:03:25.663  1644  1649 E HeatmapThread: ECT Thread time in milliseconds: 1792238605
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ batteryplugType : 0
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ batteryLevel : 0  batteryTemperature : 0 
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ Heatmap currtime: 29870643
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ Heatmap prevtime: 29870639
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ Heatmap plugstarttime: 35791394
+10-17 15:03:25.663  1644  1649 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29869114
+10-17 15:03:25.664  1644  1649 E HeatmapThread: !@Could not open '/efs/FactoryApp/bsoh', errno = 13
+10-17 15:03:25.664  1644  1649 E HeatmapThread: !@ CAM Could not access BSOH EFS
+10-17 15:03:25.664  1644  1649 E HeatmapThread: !@ CAM New BSOH: 0
+10-17 15:03:25.807  8000  8000 I NotificationManager: com.evozi.network: notify(25660, null, Notification(channel=network_monitor_channel_v2 shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=ONGOING_EVENT|ONLY_ALERT_ONCE|LOCAL_ONLY color=0xffb0c6ff category=status sortKey=0 vis=SECRET semFlags=0x0 semPriority=0 semMissedCount=0)) as user
+10-17 15:03:25.902  1532  1532 I android.hardware.health@2.1-service-samsung: updateLrpSysfs: write: 376
+10-17 15:03:26.010  1532  1559 E BatteryDump: !@new_battery_dump : 3949,173,300,1800,68,368,348,399,368,0,379,385,0,Charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9600,0x8000,0xf0000,0x0,0,0,0000,0000,00000000,0,0,0,0,2468,3943,6822,990,0,
+10-17 15:03:26.020  2428  2428 I Telecom : SamsungTelecomServiceImpl : isInManagedCall - callingPackage : android / callingUser : UserHandle{0} / hasCrossUserAccess : true
+10-17 15:03:26.026  2428  2428 E system_server: No package ID 7f found for resource ID 0x7f140002.
+10-17 15:03:26.026  2428  2428 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:26.031  1126  1126 D io_stats: !@   8,0 r 26524356 421191914 w 4422862 61676224 d 1059839 43606732 f 0 373120 iot 12041872 0 th 0 0 0 pt 0 inp 0 0 52915.235
+10-17 15:03:26.032  1126  1126 D io_stats: !@ Read_top(KB): sait.sohservice(30611) 32 adbd(10579) 16 d.process.acore(7710) 8
+10-17 15:03:26.032  1126  1126 D io_stats: !@ Write_top(KB): kworker/u16:7(12296) 208 f2fs_ckpt-254:5(1226) 60 ppmanager:pnsvc(7982) 24
+10-17 15:03:26.046  3302  3302 E ndroid.systemui: Resource 7f140002 is a complex map type.
+10-17 15:03:26.046  3302  3302 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:26.047  4408  4408 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+10-17 15:03:26.048  3302  3302 D InterruptionStateProvider:  no Heads up : edgelighting enabled app. 0|com.evozi.network|25660|null|10499
+10-17 15:03:26.053  3848  9417 I HoneySpace.NotificationListener: onNotificationPosted com.evozi.network: 0|com.evozi.network|25660|null|10499: 0
+10-17 15:03:26.053  3848  9417 I HoneySpace.NotificationListener: invalid notification: com.evozi.network UserHandle{0}: canShowBadge is false
+10-17 15:03:26.054  3848 19669 I HoneySpace.PackageEventOperator: [AbsFolderViewModel|4927] badge count is updated. com.evozi.network/.view.MainActivity#UserHandle{0}|4709 : 0
+10-17 15:03:26.055  3848 30477 I HoneySpace.PackageEventOperator: [ApplistViewModel] badge count is updated. com.evozi.network/.view.MainActivity#UserHandle{0}|4709 : 0
+10-17 15:03:26.055  3848 30477 I HoneySpace.BadgeDataSourceImpl: Get notification count. PK(p='com.zhiliaoapp.musically', u=UserHandle{0}) - forceBadgeCount: false, notification listener: 3, badge provider: 0
+10-17 15:03:26.061  3302  3302 D SubscreenNotificationListCoordinator: onAfterRenderList() isSubScreen = false, pluginLockMode = 0, doNotShowOnCover = false
+10-17 15:03:26.063  3302  3302 I LockscreenNotificationIconsOnlyController: onNotificationInfoUpdated 0
+10-17 15:03:26.063  3302  3302 I AODNotificationManager: updateNotification() 
+10-17 15:03:26.064 28385 28385 I wpa_supplicant: Heartbeat 151
+10-17 15:03:26.123  1537  4823 I sensors-hal: handle_sns_client_event:625, [0][413133] gyro_sample_cal(3) [-0.000, 0.001,-0.000] 91738161217218

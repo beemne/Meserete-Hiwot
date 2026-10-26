@@ -1,0 +1,80 @@
+#9 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php(39): Illuminate\\Routing\\RouteFileRegistrar->{closure:{closure:/home/hersolot/app.hersolan.pro/routes/api/edu_learning.php:17}:162}()
+#10 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(243): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#11 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(214): Illuminate\\Routing\\Route->runCallable()
+#12 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#13 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():821}()
+--
+#51 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#52 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#53 /home/hersolot/app.hersolan.pro/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest()
+#54 {main}
+"} 
+[2026-10-18 04:48:26] production.ERROR: unhandled error {"path":"api/v1/edu/subjects/1/quizzes","method":"POST","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1))","at":"/home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838"} 
+[2026-10-18 04:48:42] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1)) at /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#2 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#3 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#4 /home/hersolot/app.hersolan.pro/app/Mz/Db/MzBuilder.php(69): Illuminate\\Database\\Query\\Builder->insertGetId()
+#5 /home/hersolot/app.hersolan.pro/app/Mz/Services/EduQuizzes.php(174): App\\Mz\\Db\\MzBuilder->insertGetId()
+#6 /home/hersolot/app.hersolan.pro/routes/api/edu_learning.php(164): App\\Mz\\Services\\EduQuizzes::createForSubject()
+#7 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php(39): Illuminate\\Routing\\RouteFileRegistrar->{closure:{closure:/home/hersolot/app.hersolan.pro/routes/api/edu_learning.php:17}:162}()
+#8 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(243): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#9 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(214): Illuminate\\Routing\\Route->runCallable()
+#10 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#11 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():821}()
+--
+#2 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#4 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#5 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#6 /home/hersolot/app.hersolan.pro/app/Mz/Db/MzBuilder.php(69): Illuminate\\Database\\Query\\Builder->insertGetId()
+#7 /home/hersolot/app.hersolan.pro/app/Mz/Services/EduQuizzes.php(174): App\\Mz\\Db\\MzBuilder->insertGetId()
+#8 /home/hersolot/app.hersolan.pro/routes/api/edu_learning.php(164): App\\Mz\\Services\\EduQuizzes::createForSubject()
+#9 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php(39): Illuminate\\Routing\\RouteFileRegistrar->{closure:{closure:/home/hersolot/app.hersolan.pro/routes/api/edu_learning.php:17}:162}()
+#10 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(243): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#11 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(214): Illuminate\\Routing\\Route->runCallable()
+#12 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#13 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():821}()
+--
+#51 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#52 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#53 /home/hersolot/app.hersolan.pro/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest()
+#54 {main}
+"} 
+[2026-10-18 04:48:42] production.ERROR: unhandled error {"path":"api/v1/edu/subjects/1/quizzes","method":"POST","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1))","at":"/home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838"} 
+[2026-10-18 05:18:33] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1)) at /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#2 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#3 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#4 /home/hersolot/app.hersolan.pro/app/Mz/Db/MzBuilder.php(69): Illuminate\\Database\\Query\\Builder->insertGetId()
+#5 /home/hersolot/app.hersolan.pro/app/Mz/Services/EduQuizzes.php(174): App\\Mz\\Db\\MzBuilder->insertGetId()
+#6 /home/hersolot/app.hersolan.pro/routes/api/edu_learning.php(164): App\\Mz\\Services\\EduQuizzes::createForSubject()
+#7 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php(39): Illuminate\\Routing\\RouteFileRegistrar->{closure:{closure:/home/hersolot/app.hersolan.pro/routes/api/edu_learning.php:17}:162}()
+#8 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(243): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#9 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(214): Illuminate\\Routing\\Route->runCallable()
+#10 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#11 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():821}()
+--
+#2 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#4 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#5 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#6 /home/hersolot/app.hersolan.pro/app/Mz/Db/MzBuilder.php(69): Illuminate\\Database\\Query\\Builder->insertGetId()
+#7 /home/hersolot/app.hersolan.pro/app/Mz/Services/EduQuizzes.php(174): App\\Mz\\Db\\MzBuilder->insertGetId()
+#8 /home/hersolot/app.hersolan.pro/routes/api/edu_learning.php(164): App\\Mz\\Services\\EduQuizzes::createForSubject()
+#9 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php(39): Illuminate\\Routing\\RouteFileRegistrar->{closure:{closure:/home/hersolot/app.hersolan.pro/routes/api/edu_learning.php:17}:162}()
+#10 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(243): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#11 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Route.php(214): Illuminate\\Routing\\Route->runCallable()
+#12 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\\Routing\\Route->run()
+#13 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():821}()
+--
+#51 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#52 /home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#53 /home/hersolot/app.hersolan.pro/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest()
+#54 {main}
+"} 
+[2026-10-18 05:18:33] production.ERROR: unhandled error {"path":"api/v1/edu/subjects/1/quizzes","method":"POST","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: hersolot_appdb, SQL: insert into `edu_courses` (`class_id`, `subject_id`, `name`, `status`, `created_by`) values (2, 1, ትምህተ ሐይማኖት, active, 1))","at":"/home/hersolot/app.hersolan.pro/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838"} 
