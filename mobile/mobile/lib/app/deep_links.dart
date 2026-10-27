@@ -1,130 +1,164 @@
 /// Where a notification about an entity should take the user.
-String routeForEntity(String? type, int? id, {String? extra}) {
-  if (type == 'sinksar' || type == 'holy_day') {
-    if (extra != null && extra.isNotEmpty && RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(extra)) {
-      return '/sinksar/$extra';
-    }
-    return '/sinksar';
+String routeForEntity(
+  String? type,
+  int? id, {
+  String? extra,
+  Map<String, dynamic>? data,
+}) {
+  // If a direct internal route is provided in data, use it (with sanitation)
+  if (data != null && data['route'] != null && '${data['route']}'.trim().isNotEmpty) {
+    return sanitizeRoute('${data['route']}'.trim());
   }
 
-  if (id == null) {
-    return switch (type) {
+  // Sinksar & Holy Days
+  if (type == 'sinksar' || type == 'holy_day') {
+    final date = (extra != null && extra.isNotEmpty && RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(extra))
+        ? extra
+        : (data?['date'] != null && RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch('${data!['date']}'))
+            ? '${data['date']}'
+            : null;
+    return date != null ? '/sinksar/$date' : '/sinksar';
+  }
+
+  // Handle quiz attempts / grading complete
+  if (type == 'edu_grading' || type == 'edu_quiz_result' || type == 'edu_submission') {
+    final attemptId = int.tryParse('${data?['attempt_id'] ?? ''}') ??
+        (extra != null && extra.startsWith('attempt:') ? int.tryParse(extra.substring(8)) : null);
+    if (attemptId != null && attemptId > 0) {
+      return '/edu/attempt/$attemptId';
+    }
+    if (id != null && id > 0) {
+      return '/edu/quiz/$id';
+    }
+    return '/edu/progress';
+  }
+
+  if (type == 'edu_quiz') {
+    final attemptId = int.tryParse('${data?['attempt_id'] ?? ''}') ??
+        (extra != null && extra.startsWith('attempt:') ? int.tryParse(extra.substring(8)) : null);
+    if (attemptId != null && attemptId > 0) {
+      return '/edu/attempt/$attemptId';
+    }
+    if (id != null && id > 0) {
+      return '/edu/quiz/$id';
+    }
+    return '/edu';
+  }
+
+  // Learning Materials
+  if (type == 'edu_material') {
+    final lessonId = int.tryParse('${data?['lesson_id'] ?? ''}') ??
+        (extra != null && extra.startsWith('lesson:') ? int.tryParse(extra.substring(7)) : null);
+    if (lessonId != null && lessonId > 0) {
+      return '/edu/learn/lesson/$lessonId';
+    }
+    return '/edu/content/materials';
+  }
+
+  if (id == null || id <= 0) {
+    final r = switch (type) {
       'reminders' => '/programs',
       'program' || 'program_reminder' => '/programs',
       'alarm' || 'program_alarm' => '/programs',
-      'attendance' => '/programs',
+      'attendance' || 'attendance_record' || 'attendance_request' || 'attendance_session' =>
+        '/settings/attendance-calendar',
       'choir' => '/settings/me',
       'payment' || 'receipt' || 'payment_receipt' || 'contribution' => '/settings/payments',
       'sinksar' || 'holy_day' => '/sinksar',
       'edu' || 'education' => '/edu',
+      'edu_class' || 'edu_promotion' || 'edu_course' => '/edu/classes',
+      'edu_assignment' => '/edu/assignments',
+      'edu_announcement' => '/edu/announcements',
       'edu_score' || 'edu_grading' => '/edu/progress',
       'edu_certificate' => '/edu/more',
-      'chat' => '/settings',
-      'project' => '/projects',
+      'chat' || 'message' || 'department' => '/settings',
+      'project' || 'task' || 'project_task' || 'project_expense' || 'project_suggestion' => '/projects',
+      'borrowing' || 'borrowing_due' || 'borrowing_overdue' => '/settings/me',
+      'library_request' => '/admin/library-requests',
+      'permission_request' => '/admin/permissions',
+      'property_request' => '/admin/property-requests',
       _ => '/notifications',
     };
+    return sanitizeRoute(r);
   }
 
-  switch (type) {
+  final route = switch (type) {
     // Programs & Alarms
-    case 'program':
-    case 'program_reminder':
-    case 'program_update':
-    case 'program_cancellation':
-    case 'attendance':
-    case 'attendance_request':
-    case 'attendance_status':
-    case 'attendance_record':
-    case 'attendance_session':
-      return '/programs/$id';
+    'program' ||
+    'program_reminder' ||
+    'program_update' ||
+    'program_cancellation' ||
+    'attendance' ||
+    'attendance_request' ||
+    'attendance_status' ||
+    'attendance_record' ||
+    'attendance_session' =>
+      '/programs/$id',
 
-    case 'alarm':
-    case 'program_alarm':
-      return '/alarm/$id';
+    'alarm' || 'program_alarm' => '/alarm/$id',
 
     // Mezmur
-    case 'mezmur':
-    case 'audio':
-    case 'lyrics':
-      return '/home/mezmur/$id';
-    case 'category':
-      return '/home/category/$id';
-    case 'page':
-    case 'advertisement':
-      return '/home/page/$id';
+    'mezmur' || 'audio' || 'lyrics' => '/home/mezmur/$id',
+    'category' => '/home/category/$id',
+    'page' || 'advertisement' => '/home/page/$id',
 
     // Chat & Communications
-    case 'chat':
-    case 'department':
-    case 'message':
-      return '/settings/chat/$id';
+    'chat' || 'department' || 'message' => '/settings/chat/$id',
 
     // Finance & Contributions
-    case 'payment':
-    case 'receipt':
-    case 'payment_receipt':
-    case 'contribution':
-      return '/settings/payments';
+    'payment' || 'receipt' || 'payment_receipt' || 'contribution' => '/settings/payments',
 
     // Projects & Tasks
-    case 'project':
-      return '/projects/$id';
-    case 'project_task':
-    case 'task':
-      return '/projects/tasks/$id';
-    case 'project_expense':
-      return '/projects/approvals';
-    case 'project_suggestion':
-      return '/projects/suggestions/$id';
+    'project' => '/projects/$id',
+    'project_task' || 'task' => '/projects/tasks/$id',
+    'project_expense' => '/projects/approvals',
+    'project_suggestion' => '/projects/suggestions/$id',
 
     // Library & Borrowing
-    case 'borrowing':
-    case 'borrowing_due':
-    case 'borrowing_overdue':
-      return '/settings/borrowings/$id';
-    case 'library_request':
-      return '/library-request/$id';
+    'borrowing' || 'borrowing_due' || 'borrowing_overdue' => '/settings/borrowings/$id',
+    'library_request' => '/library-request/$id',
 
     // Education
-    case 'edu_class':
-    case 'edu_promotion':
-      return '/edu/class/$id';
-    case 'edu_lesson':
-      return '/edu/learn/lesson/$id';
-    case 'edu_quiz':
-    case 'edu_submission':
-      return '/edu/quiz/$id';
-    case 'edu_assignment':
-      return '/edu';
-    case 'edu_course':
-      return '/edu/course/$id?tab=assessments';
-    case 'edu_assessment':
-      return '/edu/review/assessment/$id';
-    case 'edu_grading':
-    case 'edu_score':
-      return '/edu/progress';
-    case 'edu_certificate':
-      return '/edu/more';
+    'edu_class' || 'edu_promotion' => '/edu/classes',
+    'edu_lesson' => '/edu/learn/lesson/$id',
+    'edu_quiz' || 'edu_submission' => '/edu/quiz/$id',
+    'edu_assignment' => '/edu/assignment/$id',
+    'edu_announcement' => '/edu/announcements',
+    'edu_course' => '/edu/course/$id?tab=assessments',
+    'edu_assessment' => '/edu/review/assessment/$id',
+    'edu_grading' || 'edu_score' => '/edu/progress',
+    'edu_certificate' => '/edu/more',
 
     // Sinksar & Holy Days
-    case 'sinksar':
-    case 'holy_day':
-      return extra != null && extra.isNotEmpty ? '/sinksar/$extra' : '/sinksar';
+    'sinksar' || 'holy_day' => extra != null && extra.isNotEmpty ? '/sinksar/$extra' : '/sinksar',
 
     // Account & Administration
-    case 'user':
-    case 'choir':
-      return '/settings/me';
-    case 'permission_request':
-      return '/admin/permissions';
-    case 'property_request':
-      return '/admin/property-requests';
-    case 'notification':
-      return '/notifications';
+    'user' || 'choir' => '/settings/me',
+    'permission_request' => '/admin/permissions',
+    'property_request' => '/admin/property-requests',
+    'notification' => '/notifications',
 
-    default:
-      return '/notifications';
+    _ => '/notifications',
+  };
+
+  return sanitizeRoute(route);
+}
+
+/// Fallback guards: never navigate to removed features (Academic Calendar, Units & Lessons).
+String sanitizeRoute(String route) {
+  final clean = route.startsWith('/') ? route : '/$route';
+  final uri = Uri.tryParse(clean);
+  final path = uri?.path ?? clean;
+  if (path == '/edu/calendar' || path.startsWith('/edu/calendar/')) {
+    return '/edu';
   }
+  if (path == '/admin/edu/academic-years' || path.startsWith('/admin/edu/academic-years/')) {
+    return '/edu/manage';
+  }
+  if (path == '/edu/content/units-lessons' || path.startsWith('/edu/content/units-lessons/')) {
+    return '/edu/content';
+  }
+  return clean;
 }
 
 /// Parse any notification payload (local, push, deep link, typed payload).
@@ -132,8 +166,10 @@ String routeForEntity(String? type, int? id, {String? extra}) {
 /// - `route:<internalRoute>`
 /// - `n:<notificationId>|route:<internalRoute>`
 /// - `n:<notificationId>|<type>:<id>`
+/// - `n:<notificationId>|<type>:<id>|key:value|...`
 /// - `n:<notificationId>|sinksar:<date>`
 /// - `alarm:<programId>`
+/// - `alarm:reminder:<reminderId>`
 /// - `sinksar:<date>` or `sinksar`
 /// - `<type>:<id>`
 ({String route, int? notificationId}) parsePayload(String payload) {
@@ -143,7 +179,7 @@ String routeForEntity(String? type, int? id, {String? extra}) {
   // Direct internal route: route:/alarm/12
   if (trimmed.startsWith('route:')) {
     final r = trimmed.substring(6).trim();
-    return (route: r.startsWith('/') ? r : '/$r', notificationId: null);
+    return (route: sanitizeRoute(r), notificationId: null);
   }
 
   // Push payload with prefix n:
@@ -157,7 +193,7 @@ String routeForEntity(String? type, int? id, {String? extra}) {
     final entityPart = parts[1];
     if (entityPart.startsWith('route:')) {
       final r = entityPart.substring(6).trim();
-      return (route: r.startsWith('/') ? r : '/$r', notificationId: nid);
+      return (route: sanitizeRoute(r), notificationId: nid);
     }
 
     final entity = entityPart.split(':');
@@ -165,7 +201,20 @@ String routeForEntity(String? type, int? id, {String? extra}) {
     final id = entity.length > 1 ? int.tryParse(entity[1]) : null;
     final extra = entity.length > 1 && id == null ? entity[1] : (entity.length > 2 ? entity[2] : null);
 
-    return (route: routeForEntity(type, id, extra: extra), notificationId: nid);
+    // Extract any additional key-value parts in the payload
+    final data = <String, dynamic>{};
+    for (int i = 2; i < parts.length; i++) {
+      final seg = parts[i];
+      final col = seg.indexOf(':');
+      if (col > 0) {
+        data[seg.substring(0, col)] = seg.substring(col + 1);
+      }
+    }
+
+    return (
+      route: routeForEntity(type, id, extra: extra, data: data.isNotEmpty ? data : null),
+      notificationId: nid
+    );
   }
 
   // Program or Reminder Alarm direct payload

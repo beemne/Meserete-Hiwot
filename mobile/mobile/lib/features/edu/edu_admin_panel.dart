@@ -71,13 +71,6 @@ class EduAdminPanelScreen extends ConsumerWidget {
             permission: Perm.educationContent,
           ),
           _AdminCard(
-            title: isEn ? 'Units & Lessons' : 'ምዕራፎች እና ትምህርቶች',
-            subtitle: isEn ? 'Edit curriculum, texts & outlines' : 'የትምህርት ዝርዝር እና ጽሑፎችን ያስተካክሉ',
-            icon: Icons.menu_book_rounded,
-            route: '/edu/content/units-lessons',
-            permission: Perm.educationContent,
-          ),
-          _AdminCard(
             title: isEn ? 'Learning Materials' : 'የትምህርት ግብዓቶችና ሰነዶች',
             subtitle: isEn ? 'Manage PDF guides & multimedia' : 'የድምጽ፣ ምስልና የፒዲኤፍ ማጣቀሻዎች',
             icon: Icons.attach_file_rounded,
@@ -104,6 +97,13 @@ class EduAdminPanelScreen extends ConsumerWidget {
         color: AppColors.maroon,
         cards: [
           _AdminCard(
+            title: isEn ? 'Canonical Grades (1–12)' : 'ቀኖናዊ ክፍሎች (1–12)',
+            subtitle: isEn ? 'Manage grades 1–12, names and status' : 'ከ1ኛ እስከ 12ኛ ክፍሎችን እና ሁኔታቸውን ያስተዳድሩ',
+            icon: Icons.format_list_numbered_rounded,
+            route: '/edu/admin/grades',
+            permission: Perm.educationManage,
+          ),
+          _AdminCard(
             title: isEn ? 'Classes & Students' : 'ክፍሎች እና የተማሪዎች ምደባ',
             subtitle: isEn ? 'Class batches & student assignment' : 'የክፍል አደረጃጀትና የተማሪዎች ምደባ',
             icon: Icons.groups_rounded,
@@ -123,13 +123,6 @@ class EduAdminPanelScreen extends ConsumerWidget {
             icon: Icons.how_to_reg_rounded,
             route: '/edu/registrations',
             permission: Perm.educationRegister,
-          ),
-          _AdminCard(
-            title: isEn ? 'Academic Calendar' : 'የትምህርት ቀን መቁጠሪያ',
-            subtitle: isEn ? 'Schedule terms and deadlines' : 'የፈተና፣ የበዓላትና የትምህርት ቀናት',
-            icon: Icons.calendar_today_rounded,
-            route: '/edu/calendar',
-            permission: Perm.educationManage,
           ),
         ],
       ),

@@ -3,6 +3,7 @@
 namespace App\Mz\Services;
 
 use App\Mz\Auth\Audit;
+use App\Mz\Auth\AuthContext;
 use App\Mz\Support\ApiError;
 use App\Mz\Support\Dates;
 use Illuminate\Support\Facades\DB;
@@ -358,8 +359,72 @@ final class EduAcademicYears
     // Levels (Grades 1–12 + custom levels)
     // =========================================================================
 
+    public const BUILT_IN_GRADES = [
+        ['code' => 'G1', 'name' => '1ኛ ክፍል', 'name_en' => 'Grade 1', 'sort_order' => 1],
+        ['code' => 'G2', 'name' => '2ኛ ክፍል', 'name_en' => 'Grade 2', 'sort_order' => 2],
+        ['code' => 'G3', 'name' => '3ኛ ክፍል', 'name_en' => 'Grade 3', 'sort_order' => 3],
+        ['code' => 'G4', 'name' => '4ኛ ክፍል', 'name_en' => 'Grade 4', 'sort_order' => 4],
+        ['code' => 'G5', 'name' => '5ኛ ክፍል', 'name_en' => 'Grade 5', 'sort_order' => 5],
+        ['code' => 'G6', 'name' => '6ኛ ክፍል', 'name_en' => 'Grade 6', 'sort_order' => 6],
+        ['code' => 'G7', 'name' => '7ኛ ክፍል', 'name_en' => 'Grade 7', 'sort_order' => 7],
+        ['code' => 'G8', 'name' => '8ኛ ክፍል', 'name_en' => 'Grade 8', 'sort_order' => 8],
+        ['code' => 'G9', 'name' => '9ኛ ክፍል', 'name_en' => 'Grade 9', 'sort_order' => 9],
+        ['code' => 'G10', 'name' => '10ኛ ክፍል', 'name_en' => 'Grade 10', 'sort_order' => 10],
+        ['code' => 'G11', 'name' => '11ኛ ክፍል', 'name_en' => 'Grade 11', 'sort_order' => 11],
+        ['code' => 'G12', 'name' => '12ኛ ክፍል', 'name_en' => 'Grade 12', 'sort_order' => 12],
+    ];
+
+    public static function ensureCanonicalGrades(): void
+    {
+        if (! \Illuminate\Support\Facades\Schema::hasTable('edu_levels')) return;
+        $existingCodes = DB::table('edu_levels')->pluck('code')->all();
+        $now = now()->format('Y-m-d H:i:s');
+        foreach (self::BUILT_IN_GRADES as $g) {
+            if (! in_array($g['code'], $existingCodes, true)) {
+                DB::table('edu_levels')->insert([
+                    'code' => $g['code'],
+                    'name' => $g['name'],
+                    'name_en' => $g['name_en'],
+                    'kind' => 'grade',
+                    'sort_order' => $g['sort_order'],
+                    'is_active' => 1,
+                    'built_in' => 1,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+        }
+    }
+
+    public static function adminGrades(AuthContext $auth): array
+    {
+        if (! EduLearning::isEditor($auth)) {
+            throw ApiError::forbidden('NOT_CONTENT_EDITOR', 'Only education administrators can access all grades');
+        }
+        self::ensureCanonicalGrades();
+        return self::listLevels();
+    }
+
+    public static function getGradeDetail(AuthContext $auth, int $id): array
+    {
+        if (! EduLearning::isEditor($auth)) {
+            throw ApiError::forbidden('NOT_CONTENT_EDITOR', 'Only education administrators can access this');
+        }
+        $level = DB::table('edu_levels')->where('id', $id)->first();
+        if (! $level) throw ApiError::notFound('LEVEL_NOT_FOUND', 'Grade level not found');
+
+        $classes = DB::table('edu_classes')->where('level_id', $id)->get();
+        $materials = DB::table('edu_lesson_materials')->whereNull('lesson_id')->where('grade', $level->sort_order)->get()->map(fn ($m) => EduLearning::serializeMaterial($m))->all();
+
+        return self::serializeLevel($level) + [
+            'classes' => $classes,
+            'direct_materials' => $materials,
+        ];
+    }
+
     public static function listLevels(): array
     {
+        self::ensureCanonicalGrades();
         $levels = DB::table('edu_levels')
             ->orderBy('kind')
             ->orderBy('sort_order')

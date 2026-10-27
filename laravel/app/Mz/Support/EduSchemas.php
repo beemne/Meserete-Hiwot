@@ -372,4 +372,74 @@ final class EduSchemas
             'published_at' => V::dateTime()->nullable()->optional(),
         ])->strict();
     }
+
+    // ---- assignments & announcements (Features D & E) ----
+    public static function assignment()
+    {
+        return Z::object([
+            'title' => V::text(1, 255),
+            'title_en' => V::optionalText(255),
+            'instructions' => V::optionalText(10000),
+            'instructions_en' => V::optionalText(10000),
+            'course_id' => V::id()->nullable()->optional(),
+            'class_id' => V::id()->nullable()->optional(),
+            'subject_id' => V::id()->nullable()->optional(),
+            'grade' => Z::number()->int()->min(1)->max(12)->nullable()->optional(),
+            'max_score' => Z::number()->min(1)->max(1000)->optional(),
+            'due_at' => V::dateTime()->nullable()->optional(),
+            'status' => Z::enum(['draft', 'published', 'archived'])->optional(),
+            'allow_late' => Z::boolean()->optional(),
+            'allow_resubmit' => Z::boolean()->optional(),
+            'attachments' => Z::array(Z::any())->optional(),
+        ])->strict();
+    }
+
+    public static function assignmentSubmission()
+    {
+        return Z::object([
+            'text_response' => V::optionalText(10000),
+            'attachments' => Z::array(Z::any())->optional(),
+        ])->strict();
+    }
+
+    public static function assignmentGrade()
+    {
+        return Z::object([
+            'score' => Z::number()->min(0)->max(1000),
+            'feedback' => V::optionalText(5000),
+            'release' => Z::boolean()->optional(),
+        ])->strict();
+    }
+
+    public static function announcement()
+    {
+        return Z::object([
+            'title' => V::optionalText(255),
+            'title_en' => V::optionalText(255),
+            'body' => V::text(1, 10000),
+            'body_en' => V::optionalText(10000),
+            'course_id' => V::id()->nullable()->optional(),
+            'class_id' => V::id()->nullable()->optional(),
+            'subject_id' => V::id()->nullable()->optional(),
+            'grade' => Z::number()->int()->min(1)->max(12)->nullable()->optional(),
+            'status' => Z::enum(['draft', 'published', 'archived'])->optional(),
+            'attachments' => Z::array(Z::any())->optional(),
+        ])->strict();
+    }
+
+    public static function directMaterial()
+    {
+        return Z::object([
+            'category_id' => V::id()->nullable()->optional(),
+            'subject_id' => V::id()->nullable()->optional(),
+            'grade' => Z::number()->int()->min(1)->max(12)->nullable()->optional(),
+            'title' => V::text(1, 200)->optional(),
+            'title_en' => V::optionalText(200),
+            'description' => V::optionalText(2000),
+            'description_en' => V::optionalText(2000),
+            'url' => Z::string()->trim()->max(1000)->regex('#^https?://\S+$#i', 'INVALID_URL')->optional(),
+            'kind' => Z::enum(['file', 'link', 'video_link'])->optional(),
+            'status' => Z::enum(['draft', 'published', 'archived'])->optional(),
+        ])->strict();
+    }
 }

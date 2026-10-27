@@ -43,21 +43,46 @@ class AppServicesHost extends ConsumerStatefulWidget {
 class _AppServicesHostState extends ConsumerState<AppServicesHost> with WidgetsBindingObserver {
   final _subs = <StreamSubscription<dynamic>>[];
   String? _pendingPayload;
+  DateTime? _lastTapTime;
+  String? _lastPayload;
 
   static String _pushDataToPayload(Map<String, dynamic> data) {
-    final nid = data['notification_id'] ?? '';
+    final nid = data['notification_id'] ?? data['id'] ?? '';
     if (data['route'] != null && '${data['route']}'.isNotEmpty) {
       return 'n:$nid|route:${data['route']}';
     }
-    final type = data['type'] ?? data['entity_type'] ?? '';
-    if (type == 'sinksar' || type == 'holy_day') {
+    final rawEntityType = data['entity_type']?.toString();
+    final rawType = data['type']?.toString();
+    // Prioritize specific entity_type over generic broad module types like 'education', 'system', 'broadcast'
+    final effectiveType = (rawEntityType != null && rawEntityType.isNotEmpty && rawEntityType != 'education' && rawEntityType != 'system')
+        ? rawEntityType
+        : (rawType ?? rawEntityType ?? '');
+
+    if (effectiveType == 'sinksar' || effectiveType == 'holy_day') {
       return 'n:$nid|sinksar:${data['date'] ?? ''}';
     }
-    if (type == 'alarm' || type == 'program_alarm') {
+    if (effectiveType == 'alarm' || effectiveType == 'program_alarm') {
       return 'n:$nid|alarm:${data['entity_id'] ?? data['id'] ?? ''}';
     }
-    final entityId = data['entity_id'] ?? data['id'] ?? '';
-    return 'n:$nid|$type:$entityId';
+
+    final entityId = data['entity_id'] ?? data['quiz_id'] ?? data['lesson_id'] ?? data['class_id'] ?? data['id'] ?? '';
+    final buffer = StringBuffer('n:$nid|$effectiveType:$entityId');
+    if (data['attempt_id'] != null && '${data['attempt_id']}'.isNotEmpty) {
+      buffer.write('|attempt_id:${data['attempt_id']}');
+    }
+    if (data['lesson_id'] != null && '${data['lesson_id']}'.isNotEmpty) {
+      buffer.write('|lesson_id:${data['lesson_id']}');
+    }
+    if (data['quiz_id'] != null && '${data['quiz_id']}'.isNotEmpty) {
+      buffer.write('|quiz_id:${data['quiz_id']}');
+    }
+    if (data['class_id'] != null && '${data['class_id']}'.isNotEmpty) {
+      buffer.write('|class_id:${data['class_id']}');
+    }
+    if (data['date'] != null && '${data['date']}'.isNotEmpty) {
+      buffer.write('|date:${data['date']}');
+    }
+    return buffer.toString();
   }
 
   @override
@@ -250,6 +275,18 @@ class _AppServicesHostState extends ConsumerState<AppServicesHost> with WidgetsB
   }
 
   void _openPayload(String payload) {
+    if (payload.trim().isEmpty) return;
+
+    // Prevent duplicate navigation when same notification is tapped repeatedly or dispatched twice
+    final now = DateTime.now();
+    if (_lastPayload == payload &&
+        _lastTapTime != null &&
+        now.difference(_lastTapTime!).inMilliseconds < 1200) {
+      return;
+    }
+    _lastPayload = payload;
+    _lastTapTime = now;
+
     if (ref.read(sessionProvider) is! SignedIn) {
       _pendingPayload = payload;
       return;
@@ -259,7 +296,11 @@ class _AppServicesHostState extends ConsumerState<AppServicesHost> with WidgetsB
       unawaited(ref.read(localNotificationsProvider).dismissMessage(target.notificationId!));
       unawaited(ref.read(notificationRepositoryProvider).markRead(target.notificationId!).then((_) => ref.read(unreadCountProvider.notifier).refresh()).catchError((_) {}));
     }
-    ref.read(routerProvider).go(target.route);
+    try {
+      ref.read(routerProvider).push(target.route);
+    } catch (_) {
+      ref.read(routerProvider).go(target.route);
+    }
   }
 
   @override

@@ -113,6 +113,33 @@ Route::prefix('edu')->middleware(['mz', 'mz.module:education'])->group(function 
         return Http::ok(null);
     });
 
+    // ---- direct materials (Category & Grade without a lesson) ----
+    Route::get('categories/{id}/grades/{grade}/materials', function () {
+        return Http::ok(EduLearning::directMaterials(Ctx::auth(), Ctx::id(), (int) request()->route('grade')));
+    });
+    Route::post('categories/{id}/grades/{grade}/materials', function () {
+        $catId = Ctx::id();
+        $grade = (int) request()->route('grade');
+        $file = Upload::single('material');
+        $input = Ctx::input();
+        $meta = [
+            'category_id' => $catId,
+            'grade' => $grade,
+            'subject_id' => ! empty($input['subject_id']) ? (int) $input['subject_id'] : null,
+            'title' => $input['title'] ?? null,
+            'title_en' => $input['title_en'] ?? null,
+            'description' => $input['description'] ?? null,
+            'description_en' => $input['description_en'] ?? null,
+            'status' => $input['status'] ?? 'published',
+            'kind' => $input['kind'] ?? ($file ? 'file' : 'link'),
+            'url' => $input['url'] ?? null,
+        ];
+        if ($file) {
+            return Http::created(EduLearning::addDirectMaterialFile(Ctx::actx(), $meta, $file));
+        }
+        return Http::created(EduLearning::addDirectMaterialLink(Ctx::actx(), $meta));
+    });
+
     // ---- content editors: categories, subjects, featured (education.content / education.manage) ----
     Route::middleware('mz:any,education.content,education.manage')->prefix('content')->group(function () {
         Route::post('categories', fn () => Http::created(EduLearning::createCategory(Ctx::actx(), Ctx::body(EduSchemas::category()))));

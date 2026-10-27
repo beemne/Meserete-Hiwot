@@ -445,6 +445,7 @@ class AppNotification {
     required this.body,
     this.entityType,
     this.entityId,
+    this.data = const {},
     this.isRead = false,
     this.createdAt,
   });
@@ -455,6 +456,7 @@ class AppNotification {
   final String body;
   final String? entityType;
   final int? entityId;
+  final Json data;
   final bool isRead;
   final DateTime? createdAt;
 
@@ -465,12 +467,13 @@ class AppNotification {
         body: asStr(j['body']) ?? '',
         entityType: asStr(j['entity_type']),
         entityId: asInt(j['entity_id']),
+        data: j['data'] is Map ? asJson(j['data']) : const {},
         isRead: asBool(j['is_read']),
         createdAt: asDate(j['created_at']),
       );
 
   AppNotification markRead() =>
-      AppNotification(id: id, type: type, title: title, body: body, entityType: entityType, entityId: entityId, isRead: true, createdAt: createdAt);
+      AppNotification(id: id, type: type, title: title, body: body, entityType: entityType, entityId: entityId, data: data, isRead: true, createdAt: createdAt);
 }
 
 class Reminder {

@@ -70,17 +70,8 @@ class _EduManageScreenState extends ConsumerState<EduManageScreen> {
     return PatternScaffold(
       appBar: AppBar(
         title: Text(l.courseManagement),
-        actions: [
-          IconButton(
-            tooltip: l.eduAcademicCalendar,
-            icon: const Icon(Icons.calendar_month_outlined),
-            onPressed: () async {
-              await context.push('/edu/calendar');
-              ref.invalidate(_adminClassesProvider);
-              ref.invalidate(eduDashboardProvider);
-            },
-          ),
-          const ContextualHelpButton(screenRoute: '/edu'),
+        actions: const [
+          ContextualHelpButton(screenRoute: '/edu'),
         ],
       ),
       floatingActionButton: (user.isSuperAdmin || user.can(Perm.educationManage))
@@ -192,12 +183,6 @@ class _EduManageScreenState extends ConsumerState<EduManageScreen> {
             const SizedBox(height: 20),
             Row(children: [
               Expanded(child: Text(l.elTabClasses, style: context.sans(13, weight: FontWeight.w700, color: p.muted))),
-              if (user.isSuperAdmin || user.can(Perm.educationManage))
-                TextButton.icon(
-                  onPressed: () => context.push('/edu/calendar'),
-                  icon: const Icon(Icons.calendar_today_rounded, size: 16),
-                  label: Text(l.eduAcademicCalendar, style: context.sans(12)),
-                ),
             ]),
             const SizedBox(height: 6),
             SearchBox(

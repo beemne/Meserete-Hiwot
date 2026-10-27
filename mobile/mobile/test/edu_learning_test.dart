@@ -50,10 +50,13 @@ Widget _app(Widget child, ApiClient api) => ProviderScope(
 Map<String, dynamic> _category(int id, String am, String en, int lessons) => {'id': id, 'name': am, 'name_en': en, 'icon_key': 'bible', 'status': 'active', 'lesson_count': lessons, 'subject_count': 1};
 
 final _categories = [
-  _category(1, 'መጽሐፍ ቅዱስ', 'Holy Bible', 15),
-  _category(2, 'የቤተ ክርስቲያን ታሪክ', 'Church History', 10),
-  _category(3, 'ሥርዓተ አምልኮ', 'Liturgy & Order', 0),
-  _category(4, 'ነገረ ቅዱሳን', 'Hagiography', 12),
+  _category(1, 'ትምህርተ ሃይማኖት', 'Theology & Doctrine', 12),
+  _category(4, 'የመጽሐፍ ቅዱስ ጥናት', 'Bible Study', 12),
+  _category(5, 'ክርስቲያናዊ ሥነምግባር', 'Christian Ethics', 12),
+  _category(6, 'ሥርዓተ ቤተ ክርስቲያን', 'Church Order & Rites', 12),
+  _category(3, 'የቤተክርስትያን ታሪክ', 'Church History', 12),
+  _category(7, 'ልሳነ ግእዝ', 'Geez Language', 12),
+  _category(8, 'ዜማ', 'Zema (Sacred Chants)', 12),
 ];
 
 void main() {
@@ -84,12 +87,18 @@ void main() {
     });
   });
 
-  test('notifications about lessons and quizzes open them', () {
+  test('notifications about lessons, quizzes, materials, results and attempts open them', () {
     expect(routeForEntity('edu_lesson', 7), '/edu/learn/lesson/7');
     expect(routeForEntity('edu_quiz', 3), '/edu/quiz/3');
+    expect(routeForEntity('edu_quiz', 3, data: {'attempt_id': 10}), '/edu/attempt/10');
+    expect(routeForEntity('edu_grading', 3, data: {'attempt_id': 10}), '/edu/attempt/10');
+    expect(routeForEntity('edu_material', 5, data: {'lesson_id': 7}), '/edu/learn/lesson/7');
     expect(routeForEntity('edu_course', 5), '/edu/course/5?tab=assessments');
     expect(routeForEntity('edu_assessment', 9), '/edu/review/assessment/9');
-    expect(routeForEntity('edu_class', 2), '/edu/class/2'); // unchanged
+    expect(routeForEntity('edu_class', 2), '/edu/classes');
+    // Sanitize removed routes
+    expect(routeForEntity(null, null, data: {'route': '/edu/calendar'}), '/edu');
+    expect(routeForEntity(null, null, data: {'route': '/edu/content/units-lessons'}), '/edu/content');
   });
 
   group('ትምህርት home', () {
@@ -126,15 +135,21 @@ void main() {
       expect(find.text('Lesson 1 of 12'), findsOneWidget);
       expect(find.text('The Apostolic Church'), findsOneWidget);
       expect(find.text('40% completed'), findsOneWidget);
-      // (Church History is also the subject of the Continue card.)
-      for (final c in ['Holy Bible', 'Church History', 'Liturgy & Order', 'Hagiography']) {
+      // Canonical 7 Amharic subjects
+      for (final c in [
+        'ትምህርተ ሃይማኖት',
+        'የመጽሐፍ ቅዱስ ጥናት',
+        'ክርስቲያናዊ ሥነምግባር',
+        'ሥርዓተ ቤተ ክርስቲያን',
+        'የቤተክርስትያን ታሪክ',
+        'ልሳነ ግእዝ',
+        'ዜማ',
+      ]) {
         expect(find.text(c), findsWidgets);
       }
-      expect(find.text('15 lessons'), findsOneWidget);
-      expect(find.text('No lessons yet'), findsOneWidget, reason: 'an empty category shows no invented count');
+      expect(find.text('12 Grades'), findsWidgets);
       expect(find.text('Weekly quizzes'), findsOneWidget);
       expect(find.text('Essay on Nicaea'), findsOneWidget);
-      expect(find.text('No published results yet.'), findsOneWidget);
       expect(find.text('Education administration'), findsNothing);
     });
 
@@ -162,7 +177,7 @@ void main() {
       expect(find.text('Weekly quizzes'), findsNothing);
       expect(find.text('Continue learning'), findsNothing);
       expect(find.byType(FeaturedCarousel), findsNothing);
-      expect(find.text('Holy Bible'), findsOneWidget);
+      expect(find.text('ትምህርተ ሃይማኖት'), findsWidgets);
     });
   });
 

@@ -1311,3 +1311,35 @@ All 14 requirements were inspected across database schemas, backend services, mo
   - `https://app.hersolan.pro/app-release.apk`: HTTP 200, Content-Type `application/vnd.android.package-archive`, Size `127,306,777 bytes`.
   - `https://app.hersolan.pro/api/v1/sinksar/today`: HTTP 200 (Date: 2019-02-15, accurate annual and monthly commemorations).
   - `https://app.hersolan.pro/api/v1/sinksar/2019-02-15`: HTTP 200.
+
+---
+
+## Move 44: Features A–E Full Production Deployment (Version 1.5.3+27)
+
+### 1. Features Shipped
+- **Feature A:** Quiz Attempt Limits Enforcement (strict backend 0-attempt cutoff, concurrency lock, auto-finalization of expired attempts, UI exhaustion alert card, and disabled retake button).
+- **Feature B:** Direct Course Materials without Lessons (`edu_lesson_materials` nullable `lesson_id`, explicit `category_id`, `subject_id`, `grade`, toggle in materials admin and grade content screens).
+- **Feature C:** Grade Access Scoping (normal Education browsing restricted to student/admin assigned grades; full canonical grades 1–12 central management in Education Admin panel).
+- **Feature D:** Google Classroom-Inspired Assignments (teacher authoring, status grouping `Assigned`/`Due soon`/`Turned in`/`Graded`/`Overdue`, student submissions with attachments, teacher grading with score and feedback, release workflow, push notifications).
+- **Feature E:** Teacher Announcements Stream (teacher publishing to authorized classes, chronological student stream, attachments, push notifications).
+- **Localization:** 32 new strings added to both `app_en.arb` and `app_am.arb`.
+
+### 2. Builds & Deployment
+- Rebuilt Flutter Web release bundle (`flutter build web --release`).
+- Rebuilt Android release APK (`flutter build apk --release`, 128,373,640 bytes).
+- Ran `python deploy.py`:
+  - Packaged and uploaded `project.zip` (23.7 MB) via SFTP to `/home/hersolot/app.hersolan.pro`.
+  - Extracted files and updated production `.env`.
+  - Uploaded APK to `public/app-release.apk` and `storage/mz/private/releases/release-1.5.3-27.apk`.
+  - Registered release `1.5.3+27` in `app_releases` table.
+  - Executed migration `2026_10_30_000001_assignments_announcements_and_direct_materials` successfully.
+  - Cleared all configuration, application, view, and route caches.
+  - Re-seeded GuidanceSeeder.
+
+### 3. Live Verification
+- `https://app.hersolan.pro/health`: HTTP/2 200 `{"status":"ok"}`.
+- `https://app.hersolan.pro/`: HTTP/2 200 (Flutter Web release 1.5.3+27 live).
+- `https://app.hersolan.pro/api/v1/app/version?version_code=26`: HTTP/2 200 confirming version 27 update notification:
+  ```json
+  {"latest_version_name":"1.5.3","latest_version_code":27,"update_available":true}
+  ```

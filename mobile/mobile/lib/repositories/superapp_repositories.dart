@@ -307,6 +307,56 @@ class EduRepository {
       });
   Future<Json> myScores() => _api.get('/edu/me/scores', parse: asJson);
   Future<Json> studentScores(int studentId) => _api.get('/edu/students/$studentId/scores', parse: asJson);
+
+  // ---- Feature B: Direct Course Materials ----
+  Future<List<Json>> directMaterials(int categoryId, int grade) =>
+      _api.get('/edu/categories/$categoryId/grades/$grade/materials', parse: asJsonList);
+  Future<Json> addDirectMaterialFile(int categoryId, int grade, String path, {String? title, void Function(double)? onProgress}) =>
+      _api.upload('/edu/categories/$categoryId/grades/$grade/materials', filePath: path, fields: {'title': ?title}, onProgress: onProgress, parse: asJson);
+  Future<Json> addDirectMaterialLink(int categoryId, int grade, {required String kind, required String title, required String url}) =>
+      _api.post('/edu/categories/$categoryId/grades/$grade/materials/link', body: {'kind': kind, 'title': title, 'url': url}, parse: asJson);
+
+  // ---- Feature C: Canonical Admin Grades CRUD ----
+  Future<List<Json>> adminGrades() => _api.get('/edu/admin/grades', parse: asJsonList);
+  Future<Json> adminGradeDetail(int id) => _api.get('/edu/admin/grades/$id', parse: asJson);
+  Future<Json> updateGradeLevel(int id, Json body) => _api.patch('/edu/levels/$id', body: body, parse: asJson);
+
+  // ---- Feature D: Classroom Assignments ----
+  Future<List<Json>> classroomAssignments({int? courseId}) =>
+      _api.get('/edu/me/assignments', query: {'course_id': ?courseId}, parse: asJsonList);
+  Future<Json> classroomAssignmentDetail(int id) =>
+      _api.get('/edu/me/assignments/$id', parse: asJson);
+  Future<Json> submitClassroomAssignment(int id, {String? text, String? filePath}) => filePath == null
+      ? _api.post('/edu/me/assignments/$id/submit', body: {'text_response': ?text}, parse: asJson)
+      : _api.upload('/edu/me/assignments/$id/submit', filePath: filePath, fields: {'text_response': ?text}, parse: asJson);
+  Future<List<Json>> teacherClassroomAssignments({int? courseId}) =>
+      _api.get('/edu/teacher/assignments', query: {'course_id': ?courseId}, parse: asJsonList);
+  Future<List<Json>> classroomSubmissions(int id) =>
+      _api.get('/edu/teacher/assignments/$id/submissions', parse: asJsonList);
+  Future<Json> gradeClassroomSubmission(int id, {required double score, String? feedback, bool release = true}) =>
+      _api.post('/edu/teacher/submissions/$id/grade', body: {'score': score, 'feedback': ?feedback, 'release': release}, parse: asJson);
+  Future<Json> releaseClassroomGrades(int id) =>
+      _api.post('/edu/teacher/assignments/$id/release-grades', body: <String, dynamic>{}, parse: asJson);
+  Future<Json> createClassroomAssignment(Json body) =>
+      _api.post('/edu/teacher/assignments', body: body, parse: asJson);
+  Future<Json> updateClassroomAssignment(int id, Json body) =>
+      _api.patch('/edu/teacher/assignments/$id', body: body, parse: asJson);
+  Future<void> deleteClassroomAssignment(int id) =>
+      _api.delete<void>('/edu/teacher/assignments/$id');
+
+  // ---- Feature E: Teacher Announcements ----
+  Future<List<Json>> announcementsFeed({int? courseId, int? classId}) =>
+      _api.get('/edu/me/announcements', query: {'course_id': ?courseId, 'class_id': ?classId}, parse: asJsonList);
+  Future<Json> announcementDetail(int id) =>
+      _api.get('/edu/me/announcements/$id', parse: asJson);
+  Future<List<Json>> teacherAnnouncements({int? courseId}) =>
+      _api.get('/edu/teacher/announcements', query: {'course_id': ?courseId}, parse: asJsonList);
+  Future<Json> postAnnouncement(Json body) =>
+      _api.post('/edu/teacher/announcements', body: body, parse: asJson);
+  Future<Json> updateAnnouncement(int id, Json body) =>
+      _api.patch('/edu/teacher/announcements/$id', body: body, parse: asJson);
+  Future<void> deleteAnnouncement(int id) =>
+      _api.delete<void>('/edu/teacher/announcements/$id');
 }
 
 /// ስለ እኔ + departments, HR, payments and QR lookups.

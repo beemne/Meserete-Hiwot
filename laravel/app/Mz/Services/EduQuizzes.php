@@ -646,8 +646,17 @@ final class EduQuizzes
             }
             $mine = DB::table('edu_quiz_attempts')->where(['quiz_id' => $id, 'user_id' => $auth->id])->lockForUpdate()->orderBy('attempt_no')->get();
             $open = $mine->firstWhere('status', 'in_progress');
-            if ($open) return (int) $open->id;
-            if (! $canManage && $mine->count() >= (int) $q->max_attempts) throw ApiError::conflict('NO_ATTEMPTS_LEFT', 'You have used all your attempts');
+            if ($open) {
+                if (self::expired($open, $now) || (! $canManage && self::isClosed($q, $now))) {
+                    self::finalize((int) $open->id);
+                    $mine = DB::table('edu_quiz_attempts')->where(['quiz_id' => $id, 'user_id' => $auth->id])->lockForUpdate()->orderBy('attempt_no')->get();
+                } else {
+                    return (int) $open->id;
+                }
+            }
+            if ($mine->count() >= (int) $q->max_attempts || (int) $q->max_attempts <= 0) {
+                throw ApiError::conflict('NO_ATTEMPTS_LEFT', 'You have used all your attempts');
+            }
             $expires = null;
             if ($q->time_limit_minutes) $expires = Dates::sql(Dates::of($now)->modify('+' . (int) $q->time_limit_minutes . ' minutes'));
             if ($q->closes_at && (! $expires || Dates::sql($q->closes_at) < $expires)) $expires = Dates::sql($q->closes_at);
@@ -741,7 +750,10 @@ final class EduQuizzes
         DB::transaction(function () use ($auth, $attemptId, $answers) {
             [$a] = self::ownAttempt($auth, $attemptId, true);
             if ($a->status !== 'in_progress') return;
-            if (self::expired($a)) throw ApiError::conflict('ATTEMPT_EXPIRED', 'The time for this attempt is over');
+            if (self::expired($a)) {
+                self::finalize((int) $a->id);
+                throw ApiError::conflict('ATTEMPT_EXPIRED', 'The time for this attempt is over');
+            }
             if ($answers) self::store($a, $answers);
             self::finalize((int) $a->id);
         });

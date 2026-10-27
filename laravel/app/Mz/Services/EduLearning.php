@@ -172,11 +172,21 @@ final class EduLearning
     private static function serializeMaterial(object $m): array
     {
         return [
-            'id' => (int) $m->id, 'lesson_id' => (int) $m->lesson_id, 'kind' => $m->kind, 'title' => $m->title,
+            'id' => (int) $m->id,
+            'lesson_id' => $m->lesson_id !== null ? (int) $m->lesson_id : null,
+            'category_id' => ! empty($m->category_id) ? (int) $m->category_id : null,
+            'subject_id' => ! empty($m->subject_id) ? (int) $m->subject_id : null,
+            'grade' => ! empty($m->grade) ? (int) $m->grade : null,
+            'status' => $m->status ?? 'published',
+            'is_direct' => $m->lesson_id === null,
+            'kind' => $m->kind,
+            'title' => $m->title,
             'title_en' => $m->title_en ?? null,
             'description' => $m->description ?? null,
             'description_en' => $m->description_en ?? null,
-            'mime' => $m->mime, 'size' => $m->size !== null ? (int) $m->size : null, 'name' => $m->original_name,
+            'mime' => $m->mime,
+            'size' => $m->size !== null ? (int) $m->size : null,
+            'name' => $m->original_name,
             'url' => $m->kind === 'file' ? null : $m->url,
             'download_path' => $m->kind === 'file' ? "/edu/materials/{$m->id}/file" : null,
             'sort_order' => (int) $m->sort_order,
@@ -237,6 +247,90 @@ final class EduLearning
         ])->all();
     }
 
+    /** Grades (1..12) the student is actively enrolled in. */
+    public static function studentAssignedGrades(int $userId): array
+    {
+        $grades = [];
+        try {
+            // 1. Direct active class enrollments
+            if (Schema::hasTable('edu_enrollments') && Schema::hasTable('edu_classes')) {
+                $hasLevels = Schema::hasTable('edu_levels');
+                $q = DB::table('edu_enrollments as e')
+                    ->join('edu_classes as c', 'c.id', '=', 'e.class_id');
+
+                if ($hasLevels) {
+                    $q->leftJoin('edu_levels as lvl', 'lvl.id', '=', 'c.level_id')
+                      ->select('c.level_id', 'c.name as class_name', 'lvl.code as level_code', 'lvl.sort_order as level_order');
+                } else {
+                    $q->select('c.level_id', 'c.name as class_name');
+                }
+
+                $classRows = $q->where('e.user_id', $userId)
+                    ->where('e.status', 'active')
+                    ->get();
+
+                foreach ($classRows as $r) {
+                    $g = self::extractGradeNumber($r);
+                    if ($g !== null && $g >= 1 && $g <= 12) {
+                        $grades[$g] = true;
+                    }
+                }
+            }
+
+            // 2. Course-level enrollments
+            if (Schema::hasTable('edu_course_enrollments') && Schema::hasTable('edu_courses') && Schema::hasTable('edu_classes')) {
+                $hasLevels = Schema::hasTable('edu_levels');
+                $q = DB::table('edu_course_enrollments as ce')
+                    ->join('edu_courses as co', 'co.id', '=', 'ce.course_id')
+                    ->join('edu_classes as c', 'c.id', '=', 'co.class_id');
+
+                if ($hasLevels) {
+                    $q->leftJoin('edu_levels as lvl', 'lvl.id', '=', 'c.level_id')
+                      ->select('c.level_id', 'c.name as class_name', 'lvl.code as level_code', 'lvl.sort_order as level_order');
+                } else {
+                    $q->select('c.level_id', 'c.name as class_name');
+                }
+
+                $courseRows = $q->where('ce.user_id', $userId)
+                    ->whereIn('ce.status', ['enrolled', 'added', 'retake', 'distance'])
+                    ->get();
+
+                foreach ($courseRows as $r) {
+                    $g = self::extractGradeNumber($r);
+                    if ($g !== null && $g >= 1 && $g <= 12) {
+                        $grades[$g] = true;
+                    }
+                }
+            }
+        } catch (\Throwable $e) {
+            // Fallback gracefully on schema issues
+        }
+
+        return array_keys($grades);
+    }
+
+    private static function extractGradeNumber(object $row): ?int
+    {
+        if (isset($row->level_order) && $row->level_order >= 1 && $row->level_order <= 12) {
+            return (int) $row->level_order;
+        }
+        if (! empty($row->level_code) && preg_match('/^G(\d+)$/i', $row->level_code, $m)) {
+            return (int) $m[1];
+        }
+        if (isset($row->level_id) && $row->level_id >= 1 && $row->level_id <= 12) {
+            return (int) $row->level_id;
+        }
+        if (! empty($row->class_name)) {
+            if (preg_match('/(?:ክፍል\s*|Grade\s*|G)(\d{1,2})/iu', $row->class_name, $m)) {
+                return (int) $m[1];
+            }
+            if (preg_match('/(\d{1,2})ኛ(?:\s*ክፍል)?/u', $row->class_name, $m)) {
+                return (int) $m[1];
+            }
+        }
+        return null;
+    }
+
     /** The 12 grades for a subject with content availability. */
     public static function subjectGrades(AuthContext $auth, int $subjectId): array
     {
@@ -244,6 +338,8 @@ final class EduLearning
         $editor = self::isEditor($auth);
         $teaching = self::teachingSubjectIds($auth->id);
         $studying = self::studyingSubjectIds($auth->id);
+        $assignedGrades = self::studentAssignedGrades($auth->id);
+        $teachesThisSubject = in_array((int) $s->id, $teaching, true);
 
         $courses = DB::table('edu_courses as co')
             ->leftJoin('edu_classes as c', 'c.id', '=', 'co.class_id')
@@ -263,6 +359,8 @@ final class EduLearning
             $courseIds = $matchingCourses->pluck('course_id')->all();
             $quizCount = ! empty($courseIds) ? DB::table('edu_quizzes')->whereIn('course_id', $courseIds)->where('status', 'published')->count() : 0;
             $hasContent = $matchingCourses->isNotEmpty();
+            $isAssigned = in_array($i, $assignedGrades, true);
+            $canOpen = $isAssigned || ($teachesThisSubject && $hasContent);
 
             $grades[] = [
                 'number' => $i,
@@ -272,14 +370,17 @@ final class EduLearning
                 'has_content' => $hasContent,
                 'course_count' => $matchingCourses->count(),
                 'quiz_count' => $quizCount,
+                'is_assigned' => $isAssigned,
+                'can_open' => $canOpen,
             ];
         }
 
         return [
             'subject' => self::serializeSubject($s) + [
                 'can_open' => self::canOpenWith($s, $editor, $teaching, $studying),
-                'can_edit' => $editor || in_array((int) $s->id, $teaching, true),
+                'can_edit' => $editor || $teachesThisSubject,
             ],
+            'has_assigned_grade' => ! empty($assignedGrades),
             'grades' => $grades,
         ];
     }
@@ -294,6 +395,16 @@ final class EduLearning
 
         if ($gradeNumber < 1 || $gradeNumber > 12) {
             throw ApiError::badRequest('INVALID_GRADE', 'Grade must be between 1 and 12');
+        }
+
+        // Feature C: In normal Education mode, users (including administrators) must have this grade assigned.
+        // Only active teachers of this subject bypass grade restriction for their assigned subject.
+        $teachesThisSubject = in_array((int) $s->id, $teaching, true);
+        if (! $teachesThisSubject) {
+            $assignedGrades = self::studentAssignedGrades($auth->id);
+            if (empty($assignedGrades) || ! in_array($gradeNumber, $assignedGrades, true)) {
+                throw ApiError::forbidden('GRADE_ACCESS_DENIED', 'You are not assigned to Grade ' . $gradeNumber);
+            }
         }
 
         $coursesQ = DB::table('edu_courses as co')
@@ -333,22 +444,32 @@ final class EduLearning
         $lessons = $hasGradeCourses ? $allLessons : collect([]);
 
         $lessonIds = $lessons->pluck('id')->all();
-        $materials = ! empty($lessonIds)
+        $lessonMaterials = ! empty($lessonIds)
             ? DB::table('edu_lesson_materials')
                 ->whereIn('lesson_id', $lessonIds)
                 ->orderBy('sort_order')
                 ->get()
-                ->map(fn ($m) => [
-                    'id' => (int) $m->id,
-                    'lesson_id' => (int) $m->lesson_id,
-                    'kind' => $m->kind,
-                    'title' => $m->title,
-                    'title_en' => $m->title_en,
-                    'mime' => $m->mime,
-                    'size' => $m->size ? (int) $m->size : null,
-                    'file_url' => "/edu/materials/{$m->id}/file",
-                ])->all()
+                ->map(fn ($m) => self::serializeMaterial($m))
+                ->all()
             : [];
+
+        // Direct materials for this grade and subject (or category)
+        $directMaterials = DB::table('edu_lesson_materials')
+            ->whereNull('lesson_id')
+            ->where('grade', $gradeNumber)
+            ->where(function ($w) use ($s, $subjectId) {
+                if ($s->category_id) {
+                    $w->where('category_id', $s->category_id);
+                }
+                $w->orWhere('subject_id', $subjectId);
+            })
+            ->when(! $editor, fn ($q) => $q->where('status', 'published'))
+            ->orderBy('sort_order')
+            ->get()
+            ->map(fn ($m) => self::serializeMaterial($m))
+            ->all();
+
+        $materials = array_merge($lessonMaterials, $directMaterials);
 
         $quizzes = ! empty($courseIds)
             ? DB::table('edu_quizzes as q')
@@ -861,16 +982,36 @@ final class EduLearning
     }
 
     // ------------------------------------------------------------------ materials (download)
-    /** A lesson file, only for those who may open its lesson. */
+    /** A lesson file or direct course material file, only for authorized members. */
     public static function materialFile(AuthContext $auth, int $id): array
     {
         $m = self::material($id);
         if ($m->kind !== 'file' || ! $m->path) throw ApiError::notFound('MATERIAL_NOT_FOUND', 'Material not found');
-        $l = self::lesson((int) $m->lesson_id);
-        $s = self::subject((int) $l->subject_id);
-        $edit = self::canEditSubject($auth, (int) $s->id);
-        if (! $edit && ($l->status !== 'published' || $s->status !== 'published')) throw ApiError::notFound('MATERIAL_NOT_FOUND', 'Material not found');
-        if (! self::canOpen($auth, $s)) throw ApiError::forbidden('NOT_ENROLLED', 'This lesson is for the students of this subject');
+        if ($m->lesson_id) {
+            $l = self::lesson((int) $m->lesson_id);
+            $s = self::subject((int) $l->subject_id);
+            $edit = self::canEditSubject($auth, (int) $s->id);
+            if (! $edit && ($l->status !== 'published' || $s->status !== 'published')) throw ApiError::notFound('MATERIAL_NOT_FOUND', 'Material not found');
+            if (! self::canOpen($auth, $s)) throw ApiError::forbidden('NOT_ENROLLED', 'This lesson is for the students of this subject');
+        } else {
+            $edit = self::isEditor($auth);
+            if (! empty($m->subject_id)) {
+                $s = self::subject((int) $m->subject_id);
+                $edit = $edit || self::canEditSubject($auth, (int) $s->id);
+            }
+            if (! $edit && ($m->status ?? 'published') !== 'published') throw ApiError::notFound('MATERIAL_NOT_FOUND', 'Material not found');
+            if (! $edit) {
+                if (! empty($m->grade)) {
+                    $assignedGrades = self::studentAssignedGrades($auth->id);
+                    if (! empty($assignedGrades) && ! in_array((int) $m->grade, $assignedGrades, true)) {
+                        throw ApiError::forbidden('GRADE_ACCESS_DENIED', 'You are not enrolled in Grade ' . $m->grade);
+                    }
+                }
+                if (! empty($m->subject_id) && ! self::canOpen($auth, self::subject((int) $m->subject_id))) {
+                    throw ApiError::forbidden('NOT_ENROLLED', 'This material is for the students of this subject');
+                }
+            }
+        }
         $abs = Storage::privatePath($m->path);
         if (! is_file($abs)) throw ApiError::notFound('MATERIAL_NOT_FOUND', 'Material not found');
         $ext = pathinfo($m->path, PATHINFO_EXTENSION);
@@ -1174,9 +1315,13 @@ final class EduLearning
     public static function updateMaterial(array $actx, int $id, array $in): array
     {
         $m = self::material($id);
-        $l = self::lesson((int) $m->lesson_id);
-        self::assertEditSubject($actx['auth'], (int) $l->subject_id);
-        $patch = self::only($in, ['title', 'sort_order']);
+        if ($m->lesson_id) {
+            $l = self::lesson((int) $m->lesson_id);
+            self::assertEditSubject($actx['auth'], (int) $l->subject_id);
+        } else {
+            self::assertEditor($actx['auth']);
+        }
+        $patch = self::only($in, ['title', 'title_en', 'description', 'description_en', 'sort_order', 'status']);
         if ($m->kind !== 'file' && isset($in['url'])) $patch['url'] = $in['url'];
         if ($patch) DB::table('edu_lesson_materials')->where('id', $id)->update($patch);
         return self::serializeMaterial(self::material($id));
@@ -1185,11 +1330,124 @@ final class EduLearning
     public static function deleteMaterial(array $actx, int $id): void
     {
         $m = self::material($id);
-        $l = self::lesson((int) $m->lesson_id);
-        self::assertEditSubject($actx['auth'], (int) $l->subject_id);
+        if ($m->lesson_id) {
+            $l = self::lesson((int) $m->lesson_id);
+            self::assertEditSubject($actx['auth'], (int) $l->subject_id);
+        } else {
+            self::assertEditor($actx['auth']);
+        }
         DB::table('edu_lesson_materials')->where('id', $id)->delete();
         if ($m->path) Storage::remove($m->path);
         Audit::log($actx, Audit::EDU_UPDATE, 'edu_lesson_material', $id, ['deleted' => $m->title]);
+    }
+
+    // ---- direct course materials (Feature B) ----
+    public static function addDirectMaterialFile(array $actx, array $meta, UploadedFile $file): array
+    {
+        self::assertEditor($actx['auth']);
+        $categoryId = ! empty($meta['category_id']) ? (int) $meta['category_id'] : null;
+        if ($categoryId && ! DB::table('edu_categories')->where('id', $categoryId)->exists()) {
+            throw ApiError::field('category_id', 'CATEGORY_NOT_FOUND');
+        }
+        $subjectId = ! empty($meta['subject_id']) ? (int) $meta['subject_id'] : null;
+        if ($subjectId && ! DB::table('edu_subjects')->where('id', $subjectId)->exists()) {
+            throw ApiError::field('subject_id', 'SUBJECT_NOT_FOUND');
+        }
+        $grade = ! empty($meta['grade']) ? (int) $meta['grade'] : null;
+        if ($grade !== null && ($grade < 1 || $grade > 12)) {
+            throw ApiError::field('grade', 'INVALID_GRADE');
+        }
+        $title = ! empty($meta['title']) ? mb_substr(trim($meta['title']), 0, 200) : null;
+        $saved = Storage::save('lesson', Storage::FOLDERS['EDU_LESSONS'], $file);
+        $name = mb_substr((string) $file->getClientOriginalName(), 0, 255) ?: null;
+        $order = (int) DB::table('edu_lesson_materials')
+            ->whereNull('lesson_id')
+            ->when($categoryId, fn ($q) => $q->where('category_id', $categoryId))
+            ->when($grade, fn ($q) => $q->where('grade', $grade))
+            ->max('sort_order') + 1;
+
+        $id = DB::table('edu_lesson_materials')->insertGetId([
+            'lesson_id' => null,
+            'category_id' => $categoryId,
+            'subject_id' => $subjectId,
+            'grade' => $grade,
+            'kind' => 'file',
+            'title' => $title ?: ($name ? pathinfo($name, PATHINFO_FILENAME) : 'File'),
+            'title_en' => ! empty($meta['title_en']) ? mb_substr(trim($meta['title_en']), 0, 200) : null,
+            'description' => ! empty($meta['description']) ? mb_substr(trim($meta['description']), 0, 2000) : null,
+            'description_en' => ! empty($meta['description_en']) ? mb_substr(trim($meta['description_en']), 0, 2000) : null,
+            'path' => $saved['path'],
+            'original_name' => $name,
+            'mime' => $saved['mime'],
+            'size' => $saved['size'],
+            'sha256' => $saved['sha256'],
+            'sort_order' => $order,
+            'status' => in_array($meta['status'] ?? '', ['draft', 'published', 'archived'], true) ? $meta['status'] : 'published',
+            'uploaded_by' => $actx['auth']->id,
+        ]);
+        Audit::log($actx, Audit::EDU_UPDATE, 'edu_lesson_material', $id, ['direct' => true, 'category_id' => $categoryId, 'grade' => $grade]);
+        return self::serializeMaterial(self::material($id));
+    }
+
+    public static function addDirectMaterialLink(array $actx, array $meta): array
+    {
+        self::assertEditor($actx['auth']);
+        $categoryId = ! empty($meta['category_id']) ? (int) $meta['category_id'] : null;
+        if ($categoryId && ! DB::table('edu_categories')->where('id', $categoryId)->exists()) {
+            throw ApiError::field('category_id', 'CATEGORY_NOT_FOUND');
+        }
+        $subjectId = ! empty($meta['subject_id']) ? (int) $meta['subject_id'] : null;
+        if ($subjectId && ! DB::table('edu_subjects')->where('id', $subjectId)->exists()) {
+            throw ApiError::field('subject_id', 'SUBJECT_NOT_FOUND');
+        }
+        $grade = ! empty($meta['grade']) ? (int) $meta['grade'] : null;
+        if ($grade !== null && ($grade < 1 || $grade > 12)) {
+            throw ApiError::field('grade', 'INVALID_GRADE');
+        }
+        $order = (int) DB::table('edu_lesson_materials')
+            ->whereNull('lesson_id')
+            ->when($categoryId, fn ($q) => $q->where('category_id', $categoryId))
+            ->when($grade, fn ($q) => $q->where('grade', $grade))
+            ->max('sort_order') + 1;
+
+        $id = DB::table('edu_lesson_materials')->insertGetId([
+            'lesson_id' => null,
+            'category_id' => $categoryId,
+            'subject_id' => $subjectId,
+            'grade' => $grade,
+            'kind' => in_array($meta['kind'] ?? '', ['link', 'video_link'], true) ? $meta['kind'] : 'link',
+            'title' => mb_substr(trim($meta['title'] ?? 'Link'), 0, 200),
+            'title_en' => ! empty($meta['title_en']) ? mb_substr(trim($meta['title_en']), 0, 200) : null,
+            'description' => ! empty($meta['description']) ? mb_substr(trim($meta['description']), 0, 2000) : null,
+            'description_en' => ! empty($meta['description_en']) ? mb_substr(trim($meta['description_en']), 0, 2000) : null,
+            'url' => trim($meta['url']),
+            'sort_order' => $order,
+            'status' => in_array($meta['status'] ?? '', ['draft', 'published', 'archived'], true) ? $meta['status'] : 'published',
+            'uploaded_by' => $actx['auth']->id,
+        ]);
+        Audit::log($actx, Audit::EDU_UPDATE, 'edu_lesson_material', $id, ['direct' => true, 'category_id' => $categoryId, 'grade' => $grade]);
+        return self::serializeMaterial(self::material($id));
+    }
+
+    public static function directMaterials(AuthContext $auth, int $categoryId, int $gradeNumber): array
+    {
+        $editor = self::isEditor($auth);
+        if (! $editor) {
+            $assignedGrades = self::studentAssignedGrades($auth->id);
+            if (! empty($assignedGrades) && ! in_array($gradeNumber, $assignedGrades, true)) {
+                throw ApiError::forbidden('GRADE_ACCESS_DENIED', 'You are not enrolled in Grade ' . $gradeNumber);
+            }
+        }
+        $q = DB::table('edu_lesson_materials')
+            ->whereNull('lesson_id')
+            ->where('category_id', $categoryId)
+            ->where('grade', $gradeNumber);
+
+        if (! $editor) {
+            $q->where('status', 'published');
+        }
+
+        return $q->orderBy('sort_order')->orderBy('id')->get()->map(fn ($m) => self::serializeMaterial($m))->all();
     }
 
     // ---- featured banner (content editors) ----

@@ -43,6 +43,18 @@ class EduQuizScreen extends ConsumerWidget {
   final int quizId;
 
   Future<void> _start(BuildContext context, WidgetRef ref) async {
+    final quiz = ref.read(eduQuizProvider(quizId)).asData?.value;
+    final left = asIntOr(quiz?['attempts_left']);
+    final resume = asInt(quiz?['in_progress_attempt_id']);
+    if (resume == null && left <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(context.l10n.elAttemptsExhaustedDesc),
+          backgroundColor: AppColors.maroon,
+        ),
+      );
+      return;
+    }
     final a = await runWithProgress(context, () => ref.read(eduRepositoryProvider).startQuiz(quizId));
     if (a == null || !context.mounted) return;
     await context.push('/edu/attempt/${a['id']}');
@@ -150,11 +162,42 @@ class EduQuizScreen extends ConsumerWidget {
                   icon: const Icon(Icons.play_arrow_rounded),
                   label: Text(asIntOr(q['attempts_used']) > 0 ? l.elTryAgain : l.elStartQuiz),
                 )
-              else if (canEdit)
+              else if (availability == 'open' && left <= 0) ...[
+                FilledButton.icon(
+                  onPressed: null,
+                  icon: const Icon(Icons.block_rounded),
+                  label: Text(l.elNoAttemptsLeftAlert),
+                ),
+                const SizedBox(height: 12),
+                AppCard(
+                  padding: const EdgeInsets.all(14),
+                  child: Row(children: [
+                    const Icon(Icons.info_outline_rounded, color: AppColors.maroon),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(l.elAttemptsExhausted, style: context.sans(13.5, weight: FontWeight.w600, color: AppColors.maroon)),
+                          const SizedBox(height: 4),
+                          Text(l.elAttemptsExhaustedDesc, style: context.sans(12.5, color: p.muted)),
+                        ],
+                      ),
+                    ),
+                  ]),
+                ),
+              ]
+              else if (canEdit && left > 0)
                 FilledButton.icon(
                   onPressed: () => _start(context, ref),
                   icon: const Icon(Icons.science_outlined),
                   label: Text(!isEn ? 'ፈተናውን ሞክር / እይ' : 'Preview / Test Quiz'),
+                )
+              else if (canEdit && left <= 0)
+                FilledButton.icon(
+                  onPressed: null,
+                  icon: const Icon(Icons.block_rounded),
+                  label: Text(l.elNoAttemptsLeftAlert),
                 ),
               if (last != null && resume == null) ...[
                 const SizedBox(height: 8),
@@ -291,6 +334,9 @@ class _EduAttemptScreenState extends ConsumerState<EduAttemptScreen> {
     } else {
       await _load();
     }
+    final quizId = asIntOr(asJson(r?['quiz'] ?? _attempt?['quiz'])['id']);
+    if (quizId > 0) ref.invalidate(eduQuizProvider(quizId));
+    ref.invalidate(_myQuizzesProvider);
     ref.invalidate(eduDashboardProvider);
   }
 

@@ -3103,5 +3103,79 @@
   "libScanQr": "Scan copy code or member QR",
   "libEnterCopyCode": "Enter copy code",
   "libCopyNotFound": "Copy not found",
-  "libDownloadToReadOffline": "Download to read offline"
+  "libDownloadToReadOffline": "Download to read offline",
+  "elAttemptsExhausted": "Attempt limit reached",
+  "elAttemptsExhaustedDesc": "You have used all permitted attempts for this quiz. You cannot start another attempt.",
+  "elNoAttemptsLeftAlert": "0 attempts remaining",
+  "elAttemptsRemaining": "Attempts remaining: {count}",
+  "@elAttemptsRemaining": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "elDirectMaterials": "Course Materials",
+  "elAddDirectMaterial": "Add Material",
+  "elMaterialTitle": "Material title",
+  "elUploadMaterial": "Upload file or document",
+  "elDirectMaterialSubtitle": "Grade {grade} direct resource",
+  "@elDirectMaterialSubtitle": {
+    "placeholders": {
+      "grade": { "type": "int" }
+    }
+  },
+  "elNoAssignedGradeTitle": "No Assigned Grade",
+  "elNoAssignedGradeDesc": "You are not currently assigned to a grade level. Please contact your Sunday School administrator.",
+  "elAdminPanelHint": "To manage all grades, please use the Education Admin panel.",
+  "elGradeRestrictedNotice": "You are assigned to Grade {grade} only",
+  "@elGradeRestrictedNotice": {
+    "placeholders": {
+      "grade": { "type": "int" }
+    }
+  },
+  "elAssignments": "Assignments",
+  "elAssignmentDetail": "Assignment Details",
+  "elSubmitAssignment": "Submit Assignment",
+  "elTurnedIn": "Turned in",
+  "elAssigned": "Assigned",
+  "elOverdue": "Overdue",
+  "elDueSoon": "Due soon",
+  "elUpcoming": "Upcoming",
+  "elGraded": "Graded",
+  "elMySubmission": "Your Submission",
+  "elGradeScore": "Score: {score} / {max}",
+  "@elGradeScore": {
+    "placeholders": {
+      "score": { "type": "String" },
+      "max": { "type": "String" }
+    }
+  },
+  "elTeacherFeedback": "Teacher Feedback",
+  "elResubmit": "Resubmit",
+  "elDueDate": "Due: {date}",
+  "@elDueDate": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "elInstructions": "Instructions",
+  "elYourResponse": "Your written response",
+  "elAttachFile": "Attach File",
+  "elMaxScore": "Maximum Score",
+  "elGradeSubmission": "Grade Submission",
+  "elReleaseGrade": "Release grade to student",
+  "elSubmissions": "Submissions",
+  "elNoAssignments": "No assignments available",
+  "elCreateAssignment": "Create Assignment",
+  "elAnnouncements": "Class Announcements",
+  "elClassFeed": "Class Stream",
+  "elNewAnnouncement": "New Announcement",
+  "elPostAnnouncement": "Post Announcement",
+  "elTeacherPosted": "Posted by {name}",
+  "@elTeacherPosted": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "elAnnouncementBody": "Announcement message",
+  "elNoAnnouncements": "No announcements posted yet"
 }

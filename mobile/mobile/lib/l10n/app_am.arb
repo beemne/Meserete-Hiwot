@@ -4212,5 +4212,79 @@
   "libScanQr": "የቅጂ ኮድ ወይም የአባል QR ስካን ያድርጉ",
   "libEnterCopyCode": "የቅጂ ኮድ ያስገቡ",
   "libCopyNotFound": "ይህ የመጽሐፍ ቅጂ አልተገኘም",
-  "libDownloadToReadOffline": "ከመስመር ውጭ ለማንበብ ያውርዱ"
+  "libDownloadToReadOffline": "ከመስመር ውጭ ለማንበብ ያውርዱ",
+  "elAttemptsExhausted": "የፈተና ሙከራ ገደብ ተጠናቋል",
+  "elAttemptsExhaustedDesc": "ይህን ፈተና ለመውሰድ የተፈቀደልዎ የሙከራ ብዛት አልቋል። ተጨማሪ ሙከራ ማድረግ አይቻልም።",
+  "elNoAttemptsLeftAlert": "ምንም የቀረ ሙከራ የለም (0)",
+  "elAttemptsRemaining": "የቀሩ ሙከራዎች፦ {count}",
+  "@elAttemptsRemaining": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "elDirectMaterials": "የትምህርት መርጃዎች",
+  "elAddDirectMaterial": "መርጃ ጨምር",
+  "elMaterialTitle": "የርዕስ ስም",
+  "elUploadMaterial": "ፋይል ወይም ሰነድ ጫን",
+  "elDirectMaterialSubtitle": "የ{grade}ኛ ክፍል ቀጥታ መርጃ",
+  "@elDirectMaterialSubtitle": {
+    "placeholders": {
+      "grade": { "type": "int" }
+    }
+  },
+  "elNoAssignedGradeTitle": "የተመደበ ክፍል አልተገኘም",
+  "elNoAssignedGradeDesc": "በአሁኑ ሰዓት የተመደቡበት ክፍል የለም። ትምህርቶችን ለመከታተል እባክዎ የሰንበት ት/ቤት አስተዳዳሪውን ያነጋግሩ።",
+  "elAdminPanelHint": "ሁሉንም ክፍሎች ለማስተዳደር እባክዎ ወደ ትምህርት አስተዳደር ክፍል ይሂዱ።",
+  "elGradeRestrictedNotice": "እርስዎ የተመደቡት በ{grade}ኛ ክፍል ብቻ ነው",
+  "@elGradeRestrictedNotice": {
+    "placeholders": {
+      "grade": { "type": "int" }
+    }
+  },
+  "elAssignments": "የቤት ሥራዎች",
+  "elAssignmentDetail": "የሥራ ዝርዝር",
+  "elSubmitAssignment": "ሥራ አስረክብ",
+  "elTurnedIn": "ተረክቧል",
+  "elAssigned": "ተሰጥቷል",
+  "elOverdue": "የዘገየ",
+  "elDueSoon": "ሊደርስ የቀረበ",
+  "elUpcoming": "የሚመጣ",
+  "elGraded": "የታረመ",
+  "elMySubmission": "የእርስዎ ሥራ",
+  "elGradeScore": "ውጤት፦ {score} / {max}",
+  "@elGradeScore": {
+    "placeholders": {
+      "score": { "type": "String" },
+      "max": { "type": "String" }
+    }
+  },
+  "elTeacherFeedback": "የመምህሩ አስተያየት",
+  "elResubmit": "እንደገና አስረክብ",
+  "elDueDate": "የማስረከቢያ ቀን፦ {date}",
+  "@elDueDate": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "elInstructions": "መመሪያ",
+  "elYourResponse": "የእርስዎ መልስ እዚህ ይጻፉ...",
+  "elAttachFile": "ፋይል አያይዝ",
+  "elMaxScore": "ከፍተኛ ውጤት",
+  "elGradeSubmission": "ሥራ አርም",
+  "elReleaseGrade": "ውጤቱን ለተማሪው ልቀቅ",
+  "elSubmissions": "የቀረቡ ሥራዎች",
+  "elNoAssignments": "ምንም የተሰጠ የቤት ሥራ የለም",
+  "elCreateAssignment": "አዲስ የቤት ሥራ ፍጠር",
+  "elAnnouncements": "የክፍል ማስታወቂያዎች",
+  "elClassFeed": "የክፍል ዜና ዥረት",
+  "elNewAnnouncement": "አዲስ ማስታወቂያ",
+  "elPostAnnouncement": "ማስታወቂያ ለጥፍ",
+  "elTeacherPosted": "በመምህር {name} የተለጠፈ",
+  "@elTeacherPosted": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "elAnnouncementBody": "የማስታወቂያው መልእክት",
+  "elNoAnnouncements": "እስካሁን የተለጠፈ ማስታወቂያ የለም"
 }

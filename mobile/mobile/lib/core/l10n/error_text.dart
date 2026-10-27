@@ -45,6 +45,14 @@ String errorText(AppLocalizations l, Object error) {
           : (l.localeName == 'am' ? 'የክፍል አቴንዳንስ መመዝገቢያ ወደ ፕሮግራሞች ተዛውሯል' : 'Class attendance has moved to programs');
     case 'PROGRAM_ENDED':
       return l.errProgramEnded;
+    case 'ASSIGNMENT_PAST_DUE':
+      return l.localeName == 'am' ? 'የሥራ ማስረከቢያው ቀን አልፏል' : 'The deadline for this assignment has passed';
+    case 'RESUBMISSION_DISALLOWED':
+      return l.localeName == 'am' ? 'ይህን ሥራ ደግሞ ማስረከብ አይፈቀድም' : 'Resubmission is not permitted for this assignment';
+    case 'SCORE_EXCEEDS_MAX':
+      return l.localeName == 'am' ? 'የተሰጠው ውጤት ከተፈቀደው ከፍተኛ ነጥብ በላይ ነው' : 'Score exceeds the maximum allowed score';
+    case 'ASSIGNMENT_NOT_OPEN':
+      return l.localeName == 'am' ? 'ይህ የቤት ሥራ አልተለቀቀም' : 'This assignment is not published yet';
     case 'PERMISSION_DEADLINE_PASSED':
       return l.errPermissionDeadline;
     case 'PERMISSION_MONTHLY_LIMIT':

@@ -7177,7 +7177,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get elOverdue => 'ጊዜው አልፏል';
+  String get elOverdue => 'የዘገየ';
 
   @override
   String get elMyStudies => 'የእኔ ትምህርት';
@@ -7866,7 +7866,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'PDF፣ ምስል፣ የድምጽ ፋይል ወይም ሰነድ ይጫኑ፤ ቪዲዮ በሊንክ ይጨመራል። ፋይሎቹ ለትምህርቱ ተማሪዎች ብቻ ይወርዳሉ።';
 
   @override
-  String get elMaterialTitle => 'የአጋዥ መረጃው ርዕስ';
+  String get elMaterialTitle => 'የርዕስ ስም';
 
   @override
   String get elUploadFile => 'ፋይል ጫን';
@@ -8571,4 +8571,139 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get libDownloadToReadOffline => 'ከመስመር ውጭ ለማንበብ ያውርዱ';
+
+  @override
+  String get elAttemptsExhausted => 'የፈተና ሙከራ ገደብ ተጠናቋል';
+
+  @override
+  String get elAttemptsExhaustedDesc =>
+      'ይህን ፈተና ለመውሰድ የተፈቀደልዎ የሙከራ ብዛት አልቋል። ተጨማሪ ሙከራ ማድረግ አይቻልም።';
+
+  @override
+  String get elNoAttemptsLeftAlert => 'ምንም የቀረ ሙከራ የለም (0)';
+
+  @override
+  String elAttemptsRemaining(int count) {
+    return 'የቀሩ ሙከራዎች፦ $count';
+  }
+
+  @override
+  String get elDirectMaterials => 'የትምህርት መርጃዎች';
+
+  @override
+  String get elAddDirectMaterial => 'መርጃ ጨምር';
+
+  @override
+  String get elUploadMaterial => 'ፋይል ወይም ሰነድ ጫን';
+
+  @override
+  String elDirectMaterialSubtitle(int grade) {
+    return 'የ$gradeኛ ክፍል ቀጥታ መርጃ';
+  }
+
+  @override
+  String get elNoAssignedGradeTitle => 'የተመደበ ክፍል አልተገኘም';
+
+  @override
+  String get elNoAssignedGradeDesc =>
+      'በአሁኑ ሰዓት የተመደቡበት ክፍል የለም። ትምህርቶችን ለመከታተል እባክዎ የሰንበት ት/ቤት አስተዳዳሪውን ያነጋግሩ።';
+
+  @override
+  String get elAdminPanelHint =>
+      'ሁሉንም ክፍሎች ለማስተዳደር እባክዎ ወደ ትምህርት አስተዳደር ክፍል ይሂዱ።';
+
+  @override
+  String elGradeRestrictedNotice(int grade) {
+    return 'እርስዎ የተመደቡት በ$gradeኛ ክፍል ብቻ ነው';
+  }
+
+  @override
+  String get elAssignments => 'የቤት ሥራዎች';
+
+  @override
+  String get elAssignmentDetail => 'የሥራ ዝርዝር';
+
+  @override
+  String get elSubmitAssignment => 'ሥራ አስረክብ';
+
+  @override
+  String get elTurnedIn => 'ተረክቧል';
+
+  @override
+  String get elAssigned => 'ተሰጥቷል';
+
+  @override
+  String get elDueSoon => 'ሊደርስ የቀረበ';
+
+  @override
+  String get elUpcoming => 'የሚመጣ';
+
+  @override
+  String get elGraded => 'የታረመ';
+
+  @override
+  String get elMySubmission => 'የእርስዎ ሥራ';
+
+  @override
+  String elGradeScore(String score, String max) {
+    return 'ውጤት፦ $score / $max';
+  }
+
+  @override
+  String get elTeacherFeedback => 'የመምህሩ አስተያየት';
+
+  @override
+  String get elResubmit => 'እንደገና አስረክብ';
+
+  @override
+  String elDueDate(String date) {
+    return 'የማስረከቢያ ቀን፦ $date';
+  }
+
+  @override
+  String get elYourResponse => 'የእርስዎ መልስ እዚህ ይጻፉ...';
+
+  @override
+  String get elAttachFile => 'ፋይል አያይዝ';
+
+  @override
+  String get elMaxScore => 'ከፍተኛ ውጤት';
+
+  @override
+  String get elGradeSubmission => 'ሥራ አርም';
+
+  @override
+  String get elReleaseGrade => 'ውጤቱን ለተማሪው ልቀቅ';
+
+  @override
+  String get elSubmissions => 'የቀረቡ ሥራዎች';
+
+  @override
+  String get elNoAssignments => 'ምንም የተሰጠ የቤት ሥራ የለም';
+
+  @override
+  String get elCreateAssignment => 'አዲስ የቤት ሥራ ፍጠር';
+
+  @override
+  String get elAnnouncements => 'የክፍል ማስታወቂያዎች';
+
+  @override
+  String get elClassFeed => 'የክፍል ዜና ዥረት';
+
+  @override
+  String get elNewAnnouncement => 'አዲስ ማስታወቂያ';
+
+  @override
+  String get elPostAnnouncement => 'ማስታወቂያ ለጥፍ';
+
+  @override
+  String elTeacherPosted(String name) {
+    return 'በመምህር $name የተለጠፈ';
+  }
+
+  @override
+  String get elAnnouncementBody => 'የማስታወቂያው መልእክት';
+
+  @override
+  String get elNoAnnouncements => 'እስካሁን የተለጠፈ ማስታወቂያ የለም';
 }

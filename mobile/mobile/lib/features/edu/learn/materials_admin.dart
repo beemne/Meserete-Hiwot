@@ -89,6 +89,21 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
             });
           }
         }
+
+        // Direct materials for this subject/category (Feature B)
+        try {
+          final direct = await repo.directMaterials(sId, 0);
+          for (final dm in direct) {
+            final g = asInt(dm['grade']);
+            materials.add({
+              ...dm,
+              'subject_id': sId,
+              'subject_name': sNames[sId],
+              'lesson_id': null,
+              'lesson_title': g != null ? 'Grade $g Direct' : 'Direct Material',
+            });
+          }
+        } catch (_) {}
       }
 
       if (mounted) {
@@ -172,12 +187,9 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
 
     if (!mounted) return;
 
-    if (availableLessons.isEmpty) {
-      showSnack(context, isEn ? 'This subject has no lessons yet. Create a lesson first.' : 'ይህ የትምህርት ዓይነት ምንም ትምህርት የለውም። መጀመሪያ ትምህርት ያክሉ።');
-      return;
-    }
-
-    int selectedLessonId = asIntOr(availableLessons.first['id']);
+    int? selectedLessonId = availableLessons.isNotEmpty ? asIntOr(availableLessons.first['id']) : null;
+    String targetMode = 'direct'; // 'direct' (Feature B) or 'lesson'
+    int selectedGrade = 1;
     String uploadType = 'file'; // 'file' or 'link'
     final titleCtrl = TextEditingController();
     final urlCtrl = TextEditingController();
@@ -210,6 +222,32 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
                   ),
                   const SizedBox(height: 14),
 
+                  // Target mode toggle
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ChoiceChip(
+                          label: Center(child: Text(isEn ? 'Direct to Grade' : 'ቀጥታ ለክፍል ደረጃ')),
+                          selected: targetMode == 'direct',
+                          selectedColor: AppColors.maroon,
+                          labelStyle: TextStyle(color: targetMode == 'direct' ? Colors.white : p.text, fontWeight: FontWeight.w600, fontSize: 12),
+                          onSelected: (_) => setModalState(() => targetMode = 'direct'),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ChoiceChip(
+                          label: Center(child: Text(isEn ? 'Attach to Lesson' : 'ከትምህርት ጋር አያይዝ')),
+                          selected: targetMode == 'lesson',
+                          selectedColor: AppColors.maroon,
+                          labelStyle: TextStyle(color: targetMode == 'lesson' ? Colors.white : p.text, fontWeight: FontWeight.w600, fontSize: 12),
+                          onSelected: availableLessons.isEmpty ? null : (_) => setModalState(() => targetMode = 'lesson'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+
                   // Subject dropdown
                   DropdownButtonFormField<int>(
                     initialValue: selectedSubId,
@@ -240,33 +278,59 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
                       }
                       setModalState(() {
                         availableLessons = lList;
-                        if (lList.isNotEmpty) selectedLessonId = asIntOr(lList.first['id']);
+                        if (lList.isNotEmpty) {
+                          selectedLessonId = asIntOr(lList.first['id']);
+                        } else {
+                          selectedLessonId = null;
+                          targetMode = 'direct';
+                        }
                       });
                     },
                   ),
                   const SizedBox(height: 12),
 
-                  // Lesson dropdown
-                  DropdownButtonFormField<int>(
-                    initialValue: availableLessons.any((l) => asInt(l['id']) == selectedLessonId)
-                        ? selectedLessonId
-                        : (availableLessons.isNotEmpty ? asIntOr(availableLessons.first['id']) : null),
-                    decoration: InputDecoration(
-                      labelText: isEn ? 'Lesson' : 'ትምህርት',
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  if (targetMode == 'direct') ...[
+                    DropdownButtonFormField<int>(
+                      initialValue: selectedGrade,
+                      decoration: InputDecoration(
+                        labelText: isEn ? 'Grade Level (1–12)' : 'የክፍል ደረጃ (1–12)',
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                      items: [
+                        for (int g = 1; g <= 12; g++)
+                          DropdownMenuItem<int>(
+                            value: g,
+                            child: Text(isEn ? 'Grade $g' : '$gኛ ክፍል'),
+                          ),
+                      ],
+                      onChanged: (g) {
+                        if (g != null) setModalState(() => selectedGrade = g);
+                      },
                     ),
-                    items: [
-                      for (final lsn in availableLessons)
-                        DropdownMenuItem<int>(
-                          value: asIntOr(lsn['id']),
-                          child: Text(asStr(lsn['title']) ?? '', overflow: TextOverflow.ellipsis),
-                        ),
-                    ],
-                    onChanged: (v) {
-                      if (v != null) setModalState(() => selectedLessonId = v);
-                    },
-                  ),
-                  const SizedBox(height: 14),
+                    const SizedBox(height: 12),
+                  ] else ...[
+                    // Lesson dropdown
+                    DropdownButtonFormField<int>(
+                      initialValue: availableLessons.any((l) => asInt(l['id']) == selectedLessonId)
+                          ? selectedLessonId
+                          : (availableLessons.isNotEmpty ? asIntOr(availableLessons.first['id']) : null),
+                      decoration: InputDecoration(
+                        labelText: isEn ? 'Lesson' : 'ትምህርት',
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                      items: [
+                        for (final lsn in availableLessons)
+                          DropdownMenuItem<int>(
+                            value: asIntOr(lsn['id']),
+                            child: Text(asStr(lsn['title']) ?? '', overflow: TextOverflow.ellipsis),
+                          ),
+                      ],
+                      onChanged: (v) {
+                        if (v != null) setModalState(() => selectedLessonId = v);
+                      },
+                    ),
+                    const SizedBox(height: 12),
+                  ],
 
                   // Segmented toggle: File vs Link
                   Row(
@@ -352,22 +416,46 @@ class _EduMaterialsAdminScreenState extends ConsumerState<EduMaterialsAdminScree
                         return;
                       }
 
-                      if (uploadType == 'file') {
-                        if (pickedFilePath == null) {
-                          showSnack(ctx, isEn ? 'Please select a file' : 'እባክዎ ፋይል ይምረጡ');
-                          return;
+                      if (targetMode == 'direct') {
+                        if (uploadType == 'file') {
+                          if (pickedFilePath == null) {
+                            showSnack(ctx, isEn ? 'Please select a file' : 'እባክዎ ፋይል ይምረጡ');
+                            return;
+                          }
+                          Navigator.pop(ctx);
+                          await runWithProgress(context, () => repo.addDirectMaterialFile(selectedSubId, selectedGrade, pickedFilePath!, title: title));
+                        } else {
+                          final url = urlCtrl.text.trim();
+                          if (url.isEmpty || !url.startsWith('http')) {
+                            showSnack(ctx, isEn ? 'Please enter a valid URL' : 'እባክዎ ትክክለኛ የድረ-ገጽ አድራሻ ያስገቡ');
+                            return;
+                          }
+                          Navigator.pop(ctx);
+                          final kind = url.contains('youtube') || url.contains('youtu.be') ? 'video' : 'link';
+                          await runWithProgress(context, () => repo.addDirectMaterialLink(selectedSubId, selectedGrade, kind: kind, title: title, url: url));
                         }
-                        Navigator.pop(ctx);
-                        await runWithProgress(context, () => repo.uploadMaterial(selectedLessonId, pickedFilePath!, title: title));
                       } else {
-                        final url = urlCtrl.text.trim();
-                        if (url.isEmpty || !url.startsWith('http')) {
-                          showSnack(ctx, isEn ? 'Please enter a valid URL' : 'እባክዎ ትክክለኛ የድረ-ገጽ አድራሻ ያስገቡ');
+                        if (selectedLessonId == null) {
+                          showSnack(ctx, isEn ? 'Please select a lesson' : 'እባክዎ ትምህርት ይምረጡ');
                           return;
                         }
-                        Navigator.pop(ctx);
-                        final kind = url.contains('youtube') || url.contains('youtu.be') ? 'video' : 'link';
-                        await runWithProgress(context, () => repo.addLink(selectedLessonId, kind: kind, title: title, url: url));
+                        if (uploadType == 'file') {
+                          if (pickedFilePath == null) {
+                            showSnack(ctx, isEn ? 'Please select a file' : 'እባክዎ ፋይል ይምረጡ');
+                            return;
+                          }
+                          Navigator.pop(ctx);
+                          await runWithProgress(context, () => repo.uploadMaterial(selectedLessonId!, pickedFilePath!, title: title));
+                        } else {
+                          final url = urlCtrl.text.trim();
+                          if (url.isEmpty || !url.startsWith('http')) {
+                            showSnack(ctx, isEn ? 'Please enter a valid URL' : 'እባክዎ ትክክለኛ የድረ-ገጽ አድራሻ ያስገቡ');
+                            return;
+                          }
+                          Navigator.pop(ctx);
+                          final kind = url.contains('youtube') || url.contains('youtu.be') ? 'video' : 'link';
+                          await runWithProgress(context, () => repo.addLink(selectedLessonId!, kind: kind, title: title, url: url));
+                        }
                       }
                       _loadAll();
                     },

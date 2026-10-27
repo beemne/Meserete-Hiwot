@@ -2,7 +2,7 @@ name: mezmur_zelideta
 description: "Mezmur Zelideta — መዝሙር ዘልደታ. Mezmur lyrics, audio, programs and library for Meserete Hiwot Sunday School."
 publish_to: 'none'
 
-version: 1.5.3+25
+version: 1.5.3+27
 
 environment:
   sdk: ^3.12.1

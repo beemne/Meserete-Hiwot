@@ -2023,43 +2023,42 @@ class GuidanceCatalog {
       faqItems: [GuidanceFaq(question: 'የተማሪ ታሪክ ይጠፋል?', answer: 'አይጠፋም፤ በየትምህርት ጉዞ (Journey) ላይ ተመዝግቦ ይቀመጣል።')],
     ),
 
-    // 58. Academic Calendar Admin
+    // 58. Academic Administration
     '/admin/edu/academic-years': const GuidanceArticle(
       id: 58,
       slug: 'academic-calendar-admin',
       category: 'education',
-      title: 'የትምህርት ዘመን እና ወሰነ-ትምህርት (Academic Calendar Admin)',
-      summary: 'የትምህርት ዘመናትን፣ ወሰነ-ትምህርቶችን (Terms) እና ደረጃዎችን መፍጠር እና ማስተዳደር።',
+      title: 'የትምህርት ዘመን እና አስተዳደር (Academic Admin)',
+      summary: 'የትምህርት ዘመናትን፣ ወሰነ-ትምህርቶችን (Terms) እና ክፍሎችን ማስተዳደር።',
       content:
-          'የትምህርት ዘመን የኢትዮጵያ ዓመተ ምሕረትን መሠረት በማድረግ ይከፈታል። በአንድ ጊዜ አንድ ንቁ የትምህርት ዘመን ብቻ ይኖራል። ዓመቱ ሲዘጋ ክፍት ውጤቶች አለመኖራቸው ይረጋገጣል።',
+          'የትምህርት ዘመን የኢትዮጵያ ዓመተ ምሕረትን መሠረት በማድረግ ይከፈታል። ዓመታዊ የትምህርት ሥራዎች በክፍሎችና መርሐ ግብሮች ሥር ይከናወናሉ።',
       targetRole: 'admin',
-      targetScreen: '/admin/edu/academic-years',
+      targetScreen: '/edu/manage',
       requiredPermission: 'education.manage',
       steps: [
-        GuidanceStep(step: 1, title: 'አዲስ የትምህርት ዘመን', description: 'የኢትዮጵያ ዓ.ም እና ስያሜውን በማስገባት ይጀምሩ።', actionRoute: '/admin/edu/academic-years'),
-        GuidanceStep(step: 2, title: 'ወሰነ-ትምህርቶች (Terms)', description: 'በዘመኑ ሥር ያሉ የትምህርት ወቅቶችን ይወስኑ።', actionRoute: '/admin/edu/academic-years'),
-        GuidanceStep(step: 3, title: 'ዘመን መዝጋት', description: 'ዓመታዊ የትምህርት ሥራዎች ሲጠናቀቁ ዘመኑን ይዝጉ።', actionRoute: '/admin/edu/academic-years'),
+        GuidanceStep(step: 1, title: 'ክፍሎችና ተማሪዎች', description: 'የክፍል አደረጃጀቶችንና የተማሪዎች ምደባን ይመልከቱ።', actionRoute: '/edu/manage'),
+        GuidanceStep(step: 2, title: 'ወቅቶችና መርሐ ግብሮች', description: 'ወቅታዊ የትምህርት ክፍለ ጊዜዎችን ይከታተሉ።', actionRoute: '/edu/manage'),
       ],
-      tips: ['አንድ ንቁ ዘመን ብቻ ይኖራል።'],
-      faqItems: [GuidanceFaq(question: 'ዘመን መዝጋት ለምን ተከለከለ?', answer: 'ያልተጠናቀቁ ወይም ያልታተሙ ውጤቶች ካሉ አይዘጋም።')],
+      tips: ['የትምህርት ክፍሎች አስተዳደር በኮርስ ማኔጅመንት በኩል ይከናወናል።'],
+      faqItems: [GuidanceFaq(question: 'ክፍሎችን እንዴት ማስተዳደር ይቻላል?', answer: 'በኮርስ ማኔጅመንት ገጽ ላይ አዳዲስ ክፍሎችን መክፈት ይችላሉ።')],
     ),
 
-    // 59. Academic Calendar Student
+    // 59. Education Home
     '/edu/calendar': const GuidanceArticle(
       id: 59,
       slug: 'academic-calendar-student',
       category: 'education',
-      title: 'የትምህርት ቀን መቁጠሪያ (Academic Calendar)',
-      summary: 'የትምህርት ዘመኑን፣ ወቅታዊ ወሰነ-ትምህርት እና የትምህርት መርሐ ግብሮችን መመልከት።',
-      content: 'በዚህ ገጽ ላይ የትምህርት ቀናትን፣ የፈተና ወቅቶችን እና የዕረፍት ቀናትን መከታተል ይችላሉ።',
+      title: 'የትምህርት ገጽ (Education Home)',
+      summary: 'የትምህርት ዓይነቶችን፣ ክፍሎችንና ይዘቶችን መመልከት።',
+      content: 'በዚህ ገጽ ላይ ሰባቱን ዓበይት የትምህርት ዘርፎችና የክፍል ይዘቶችን መከታተል ይችላሉ።',
       targetRole: 'member',
-      targetScreen: '/edu/calendar',
+      targetScreen: '/edu',
       steps: [
-        GuidanceStep(step: 1, title: 'ወቅታዊ ዘመን', description: 'አሁን በሥራ ላይ ያለውን የትምህርት ዘመን ይመልከቱ።', actionRoute: '/edu/calendar'),
-        GuidanceStep(step: 2, title: 'መርሐ ግብሮች', description: 'የክፍልዎ እና የትምህርት ቀኖችን በቀን መቁጠሪያው ላይ ይከታተሉ።', actionRoute: '/edu/calendar'),
+        GuidanceStep(step: 1, title: 'የትምህርት ዓይነቶች', description: 'የተዘጋጁትን የትምህርት ዘርፎች ይመልከቱ።', actionRoute: '/edu'),
+        GuidanceStep(step: 2, title: 'ክፍል ይምረጡ', description: 'ከ1ኛ እስከ 12ኛ ክፍል ያሉትን ትምህርቶች ይክፈቱ።', actionRoute: '/edu'),
       ],
-      tips: ['የፈተና ቀናት በቀን መቁጠሪያው ላይ በደማቅ ምልክት ይታያሉ።'],
-      faqItems: [GuidanceFaq(question: 'ቀን መቁጠሪያው ከመስመር ውጭ ይሰራል?', answer: 'አዎ! ያለ ኢንተርኔት ይታያል።')],
+      tips: ['ትምህርቶች ከመስመር ውጭም ይሠራሉ።'],
+      faqItems: [GuidanceFaq(question: 'ይዘቶች ከመስመር ውጭ ይሠራሉ?', answer: 'አዎ! የወረዱ ሰነዶች ያለ ኢንተርኔት ይታያሉ።')],
     ),
 
     // 60. Class-Linked Programs

@@ -14,7 +14,7 @@ use App\Mz\Support\T;
 final class DeepLinks
 {
     private const SHARE = ['mezmur' => 'm', 'program' => 'p', 'category' => 'c', 'page' => 'pg'];
-    public const OPEN_TYPES = ['project', 'project_task', 'project_suggestion', 'borrowing', 'library_request', 'edu_class', 'edu_lesson', 'edu_quiz', 'edu_assignment', 'chat', 'attendance', 'payment', 'choir', 'notification'];
+    public const OPEN_TYPES = ['project', 'project_task', 'project_suggestion', 'borrowing', 'library_request', 'edu_class', 'edu_lesson', 'edu_quiz', 'edu_assignment', 'edu_announcement', 'chat', 'attendance', 'payment', 'choir', 'notification'];
 
     public static function forEntity(?string $type, mixed $id): ?string
     {

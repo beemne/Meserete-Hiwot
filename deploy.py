@@ -3,6 +3,7 @@ import shutil
 import zipfile
 import paramiko
 import sys
+import hashlib
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -79,7 +80,7 @@ def deploy():
     print(f'Connecting to {SERVER_HOST} via SSH...')
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(SERVER_HOST, port=SSH_PORT, username=SSH_USER, password=SSH_PASS)
+    ssh.connect(SERVER_HOST, port=SSH_PORT, username=SSH_USER, password=SSH_PASS, timeout=60, banner_timeout=60, auth_timeout=60)
     
     # Ensure vendor dependencies exist without duplicating
     print('Checking vendor dependencies on server...')
@@ -88,9 +89,15 @@ def deploy():
     stdout.channel.recv_exit_status()
     
     # Upload project.zip via SFTP
-    print(f'Uploading project.zip to {TARGET_DIR}/...')
+    print(f'Uploading project.zip ({os.path.getsize("project.zip"):,} bytes) to {TARGET_DIR}/...')
     sftp = ssh.open_sftp()
-    sftp.put('project.zip', f'{TARGET_DIR}/project.zip')
+    last_pct = [0]
+    def zip_progress(transferred, total):
+        pct = int((transferred / total) * 100)
+        if pct >= last_pct[0] + 10 or pct == 100:
+            print(f'  project.zip upload progress: {pct}% ({transferred:,} / {total:,} bytes)')
+            last_pct[0] = pct
+    sftp.put('project.zip', f'{TARGET_DIR}/project.zip', callback=zip_progress)
     sftp.close()
     
     # Extract project.zip remotely
@@ -197,10 +204,19 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEF
     ssh.exec_command(f'chmod -R 777 {TARGET_DIR}/storage/mz/public')
     ssh.exec_command(f'[ -L {TARGET_DIR}/public/files ] || ln -s ../storage/mz/public {TARGET_DIR}/public/files')
     
-    # Upload APK if exists
+    # Upload APK if exists and register release in database
     apk_path = 'mobile/mobile/build/app/outputs/flutter-apk/app-release.apk'
     if os.path.exists(apk_path):
-        print(f'Uploading {apk_path} ({os.path.getsize(apk_path):,} bytes) to public/app-release.apk...')
+        apk_size = os.path.getsize(apk_path)
+        print(f'Uploading {apk_path} ({apk_size:,} bytes) to public/app-release.apk...')
+        
+        # Calculate SHA256
+        sha256_hash = hashlib.sha256()
+        with open(apk_path, 'rb') as f:
+            for byte_block in iter(lambda: f.read(65536), b""):
+                sha256_hash.update(byte_block)
+        apk_sha256 = sha256_hash.hexdigest()
+        
         sftp = ssh.open_sftp()
         last_pct = [0]
         def progress_callback(transferred, total):
@@ -210,24 +226,62 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEF
                 last_pct[0] = pct
         sftp.put(apk_path, f'{TARGET_DIR}/public/app-release.apk', callback=progress_callback)
         sftp.chmod(f'{TARGET_DIR}/public/app-release.apk', 0o644)
+        
+        # Also copy to private/releases for download system
+        print('Ensuring private releases directory exists...')
+        ssh.exec_command(f'mkdir -p {TARGET_DIR}/storage/mz/private/releases')
+        remote_release_path = 'private/releases/release-1.5.3-27.apk'
+        print(f'Uploading to {TARGET_DIR}/storage/mz/{remote_release_path}...')
+        sftp.put(apk_path, f'{TARGET_DIR}/storage/mz/{remote_release_path}')
+        sftp.chmod(f'{TARGET_DIR}/storage/mz/{remote_release_path}', 0o644)
         sftp.close()
         print('APK upload complete.')
+
+        # Register in app_releases table
+        print('Registering release 1.5.3+27 in app_releases database table...')
+        notes = "Quiz attempt limits enforcement, direct course materials without lessons, canonical grade access separation, Google Classroom assignments & teacher announcements."
+        sql = (
+            f"INSERT INTO app_releases (platform, version_name, version_code, file_path, file_size, sha256, release_notes, min_supported_code, is_mandatory, is_published, download_count, created_at) "
+            f"VALUES ('android', '1.5.3', 27, '{remote_release_path}', {apk_size}, '{apk_sha256}', '{notes}', 26, 0, 1, 0, NOW()) "
+            f"ON DUPLICATE KEY UPDATE version_name='1.5.3', file_path='{remote_release_path}', file_size={apk_size}, sha256='{apk_sha256}', release_notes='{notes}', min_supported_code=26, is_mandatory=0, is_published=1;"
+        )
+        cmd = f"mysql -u {DB_USER} -p'{DB_PASS}' {DB_NAME} -e \"{sql}\""
+        stdin, stdout, stderr = ssh.exec_command(cmd)
+        stdout.read()
+        err = stderr.read().decode('utf-8', errors='replace')
+        if err and 'Deprecated program name' not in err:
+            print('Release DB registration warning/error:', err)
+        else:
+            print('Release 1.5.3+26 registered successfully in database.')
     
     # Run migrations and seeders
-    print('Running migrations and GuidanceSeeder on server...')
-    stdin, stdout, stderr = ssh.exec_command(f'cd {TARGET_DIR} && php artisan config:clear && php artisan cache:clear && php artisan migrate --force && php artisan db:seed --class=GuidanceSeeder --force')
-    print('Artisan migrate/seed output:\n', stdout.read().decode('utf-8', errors='replace'))
+    print('Running migrations, cache clears and GuidanceSeeder on server...')
+    artisan_cmd = (
+        f'cd {TARGET_DIR} && '
+        'php artisan config:clear && '
+        'php artisan cache:clear && '
+        'php artisan route:clear && '
+        'php artisan view:clear && '
+        'php artisan optimize:clear && '
+        'php artisan migrate --force && '
+        'php artisan db:seed --class=GuidanceSeeder --force'
+    )
+    stdin, stdout, stderr = ssh.exec_command(artisan_cmd)
+    print('Artisan output:\n', stdout.read().decode('utf-8', errors='replace'))
     err = stderr.read().decode('utf-8', errors='replace')
     if err:
         print('Artisan stderr:\n', err)
         
-    # Test HTTP endpoint
+    # Test HTTP endpoints
     print('Testing HTTP responses...')
     stdin, stdout, stderr = ssh.exec_command(f'curl -sI -k https://app.{SERVER_HOST}/health')
     print('CURL /health:\n', stdout.read().decode('utf-8', errors='replace'))
     
     stdin, stdout, stderr = ssh.exec_command(f'curl -sI -k https://app.{SERVER_HOST}/')
     print('CURL / (root):\n', stdout.read().decode('utf-8', errors='replace'))
+
+    stdin, stdout, stderr = ssh.exec_command(f'curl -s -k https://app.{SERVER_HOST}/api/v1/app/version?version_code=26')
+    print('CURL /api/v1/app/version:\n', stdout.read().decode('utf-8', errors='replace'))
     
     ssh.close()
     print('Deployment completed successfully!')

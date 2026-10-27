@@ -12,7 +12,6 @@ import '../features/auth/auth_screens.dart';
 import '../features/auth/session.dart';
 import '../features/auth/system_login_screen.dart';
 import '../features/support/report_problem_screen.dart';
-import '../features/edu/edu_academic_calendar.dart';
 import '../features/edu/edu_academics.dart';
 import '../features/edu/edu_admin_panel.dart';
 import '../features/edu/edu_assign.dart';
@@ -29,8 +28,11 @@ import '../features/edu/learn/progression_settings.dart';
 import '../features/edu/learn/progress_more.dart';
 import '../features/edu/learn/quizzes_admin.dart';
 import '../features/edu/learn/quiz_screens.dart';
-import '../features/edu/learn/units_lessons_admin.dart';
+import '../features/edu/admin/admin_grades_screen.dart';
+import '../features/edu/announcements/announcements_screens.dart';
+import '../features/edu/assignments/assignments_screens.dart';
 import '../features/edu/learn/grade_content_screen.dart';
+import '../features/edu/learn/subject_grades_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/hub/hub_screen.dart';
 import '../features/library/books_screen.dart';
@@ -281,12 +283,12 @@ final routerProvider = Provider<GoRouter>((ref) {
               routes: [
                 // ትምህርት tabs: Home (/edu) · Learn · Classes · Progress · More.
                 GoRoute(path: 'learn', builder: (_, _) => const EduLearnScreen()),
-                GoRoute(path: 'learn/category/:id', builder: (_, s) => EduCategoryScreen(categoryId: _id(s))),
+                GoRoute(path: 'learn/category/:id', builder: (_, s) => EduSubjectGradesScreen(subjectId: _id(s))),
                 GoRoute(path: 'learn/subject/:id', builder: (_, s) => EduSubjectScreen(subjectId: _id(s))),
                 GoRoute(path: 'learn/lesson/:id', builder: (_, s) => EduLessonScreen(lessonId: _id(s))),
                 GoRoute(path: 'category/:id', redirect: (_, s) => '/edu/learn/category/${s.pathParameters['id']}'),
                 GoRoute(path: 'category/:id/grades', redirect: (_, s) => '/edu/learn/category/${s.pathParameters['id']}'),
-                GoRoute(path: 'subject/:id/grades', builder: (_, s) => EduCategoryScreen(categoryId: _id(s))),
+                GoRoute(path: 'subject/:id/grades', builder: (_, s) => EduSubjectGradesScreen(subjectId: _id(s))),
                 GoRoute(path: 'subject/:id/grade/:grade', builder: (_, s) => EduGradeContentScreen(subjectId: _id(s), gradeNumber: _id(s, 'grade'))),
                 GoRoute(path: 'classes', builder: (_, _) => const EduClassesScreen()),
                 GoRoute(path: 'progress', builder: (_, _) => const EduProgressScreen()),
@@ -343,6 +345,46 @@ final routerProvider = Provider<GoRouter>((ref) {
                     child: EduMagazineDetailScreen(magazineId: _id(s)),
                   ),
                 ),
+                // Assignments and Classroom workflow (Feature D)
+                GoRoute(
+                  path: 'assignments',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduAssignmentsScreen(
+                      courseId: int.tryParse(s.uri.queryParameters['course_id'] ?? ''),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: 'assignment/:id',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduAssignmentDetailScreen(id: _id(s)),
+                  ),
+                ),
+                // Teacher Announcements (Feature E)
+                GoRoute(
+                  path: 'announcements',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, s) => ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduAnnouncementsScreen(
+                      courseId: int.tryParse(s.uri.queryParameters['course_id'] ?? ''),
+                      classId: int.tryParse(s.uri.queryParameters['class_id'] ?? ''),
+                    ),
+                  ),
+                ),
+                // Canonical Admin Grades CRUD (Feature C)
+                GoRoute(
+                  path: 'admin/grades',
+                  parentNavigatorKey: rootNavigatorKey,
+                  builder: (_, _) => const ModuleBackgroundWrapper(
+                    kind: ModuleBackgroundKind.education,
+                    child: EduAdminGradesScreen(),
+                  ),
+                ),
                 // Learning content (categories, curriculum, featured): full-screen pages over the tabs.
                 GoRoute(
                   path: 'content',
@@ -355,12 +397,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                   path: 'content/units-lessons',
                   parentNavigatorKey: rootNavigatorKey,
-                  builder: (_, s) => ModuleBackgroundWrapper(
-                    kind: ModuleBackgroundKind.education,
-                    child: EduUnitsLessonsAdminScreen(
-                      initialSubjectId: int.tryParse(s.uri.queryParameters['subject_id'] ?? ''),
-                    ),
-                  ),
+                  redirect: (_, _) => '/edu/content',
                 ),
                 GoRoute(
                   path: 'content/materials',
@@ -578,10 +615,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                   path: 'calendar',
                   parentNavigatorKey: rootNavigatorKey,
-                  builder: (_, _) => const ModuleBackgroundWrapper(
-                    kind: ModuleBackgroundKind.education,
-                    child: EduAcademicCalendarScreen(),
-                  ),
+                  redirect: (_, _) => '/edu',
                 ),
                 GoRoute(
                   path: 'manage',
@@ -727,15 +761,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       // Direct navigation aliases for guidance targets and deep links
       GoRoute(path: '/offline-status', redirect: (_, _) => '/hub'),
       GoRoute(path: '/library/books', redirect: (_, _) => '/edu/library'),
-      GoRoute(path: '/edu/assignments', redirect: (_, _) => '/edu/classes'),
       GoRoute(path: '/edu/results', redirect: (_, _) => '/edu/progress'),
       GoRoute(path: '/edu/retakes', redirect: (_, _) => '/edu/services'),
       GoRoute(path: '/edu/exams', redirect: (_, _) => '/edu'),
       GoRoute(path: '/edu/certificates', redirect: (_, _) => '/edu'),
       GoRoute(path: '/admin/edu/certificates', redirect: (_, _) => '/edu/manage'),
-      GoRoute(path: '/admin/edu/assignments', redirect: (_, _) => '/edu/manage'),
+      GoRoute(path: '/admin/edu/assignments', redirect: (_, _) => '/edu/assignments'),
       GoRoute(path: '/admin/edu/classes', redirect: (_, _) => '/edu/manage'),
-      GoRoute(path: '/admin/edu/academic-years', redirect: (_, _) => '/edu/calendar'),
+      GoRoute(path: '/admin/edu/academic-years', redirect: (_, _) => '/edu/manage'),
       GoRoute(path: '/admin/edu/programs', redirect: (_, _) => '/admin/programs'),
       GoRoute(path: '/admin/selections/intervals', redirect: (_, _) => '/admin/selections'),
       GoRoute(path: '/admin/edu/scores', redirect: (_, _) => '/edu/admin/scores'),

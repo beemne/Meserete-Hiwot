@@ -9,7 +9,9 @@ import '../../../models/admin.dart';
 import '../../../models/json.dart';
 import '../../../repositories/providers.dart';
 import '../../../widgets/brand.dart';
+import '../../../widgets/dialogs.dart';
 import '../../../widgets/states.dart';
+import '../../../widgets/typed_picker.dart';
 import '../../auth/session.dart';
 import 'edu_widgets.dart';
 
@@ -52,6 +54,12 @@ class EduGradeContentScreen extends ConsumerWidget {
     final key = SubjectGradeKey(subjectId: subjectId, gradeNumber: gradeNumber);
     final asyncData = ref.watch(subjectGradeContentProvider(key));
 
+    final session = ref.watch(sessionProvider);
+    final hasAdminRights = session is SignedIn &&
+        (session.user.can(Perm.educationContent) ||
+            session.user.can(Perm.educationManage) ||
+            session.user.isSuperAdmin);
+
     void handleBack() {
       if (context.canPop()) {
         context.pop();
@@ -80,6 +88,14 @@ class EduGradeContentScreen extends ConsumerWidget {
             isEn ? 'Grade $gradeNumber Content' : '$gradeNumberኛ ክፍል ይዘት',
             style: context.serif(18, weight: FontWeight.w700, color: Colors.white),
           ),
+          actions: [
+            if (hasAdminRights)
+              IconButton(
+                tooltip: l.elAddDirectMaterial,
+                icon: const Icon(Icons.note_add_outlined),
+                onPressed: () => _showAddDirectMaterialModal(context, ref, subjectId, gradeNumber, key),
+              ),
+          ],
         ),
         body: AsyncView<Json>(
           value: asyncData,
@@ -245,20 +261,6 @@ class EduGradeContentScreen extends ConsumerWidget {
                             textAlign: TextAlign.center,
                             style: context.sans(12.5, color: context.palette.muted),
                           ),
-                          if (userCanEdit) ...[
-                            const SizedBox(height: 20),
-                            FilledButton.icon(
-                              style: FilledButton.styleFrom(
-                                backgroundColor: AppColors.maroon,
-                                foregroundColor: Colors.white,
-                              ),
-                              icon: const Icon(Icons.add_rounded, size: 18),
-                              label: Text(isEn ? 'Add Content' : 'ይዘት ጨምር'),
-                              onPressed: () {
-                                context.push('/edu/learn/subject/$subjectId');
-                              },
-                            ),
-                          ],
                         ],
                       ),
                     ),
@@ -342,13 +344,33 @@ class EduGradeContentScreen extends ConsumerWidget {
 
                     // 3. Materials & Documents Section
                     if (materials.isNotEmpty) ...[
-                      _SectionHeader(
-                        icon: Icons.picture_as_pdf_rounded,
-                        title: isEn ? 'Reference Documents & Materials' : 'የማንበቢያ ሰነዶች እና ማጣቀሻዎች',
-                        count: materials.length,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _SectionHeader(
+                              icon: Icons.picture_as_pdf_rounded,
+                              title: isEn ? 'Reference Documents & Materials' : 'የማንበቢያ ሰነዶች እና ማጣቀሻዎች',
+                              count: materials.length,
+                            ),
+                          ),
+                          if (userCanEdit)
+                            TextButton.icon(
+                              style: TextButton.styleFrom(foregroundColor: AppColors.maroon),
+                              icon: const Icon(Icons.add_rounded, size: 16),
+                              label: Text(l.elAddDirectMaterial, style: const TextStyle(fontSize: 12)),
+                              onPressed: () => _showAddDirectMaterialModal(context, ref, subjectId, gradeNumber, key),
+                            ),
+                        ],
                       ),
                       const SizedBox(height: 8),
                       ...materials.map((m) => MaterialTile(material: m)),
+                      const SizedBox(height: 16),
+                    ] else if (userCanEdit) ...[
+                      OutlinedButton.icon(
+                        icon: const Icon(Icons.add_rounded, size: 16),
+                        label: Text(l.elAddDirectMaterial),
+                        onPressed: () => _showAddDirectMaterialModal(context, ref, subjectId, gradeNumber, key),
+                      ),
                       const SizedBox(height: 16),
                     ],
 
@@ -390,9 +412,12 @@ class _SectionHeader extends StatelessWidget {
       children: [
         Icon(icon, size: 18, color: AppColors.maroon),
         const SizedBox(width: 8),
-        Text(
-          title,
-          style: context.serif(15.5, weight: FontWeight.w700, color: AppColors.maroon),
+        Expanded(
+          child: Text(
+            title,
+            style: context.serif(15.5, weight: FontWeight.w700, color: AppColors.maroon),
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         const SizedBox(width: 8),
         Container(
@@ -413,4 +438,154 @@ class _SectionHeader extends StatelessWidget {
       ],
     );
   }
+}
+
+Future<void> _showAddDirectMaterialModal(
+  BuildContext context,
+  WidgetRef ref,
+  int subjectId,
+  int gradeNumber,
+  SubjectGradeKey key,
+) async {
+  final l = context.l10n;
+  final isEn = l.isEn;
+  final repo = ref.read(eduRepositoryProvider);
+  String uploadType = 'file';
+  final titleCtrl = TextEditingController();
+  final urlCtrl = TextEditingController();
+  String? pickedFilePath;
+  String? pickedFileName;
+
+  await showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    useRootNavigator: true,
+    builder: (ctx) => StatefulBuilder(
+      builder: (ctx, setModalState) {
+        final p = ctx.palette;
+        return Padding(
+          padding: EdgeInsets.fromLTRB(16, 16, 16, MediaQuery.viewInsetsOf(ctx).bottom + 24),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.note_add_outlined, color: AppColors.maroon, size: 22),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        isEn ? 'Add Grade $gradeNumber Material' : 'ለ$gradeNumberኛ ክፍል ግብዓት አክል',
+                        style: ctx.serif(17, weight: FontWeight.w700),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ChoiceChip(
+                        label: Center(child: Text(isEn ? 'Document / PDF' : 'ሰነድ / ፒዲኤፍ')),
+                        selected: uploadType == 'file',
+                        selectedColor: AppColors.maroon,
+                        labelStyle: TextStyle(color: uploadType == 'file' ? Colors.white : p.text, fontWeight: FontWeight.w600),
+                        onSelected: (_) => setModalState(() => uploadType = 'file'),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: ChoiceChip(
+                        label: Center(child: Text(isEn ? 'Web / Video Link' : 'የድረ-ገጽ ማስፈንጠሪያ')),
+                        selected: uploadType == 'link',
+                        selectedColor: AppColors.maroon,
+                        labelStyle: TextStyle(color: uploadType == 'link' ? Colors.white : p.text, fontWeight: FontWeight.w600),
+                        onSelected: (_) => setModalState(() => uploadType = 'link'),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                TextField(
+                  controller: titleCtrl,
+                  decoration: InputDecoration(
+                    labelText: '${isEn ? "Material Title" : "የግብዓቱ ርእስ"} *',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                if (uploadType == 'file') ...[
+                  OutlinedButton.icon(
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    icon: const Icon(Icons.attach_file_rounded),
+                    label: Text(
+                      pickedFileName != null ? pickedFileName! : (isEn ? 'Choose PDF or Document' : 'ፒዲኤፍ ወይም ሰነድ ይምረጡ'),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () async {
+                      final file = await pickOfKind('document');
+                      if (file != null) {
+                        setModalState(() {
+                          pickedFilePath = file.path;
+                          pickedFileName = file.name;
+                          if (titleCtrl.text.isEmpty) titleCtrl.text = file.name.replaceAll(RegExp(r'\.[a-zA-Z0-9]+$'), '');
+                        });
+                      }
+                    },
+                  ),
+                ] else ...[
+                  TextField(
+                    controller: urlCtrl,
+                    decoration: InputDecoration(
+                      labelText: '${isEn ? "URL / Link" : "የድረ-ገጽ አድራሻ (URL)"} *',
+                      hintText: 'https://...',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: AppColors.maroon,
+                    foregroundColor: AppColors.goldLight,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  onPressed: () async {
+                    final title = titleCtrl.text.trim();
+                    if (title.isEmpty) {
+                      showSnack(ctx, isEn ? 'Please enter a title' : 'እባክዎ ርእስ ያስገቡ');
+                      return;
+                    }
+                    if (uploadType == 'file') {
+                      if (pickedFilePath == null) {
+                        showSnack(ctx, isEn ? 'Please select a file' : 'እባክዎ ፋይል ይምረጡ');
+                        return;
+                      }
+                      Navigator.pop(ctx);
+                      await runWithProgress(context, () => repo.addDirectMaterialFile(subjectId, gradeNumber, pickedFilePath!, title: title));
+                    } else {
+                      final url = urlCtrl.text.trim();
+                      if (url.isEmpty || !url.startsWith('http')) {
+                        showSnack(ctx, isEn ? 'Please enter a valid URL' : 'እባክዎ ትክክለኛ የድረ-ገጽ አድራሻ ያስገቡ');
+                        return;
+                      }
+                      Navigator.pop(ctx);
+                      final kind = url.contains('youtube') || url.contains('youtu.be') ? 'video' : 'link';
+                      await runWithProgress(context, () => repo.addDirectMaterialLink(subjectId, gradeNumber, kind: kind, title: title, url: url));
+                    }
+                    ref.invalidate(subjectGradeContentProvider(key));
+                  },
+                  child: Text(isEn ? 'Save Material' : 'ግብዓቱን መዝግብ'),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    ),
+  );
 }

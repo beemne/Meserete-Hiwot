@@ -293,6 +293,8 @@ Route::prefix('edu')->middleware(['mz', 'mz.module:education'])->group(function 
         });
 
         Route::get('levels', fn () => Http::ok(\App\Mz\Services\EduAcademicYears::listLevels()));
+        Route::get('admin/grades', fn () => Http::ok(\App\Mz\Services\EduAcademicYears::adminGrades(Ctx::auth())));
+        Route::get('admin/grades/{id}', fn () => Http::ok(\App\Mz\Services\EduAcademicYears::getGradeDetail(Ctx::auth(), Ctx::id())));
         Route::post('levels', fn () => Http::created(\App\Mz\Services\EduAcademicYears::createLevel(Ctx::actx(), Ctx::body(EduSchemas::level()))));
         Route::patch('levels/{id}', function () {
             $id = Ctx::id();

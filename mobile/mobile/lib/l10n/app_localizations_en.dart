@@ -8744,4 +8744,139 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get libDownloadToReadOffline => 'Download to read offline';
+
+  @override
+  String get elAttemptsExhausted => 'Attempt limit reached';
+
+  @override
+  String get elAttemptsExhaustedDesc =>
+      'You have used all permitted attempts for this quiz. You cannot start another attempt.';
+
+  @override
+  String get elNoAttemptsLeftAlert => '0 attempts remaining';
+
+  @override
+  String elAttemptsRemaining(int count) {
+    return 'Attempts remaining: $count';
+  }
+
+  @override
+  String get elDirectMaterials => 'Course Materials';
+
+  @override
+  String get elAddDirectMaterial => 'Add Material';
+
+  @override
+  String get elUploadMaterial => 'Upload file or document';
+
+  @override
+  String elDirectMaterialSubtitle(int grade) {
+    return 'Grade $grade direct resource';
+  }
+
+  @override
+  String get elNoAssignedGradeTitle => 'No Assigned Grade';
+
+  @override
+  String get elNoAssignedGradeDesc =>
+      'You are not currently assigned to a grade level. Please contact your Sunday School administrator.';
+
+  @override
+  String get elAdminPanelHint =>
+      'To manage all grades, please use the Education Admin panel.';
+
+  @override
+  String elGradeRestrictedNotice(int grade) {
+    return 'You are assigned to Grade $grade only';
+  }
+
+  @override
+  String get elAssignments => 'Assignments';
+
+  @override
+  String get elAssignmentDetail => 'Assignment Details';
+
+  @override
+  String get elSubmitAssignment => 'Submit Assignment';
+
+  @override
+  String get elTurnedIn => 'Turned in';
+
+  @override
+  String get elAssigned => 'Assigned';
+
+  @override
+  String get elDueSoon => 'Due soon';
+
+  @override
+  String get elUpcoming => 'Upcoming';
+
+  @override
+  String get elGraded => 'Graded';
+
+  @override
+  String get elMySubmission => 'Your Submission';
+
+  @override
+  String elGradeScore(String score, String max) {
+    return 'Score: $score / $max';
+  }
+
+  @override
+  String get elTeacherFeedback => 'Teacher Feedback';
+
+  @override
+  String get elResubmit => 'Resubmit';
+
+  @override
+  String elDueDate(String date) {
+    return 'Due: $date';
+  }
+
+  @override
+  String get elYourResponse => 'Your written response';
+
+  @override
+  String get elAttachFile => 'Attach File';
+
+  @override
+  String get elMaxScore => 'Maximum Score';
+
+  @override
+  String get elGradeSubmission => 'Grade Submission';
+
+  @override
+  String get elReleaseGrade => 'Release grade to student';
+
+  @override
+  String get elSubmissions => 'Submissions';
+
+  @override
+  String get elNoAssignments => 'No assignments available';
+
+  @override
+  String get elCreateAssignment => 'Create Assignment';
+
+  @override
+  String get elAnnouncements => 'Class Announcements';
+
+  @override
+  String get elClassFeed => 'Class Stream';
+
+  @override
+  String get elNewAnnouncement => 'New Announcement';
+
+  @override
+  String get elPostAnnouncement => 'Post Announcement';
+
+  @override
+  String elTeacherPosted(String name) {
+    return 'Posted by $name';
+  }
+
+  @override
+  String get elAnnouncementBody => 'Announcement message';
+
+  @override
+  String get elNoAnnouncements => 'No announcements posted yet';
 }

@@ -12,13 +12,11 @@ import '../../../models/json.dart';
 import '../../../repositories/providers.dart';
 import '../../../widgets/brand.dart';
 import '../../../widgets/states.dart';
-import '../../admin/edit_mode.dart'
-    show EditModeToggle, EditModeAddButton, EditModeBanner, EditOverlay, canEditFront;
+import '../../admin/edit_mode.dart' show EditModeToggle, EditModeBanner;
 import '../../auth/session.dart';
 import '../../guidance/contextual_help_sheet.dart';
 import '../../../services/file_opening_service.dart';
 import '../edu_screens.dart' show eduOverviewProvider;
-import 'content_admin.dart' show showEduSubjectEditor, showEduCategoryEditor;
 import 'edu_widgets.dart';
 import 'magazine_screens.dart';
 
@@ -35,7 +33,6 @@ class EduHomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l = context.l10n;
     void refresh() {
       ref.invalidate(eduDashboardProvider);
       ref.invalidate(eduOverviewProvider);
@@ -49,35 +46,6 @@ class EduHomeScreen extends ConsumerWidget {
         context.go('/hub');
       },
       child: PatternScaffold(
-        floatingActionButton: canEditFront(ref, module: 'edu')
-            ? EditModeAddButton(
-                actions: [
-                  (
-                    label: l.isEn ? 'Add Subject' : 'አዲስ የትምህርት ዓይነት',
-                    icon: Icons.menu_book_rounded,
-                    permission: Perm.educationContent,
-                    run: () async {
-                      final id = await showEduSubjectEditor(context);
-                      if (id != null && context.mounted) {
-                        refresh();
-                        context.push('/edu/learn/subject/$id');
-                      }
-                    },
-                  ),
-                  (
-                    label: l.isEn ? 'Add Category' : 'አዲስ ምድብ',
-                    icon: Icons.category_rounded,
-                    permission: Perm.educationContent,
-                    run: () async {
-                      final saved = await showEduCategoryEditor(context);
-                      if (saved == true && context.mounted) {
-                        refresh();
-                      }
-                    },
-                  ),
-                ],
-              )
-            : null,
         body: RefreshIndicator(
           color: AppColors.gold,
           onRefresh: () async => refresh(),
@@ -135,6 +103,71 @@ class _HomeBody extends StatelessWidget {
         _CanonicalCategoriesSection(
           apiCategories: asJsonList(data['categories']),
           refresh: refresh,
+        ),
+
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            Expanded(
+              child: AppCard(
+                onTap: () => context.push('/edu/assignments'),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 36,
+                      height: 36,
+                      decoration: BoxDecoration(
+                        color: AppColors.maroon.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Icon(Icons.assignment_outlined, color: AppColors.maroon, size: 20),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(l.elAssignments, style: context.sans(13, weight: FontWeight.w700), maxLines: 1, overflow: TextOverflow.ellipsis),
+                          Text(l.isEn ? 'Homework & tasks' : 'ሥራዎችና ፈተናዎች', style: context.sans(10.5, color: context.palette.muted), maxLines: 1, overflow: TextOverflow.ellipsis),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: AppCard(
+                onTap: () => context.push('/edu/announcements'),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 36,
+                      height: 36,
+                      decoration: BoxDecoration(
+                        color: AppColors.gold.withValues(alpha: 0.18),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Icon(Icons.campaign_outlined, color: AppColors.goldDark, size: 20),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(l.elClassFeed, style: context.sans(13, weight: FontWeight.w700), maxLines: 1, overflow: TextOverflow.ellipsis),
+                          Text(l.isEn ? 'Teacher updates' : 'የአስተማሪ መልእክቶች', style: context.sans(10.5, color: context.palette.muted), maxLines: 1, overflow: TextOverflow.ellipsis),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
 
         // 6. This week: quizzes and assignments due
@@ -444,12 +477,13 @@ class _CanonicalCategoriesSection extends StatelessWidget {
               orElse: () => <String, dynamic>{},
             );
             final realId = asInt(apiMatch['id']) ?? spec.id;
-            final displayName = asStr(apiMatch['name']) ?? spec.name;
+            final canonicalAmharicName = spec.name;
+            final secondaryEnglishName = isEn && spec.nameEn.isNotEmpty ? spec.nameEn : null;
             final displayDesc = asStr(apiMatch['description']) ?? spec.desc;
 
-            final card = AppCard(
+            return AppCard(
               onTap: () {
-                context.push('/edu/learn/category/$realId');
+                context.push('/edu/subject/$realId/grades');
               },
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               radius: 14,
@@ -485,13 +519,27 @@ class _CanonicalCategoriesSection extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: Text(
-                                displayName,
-                                style: context.serif(
-                                  15.5,
-                                  weight: FontWeight.w700,
-                                  color: AppColors.maroon,
-                                ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    canonicalAmharicName,
+                                    style: context.serif(
+                                      15.5,
+                                      weight: FontWeight.w700,
+                                      color: AppColors.maroon,
+                                    ),
+                                  ),
+                                  if (secondaryEnglishName != null)
+                                    Text(
+                                      secondaryEnglishName,
+                                      style: context.sans(
+                                        11,
+                                        weight: FontWeight.w600,
+                                        color: AppColors.goldDark,
+                                      ),
+                                    ),
+                                ],
                               ),
                             ),
                             Container(
@@ -533,20 +581,6 @@ class _CanonicalCategoriesSection extends StatelessWidget {
                   ),
                 ],
               ),
-            );
-
-            return EditOverlay(
-              permission: Perm.educationContent,
-              onEdit: () async {
-                final saved = await showEduCategoryEditor(
-                  context,
-                  category: apiMatch.isNotEmpty ? apiMatch : {'id': realId, 'name': displayName},
-                );
-                if (saved == true && context.mounted) {
-                  refresh();
-                }
-              },
-              child: card,
             );
           },
         ),

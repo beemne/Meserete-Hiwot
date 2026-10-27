@@ -13575,7 +13575,7 @@ abstract class AppLocalizations {
   /// No description provided for @elOverdue.
   ///
   /// In am, this message translates to:
-  /// **'ጊዜው አልፏል'**
+  /// **'የዘገየ'**
   String get elOverdue;
 
   /// No description provided for @elMyStudies.
@@ -14841,7 +14841,7 @@ abstract class AppLocalizations {
   /// No description provided for @elMaterialTitle.
   ///
   /// In am, this message translates to:
-  /// **'የአጋዥ መረጃው ርዕስ'**
+  /// **'የርዕስ ስም'**
   String get elMaterialTitle;
 
   /// No description provided for @elUploadFile.
@@ -16157,6 +16157,246 @@ abstract class AppLocalizations {
   /// In am, this message translates to:
   /// **'ከመስመር ውጭ ለማንበብ ያውርዱ'**
   String get libDownloadToReadOffline;
+
+  /// No description provided for @elAttemptsExhausted.
+  ///
+  /// In am, this message translates to:
+  /// **'የፈተና ሙከራ ገደብ ተጠናቋል'**
+  String get elAttemptsExhausted;
+
+  /// No description provided for @elAttemptsExhaustedDesc.
+  ///
+  /// In am, this message translates to:
+  /// **'ይህን ፈተና ለመውሰድ የተፈቀደልዎ የሙከራ ብዛት አልቋል። ተጨማሪ ሙከራ ማድረግ አይቻልም።'**
+  String get elAttemptsExhaustedDesc;
+
+  /// No description provided for @elNoAttemptsLeftAlert.
+  ///
+  /// In am, this message translates to:
+  /// **'ምንም የቀረ ሙከራ የለም (0)'**
+  String get elNoAttemptsLeftAlert;
+
+  /// No description provided for @elAttemptsRemaining.
+  ///
+  /// In am, this message translates to:
+  /// **'የቀሩ ሙከራዎች፦ {count}'**
+  String elAttemptsRemaining(int count);
+
+  /// No description provided for @elDirectMaterials.
+  ///
+  /// In am, this message translates to:
+  /// **'የትምህርት መርጃዎች'**
+  String get elDirectMaterials;
+
+  /// No description provided for @elAddDirectMaterial.
+  ///
+  /// In am, this message translates to:
+  /// **'መርጃ ጨምር'**
+  String get elAddDirectMaterial;
+
+  /// No description provided for @elUploadMaterial.
+  ///
+  /// In am, this message translates to:
+  /// **'ፋይል ወይም ሰነድ ጫን'**
+  String get elUploadMaterial;
+
+  /// No description provided for @elDirectMaterialSubtitle.
+  ///
+  /// In am, this message translates to:
+  /// **'የ{grade}ኛ ክፍል ቀጥታ መርጃ'**
+  String elDirectMaterialSubtitle(int grade);
+
+  /// No description provided for @elNoAssignedGradeTitle.
+  ///
+  /// In am, this message translates to:
+  /// **'የተመደበ ክፍል አልተገኘም'**
+  String get elNoAssignedGradeTitle;
+
+  /// No description provided for @elNoAssignedGradeDesc.
+  ///
+  /// In am, this message translates to:
+  /// **'በአሁኑ ሰዓት የተመደቡበት ክፍል የለም። ትምህርቶችን ለመከታተል እባክዎ የሰንበት ት/ቤት አስተዳዳሪውን ያነጋግሩ።'**
+  String get elNoAssignedGradeDesc;
+
+  /// No description provided for @elAdminPanelHint.
+  ///
+  /// In am, this message translates to:
+  /// **'ሁሉንም ክፍሎች ለማስተዳደር እባክዎ ወደ ትምህርት አስተዳደር ክፍል ይሂዱ።'**
+  String get elAdminPanelHint;
+
+  /// No description provided for @elGradeRestrictedNotice.
+  ///
+  /// In am, this message translates to:
+  /// **'እርስዎ የተመደቡት በ{grade}ኛ ክፍል ብቻ ነው'**
+  String elGradeRestrictedNotice(int grade);
+
+  /// No description provided for @elAssignments.
+  ///
+  /// In am, this message translates to:
+  /// **'የቤት ሥራዎች'**
+  String get elAssignments;
+
+  /// No description provided for @elAssignmentDetail.
+  ///
+  /// In am, this message translates to:
+  /// **'የሥራ ዝርዝር'**
+  String get elAssignmentDetail;
+
+  /// No description provided for @elSubmitAssignment.
+  ///
+  /// In am, this message translates to:
+  /// **'ሥራ አስረክብ'**
+  String get elSubmitAssignment;
+
+  /// No description provided for @elTurnedIn.
+  ///
+  /// In am, this message translates to:
+  /// **'ተረክቧል'**
+  String get elTurnedIn;
+
+  /// No description provided for @elAssigned.
+  ///
+  /// In am, this message translates to:
+  /// **'ተሰጥቷል'**
+  String get elAssigned;
+
+  /// No description provided for @elDueSoon.
+  ///
+  /// In am, this message translates to:
+  /// **'ሊደርስ የቀረበ'**
+  String get elDueSoon;
+
+  /// No description provided for @elUpcoming.
+  ///
+  /// In am, this message translates to:
+  /// **'የሚመጣ'**
+  String get elUpcoming;
+
+  /// No description provided for @elGraded.
+  ///
+  /// In am, this message translates to:
+  /// **'የታረመ'**
+  String get elGraded;
+
+  /// No description provided for @elMySubmission.
+  ///
+  /// In am, this message translates to:
+  /// **'የእርስዎ ሥራ'**
+  String get elMySubmission;
+
+  /// No description provided for @elGradeScore.
+  ///
+  /// In am, this message translates to:
+  /// **'ውጤት፦ {score} / {max}'**
+  String elGradeScore(String score, String max);
+
+  /// No description provided for @elTeacherFeedback.
+  ///
+  /// In am, this message translates to:
+  /// **'የመምህሩ አስተያየት'**
+  String get elTeacherFeedback;
+
+  /// No description provided for @elResubmit.
+  ///
+  /// In am, this message translates to:
+  /// **'እንደገና አስረክብ'**
+  String get elResubmit;
+
+  /// No description provided for @elDueDate.
+  ///
+  /// In am, this message translates to:
+  /// **'የማስረከቢያ ቀን፦ {date}'**
+  String elDueDate(String date);
+
+  /// No description provided for @elYourResponse.
+  ///
+  /// In am, this message translates to:
+  /// **'የእርስዎ መልስ እዚህ ይጻፉ...'**
+  String get elYourResponse;
+
+  /// No description provided for @elAttachFile.
+  ///
+  /// In am, this message translates to:
+  /// **'ፋይል አያይዝ'**
+  String get elAttachFile;
+
+  /// No description provided for @elMaxScore.
+  ///
+  /// In am, this message translates to:
+  /// **'ከፍተኛ ውጤት'**
+  String get elMaxScore;
+
+  /// No description provided for @elGradeSubmission.
+  ///
+  /// In am, this message translates to:
+  /// **'ሥራ አርም'**
+  String get elGradeSubmission;
+
+  /// No description provided for @elReleaseGrade.
+  ///
+  /// In am, this message translates to:
+  /// **'ውጤቱን ለተማሪው ልቀቅ'**
+  String get elReleaseGrade;
+
+  /// No description provided for @elSubmissions.
+  ///
+  /// In am, this message translates to:
+  /// **'የቀረቡ ሥራዎች'**
+  String get elSubmissions;
+
+  /// No description provided for @elNoAssignments.
+  ///
+  /// In am, this message translates to:
+  /// **'ምንም የተሰጠ የቤት ሥራ የለም'**
+  String get elNoAssignments;
+
+  /// No description provided for @elCreateAssignment.
+  ///
+  /// In am, this message translates to:
+  /// **'አዲስ የቤት ሥራ ፍጠር'**
+  String get elCreateAssignment;
+
+  /// No description provided for @elAnnouncements.
+  ///
+  /// In am, this message translates to:
+  /// **'የክፍል ማስታወቂያዎች'**
+  String get elAnnouncements;
+
+  /// No description provided for @elClassFeed.
+  ///
+  /// In am, this message translates to:
+  /// **'የክፍል ዜና ዥረት'**
+  String get elClassFeed;
+
+  /// No description provided for @elNewAnnouncement.
+  ///
+  /// In am, this message translates to:
+  /// **'አዲስ ማስታወቂያ'**
+  String get elNewAnnouncement;
+
+  /// No description provided for @elPostAnnouncement.
+  ///
+  /// In am, this message translates to:
+  /// **'ማስታወቂያ ለጥፍ'**
+  String get elPostAnnouncement;
+
+  /// No description provided for @elTeacherPosted.
+  ///
+  /// In am, this message translates to:
+  /// **'በመምህር {name} የተለጠፈ'**
+  String elTeacherPosted(String name);
+
+  /// No description provided for @elAnnouncementBody.
+  ///
+  /// In am, this message translates to:
+  /// **'የማስታወቂያው መልእክት'**
+  String get elAnnouncementBody;
+
+  /// No description provided for @elNoAnnouncements.
+  ///
+  /// In am, this message translates to:
+  /// **'እስካሁን የተለጠፈ ማስታወቂያ የለም'**
+  String get elNoAnnouncements;
 }
 
 class _AppLocalizationsDelegate

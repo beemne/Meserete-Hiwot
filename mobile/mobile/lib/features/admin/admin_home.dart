@@ -150,7 +150,6 @@ class _AdminHomeScreenState extends ConsumerState<AdminHomeScreen> {
           _Module(l.elContentTitle, Icons.auto_stories_outlined, '/edu/content', [Perm.educationContent, Perm.educationManage], scope: AdminScope.education),
           _Module(l.regTitle, Icons.how_to_reg_rounded, '/edu/registrations', [Perm.educationRegister, Perm.educationManage], scope: AdminScope.education),
           _Module(isEn ? 'Scores & Activity' : 'ውጤት እና እንቅስቃሴ', Icons.analytics_outlined, '/edu/admin/scores', [Perm.educationManage, Perm.educationReports], scope: AdminScope.education),
-          _Module(isEn ? 'Academic Calendar' : 'የትምህርት ቀን መቁጠሪያ', Icons.calendar_today_rounded, '/edu/calendar', [Perm.educationManage], scope: AdminScope.education),
         ],
       ),
       // 6. Mezmur Administration (Mezmur Scoped)

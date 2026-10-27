@@ -20,7 +20,7 @@ final class Notifications
         'attendance' => 'attendance',
         'project' => 'project', 'task' => 'project',
         'chat' => 'department', 'department' => 'department',
-        'education' => 'education', 'edu_quiz' => 'education', 'edu_grading' => 'education',
+        'education' => 'education', 'edu_quiz' => 'education', 'edu_grading' => 'education', 'edu_assignment' => 'education', 'edu_announcement' => 'education',
         'borrowing' => 'property', 'borrowing_due' => 'property', 'borrowing_overdue' => 'property', 'property' => 'property',
         'payment' => 'payment', 'finance' => 'payment',
         'mezmur' => 'mezmur', 'choir' => 'mezmur',
@@ -46,6 +46,8 @@ final class Notifications
         'education',
         'edu_quiz',
         'edu_grading',
+        'edu_assignment',
+        'edu_announcement',
         'payment',
         'finance',
     ];
@@ -187,7 +189,7 @@ final class Notifications
                     ->where('n.delivery_status', 'pending')
                     ->orderBy('n.id')
                     ->limit($batchSize)
-                    ->select('n.id', 'n.user_id', 'n.type', 'n.topic', 'n.title', 'n.body', 'n.entity_type', 'n.entity_id', 'p.notifications_enabled', 'p.notification_topics')
+                    ->select('n.id', 'n.user_id', 'n.type', 'n.topic', 'n.title', 'n.body', 'n.entity_type', 'n.entity_id', 'n.data', 'p.notifications_enabled', 'p.notification_topics')
                     ->get()->all();
                 if (! $pending) {
                     break;
@@ -220,19 +222,30 @@ final class Notifications
                     if (! $userTokens) {
                         $noToken[] = $n->id;
                     }
+                    $payloadData = [
+                        'notification_id' => (string) $n->id,
+                        'type' => (string) $n->type,
+                        'entity_type' => (string) ($n->entity_type ?: ''),
+                        'entity_id' => $n->entity_id ? (string) $n->entity_id : '',
+                        'channel' => self::CHANNEL[$n->type] ?? 'default',
+                    ];
+                    if (! empty($n->data)) {
+                        $decoded = is_string($n->data) ? json_decode($n->data, true) : (array) $n->data;
+                        if (is_array($decoded)) {
+                            foreach ($decoded as $dk => $dv) {
+                                if (is_scalar($dv) || $dv === null) {
+                                    $payloadData[(string) $dk] = (string) ($dv ?? '');
+                                }
+                            }
+                        }
+                    }
                     foreach ($userTokens as $token) {
                         $messages[] = [
                             'notificationId' => $n->id,
                             'token' => $token,
                             'title' => $n->title,
                             'body' => mb_substr((string) $n->body, 0, 1000),
-                            'data' => [
-                                'notification_id' => (string) $n->id,
-                                'type' => $n->type,
-                                'entity_type' => $n->entity_type ?: '',
-                                'entity_id' => $n->entity_id ? (string) $n->entity_id : '',
-                                'channel' => self::CHANNEL[$n->type] ?? 'default',
-                            ],
+                            'data' => $payloadData,
                         ];
                     }
                 }

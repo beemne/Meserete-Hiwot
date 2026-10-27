@@ -54,7 +54,10 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
       repo.markRead(n.id).catchError((_) {});
     }
     ref.read(localNotificationsProvider).dismissMessage(n.id);
-    final route = routeForEntity(n.entityType, n.entityId);
+    final effectiveType = (n.entityType != null && n.entityType!.isNotEmpty && n.entityType != 'education')
+        ? n.entityType
+        : n.type;
+    final route = routeForEntity(effectiveType, n.entityId, data: n.data);
     if (route != '/notifications' && mounted) context.push(route);
   }
 

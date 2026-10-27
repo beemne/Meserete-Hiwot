@@ -85,15 +85,17 @@ final class Library
             foreach ($activeLoans as $itemId => $status) {
                 $mine[$itemId] = $status === 'pending_approval' ? 'requested' : 'issued';
             }
-            $activeCopyLoans = DB::table('library_loans as l')
-                ->join('library_copies as c', 'c.id', '=', 'l.copy_id')
-                ->where('l.user_id', $auth->id)
-                ->whereIn('c.item_id', $itemIds)
-                ->where('l.status', 'active')
-                ->pluck('l.status', 'c.item_id')
-                ->all();
-            foreach ($activeCopyLoans as $itemId => $status) {
-                $mine[$itemId] = 'issued';
+            if (\Illuminate\Support\Facades\Schema::hasTable('library_loans') && \Illuminate\Support\Facades\Schema::hasTable('library_copies')) {
+                $activeCopyLoans = DB::table('library_loans as l')
+                    ->join('library_copies as c', 'c.id', '=', 'l.copy_id')
+                    ->where('l.user_id', $auth->id)
+                    ->whereIn('c.item_id', $itemIds)
+                    ->where('l.status', 'active')
+                    ->pluck('l.status', 'c.item_id')
+                    ->all();
+                foreach ($activeCopyLoans as $itemId => $status) {
+                    $mine[$itemId] = 'issued';
+                }
             }
         }
         $favorites = ! empty($itemIds)
